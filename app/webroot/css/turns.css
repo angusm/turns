@@ -1,0 +1,217 @@
+@charset "utf-8";
+
+	body{
+		font-size: 12px;	
+	}
+
+/* Card View */
+	div.unitCard{
+		position:absolute;
+		width:250px;
+		height:350px;
+		border:solid;
+		border-width:1px;
+		border-color:#000;
+	}
+	div.unitCard img{
+		margin:0px;
+		padding:0px;
+	}
+	div.unitCard div{
+		position:absolute;
+	}
+	div.boardIcon{
+		width:70px;
+		height:70px;
+		left:165px;
+		top:254px;	
+	}
+	
+	/* Attribute Icons */
+		div.attributeIcon{
+			overflow:hidden;
+		}
+		div.attributeIcon img{
+			float:right;
+			display:none;
+		}
+		div.attackIcon{
+			width:10px;
+			height:10px;
+			left:225px;
+			top:212px;	
+		}
+		div.defenseIcon{
+			width:10px;
+			height:10px;
+			left:225px;
+			top:197px;	
+		}
+		div.teamcostIcon{
+			width:10px;
+			height:10px;
+			left:225px;
+			top:227px;	
+		}
+	
+	/* Attribute Value Bars */
+		div.attributeBar{	
+			overflow:hidden;
+		}
+		div.attributeBar img.attributePoint{
+			float:right;
+			padding-left:5px;
+		}
+		div.unitCard div.attributeValue{
+			float:right;
+			position:relative;
+			font-size:11px;
+			font-weight:bold;
+		}
+		div.attackBar{
+			width:225px;
+			height:10px;
+			left:10px;
+			top:212px;
+		}
+		div.defenseBar{
+			width:225px;
+			height:10px;
+			left:10px;
+			top:197px;
+		}
+		div.teamcostBar{
+			width:225px;
+			height:10px;
+			left:10px;
+			top:227px;
+		}
+		
+	/* Statistics Box */
+		div.unitStatBox{
+			width:228px;
+			height:50px;
+			left:10px;
+			top:191px;
+			border:solid;
+			border-width:1px;
+			border-color:#000;
+		}
+		div.unitTypeName{
+			margin:10px;
+			position:static;
+			font-size:30px;
+		}
+	
+	/* Movement Boxes */
+		div.movementSet{
+			width:
+		}
+		div.unitCard div.movementClasses{
+			width:228px;
+			height:90px;
+			left:10px;
+			top:248px;
+			border:solid;
+			border-width:1px;
+			border-color:#000;
+		}
+		div.movementClasses div.movement{
+			width:70px;
+			height:70px;
+			position:absolute;
+		}
+		div.movementClasses div.movement[priority='1']{
+			left:4px;
+			top:5px;
+		}
+		div.movementClasses div.movement[priority='2']{
+			left:79px;
+			top:5px;
+		}
+		div.movement div.movementArrows{
+			left:0px;
+			top:0px;
+			position:absolute;	
+		}
+		div.movement div.movementArrows img{
+			position:absolute;
+		}
+		div.movement div.movementSpaces{
+			width:22px;
+			height:22px;
+			left:24px;
+			top:24px;
+			font-size:22px;
+			text-align:center;
+			position:absolute;
+		}
+		img.movementArrowN{
+			left:24px;
+			top:1px;
+		}
+		img.movementArrowNE{
+			left:47px;
+			top:1px;
+			transform:rotate(45deg);
+			-ms-transform:rotate(45deg); /* IE 9 */
+			-webkit-transform:rotate(45deg); /* Safari and Chrome */
+		}
+		img.movementArrowE{
+			left:47px;
+			top:24px;
+			transform:rotate(90deg);
+			-ms-transform:rotate(90deg); /* IE 9 */
+			-webkit-transform:rotate(90deg); /* Safari and Chrome */
+		}
+		img.movementArrowSE{
+			left:47px;
+			top:47px;
+			transform:rotate(135deg);
+			-ms-transform:rotate(135deg); /* IE 9 */
+			-webkit-transform:rotate(135deg); /* Safari and Chrome */
+		}
+		img.movementArrowS{
+			left:24px;
+			top:47px;
+			transform:rotate(180deg);
+			-ms-transform:rotate(180deg); /* IE 9 */
+			-webkit-transform:rotate(180deg); /* Safari and Chrome */
+		}
+		img.movementArrowSW{
+			left:1px;
+			top:47px;
+			transform:rotate(225deg);
+			-ms-transform:rotate(225deg); /* IE 9 */
+			-webkit-transform:rotate(225deg); /* Safari and Chrome */
+		}
+		img.movementArrowW{
+			left:1px;
+			top:24px;
+			transform:rotate(270deg);
+			-ms-transform:rotate(270deg); /* IE 9 */
+			-webkit-transform:rotate(270deg); /* Safari and Chrome */
+		}
+		img.movementArrowNW{
+			left:1px;
+			top:1px;
+			transform:rotate(315deg);
+			-ms-transform:rotate(315deg); /* IE 9 */
+			-webkit-transform:rotate(315deg); /* Safari and Chrome */
+		}
+		div.movementSetName{
+			display:none;	
+		}
+	
+	div.cardArtLayers img{
+		position:absolute;
+	}
+	div.movementSet{
+		
+	}
+	
+	
+/* Everything */
+body{
+	font-family:Arial, Helvetica, sans-serif;
+}
