@@ -2,6 +2,19 @@
 function manage(){
 
 
+	//PUBLIC FUNCTION: addRecordToDropdownSelect
+	//Add the created record, with the given modelName, uid and name to the
+	//appropriate dropdown select box.
+	this.addRecordToDropdownSelect = function( modelName, uid, name ){
+		
+		jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).append(
+			'<option modelName="' + modelName + '" uid="' + uid + '" name="' + name + '">' +
+			name + 
+			'</option>'
+		);
+		
+	}
+
 	//PUBLIC FUNCTION: handleNewRecordButton
 	//This function will be called when the page is setup and attaches
 	//the event listener to all the new record buttons that'll run the
@@ -10,6 +23,8 @@ function manage(){
 		
 		//Throw on the listener
 		jQuery( '.addNewRecord' ).click( function(){
+				
+				var modelName = 
 				
 				//Make the necessary call
 				jQuery.getJSON('ajax/test.json', this.newRecordButtonCallbackfunction(data) );

@@ -253,7 +253,11 @@ class TurnFormHelper extends AppHelper {
 		
 		//Now that we've gotten what we want from the main model we can set the attributes for
 		//our select.
-		$attributes['modelName'] = $modelName;		
+		$attributes['modelName'] = $modelName;	
+		
+		//Define the select with a class that states what it is, a select box for picking model
+		//records
+		$attributes['class']	 = 'modelRecordSelect';	
 	
 		//Loop through each iteration of the model array
 		foreach( $modelArray as $modelInstance ){
