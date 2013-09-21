@@ -106,7 +106,7 @@ class AppController extends Controller {
 		$this->set( 'modelName',		$modelName							);
 		
 		//Render the view
-		$this->render('..\App\manage');
+		$this->render('../App/manage');
 		
 	}
 	
