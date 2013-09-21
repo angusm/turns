@@ -4872,3 +4872,140 @@ Request URL: /turns/js/jquery.min.map
 Stack Trace:
 #0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-09-21 23:07:03 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/UnitTypes/manage
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('unit_types')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\app\Model\AppModel.php(121): Model->find('all')
+#7 E:\xampp\htdocs\turns\app\Controller\AppController.php(104): AppModel->getManagementList()
+#8 [internal function]: AppController->manage()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UnitTypesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UnitTypesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-09-21 23:11:38 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/UnitTypes/manage
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('unit_types')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\app\Model\AppModel.php(121): Model->find('all')
+#7 E:\xampp\htdocs\turns\app\Controller\AppController.php(104): AppModel->getManagementList()
+#8 [internal function]: AppController->manage()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UnitTypesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UnitTypesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-09-21 23:12:07 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+',
+  'enabled' => true,
+)
+Request URL: /turns/UnitTypes/manage
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('unit_types')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\app\Model\AppModel.php(121): Model->find('all')
+#7 E:\xampp\htdocs\turns\app\Controller\AppController.php(104): AppModel->getManagementList()
+#8 [internal function]: AppController->manage()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UnitTypesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UnitTypesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-09-21 23:12:10 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+',
+  'enabled' => true,
+)
+Request URL: /turns/UnitTypes/manage
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('unit_types')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\app\Model\AppModel.php(121): Model->find('all')
+#7 E:\xampp\htdocs\turns\app\Controller\AppController.php(104): AppModel->getManagementList()
+#8 [internal function]: AppController->manage()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UnitTypesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UnitTypesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-09-21 23:16:41 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+',
+  'enabled' => true,
+)
+Request URL: /turns/UnitTypes/manage
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('unit_types')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\app\Model\AppModel.php(121): Model->find('all')
+#7 E:\xampp\htdocs\turns\app\Controller\AppController.php(104): AppModel->getManagementList()
+#8 [internal function]: AppController->manage()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UnitTypesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UnitTypesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-09-21 23:20:21 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[28000] [1045] Access denied for user \'root\'@\'S01060026f32ccdaf.va.shawcable.net\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /turns/UnitTypes/manage
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('unit_types')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\app\Model\AppModel.php(121): Model->find('all')
+#7 E:\xampp\htdocs\turns\app\Controller\AppController.php(104): AppModel->getManagementList()
+#8 [internal function]: AppController->manage()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UnitTypesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UnitTypesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}

@@ -58,9 +58,9 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => '',
+		'host' => 'ec2-54-200-59-31.us-west-2.compute.amazonaws.com',
+		'login' => 'angusm',
+		'password' => '128bitSNR',
 		'database' => 'turns',
 		'prefix' => '',
 		//'encoding' => 'utf8',
