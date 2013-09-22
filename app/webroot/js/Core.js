@@ -18,7 +18,6 @@ var jsLibraryDirectory = pathname + '/js/Libraries/';
 
 
 
-
 //DOCUMENT READY
 //When the document is fully ready, call the main function
 jQuery(document).ready( function(){
@@ -61,6 +60,16 @@ function addStandardLibraries(){
 			);
 
 	return libraries;
+}
+
+//FUNCTION: getLibrariesToLoad
+//Load the page libraries
+function getLibrariesToLoad(){
+    
+    for( var i = 0; i < window.pageLibraries.length; i++ ){
+        libraries.push( window.pageLibraries[i] );
+    }
+    
 }
 
 //FUNCTION: loadLibraries

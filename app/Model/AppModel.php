@@ -59,8 +59,18 @@ class AppModel extends Model {
 	//Create a new record in the database for this model
 	public function createNewRecord(){
 	
+            
+            
+			$modelName = get_class( $this );
 		$this->create();
-		$this->save();
+                
+                $saveable = array(
+              $modelName => array(
+                'uid' => '999'
+              )
+            );
+                
+		$this->save( $saveable );
 		return $this->uid;	
 		
 	}
@@ -331,15 +341,15 @@ class AppModel extends Model {
 			
 				//Add the current model to the validate array
 				$this->validate = array_merge( 
-										array(
-											Inflector::underscore($model1Name) . 's_uid' => array(
-												'rule'    => array('inList', $model1UIDs),
-												'message' => 'Must be a valid ' . $model1Name . ' key',
-												'required' 	=>	true
-											)
-										),
-										$this->validate
-									);
+                                                                array(
+                                                                        Inflector::underscore($model1Name) . 's_uid' => array(
+                                                                                'rule'    => array('inList', $model1UIDs),
+                                                                                'message' => 'Must be a valid ' . $model1Name . ' key',
+                                                                                'required' 	=>	true
+                                                                        )
+                                                                ),
+                                                                $this->validate
+                                                        );
 			}
 			
 	}

@@ -104,7 +104,7 @@ class UnitTypesController extends AppController {
 				//icon position
 				switch( $unitArtSetIcon['Icon']['icon_positions_uid'] ){
 					case 3:
-						$boardIcon					= $unitArtSetIcon['Icon']['image'];
+						$boardIcon				= $unitArtSetIcon['Icon']['image'];
 						break;
 					case 4:
 						$attackIcon 				= $unitArtSetIcon['Icon']['image'];
@@ -128,7 +128,7 @@ class UnitTypesController extends AppController {
 						$movementArrowIcon 			= $unitArtSetIcon['Icon']['image'];
 						break;
 					case 11:
-						$movementSetSelectorIcon	= $unitArtSetIcon['Icon']['image'];
+						$movementSetSelectorIcon                = $unitArtSetIcon['Icon']['image'];
 						break;
 					case 12:
 						$teamcostIcon				= $unitArtSetIcon['Icon']['image'];
@@ -150,28 +150,28 @@ class UnitTypesController extends AppController {
 			$movementBoxIcon			= '';
 			$teamcostPointIcon			= '';
 			$movementArrowIcon 			= '';
-			$movementSetSelectorIcon	= '';
+			$movementSetSelectorIcon                = '';
 			$teamcostIcon				= '';
 		}
 		
 		//Set the view's variables
-		$this->set( 'unitType', 				$unitType );
-		$this->set( 'unitArtSet',				$unitArtSet );
+		$this->set( 'unitType', 			$unitType );
+		$this->set( 'unitArtSet',			$unitArtSet );
 		$this->set( 'cardArtLayerSets',			$cardArtLayerSets );
-		$this->set(	'boardIcon',				$boardIcon );
-		$this->set( 'attackIcon',				$attackIcon );
-		$this->set( 'defenseIcon',				$defenseIcon );
+		$this->set( 'boardIcon',			$boardIcon );
+		$this->set( 'attackIcon',			$attackIcon );
+		$this->set( 'defenseIcon',			$defenseIcon );
 		$this->set( 'attackPointIcon',			$attackPointIcon );
 		$this->set( 'defensePointIcon',			$defensePointIcon );
 		$this->set( 'movementBoxIcon',			$movementBoxIcon );
 		$this->set( 'teamcostPointIcon',		$teamcostPointIcon );
 		$this->set( 'movementArrowIcon',		$movementArrowIcon );
-		$this->set( 'movementSetSelectorIcon',	$movementSetSelectorIcon );
-		$this->set( 'teamcostIcon',				$teamcostIcon );
-		$this->set( 'defenseValue',				$defenseValue );
-		$this->set( 'attackValue',				$attackValue );
+		$this->set( 'movementSetSelectorIcon',          $movementSetSelectorIcon );
+		$this->set( 'teamcostIcon',			$teamcostIcon );
+		$this->set( 'defenseValue',			$defenseValue );
+		$this->set( 'attackValue',			$attackValue );
 		$this->set( 'teamcostValue',			$teamcostValue );
-		$this->set( 'unitTypeName',				$unitTypeName );
+		$this->set( 'unitTypeName',			$unitTypeName );
 		$this->set( 'unitTypeMovementSets',		$unitTypeMovementSets );
 		
 		$this->render('cardView');
@@ -184,7 +184,7 @@ class UnitTypesController extends AppController {
 	public function getCardView(){
 				
 		//If we're dealing with a posted message
-        if ($this->request->is('post')) {
+                if ($this->request->is('post')) {
 			//Call the function we really need
 			$this->cardView( $this->request );
 		//If we're not dealing with a posted message

@@ -1,4 +1,7 @@
+var turnFormManager = new manage();
+turnFormManager.handleNewRecordButton();
 
+//Object for management of a turns form
 function manage(){
 
 
@@ -13,7 +16,7 @@ function manage(){
 			'</option>'
 		);
 		
-	}
+	};
 
 	//PUBLIC FUNCTION: handleNewRecordButton
 	//This function will be called when the page is setup and attaches
@@ -27,11 +30,11 @@ function manage(){
 				var modelName = 
 				
 				//Make the necessary call
-				jQuery.getJSON('ajax/test.json', this.newRecordButtonCallbackfunction(data) );
+				jQuery.getJSON('../newRecord', this.newRecordButtonCallbackfunction(data) );
 				
 		});
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: newRecordButtonCallback
 	//This function will update the form with the data returned as
@@ -41,6 +44,6 @@ function manage(){
 		//Add the returned record to the dropdown select
 		this.addRecordToDropdownSelect( data['modelName'], data['uid'], data['name'] );
 		
-	}
+	};
 	
 };

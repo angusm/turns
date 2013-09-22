@@ -39,7 +39,7 @@ class AppController extends Controller {
             'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
         ),
-		'RequestHandler',
+	'RequestHandler',
         'Session'
     );
 
@@ -114,14 +114,19 @@ class AppController extends Controller {
 	//Create a new record of whatever model we're dealing with
 	public function newRecord(){
 		
+		//Get the model name
+		$modelName = Inflector::classify( $this->request->controller );
+		
 		//Get an instance of the model name we can work with
 		$modelInstance	= ClassRegistry::init( $modelName );
-		
 		//Create a new record in the database for that model
 		$nuUID = $modelInstance->createNewRecord();
 	
 		$this->set( 'nuUID', $nuUID );
 		$this->set( '_serialize', array( 'nuUID' ) );
+		
+                //Render the view
+		$this->render('../App/newRecord');
 		
 	}
 	
