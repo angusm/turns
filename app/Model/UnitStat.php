@@ -3,26 +3,11 @@ class UnitType extends AppModel {
 	
 	//Setup the associations for UnitType
 	public $hasMany = array(
-						'Unit' => array(
+						'UnitType' => array(
 							'className' 	=> 'Unit',
-							'foreignKey'	=> 'unit_types_uid'
-						),
-						'UnitArtSet'	=> array(
-							'className'		=> 'UnitArtSet',
-							'foreignKey'	=> 'unit_types_uid'
-						),
-						'UnitTypeMovementSet' => array(
-							'className'		=> 'UnitTypeMovementSet',
-							'foreignKey'	=> 'unit_types_uid'
-						)	
+							'foreignKey'	=> 'unit_stats_uid'
+						)
 					);
-	
-	public $belongsTo = array(
-							'UnitStat' => array(
-								'className'		=> 'UnitStat',
-								'foreingKey'	=> 'unit_stats_uid'
-							)
-						);
 
 
 	//Override the constructor so that we can set the variables our way
@@ -34,7 +19,7 @@ class UnitType extends AppModel {
 		$this->attributeRules = array(
 			'rule'		=> 'numeric',
 			'required'	=> true,
-			'message'	=> 'Attributes must be INT, we\'re not making a math game here'
+			'message'	=> 'Attributes must be small integers! We\'re not making a math game here'
 		);
 
 		//Setup the validation
@@ -44,11 +29,10 @@ class UnitType extends AppModel {
 				'required' 	=>	true,
 				'message' 	=> 	parent::$alphaNumericMessage
 			),
-			'unit_stats_uid' => array(
-				'rule'		=> 'numeric',
-				'required'	=> true,
-				'message'	=> 'Need a Unit Stats UID'
-			)
+			'damage' 	=> $this->attributeRules,
+			'defense' 	=> $this->attributeRules,
+			'teamcost' 	=> $this->attributeRules,
+			'playcost'  => $this->attributeRules
 		);
 
 	}
@@ -60,10 +44,13 @@ class UnitType extends AppModel {
 	
             
 		$modelName = get_class( $this );
-        	$saveable = array(
+        	$modelData = array(
             	$modelName => array(
- 	               'name'				=> 'Default',
-				   'unit_stats_uid' 	=> 1
+ 	               'name'		=> 'Default',
+				   'damage'		=> 1,
+				   'defense'	=> 1,
+				   'teamcost'	=> 1,
+				   'playcost'	=> 1
               )
             );
 			
