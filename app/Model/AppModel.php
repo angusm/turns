@@ -60,18 +60,18 @@ class AppModel extends Model {
 	public function createNewRecord(){
 	
             
-            
 			$modelName = get_class( $this );
+            echo $modelName;
 		$this->create();
                 
                 $saveable = array(
               $modelName => array(
-                'uid' => '999'
+                'uid' => 999
               )
             );
                 
-		$this->save( $saveable );
-		return $this->uid;	
+		$this->save();
+		return '1';	
 		
 	}
 	

@@ -24,6 +24,31 @@ class User extends AppModel {
 			)
         )
 	);
+	
+	
+	//PUBLIC FUNCTION: createNewRecord
+	//Create a new record in the database for this model
+	public function createNewRecord(){
+	
+            
+			$modelName = get_class( $this );
+                $saveable = array(
+              $modelName => array(
+                'username' => 'DOGGGGGG',
+				'password' => 'DOGGGGGG'
+              )
+            );
+            echo $modelName;
+		$this->create();
+                
+                
+		$this->save($saveable);
+		return 'ODG';	
+		
+	}
+	
+	
+	
 	public function beforeSave($options = array()) {
 		if (isset($this->data[$this->alias]['password'])) {
 			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);

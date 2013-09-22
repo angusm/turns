@@ -5364,3 +5364,14 @@ Request URL: /turns/js/jquery.min.map
 Stack Trace:
 #0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-09-22 09:16:25 Error: [MissingActionException] Action UnitTypesController::createRecord() could not be found.
+Exception Attributes: array (
+  'controller' => 'UnitTypesController',
+  'action' => 'createRecord',
+)
+Request URL: /turns/UnitTypes/createRecord
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UnitTypesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

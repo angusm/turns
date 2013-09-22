@@ -121,6 +121,8 @@ class AppController extends Controller {
 		$modelInstance	= ClassRegistry::init( $modelName );
 		//Create a new record in the database for that model
 		$nuUID = $modelInstance->createNewRecord();
+		
+		echo 'NU*ID ' . $nuUID;
 	
 		$this->set( 'nuUID', $nuUID );
 		$this->set( '_serialize', array( 'nuUID' ) );
