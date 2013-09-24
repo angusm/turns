@@ -66,10 +66,13 @@ function addStandardLibraries(){
 //Load the page libraries
 function getLibrariesToLoad(){
     
-    for( var i = 0; i < window.pageLibraries.length; i++ ){
-        libraries.push( window.pageLibraries[i] );
-    }
-    
+	//Check to see if we have pageLibraries to load for this page
+	if( typeof window.pageLibraries != 'undefined' ){
+		//If we do load them onto our libraries stack
+		for( var i = 0; i < window.pageLibraries.length; i++ ){
+			libraries.push( window.pageLibraries[i] );
+		}
+	}
 }
 
 //FUNCTION: loadLibraries

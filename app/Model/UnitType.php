@@ -60,15 +60,20 @@ class UnitType extends AppModel {
 	
             
 		$modelName = get_class( $this );
-        	$saveable = array(
-            	$modelName => array(
- 	               'name'				=> 'Default',
-				   'unit_stats_uid' 	=> 1
-              )
-            );
+		$modelData = array(
+			$modelName => array(
+			   'name'				=> 'Default',
+			   'unit_stats_uid' 	=> 1
+			)
+		);
 			
 		$this->create();                
 		$this->save( $modelData );
+		
+		//Even though what we're actually returning the "uid" element
+		//we need to use $this->id as it seems to be where Cake stores
+		//the primary key value after a save. 
+		return $this->id;
 		
 	}
 	

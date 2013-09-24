@@ -59,16 +59,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
-    <?php
-		echo $this->Html->script('JQuery');
-		echo $this->Html->script('JQueryUI');
-		echo $this->Html->script('JQueryUITouch');
-		echo $this->Html->script('Core');
-		echo '<script class="scriptDump"></script>';
-		echo '<div class="scriptDump"></div>';
-		echo '<script>var getJSURL = "'. $this->Html->url(array("controller" => "js", "action" => "")) .'/";</script>';
-    ?>
+	<?php echo $this->element('javascript'); ?>
     
 </body>
 </html>

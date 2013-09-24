@@ -39,7 +39,7 @@ class AppController extends Controller {
             'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
         ),
-	'RequestHandler',
+		'RequestHandler',
         'Session'
     );
 
@@ -84,6 +84,54 @@ class AppController extends Controller {
 		
 	}
 	
+	//PUBLIC FUNCTION:getRecordData
+	//Return all the relevant information about a record as a response to a JSON
+	//request
+	public function getRecordData( $uid = null ){
+		
+		//Grab the data we were sent
+		if( $uid == null ){
+			$requestedUID = $this->params['url']['uid'];
+		}else{
+			$requestedUID = $uid;
+		}
+		
+		//Get the model we're dealing with
+		$modelInstance 	= $this->getInstance();
+		
+		//Get the model name
+		$modelName 		= Inflector::classify( $this->request->controller );
+		
+		//Grab the requested record
+		$requestedRecord = $modelInstance->find( 'first', array(
+								'conditions' => array(
+									'uid' => $requestedUID
+								)
+							));
+		
+		//Setup an array of the values we'll want to serialize for JSON
+		$serializableVariables = array();
+		
+		//Loop through all the information returned from the requested record
+		//And throw it into the view and serializable variables
+		foreach( $requestedRecord[$modelName] as $fieldName => $value ){
+		
+			$this->set( $fieldName, $value );
+			$serializableVariables[] = $fieldName;
+			
+		}
+		
+		//Finally we have to let the calling function know what model name 
+		//we're dealing with so make sure we set that up too
+		$this->set( 'modelName',	$modelName );
+		$serializableVariables[] = 'modelName';
+		
+		//Now serialize everything
+		$this->set( '_serialize', $serializableVariables );
+		
+		
+	}
+	
 	//PUBLIC FUNCTION: index
 	//Used to handle empty GET REST requests
 	public function index(){
@@ -121,11 +169,19 @@ class AppController extends Controller {
 		$modelInstance	= ClassRegistry::init( $modelName );
 		//Create a new record in the database for that model
 		$nuUID = $modelInstance->createNewRecord();
-		
-		echo 'NU*ID ' . $nuUID;
 	
-		$this->set( 'nuUID', $nuUID );
-		$this->set( '_serialize', array( 'nuUID' ) );
+	
+		$this->set( 'modelName', 	$modelName );
+		$this->set( 'name', 		'Default' );
+		$this->set( 'uid', 			$nuUID );
+		$this->set( 
+			'_serialize', 
+			array( 
+				'modelName',
+				'name',
+				'uid'
+			) 
+		);
 		
                 //Render the view
 		$this->render('../App/newRecord');

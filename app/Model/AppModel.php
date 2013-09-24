@@ -57,21 +57,18 @@ class AppModel extends Model {
 	
 	//PUBLIC FUNCTION: createNewRecord
 	//Create a new record in the database for this model
+	//Chances are this will need to be overridden in the child model
+	//assuming that the child model does any validation
 	public function createNewRecord(){
 	
-            
-			$modelName = get_class( $this );
-            echo $modelName;
-		$this->create();
-                
-                $saveable = array(
-              $modelName => array(
-                'uid' => 999
-              )
-            );
-                
+        $this->create();
 		$this->save();
-		return '1';	
+                
+		
+		//Even though what we're actually returning the "uid" element
+		//we need to use $this->id as it seems to be where Cake stores
+		//the primary key value after a save. 
+		return $this->id;
 		
 	}
 	

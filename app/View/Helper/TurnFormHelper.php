@@ -74,36 +74,62 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: fieldInput
 	//Creates a labeled field for inputting data for a table row
 	public function fieldInput( $modelName, $fieldName ){
-	
-		//Get some nice human type names for things	
-		$humanFieldName = Inflector::humanize( $fieldName );
-		$humanModelName = Inflector::humanize( $modelName );
-		
 		//Initialize the return string
 		$returnString = '';
 		
 		//Give it a label
-		$returnString .= $this->Html->tag( 
-										'label',
-										$humanModelName . ' . ' . $humanFieldName,
-										array(
-											'for' 	=> $modelName . $fieldName			
-										)
-									);
+		$returnString .= $this->fieldInputLabel( $modelName, $fieldName );
+		
 		//Give it an input
-		$returnString .= $this->Html->tag(
-										'input',
-										'',
-										array(
-											'type'	=> 'text',
-											'name'	=> $humanModelName . ' . ' . $humanFieldName,
-											'id'	=> $modelName . $fieldName
-										)
-									);
-									
+		$returnString .= $this->fieldInputTextbox( $modelName, $fieldName );
+		
 		//Return the html data
+		
 		return $returnString;
 											
+	}
+	
+	//PUBLIC FUNCTION: fieldInputLabel
+	//Return a nice label for the field
+	public function fieldInputLabel( $modelName, $fieldName ){
+		
+		//Get some nice human type names for things	
+		$humanFieldName = Inflector::humanize( $fieldName );
+		$humanModelName = Inflector::humanize( $modelName );
+		
+		return $this->Html->tag( 
+								'label',
+								$humanFieldName,
+								array(
+									'for' 	=> $modelName . $fieldName,
+									'class'		=> 'setupFormLabel',
+									'modelName'	=> $modelName,
+									'fieldName'	=> $fieldName	
+								)
+							);
+		
+	}
+	
+	//PUBLIC FUNCTION: fieldInputTextbox
+	//Return a nice label for the field
+	public function fieldInputTextbox( $modelName, $fieldName ){
+		
+		//Get some nice human type names for things	
+		$humanFieldName = Inflector::humanize( $fieldName );
+		$humanModelName = Inflector::humanize( $modelName );
+		
+		return $this->Html->tag( 
+								  'input',
+								  '',
+								  array(
+									  'type'		=> 'text',
+									  'class'		=> 'setupFormInputBox',
+									  'name'		=> $humanModelName . ' . ' . $humanFieldName,
+									  'modelName'	=> $modelName,
+									  'fieldName'	=> $fieldName
+								  )
+							  );
+		
 	}
 	
 	//PUBLIC FUNCTION: fieldsFromInitialModelStructure
@@ -234,15 +260,17 @@ class TurnFormHelper extends AppHelper {
 		//we were given is in fact an array. If not we assume that
 		//it's a model name and carry on about our business
 		if( ! is_array( $modelArray ) ){
-			$modelName = $modelArray;
-			$usableModel = ClassRegistry::init( $modelName );
-			$modelArray = $usableModel->getManagementList();
+			$modelName 			= $modelArray;
+			$controllerName 	= Inflector::pluralize( $modelName );
+			$usableModel 		= ClassRegistry::init( $modelName );
+			$modelArray 		= $usableModel->getManagementList();
 		}else{
 			//First we reset our array, just in case something weird happened to it
 			reset( $modelArray[0] );
 			
 			//Now when we grab the first key of this array it'll give us the model we're working with
-			$modelName = key( $modelArray[0] );
+			$modelName 			= key( $modelArray[0] );
+			$controllerName 	= Inlfector::pluralize( $modelName );
 		}
 		
 		//Setup whatever containers we'll be needing.
@@ -253,11 +281,14 @@ class TurnFormHelper extends AppHelper {
 		
 		//Now that we've gotten what we want from the main model we can set the attributes for
 		//our select.
-		$attributes['modelName'] = $modelName;	
+		$attributes['modelName'] 		= $modelName;	
+		
+		//Throw on the controller name
+		$attributes['controllerName'] 	= $controllerName;
 		
 		//Define the select with a class that states what it is, a select box for picking model
 		//records
-		$attributes['class']	 = 'modelRecordSelect';	
+		$attributes['class']	 		= 'modelRecordSelect';	
 	
 		//Loop through each iteration of the model array
 		foreach( $modelArray as $modelInstance ){
@@ -273,8 +304,16 @@ class TurnFormHelper extends AppHelper {
 				$displayField = 'uid';
 			}
 			
+			//Make sure we add a vlue to the option so that we can use all kinds of lovely
+			//value based jQuery on it
+			$modelInstance[$modelName]['value'] = $modelInstance[$modelName]['uid'];
+			
 			//Add this option with all its smexy meta data to the options string
-			$optionsString .= $this->Html->tag( 'option', $modelInstance[$modelName][$displayField], $modelInstance[$modelName] );			
+			$optionsString .= $this->Html->tag( 
+				'option', 
+				$modelInstance[$modelName][$displayField], 
+				$modelInstance[$modelName] 
+			);			
 			
 		}
 		
@@ -295,17 +334,19 @@ class TurnFormHelper extends AppHelper {
 	public function newRecordButton( $modelName ){
 	
 		//Get the internal name, i.e. strip out the spaces
-		$internalModelName = str_replace(' ', '', $modelName);
+		$internalModelName 	= str_replace(' ', '', $modelName);
+		$controllerName		= Inflector::pluralize( $internalModelName );
 	
 		//Return the properly formatted tag
 		return $this->Html->tag(	
 							'input',
 							'',
 							array(
-								'type'		=> 	'button',
-								'class'		=> 	'addNewRecord',
-								'modelName'	=>	$internalModelName,
-								'value'		=> 	'New '.$modelName
+								'type'				=> 	'button',
+								'class'				=> 	'addNewRecord',
+								'controllerName'	=>	$controllerName,
+								'modelName'			=>	$internalModelName,
+								'value'				=> 	'New '.$modelName
 							)
 						);	
 		
@@ -317,17 +358,19 @@ class TurnFormHelper extends AppHelper {
 	public function saveRecordButton( $modelName ){
 	
 		//Get the internal name, i.e. strip out the spaces
-		$internalModelName = str_replace(' ', '', $modelName);
+		$internalModelName 	= str_replace(' ', '', $modelName);
+		$controllerName		= Inflector::pluralize( $internalModelName );
 	
 		//Return the properly formatted tag
 		return $this->Html->tag(	
 							'input',
 							'',
 							array(
-								'type'		=> 	'button',
-								'class'		=> 	'saveRecord',
-								'modelName'	=>	$internalModelName,
-								'value'		=> 	'Save '.$modelName
+								'type'			=> 	'button',
+								'class'			=> 	'saveRecord',
+								'controller'	=> 	$controllerName,
+								'modelName'		=>	$internalModelName,
+								'value'			=> 	'Save '.$modelName
 							)
 						);	
 		
@@ -340,34 +383,18 @@ class TurnFormHelper extends AppHelper {
 	public function tableFieldInput( $modelName, $fieldName ){
 	
 		//Get some nice human type names for things	
-		$humanFieldName = Inflector::humanize( $fieldName );
-		$humanModelName = Inflector::humanize( $modelName );
+		//$humanFieldName = Inflector::humanize( $fieldName );
+		//$humanModelName = Inflector::humanize( $modelName );
 		
 		//Initialize the return string
 		$returnString = '';
 		
 		//Give it a label
-		//$humanModelName . ' . ' . 
-		$labelString = $this->Html->tag( 
-										'label',
-										$humanFieldName,
-										array(
-											'class' => 'setupFormLabel',
-											'for' 	=> $modelName . $fieldName	
-										)
-									);
+		$labelString = $this->fieldInputLabel( $modelName, $fieldName );
+		
 		//Give it an input
-		$inputString = $this->Html->tag(
-										'input',
-										'',
-										array(
-											'class' => 'setupFormInputBox',
-											'id'	=> $modelName . $fieldName,
-											'name'	=> $humanModelName . ' . ' . $humanFieldName,
-											'type'	=> 'text'
-										)
-									);
-									
+		$inputString = $this->fieldInputTextbox( $modelName, $fieldName );
+		
 		//Create a table row containing the two strings.
 		$labelString = $this->Html->tag(
 										'td',

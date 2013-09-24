@@ -1,13 +1,13 @@
 <?php
-class UnitType extends AppModel {
+class UnitStat extends AppModel {
 	
 	//Setup the associations for UnitType
-	public $hasMany = array(
+	/*public $hasMany = array(
 						'UnitType' => array(
 							'className' 	=> 'Unit',
 							'foreignKey'	=> 'unit_stats_uid'
 						)
-					);
+					);*/
 
 
 	//Override the constructor so that we can set the variables our way

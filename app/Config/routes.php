@@ -43,7 +43,7 @@
 //	--------------------------------------------	
 
 	Router::mapResources( 'turns' );
-	Router::parseExtensions();
+	Router::parseExtensions( 'json' );
 
 
 /**
