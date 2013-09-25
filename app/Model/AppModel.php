@@ -61,8 +61,33 @@ class AppModel extends Model {
 	//assuming that the child model does any validation
 	public function createNewRecord(){
 	
+		
+            
+		$modelName = get_class( $this );
+		
+		$modelFields = array();
+		
+		//Loop through the model's validation (if such validation exists)
+		//Make sure we get the lil kid all set up to pass 
+		if( isset( $this->validate ) ){
+			foreach( $this->validate as $fieldName => $fieldCriteria ){
+			
+				//If we have a default we can set then we do
+				if( isset( $fieldCriteria['default'] ) ){
+					$modelFields[ $fieldName ] = $fieldCriteria['default'];
+//					$this->set( $fieldName, $fieldCriteria['default'] );
+				}
+				
+			}
+		}
+		
+		$modelData = array(
+			$modelName => $modelFields
+		);
+		
+		//Create the record
         $this->create();
-		$this->save();
+		$this->save( $modelData );
                 
 		
 		//Even though what we're actually returning the "uid" element

@@ -17,17 +17,19 @@ class UnitStat extends AppModel {
 			
 		//Setup rules that apply to all attributes
 		$this->attributeRules = array(
-			'rule'		=> 'numeric',
+			'default'	=> '1',
+			'message'	=> 'Attributes must be small integers! We\'re not making a math game here',
 			'required'	=> true,
-			'message'	=> 'Attributes must be small integers! We\'re not making a math game here'
+			'rule'		=> 'numeric'
 		);
 
 		//Setup the validation
 		$this->validate = array(
 			'name' => array(
-				'rule'		=> 	'alphaNumeric',
+				'default'	=> 	'Default',
+				'message' 	=> 	parent::$alphaNumericMessage,
 				'required' 	=>	true,
-				'message' 	=> 	parent::$alphaNumericMessage
+				'rule'		=> 	'alphaNumeric'
 			),
 			'damage' 	=> $this->attributeRules,
 			'defense' 	=> $this->attributeRules,
@@ -35,28 +37,6 @@ class UnitStat extends AppModel {
 			'playcost'  => $this->attributeRules
 		);
 
-	}
-	
-	
-	//PUBLIC FUNCTION: createNewRecord
-	//Create a new UnitType record in the database with default values
-	public function createNewRecord(){
-	
-            
-		$modelName = get_class( $this );
-        	$modelData = array(
-            	$modelName => array(
- 	               'name'		=> 'Default',
-				   'damage'		=> 1,
-				   'defense'	=> 1,
-				   'teamcost'	=> 1,
-				   'playcost'	=> 1
-              )
-            );
-			
-		$this->create();                
-		$this->save( $modelData );
-		
 	}
 	
 	//PUBLIC FUNCTION: getCardViewData

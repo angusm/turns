@@ -40,41 +40,19 @@ class UnitType extends AppModel {
 		//Setup the validation
 		$this->validate = array(
 			'name' => array(
-				'rule'		=> 	'alphaNumeric',
+				'default'	=> 	'Default',
+				'message' 	=> 	parent::$alphaNumericMessage,
 				'required' 	=>	true,
-				'message' 	=> 	parent::$alphaNumericMessage
+				'rule'		=> 	'alphaNumeric'
 			),
 			'unit_stats_uid' => array(
-				'rule'		=> 'numeric',
+				'default'	=> '1',
+				'message'	=> 'Need a Unit Stats UID',
 				'required'	=> true,
-				'message'	=> 'Need a Unit Stats UID'
+				'rule'		=> 'numeric'
 			)
 		);
 
-	}
-	
-	
-	//PUBLIC FUNCTION: createNewRecord
-	//Create a new UnitType record in the database with default values
-	public function createNewRecord(){
-	
-            
-		$modelName = get_class( $this );
-		$modelData = array(
-			$modelName => array(
-			   'name'				=> 'Default',
-			   'unit_stats_uid' 	=> 1
-			)
-		);
-			
-		$this->create();                
-		$this->save( $modelData );
-		
-		//Even though what we're actually returning the "uid" element
-		//we need to use $this->id as it seems to be where Cake stores
-		//the primary key value after a save. 
-		return $this->id;
-		
 	}
 	
 	//PUBLIC FUNCTION: getCardViewData
