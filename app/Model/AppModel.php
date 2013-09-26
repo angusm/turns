@@ -274,7 +274,7 @@ class AppModel extends Model {
 				
 			}
 			
-			//Setup the hasMany list so that we're getting away
+			/*/Setup the hasMany list so that we're getting away
 			//from all of the extra fields and values we don't need
 			foreach( $hasMany as $associatedModelName => $associatedModelArray ){
 				
@@ -287,9 +287,9 @@ class AppModel extends Model {
 												$modelName 
 												);
 				
-			}
+			}*/
 			
-			//Go again with the hasOne relationships like we did for hasMany
+			/*/Go again with the hasOne relationships like we did for hasMany
 			foreach( $hasOne as $associatedModelName => $associatedModelArray ){
 				
 				//Get the structure data for the given association
@@ -301,7 +301,7 @@ class AppModel extends Model {
 												$modelName 
 												);
 			
-			}
+			}*/
 			
 			//Now that we've got all our data it's time to setup and return the final array
 			$finalStructure = array(
