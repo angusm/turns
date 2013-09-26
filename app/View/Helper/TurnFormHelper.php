@@ -348,7 +348,7 @@ class TurnFormHelper extends AppHelper {
 								'modelName'			=>	$internalModelName,
 								'value'				=> 	'New '.$modelName
 							)
-						);	
+						);
 		
 	}
 		
@@ -431,17 +431,37 @@ class TurnFormHelper extends AppHelper {
 		//Setup a string to hold all the lovely contents
 		//that we'll be unceremoniously cramming inside the table
 		$tableContents = '';
-				
+			
+		//We create an instance of the model name so that we can grab the 
+		//belongsTo entry for the model and create an array of the various
+		//fields and models that are contained in it.
+		//
+		//In this way when we create the fields we can create a model select
+		//field instead of an input field
+		$modelInstance = ClassRegistry::init( $modelName );
+		
+		//Get the belongs to
+		$belongsTo = $modelInstance->belongsTo;
+
+		//Setup an array to contain the fields
+		$belongsToFields = $modelInstance->getBelongsToFieldsArray();
 										
 		//Add the select and save / new buttons to the display
-		$tableContents .= $this->modelSelect( $modelName );
+		$tableContents .=  $this->modelSelect( $modelName );
 		$tableContents .=  $this->newRecordButton( $modelName );
 		$tableContents .=  $this->saveRecordButton( $modelName );
 		
 		//List the fields for the initial model
 		foreach( $structure as $fieldName ){
 			
-			$tableContents .= $this->tableFieldInput( $modelName, $fieldName );
+			//If the given field is a belongsTo field then create a model select
+			if( isset( $belongsToFields[$fieldName] ) ){
+				
+			//If the given field is just a field, then show it as an input field
+			}else{
+				$tableContents .= $this->tableFieldInput( $modelName, $fieldName );
+			}
+			
 			
 		}
 		

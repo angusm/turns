@@ -183,7 +183,7 @@ class AppController extends Controller {
 			) 
 		);
 		
-                //Render the view
+         //Render the view
 		$this->render('../App/newRecord');
 		
 	}

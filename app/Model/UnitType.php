@@ -20,7 +20,7 @@ class UnitType extends AppModel {
 	public $belongsTo = array(
 							'UnitStat' => array(
 								'className'		=> 'UnitStat',
-								'foreingKey'	=> 'unit_stats_uid'
+								'foreignKey'	=> 'unit_stats_uid'
 							)
 						);
 

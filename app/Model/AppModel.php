@@ -134,6 +134,25 @@ class AppModel extends Model {
 		return $this->belongsTo;
 	}
 	
+	//PUBLIC FUNCTION: getBelongsToFieldsArray
+	//Return an array containing the foreign key as the key and the 
+	//associated model name as the value
+	public function getBelongsToFieldsArray(){
+		
+		//Initialize the array
+		$belongsToFields = array();
+		
+		//Loop t hrough and create the 
+		foreach( $this->belongsTo as $associatedModelName => $innerArray ){
+			
+			$belongsToFields[$innerArray['foreignKey']] = $associatedModelName;
+			
+		}
+		
+		return $belongsToFields;
+		
+	}
+	
 	//PUBLIC FUNCTION: getHasMany
 	//Return the hasMany array
 	public function getHasMany(){

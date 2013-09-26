@@ -12,14 +12,22 @@ function manage(){
 	//appropriate dropdown select box.
 	this.addRecordToDropdownSelect = function( modelName, uid, name ){
 		
+		//Add the new record to the relevant drop downs
 		jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).append(
 			'<option value="' + uid + '" modelName="' + modelName + '" uid="' + uid + '" name="' + name + '">' +
 			name + 
 			'</option>'
 		);
+		
+		//Set the new record as the selected record
 		jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).val(
 			uid
 		);
+		
+		//Load the record data into the fields
+		jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).each( function(){
+			TurnForm_manage.loadRecordData( this );
+		});
 		
 	};
 
@@ -31,6 +39,7 @@ function manage(){
 	
 		TurnForm_manage.handleNewRecordButton();
 		TurnForm_manage.handleRecordSelection();
+		TurnForm_manage.loadSelections();
 		
 	};
 
@@ -119,6 +128,18 @@ function manage(){
 		
 		
 	};
+	
+	//PUBLIC FUNCTION: loadSelections
+	//Load the starting selections into the input fields
+	this.loadSelections = function( data ){
+	
+		//Load all the record data into all the input fields
+		jQuery( '.modelRecordSelect' ).each( function(){
+			TurnForm_manage.loadRecordData( this );
+		});
+			
+		
+	}
 	
 	//PUBLIC FUNCTION: newRecordButtonCallback
 	//This function will update the form with the data returned as
