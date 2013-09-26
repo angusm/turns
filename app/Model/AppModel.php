@@ -225,31 +225,31 @@ class AppModel extends Model {
 		}
 			
 		//Get the initial model's details
-		$currentModel = ClassRegistry::init( $modelName );
-		$initialModel = $currentModel->find( );
+		$currentModelInstance 	= ClassRegistry::init( $modelName );
+		$currentModel 			= $currentModelInstance->find( );
 		
 		//On the off chance we're dealing with a model that doesn't have
 		//any entries in the database for it, then we simply are going to
 		//skip down and return an empty array
-		if( count( $initialModel ) > 0 ){
+		if( count( $currentModel ) > 0 ){
 			
 			//Now that we have a find from the initial model we need
 			//to tidy it up
-			$initialModelFieldsArray = array();
+			$currentModelFieldsArray = array();
 			
 			//Loop through what we found on the find('first') and throw these
 			//fields onto the fields array
-			foreach( $initialModel[ $modelName ] as $fieldName => $fieldValue ){
+			foreach( $currentModel[ $modelName ] as $fieldName => $fieldValue ){
 			
 				//Tack on the field name
-				$initialModelFieldsArray[] = $fieldName;	
+				$currentModelFieldsArray[] = $fieldName;	
 				
 			}
 							
 			//Now get all of the Associations of each type
-			$belongsTo 	= $currentModel->getBelongsTo();
-			$hasMany	= $currentModel->getHasMany();
-			$hasOne		= $currentModel->getHasOne();
+			$belongsTo 	= $currentModelInstance->getBelongsTo();
+			$hasMany	= $currentModelInstance->getHasMany();
+			$hasOne		= $currentModelInstance->getHasOne();
 			
 			
 			//There's a chance that doing this infinite loop checking might mean we
@@ -306,7 +306,7 @@ class AppModel extends Model {
 			//Now that we've got all our data it's time to setup and return the final array
 			$finalStructure = array(
 								$modelName => array(
-									'Fields' 	=> $initialModelFieldsArray,
+									'Fields' 	=> $currentModelFieldsArray,
 									'belongsTo'	=> $belongsToArray,
 									'hasMany'	=> $hasManyArray,
 									'hasOne'	=> $hasOneArray
@@ -342,11 +342,17 @@ class AppModel extends Model {
 		//Setup the array, grab the relationship data, initialize the class and 
 		//then call this function to get its structure.
 		$relationshipData = $this->getAssociationArray( $modelName, $modelArray );
-		
+				
 		//Make sure we're not bouncing backwards
-		if( $relationshipData['className'] != $grandParentClass ){
+		if( $relationshipData['className'] != $grandParentClass and $relationshipData['className'] != $parentClass ){		
+		
 			$associatedModelInstance	= ClassRegistry::init( $relationshipData['className'] );
 			$associatedModelStructure	= $associatedModelInstance->getStructure( $modelName, $parentClass );
+			
+			echo $relationshipData['className'] . ' # ' . $grandParentClass . ' # ' . $parentClass;
+			echo '<BR>';
+			print_r( $associatedModelStructure );
+			echo '<BR><BR><BR>';
 			//$associatedModelStructure['RelationshipData'] = $relationshipData;
 		
 			//Add this structure to our hasMany array

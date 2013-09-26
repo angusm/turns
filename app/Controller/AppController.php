@@ -149,7 +149,6 @@ class AppController extends Controller {
 		$modelName 		= Inflector::classify( $this->request->controller );
 		
 		//Pass forward the structure, management list and model name
-		$this->set( 'managementList',	$modelInstance->getManagementList()	);
 		$this->set( 'structure', 		$modelInstance->getStructure() 		);
 		$this->set( 'modelName',		$modelName							);
 		

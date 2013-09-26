@@ -2,12 +2,12 @@
 class UnitStat extends AppModel {
 	
 	//Setup the associations for UnitType
-	/*public $hasMany = array(
+	public $hasMany = array(
 						'UnitType' => array(
 							'className' 	=> 'Unit',
 							'foreignKey'	=> 'unit_stats_uid'
 						)
-					);*/
+					);
 
 
 	//Override the constructor so that we can set the variables our way
@@ -50,10 +50,6 @@ class UnitStat extends AppModel {
 								
 								'contain' => array(
 									'UnitArtSet' => array(
-									
-									/*	'conditions' => array( 
-											'UnitArtSet.name' => 'Default'
-										),*/
 										
 										'fields' => array(
 											'UnitArtSet.name',

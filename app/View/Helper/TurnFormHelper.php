@@ -165,13 +165,13 @@ class TurnFormHelper extends AppHelper {
 		$recordSelectors		= '';
 		$returnString 			= '';
 		$returnStringContent	= '';
-		$clearDiv 		= $this->Html->tag(
-										'div',
-										'',
-										array(
-											'class' => 'clearDiv'
-										)
-									);
+		$clearDiv 				= $this->Html->tag(
+												'div',
+												'',
+												array(
+													'class' => 'clearDiv'
+												)
+											);
 		
 		//Loop through each model name in the structure, this
 		//should loop only once
@@ -212,8 +212,9 @@ class TurnFormHelper extends AppHelper {
 			//The belongsTo relationship is similarly easy
 			foreach( $structure[ $modelName ]['belongsTo'] 	as $associatedModelName => $associatedStructure ){
 				
-				$associationPicker 	  = $this->associationPicker( $associatedModelName );
-				$returnStringContent .= $this->fullModelSetupForm( array( $associatedModelName => $associatedStructure ), $associationPicker );
+				//$associationPicker 	  = $this->associationPicker( $associatedModelName );
+				$returnStringContent .= $this->fullModelSetupForm( array( $associatedModelName => $associatedStructure ) );
+				//, $associationPicker );
 					
 			}
 			
@@ -254,7 +255,7 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: modelSelect
 	//Creates a select box that contains all the data of the immediate
 	//model abstracted into the nice little metadata of the select boxes
-	public function modelSelect( $modelArray, $displayField='name' ){
+	public function modelSelect( $modelArray, $displayField='name', $extraAttributes=array() ){
 	
 		//First things first, we check to see if the modelArray
 		//we were given is in fact an array. If not we assume that
@@ -289,6 +290,10 @@ class TurnFormHelper extends AppHelper {
 		//Define the select with a class that states what it is, a select box for picking model
 		//records
 		$attributes['class']	 		= 'modelRecordSelect';	
+		
+		//Merge in any extra attributes we have to work with
+		$attributes = array_merge( $attributes, $extraAttributes );
+		
 	
 		//Loop through each iteration of the model array
 		foreach( $modelArray as $modelInstance ){
@@ -380,12 +385,52 @@ class TurnFormHelper extends AppHelper {
 	//Creates a labeled field for inputting data for a SQL table row
 	//inside of tags that will fit nicely inside of an HTML table
 	//All kinds of tables up in this bitch
-	public function tableFieldInput( $modelName, $fieldName ){
-	
-		//Get some nice human type names for things	
-		//$humanFieldName = Inflector::humanize( $fieldName );
-		//$humanModelName = Inflector::humanize( $modelName );
+	public function tableFieldBelongsToSelection( $modelName, $fieldName ){
+			
+		//Initialize the return string
+		$returnString = '';
 		
+		//Give it a label
+		$labelString = $this->fieldInputLabel( $modelName, $fieldName );
+		
+		//Give it an input 
+		$inputString = $this->modelSelect( $modelName, 'name', array( 'class' => 'associatedModelSelect' ) );
+		
+		//Create a table row containing the two strings.
+		$labelString = $this->Html->tag(
+										'td',
+										$labelString,
+										array(
+											'class' => 'setupFormLabel'
+										)
+									);
+		$inputString = $this->Html->tag(
+										'td',
+										$inputString,
+										array(
+											'class' => 'setupFormInput'
+										)
+									);
+									
+		$returnString = $this->Html->tag(
+										'tr',
+										$labelString . $inputString,
+										array()
+									);
+
+									
+									
+		//Return the html data
+		return $returnString;
+											
+	}
+	
+	//PUBLIC FUNCTION: tableFieldInput
+	//Creates a labeled field for inputting data for a SQL table row
+	//inside of tags that will fit nicely inside of an HTML table
+	//All kinds of tables up in this bitch
+	public function tableFieldInput( $modelName, $fieldName ){
+			
 		//Initialize the return string
 		$returnString = '';
 		
@@ -456,6 +501,7 @@ class TurnFormHelper extends AppHelper {
 			
 			//If the given field is a belongsTo field then create a model select
 			if( isset( $belongsToFields[$fieldName] ) ){
+				$tableContents .= $this->tableFieldBelongsToSelection( $belongsToFields[$fieldName], $fieldName );
 				
 			//If the given field is just a field, then show it as an input field
 			}else{

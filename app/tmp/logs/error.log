@@ -6475,3 +6475,258 @@ Request URL: /turns/js/jquery.min.map
 Stack Trace:
 #0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-09-26 03:34:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:34:34 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:34:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:36:05 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:36:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:38:36 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:38:36 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:39:07 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:39:07 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:39:26 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:39:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 03:48:09 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:08:02 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:10:27 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:11:00 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:15:55 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:17:34 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:19:04 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php, line 460]
+2013-09-26 04:19:04 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /turns/UnitTypes/manage
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'E:\xampp\htdocs...', 460)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'E:\xampp\htdocs...', 460, Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'E:\xampp\htdocs...', 460, Array)
+#3 E:\xampp\htdocs\turns\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-09-26 04:19:21 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php, line 460]
+2013-09-26 04:19:21 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /turns/UnitTypes/manage
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'E:\xampp\htdocs...', 460)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'E:\xampp\htdocs...', 460, Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'E:\xampp\htdocs...', 460, Array)
+#3 E:\xampp\htdocs\turns\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-09-26 04:19:41 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:20:15 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:20:56 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE, expecting ',' or ';' in [E:\xampp\htdocs\turns\app\Model\AppModel.php, line 351]
+2013-09-26 04:20:56 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE, expecting ',' or ';'
+Request URL: /turns/UnitTypes/manage
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'E:\xampp\htdocs...', 351)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'E:\xampp\htdocs...', 351, Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'E:\xampp\htdocs...', 351, Array)
+#3 E:\xampp\htdocs\turns\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-09-26 04:21:08 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:21:23 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:21:43 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:23:48 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:26:09 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-26 04:27:38 Error: [MissingControllerException] Controller class DirectionsController could not be found.
+Exception Attributes: array (
+  'class' => 'DirectionsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/Directions/getRecordData?uid=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
