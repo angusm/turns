@@ -274,6 +274,15 @@ class AppModel extends Model {
 				
 			}
 			
+			//The following section has been removed due to loop complications. Was only ever
+			//intended as a way to manage the many to many relationships, so instead at some 
+			//point in the future a way of managing those will be introduced as well as a way
+			//to flag the Models based off junction tables as such so that they and they alone are
+			//included.
+			
+			//Perhaps there will be a way to include these other associations as links to their 
+			//models management pages.
+			
 			/*/Setup the hasMany list so that we're getting away
 			//from all of the extra fields and values we don't need
 			foreach( $hasMany as $associatedModelName => $associatedModelArray ){
@@ -348,13 +357,7 @@ class AppModel extends Model {
 		
 			$associatedModelInstance	= ClassRegistry::init( $relationshipData['className'] );
 			$associatedModelStructure	= $associatedModelInstance->getStructure( $modelName, $parentClass );
-			
-			echo $relationshipData['className'] . ' # ' . $grandParentClass . ' # ' . $parentClass;
-			echo '<BR>';
-			print_r( $associatedModelStructure );
-			echo '<BR><BR><BR>';
-			//$associatedModelStructure['RelationshipData'] = $relationshipData;
-		
+					
 			//Add this structure to our hasMany array
 			return array_merge_recursive( $array, $associatedModelStructure );
 		
@@ -388,15 +391,15 @@ class AppModel extends Model {
 			
 				//Add the current model to the validate array
 				$this->validate = array_merge( 
-                                                                array(
-                                                                        Inflector::underscore($model1Name) . 's_uid' => array(
-                                                                                'rule'    => array('inList', $model1UIDs),
-                                                                                'message' => 'Must be a valid ' . $model1Name . ' key',
-                                                                                'required' 	=>	true
-                                                                        )
-                                                                ),
-                                                                $this->validate
-                                                        );
+											array(
+													Inflector::underscore($model1Name) . 's_uid' => array(
+															'rule'    => array('inList', $model1UIDs),
+															'message' => 'Must be a valid ' . $model1Name . ' key',
+															'required' 	=>	true
+													)
+											),
+											$this->validate
+									);
 			}
 			
 	}

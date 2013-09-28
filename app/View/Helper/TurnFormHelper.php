@@ -385,16 +385,24 @@ class TurnFormHelper extends AppHelper {
 	//Creates a labeled field for inputting data for a SQL table row
 	//inside of tags that will fit nicely inside of an HTML table
 	//All kinds of tables up in this bitch
-	public function tableFieldBelongsToSelection( $modelName, $fieldName ){
+	public function tableFieldBelongsToSelection( $parentModelName, $modelName, $fieldName ){
 			
 		//Initialize the return string
 		$returnString = '';
 		
 		//Give it a label
-		$labelString = $this->fieldInputLabel( $modelName, $fieldName );
+		$labelString = $this->fieldInputLabel( $parentModelName, $fieldName );
 		
 		//Give it an input 
-		$inputString = $this->modelSelect( $modelName, 'name', array( 'class' => 'associatedModelSelect' ) );
+		$inputString = $this->modelSelect( 
+										$modelName, 
+										'name', 
+										array( 
+											'class' 	=> 'associatedModelSelect',
+											'fieldName'	=> $fieldName,
+											'modelName' => $parentModelName
+										)
+									);
 		
 		//Create a table row containing the two strings.
 		$labelString = $this->Html->tag(
@@ -501,7 +509,7 @@ class TurnFormHelper extends AppHelper {
 			
 			//If the given field is a belongsTo field then create a model select
 			if( isset( $belongsToFields[$fieldName] ) ){
-				$tableContents .= $this->tableFieldBelongsToSelection( $belongsToFields[$fieldName], $fieldName );
+				$tableContents .= $this->tableFieldBelongsToSelection( $modelName, $belongsToFields[$fieldName], $fieldName );
 				
 			//If the given field is just a field, then show it as an input field
 			}else{

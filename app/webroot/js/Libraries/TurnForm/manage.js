@@ -30,6 +30,18 @@ function manage(){
 		});
 		
 	};
+	
+	//PUBLIC FUNCTION: getFieldDataInArray
+	//Get the field name and value from a given input field
+	this.getFieldDataInArray = function( saveParameters, element ){
+			
+			var fieldName 	= jQuery( element ).attr( 'fieldName' );
+			var fieldValue	= jQuery( element ).val();
+			saveParameters[fieldName] = fieldValue;
+			
+			return saveParameters;
+			
+	};
 
 	//PUBLIC FUNCTION: handleEverything
 	//This is the Pepper Potts (Iron Man reference, look it up) function
@@ -39,6 +51,7 @@ function manage(){
 	
 		TurnForm_manage.handleNewRecordButton();
 		TurnForm_manage.handleRecordSelection();
+		TurnForm_manage.handleSaveButton();
 		TurnForm_manage.loadSelections();
 		
 	};
@@ -129,6 +142,21 @@ function manage(){
 		
 	};
 	
+	//PUBLIC FUNCTION: handleSaveButton
+	//Handle committing entered/selected data to the database wehn the
+	//Save Buttons are clicked
+	this.handleSaveButton = function(){
+		
+		//Setup the event listener for the click
+		jQuery( '.saveRecord' ).click( function(){
+			
+			//Save the data to the database
+			TurnForm_manage.saveData( this );
+
+		});
+		
+	}
+	
 	//PUBLIC FUNCTION: loadSelections
 	//Load the starting selections into the input fields
 	this.loadSelections = function( data ){
@@ -167,8 +195,29 @@ function manage(){
 						
 		});
 		
+	};
+	
+	//PUBLIC FUNCTION: saveData
+	this.saveData = function( element ){
 		
+		//Get the model name that we're saving
+		var modelName = jQuery( element ).attr('modelname');
 		
-	}
+		//Setup an array to contain the jSon stuff we'll be pasing to the
+		//CakePHP Controller we call in order to save this information
+		var saveParameters = new Array();
+		
+		//Gather all the information relevant to this model and save it
+		//in an array that we can then pass as jSon values
+		jQuery( '.setupFormInputBox[modelName="' + modelName + '"]' ).each( function(){
+			saveParameters = TurnForm_manage.getFieldDataInArray( saveParameters, this );
+		});
+		jQuery( '.associatedModelSelect[modelName="' + modelName + '"]' ).each( function(){
+			saveParameters = TurnForm_manage.getFieldDataInArray( saveParameters, this );
+		});
+		
+		//To be continued...
+		
+	};
 	
 };
