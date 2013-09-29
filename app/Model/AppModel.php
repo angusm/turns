@@ -75,8 +75,7 @@ class AppModel extends Model {
 				//If we have a default we can set then we do
 				if( isset( $fieldCriteria['default'] ) ){
 					$modelFields[ $fieldName ] = $fieldCriteria['default'];
-//					$this->set( $fieldName, $fieldCriteria['default'] );
-				}
+                                }
 				
 			}
 		}
@@ -86,7 +85,7 @@ class AppModel extends Model {
 		);
 		
 		//Create the record
-        $this->create();
+                $this->create();
 		$this->save( $modelData );
                 
 		
@@ -367,6 +366,24 @@ class AppModel extends Model {
 		}
 	
 	}
+        
+        //PUBLIC FUNCTION: saveWithJSONFormData
+        //Save to the database using JSON values
+        public function saveWithJSONFormData( $jsonValues = array() ){
+            
+                if( isset( $jsonValues['uid'] ) ){
+
+                    $this->read( null, $jsonValues['uid'] );
+                    $this->set( $jsonValues );
+                    return $this->save();
+                    
+                }else{
+                    
+                    return $jsonValues;
+                    
+                }
+            
+        }
 	
 	//PUBLIC FUNCTION: setupUIDRelation
 	//Setup a foreign key relation between a group of models

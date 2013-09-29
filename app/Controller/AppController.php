@@ -87,15 +87,11 @@ class AppController extends Controller {
 	//PUBLIC FUNCTION:getRecordData
 	//Return all the relevant information about a record as a response to a JSON
 	//request
-	public function getRecordData( $uid = null ){
+	public function getRecordData( ){
 		
 		//Grab the data we were sent
-		if( $uid == null ){
-			$requestedUID = $this->params['url']['uid'];
-		}else{
-			$requestedUID = $uid;
-		}
-		
+                $requestedUID = $this->params['url']['uid'];
+                
 		//Get the model we're dealing with
 		$modelInstance 	= $this->getInstance();
 		
@@ -186,7 +182,35 @@ class AppController extends Controller {
 		$this->render('../App/newRecord');
 		
 	}
-	
+        
+        //PUBLIC FUNCTION: saveFormData
+        //Take in post data from a javascript call and then write it to the file
+        public function saveFormData(){
+            
+            //Grab the JSON values
+            $jsonValues = $this->params['url'];
+        
+            //Get the model name
+            $modelName = Inflector::classify( $this->request->controller );
+		
+            //Get an instance of the model name we can work with
+            $modelInstance	= ClassRegistry::init( $modelName );
+            
+            //Call the JSON array
+            $success = $modelInstance->saveWithJSONFormData( $jsonValues );
+            
+            $this->set( 'success', $success );
+            $this->set( 'jsonValues', $jsonValues );
+            $this->set( 
+			'_serialize', 
+			array( 
+				'success',
+                                'jsonValues'
+			) 
+		);
+            
+        }
+        
 	//PUBLIC FUNCTION: view
 	//Used to handle GET requests that specify a UID
 	public function view( $uid ){

@@ -103,6 +103,21 @@ function manage(){
 		
 	};
 	
+	//PUBLIC FUNCTION: handleSaveButton
+	//Handle committing entered/selected data to the database wehn the
+	//Save Buttons are clicked
+	this.handleSaveButton = function(){
+		
+		//Setup the event listener for the click
+		jQuery( '.saveRecord' ).click( function(){
+			
+			//Save the data to the database
+			TurnForm_manage.saveData( this );
+
+		});
+		
+	}
+	
 	//PUBLIC FUNCTION: loadRecordData
 	//Get the necessary information and make the call to grab all of record
 	//data, then pass control to the populateRecordData function to make sure
@@ -141,21 +156,6 @@ function manage(){
 		
 		
 	};
-	
-	//PUBLIC FUNCTION: handleSaveButton
-	//Handle committing entered/selected data to the database wehn the
-	//Save Buttons are clicked
-	this.handleSaveButton = function(){
-		
-		//Setup the event listener for the click
-		jQuery( '.saveRecord' ).click( function(){
-			
-			//Save the data to the database
-			TurnForm_manage.saveData( this );
-
-		});
-		
-	}
 	
 	//PUBLIC FUNCTION: loadSelections
 	//Load the starting selections into the input fields
@@ -203,9 +203,12 @@ function manage(){
 		//Get the model name that we're saving
 		var modelName = jQuery( element ).attr('modelname');
 		
+		//Get the appropriate controller
+		var controller = jQuery(element).attr( 'controllerName' );
+		
 		//Setup an array to contain the jSon stuff we'll be pasing to the
 		//CakePHP Controller we call in order to save this information
-		var saveParameters = new Array();
+		var saveParameters = {};
 		
 		//Gather all the information relevant to this model and save it
 		//in an array that we can then pass as jSon values
@@ -215,8 +218,29 @@ function manage(){
 		jQuery( '.associatedModelSelect[modelName="' + modelName + '"]' ).each( function(){
 			saveParameters = TurnForm_manage.getFieldDataInArray( saveParameters, this );
 		});
+                
+		//Make a JSON request to get all the appropriate data
+		jQuery.getJSON(
+					homeURL + controller + '/saveFormData', 
+					saveParameters,
+					function( data ){
 		
-		//To be continued...
+                                            //Load the record data into the fields
+                                            jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).each( function(){
+                                                    TurnForm_manage.loadRecordData( this );
+                                            });
+                                            
+					}
+				).done( 
+					function(){
+					}
+				).fail( 
+					function(data){
+					}
+				).always(
+					function(){
+					}
+				);
 		
 	};
 	

@@ -373,7 +373,7 @@ class TurnFormHelper extends AppHelper {
 							array(
 								'type'			=> 	'button',
 								'class'			=> 	'saveRecord',
-								'controller'	=> 	$controllerName,
+								'controllerName'	=> 	$controllerName,
 								'modelName'		=>	$internalModelName,
 								'value'			=> 	'Save '.$modelName
 							)
