@@ -13,7 +13,9 @@ class UsersController extends AppController {
 	//Essentially a homepage for the users where they can
 	//view all their lovely stuff.
     public function index() {
-		//Empty... for now!		
+		
+		//Empty... for now!
+		
     }
 	
 	//PUBLIC FUNCTION: register

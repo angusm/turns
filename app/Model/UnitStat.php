@@ -3,12 +3,20 @@ class UnitStat extends AppModel {
 	
 	//Setup the associations for UnitType
 	public $hasMany = array(
-						'UnitType' => array(
-							'className' 	=> 'Unit',
+						'UnitType'	=> array(
+							'className'	=> 'UnitType',
 							'foreignKey'	=> 'unit_stats_uid'
+						),
+						'UnitStatMovementSet' => array(
+							'className'		=> 'UnitStatMovementSet',
+							'foreignKey'	=> 'unit_stats_uid'
+						),
+						'Unit'	=> array(
+							'className'	=> 'Unit',
+							'foreignKey'	=> 'unit_types_uid'
 						)
+							
 					);
-
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -37,96 +45,6 @@ class UnitStat extends AppModel {
 			'playcost'  => $this->attributeRules
 		);
 
-	}
-	
-	//PUBLIC FUNCTION: getCardViewData
-	//Get all the information necessary to display a card view
-	public function getCardViewData( $uid ){
-		
-		return $this->find( 'first', array(
-								'conditions' => array(
-									'UnitType.uid'	=> $uid
-								),
-								
-								'contain' => array(
-									'UnitArtSet' => array(
-										
-										'fields' => array(
-											'UnitArtSet.name',
-										),
-										
-										'CardArtLayerSet' => array(
-											
-											'fields' => array(
-												'CardArtLayerSet.position'
-											),
-											
-											'order'  => array(
-												'CardArtLayerSet.position'
-											),
-											
-											'CardArtLayer' => array(
-											
-												'fields' => array(
-													'CardArtLayer.image'
-												)
-											)
-										),
-										
-										'UnitArtSetIcon' => array(
-											'Icon' => array(
-												
-												'fields' => array(
-													'Icon.image',
-													'Icon.icon_positions_uid'
-												)
-												
-											)
-										)
-										
-									),
-									'UnitTypeMovementSet' => array(
-										'MovementSet' => array(
-											
-											'fields' => array(
-												'MovementSet.name',
-												'MovementSet.uid'
-											),
-											
-											'Movement' => array(
-											
-												'fields' => array(
-													'Movement.spaces',
-													'Movement.priority'
-												),
-												
-												'MovementDirectionSet' => array(
-													'DirectionSet' => array(
-														'DirectionSetDirection' => array(
-															'Direction' => array(
-															
-																'fields' => array(
-																	'Direction.x',
-																	'Direction.y',
-																	'Direction.name'
-																)
-																
-															)
-														)
-													)
-												)
-											)
-										)
-									)
-								),
-								'fields' => array(
-									'UnitType.name',
-									'UnitType.damage',
-									'UnitType.defense',
-									'UnitType.teamcost'
-								)
-							));
-		
 	}
 	
 	//PUBLIC FUNCTION: getUIDs

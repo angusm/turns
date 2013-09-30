@@ -183,33 +183,35 @@ class AppController extends Controller {
 		
 	}
         
-        //PUBLIC FUNCTION: saveFormData
-        //Take in post data from a javascript call and then write it to the file
-        public function saveFormData(){
-            
-            //Grab the JSON values
-            $jsonValues = $this->params['url'];
-        
-            //Get the model name
-            $modelName = Inflector::classify( $this->request->controller );
+	//PUBLIC FUNCTION: saveFormData
+	//Take in post data from a javascript call and then write it to the file
+	public function saveFormData(){
 		
-            //Get an instance of the model name we can work with
-            $modelInstance	= ClassRegistry::init( $modelName );
-            
-            //Call the JSON array
-            $success = $modelInstance->saveWithJSONFormData( $jsonValues );
-            
-            $this->set( 'success', $success );
-            $this->set( 'jsonValues', $jsonValues );
-            $this->set( 
+		//Grab the JSON values
+		$jsonValues = $this->params['url'];
+	
+		//Get the model name
+		$modelName = Inflector::classify( $this->request->controller );
+	
+		//Get an instance of the model name we can work with
+		$modelInstance	= ClassRegistry::init( $modelName );
+		
+		//Call the JSON array
+		$success = $modelInstance->saveWithJSONFormData( $jsonValues );
+		
+		$this->set( 'success', $success );
+		$this->set( 'jsonValues', $jsonValues );
+		$this->set( 
 			'_serialize', 
 			array( 
 				'success',
-                                'jsonValues'
+				'jsonValues'
 			) 
 		);
+		
+		$this->render('../App/default');
             
-        }
+    }
         
 	//PUBLIC FUNCTION: view
 	//Used to handle GET requests that specify a UID

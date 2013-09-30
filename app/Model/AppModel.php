@@ -51,6 +51,9 @@ class AppModel extends Model {
 	public static $booleanMessage 		= 'Do or do not, there is no try. TRUE or FALSE.';
 	public static $decimalMessage 		= 'Decimals only, bitch.';
 	public static $numericMessage 		= 'Numbers only, bitch.';
+	
+	//Set up some standard regular expression rules
+	public static $alphaNumericWithSpacesValidationRule	= array('custom', '/([\w.-]+ )+[\w+.-]/');
 		
 	
 	//Handy universal functions
@@ -60,13 +63,11 @@ class AppModel extends Model {
 	//Chances are this will need to be overridden in the child model
 	//assuming that the child model does any validation
 	public function createNewRecord(){
-	
-		
-            
+
 		$modelName = get_class( $this );
-		
+
 		$modelFields = array();
-		
+
 		//Loop through the model's validation (if such validation exists)
 		//Make sure we get the lil kid all set up to pass 
 		if( isset( $this->validate ) ){
@@ -85,7 +86,7 @@ class AppModel extends Model {
 		);
 		
 		//Create the record
-                $this->create();
+		$this->create();
 		$this->save( $modelData );
                 
 		
@@ -93,6 +94,36 @@ class AppModel extends Model {
 		//we need to use $this->id as it seems to be where Cake stores
 		//the primary key value after a save. 
 		return $this->id;
+		
+	}
+	
+	//PUBLIC FUNCTION: fixBooleans
+	//Fix any boolean values that might be strings like "true"
+	public function fixJSONValueBooleans( $jsonValues ){
+	
+		$fixedJSONValues = $jsonValues;
+	
+		//Loop through and check the validate array for anything 
+		//we have to worry about
+		foreach( $jsonValues as $fieldName => $fieldValue ){
+			
+			//Is there a rule set
+			if( isset( $this->validate[$fieldName]['rule'] ) ){
+				//Is it boolean?
+				if( $this->validate[$fieldName]['rule'] == 'boolean' ){
+					
+					if( $fieldValue == 'true' ){
+						$fixedJSONValues[$fieldName] = true;
+					}else if( $fieldValue == 'false' ){
+						$fixedJSONValues[$fieldName] = false;
+					}
+					
+				}							
+			}
+			
+		}
+		
+		return $fixedJSONValues;
 		
 	}
 	
@@ -367,29 +398,37 @@ class AppModel extends Model {
 	
 	}
         
-        //PUBLIC FUNCTION: saveWithJSONFormData
-        //Save to the database using JSON values
-        public function saveWithJSONFormData( $jsonValues = array() ){
-            
-                if( isset( $jsonValues['uid'] ) ){
+	//PUBLIC FUNCTION: saveWithJSONFormData
+	//Save to the database using JSON values
+	public function saveWithJSONFormData( $jsonValues = array() ){
 
-                    $this->read( null, $jsonValues['uid'] );
-                    $this->set( $jsonValues );
-                    return $this->save();
-                    
-                }else{
-                    
-                    return $jsonValues;
-                    
-                }
-            
-        }
+			//Before we actually save anything we want to fix any potentially
+			//erroneous boolean values.
+			$jsonValues = $this->fixJSONValueBooleans( $jsonValues );
+
+			//Do the actual saving		
+			if( isset( $jsonValues['uid'] ) ){
+
+				$this->read( null, $jsonValues['uid'] );
+				$this->set( $jsonValues );
+				return $this->save();
+				
+			}else{
+				
+				return 'noUIDSet';
+				
+			}
+		
+	}
 	
 	//PUBLIC FUNCTION: setupUIDRelation
 	//Setup a foreign key relation between a group of models
 	public function setupUIDRelation( $modelArray = array() ){
 			
-			//If the validate array doesn't exist, set it up
+			//Not working properly 
+			//September 29th, 2013
+			
+			/*/If the validate array doesn't exist, set it up
 			if( isset( $this->validate ) ){
 				
 			}else{
@@ -410,6 +449,7 @@ class AppModel extends Model {
 				$this->validate = array_merge( 
 											array(
 													Inflector::underscore($model1Name) . 's_uid' => array(
+															'default' => 1,
 															'rule'    => array('inList', $model1UIDs),
 															'message' => 'Must be a valid ' . $model1Name . ' key',
 															'required' 	=>	true
@@ -417,7 +457,7 @@ class AppModel extends Model {
 											),
 											$this->validate
 									);
-			}
+			}*/
 			
 	}
 	

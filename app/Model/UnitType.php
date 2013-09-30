@@ -10,17 +10,18 @@ class UnitType extends AppModel {
 						'UnitArtSet'	=> array(
 							'className'		=> 'UnitArtSet',
 							'foreignKey'	=> 'unit_types_uid'
-						),
-						'UnitTypeMovementSet' => array(
-							'className'		=> 'UnitTypeMovementSet',
-							'foreignKey'	=> 'unit_types_uid'
-						)	
+						)
+						
 					);
 	
+	//NOTE: Problem with belongs to not fetching its has many associations in a
+	//containable array. So a finderQuery is needed.
 	public $belongsTo = array(
 							'UnitStat' => array(
 								'className'		=> 'UnitStat',
-								'foreignKey'	=> 'unit_stats_uid'
+								'foreignKey'	=> 'unit_stats_uid',
+								'finderQuery'	=> 'SELECT UnitStat.* FROM unit_types, unit_stats AS UnitStat WHERE unit_types.uid={$__cakeID__$} AND unit_types.unit_stats_uid=UnitStat.uid'
+	
 							)
 						);
 
@@ -59,17 +60,50 @@ class UnitType extends AppModel {
 	//Get all the information necessary to display a card view
 	public function getCardViewData( $uid ){
 		
-		return $this->find( 'first', array(
+		$cardViewData = $this->find( 'first', array(
 								'conditions' => array(
 									'UnitType.uid'	=> $uid
 								),
 								
 								'contain' => array(
-									'UnitArtSet' => array(
+									'UnitStat'	=> array(
 									
-									/*	'conditions' => array( 
-											'UnitArtSet.name' => 'Default'
-										),*/
+										'fields' => array(
+											'UnitStat.uid',
+											'UnitStat.name',
+											'UnitStat.damage',
+											'UnitStat.defense',
+											'UnitStat.teamcost'
+										),
+										
+										'UnitStatMovementSet.MovementSet' => array(
+	
+											  'fields' => array(
+												  'MovementSet.name',
+												  'MovementSet.uid'
+											  ),
+  
+											  'Movement' => array(
+  
+												  'fields' => array(
+													  'Movement.spaces',
+													  'Movement.priority'
+												  ),
+  
+												  'MovementDirectionSet.DirectionSet.'.
+												  'DirectionSetDirection.Direction' => array(
+													  'fields' => array(
+														  'Direction.x',
+														  'Direction.y',
+														  'Direction.name'
+													  )
+												  )
+											  )
+											  
+										)
+										
+									),
+									'UnitArtSet' => array(
 										
 										'fields' => array(
 											'UnitArtSet.name',
@@ -93,59 +127,29 @@ class UnitType extends AppModel {
 											)
 										),
 										
-										'UnitArtSetIcon' => array(
-											'Icon' => array(
+										'UnitArtSetIcon.Icon' => array(
 												
-												'fields' => array(
-													'Icon.image',
-													'Icon.icon_positions_uid'
-												)
-												
+											'fields' => array(
+												'Icon.image',
+												'Icon.icon_positions_uid'
 											)
 										)
 										
-									),
-									'UnitTypeMovementSet' => array(
-										'MovementSet' => array(
-											
-											'fields' => array(
-												'MovementSet.name',
-												'MovementSet.uid'
-											),
-											
-											'Movement' => array(
-											
-												'fields' => array(
-													'Movement.spaces',
-													'Movement.priority'
-												),
-												
-												'MovementDirectionSet' => array(
-													'DirectionSet' => array(
-														'DirectionSetDirection' => array(
-															'Direction' => array(
-															
-																'fields' => array(
-																	'Direction.x',
-																	'Direction.y',
-																	'Direction.name'
-																)
-																
-															)
-														)
-													)
-												)
-											)
-										)
 									)
 								),
 								'fields' => array(
 									'UnitType.name',
-									'UnitType.damage',
-									'UnitType.defense',
-									'UnitType.teamcost'
 								)
 							));
+
+			$dd = ClassRegistry::init( 'UnitStat' );
+			$cardVie2wData = $dd->find( 'all', array(
+											'contain' => array(
+												'UnitStatMovementSet'
+											)
+										));
+			print_r( $cardViewData );
+			return $cardViewData;
 		
 	}
 	
