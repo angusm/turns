@@ -23,14 +23,19 @@ class UnitsController extends AppController {
 		//Grab the UID of the logged in user
 		$userUID = $this->Auth->user('uid');
 		
-		//Grab all of the units for this user
-		$units = $this->Unit->getUnitsForUserByUID( $userUID );
 		
 		//Grab the unit list for this user
 		$unitList = $this->Unit->getUnitListForUserByUID( $userUID );
 		
-		//Pass the units on to the screen
-		$this->set( 'units',	$unitList );
+		
+		//Setup a team model and grab all the teams for this user
+		$teamModelInstance = ClassRegistry::init( 'Team' );
+		$teamList = $teamModelInstance->getTeamsByUserUID( $userUID );
+				
+		
+		//Pass the lists onto the view
+		$this->set( 'teamList', $teamList );
+		$this->set( 'unitList',	$unitList );
 		
 	}
 	

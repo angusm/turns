@@ -271,7 +271,7 @@ class TurnFormHelper extends AppHelper {
 			
 			//Now when we grab the first key of this array it'll give us the model we're working with
 			$modelName 			= key( $modelArray[0] );
-			$controllerName 	= Inlfector::pluralize( $modelName );
+			$controllerName 	= Inflector::pluralize( $modelName );
 		}
 		
 		//Setup whatever containers we'll be needing.

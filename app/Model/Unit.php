@@ -73,7 +73,7 @@ class Unit extends AppModel {
 										'users_uid'	=> $userUID
 									),
 									'fields'		=> array(
-										'uid',
+										'unit_types_uid as uid',
 										'name',
 										'COUNT( * ) as count',
 										'unit_types_uid'

@@ -46,6 +46,7 @@ class ModelUIHelper extends AppHelper {
 		//Loop through the various data and add the resulting rows
 		//to the table.
 		foreach( $findData as $modelData ){
+			
 			//Create a new string to store the resulting data row
 			$rowString = '';
 			
@@ -61,7 +62,8 @@ class ModelUIHelper extends AppHelper {
 														array_merge(
 															$extraContent[$displayValue]['attributes'],
 															array(
-																'modelName' => $modelName
+																'modelName' => $modelName,
+																'uid' 		=> $modelData[$modelName]['uid']														
 															)
 														)
 													);
@@ -83,6 +85,7 @@ class ModelUIHelper extends AppHelper {
 													array(
 														'modelName' => $modelName,
 														'fieldName' => $fieldName,
+														'uid' 		=> $modelData[$modelName]['uid'],
 														'value'		=> $modelData[$modelName][$fieldName]
 													)
 												);

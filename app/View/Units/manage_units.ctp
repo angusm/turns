@@ -5,7 +5,7 @@
 	echo '<div class="unitPool">';
 	
 	echo $this->ModelUI->tableFromFind( 
-									$units,
+									$unitList,
 									array(
 										'Unit Type'	=> 'unit_types_uid',
 										'Name'		=> 'name',
@@ -18,12 +18,25 @@
 														'content'	=> '',
 														'attributes'=> array(
 																			'type'	=> 'button',
-																			'value'	=> '>'
+																			'value'	=> '>',
+																			'class' => 'addUnitToTeamButton'
 																		)
 													)
 									)
 								);
 	
 	echo '</div>';
+	
+	echo $this->TurnForm->modelSelect( $teamList );
+	
+	echo '<div class="teamUnits"></div>';
+	
+	//Toss up the extra libraries
+	echo $this->Html->tag(
+					'script',
+					'window.pageLibraries = new Array(
+											new Array( "Unit", "manageUnits" )
+										);'
+					);
 
 ?>

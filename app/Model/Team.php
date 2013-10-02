@@ -26,5 +26,21 @@ class Team extends AppModel {
 
 	}
 	
+	//PUBLIC FUNCTION: getTeamsByUserUID
+	//Return all the teams owned by a given user
+	public function getTeamsByUserUID( $userUID ){
+	
+		//Run the find
+		$teams = $this->find( 'all', array(
+						'conditions'	=> array(
+							'Team.users_uid' => $userUID,
+						)
+					));
+					
+		//Return the teams
+		return $teams;
+		
+	}
+	
 }
 

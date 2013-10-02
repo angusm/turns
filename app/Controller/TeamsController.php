@@ -34,9 +34,16 @@ class TeamsController extends AppController {
 				$this->redirect(array('action' => 'index'));
 			} else {
 				//If the user couldn't be saved then indicate as much.
-				$this->Session->setFlash(__('Couldn\'t save that theam, they\'re all dead now and it\'s all your fault.'));
+				$this->Session->setFlash(__('Couldn\'t save that team, they\'re all dead now and it\'s all your fault.'));
 			}
         }
     }
+	
+	//PUBLIC FUNCTION: getUnitsInTeam
+	//Return all the units in a given team
+	public function getUnitsInTeam( $teamUID ){
+		
+		
+	}
 	
 }
