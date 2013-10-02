@@ -152,7 +152,7 @@ class UnitTypesController extends AppController {
 			$movementBoxIcon			= '';
 			$teamcostPointIcon			= '';
 			$movementArrowIcon 			= '';
-			$movementSetSelectorIcon                = '';
+			$movementSetSelectorIcon    = '';
 			$teamcostIcon				= '';
 		}
 		

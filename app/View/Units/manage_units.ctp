@@ -9,7 +9,18 @@
 									array(
 										'Unit Type'	=> 'unit_types_uid',
 										'Name'		=> 'name',
-										'Count'		=> 'count'
+										'Count'		=> 'count',
+										'button'	=> 'extraContent'
+									),
+									array(
+										'button'	=> array(
+														'tag'		=> 'input',
+														'content'	=> '',
+														'attributes'=> array(
+																			'type'	=> 'button',
+																			'value'	=> '>'
+																		)
+													)
 									)
 								);
 	

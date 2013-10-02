@@ -13,7 +13,8 @@ class ModelUIHelper extends AppHelper {
 	//Create an html table with the data retrieved laid out
 	public function tableFromFind( 
 									$findData,
-									$fields ){
+									$fields,
+									$extraContent ){
 		
 		//Grab the model name we're dealing with here
 		$findDataKeys 	= array_keys( $findData[0] );
@@ -24,14 +25,16 @@ class ModelUIHelper extends AppHelper {
 
 		//Loop through the fields and spit out a table header row
 		foreach( $fields as $displayValue => $fieldName ){
-			$tableString .= $this->Html->tag(
-										'th',
-										$displayValue,
-										array(
-											'modelName' => $modelName,
-											'fieldName'	=> $fieldName
-										)
-									);
+				
+				$tableString .= $this->Html->tag(
+											'th',
+											$displayValue,
+											array(
+												'modelName' => $modelName,
+												'fieldName'	=> $fieldName
+											)
+										);
+										
 		}
 		
 		//Add the headers to the string
@@ -48,16 +51,43 @@ class ModelUIHelper extends AppHelper {
 			
 			//Loop through each field we need to display
 			foreach( $fields as $displayValue => $fieldName ){
-				
-				$rowString .= $this->Html->tag(
-												'td',
-												$modelData[$modelName][$fieldName],
-												array(
-													'modelName' => $modelName,
-													'fieldName' => $fieldName,
-													'value'		=> $modelData[$modelName][$fieldName]
-												)
-											);
+			
+				//If we're supposed to be grabbing extra content then show it
+				if( $fieldName == 'extraContent' and isset( $extraContent[$displayValue] ) ){
+					
+					$extraContentContent = $this->Html->tag(
+														$extraContent[$displayValue]['tag'],
+														$extraContent[$displayValue]['content'],
+														array_merge(
+															$extraContent[$displayValue]['attributes'],
+															array(
+																'modelName' => $modelName
+															)
+														)
+													);
+					
+					$rowString .= $this->Html->tag( 
+													'td',
+													$extraContentContent,
+													array(
+														'modelName' => $modelName,
+													)
+												);
+					
+				//If we're not showing extra content show some real content
+				}else{
+					
+					$rowString .= $this->Html->tag(
+													'td',
+													$modelData[$modelName][$fieldName],
+													array(
+														'modelName' => $modelName,
+														'fieldName' => $fieldName,
+														'value'		=> $modelData[$modelName][$fieldName]
+													)
+												);
+
+				}
 				
 			}
 		
