@@ -48,8 +48,6 @@ class UnitTypesController extends AppController {
 								$request->data['UnitType']['UID'] 
 							);
 							
-		print_r( $unitType );
-							
 		//Grab the other variables we need so we're not
 		//doing a bunch of processing in the view
 		

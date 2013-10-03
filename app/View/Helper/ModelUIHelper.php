@@ -14,7 +14,7 @@ class ModelUIHelper extends AppHelper {
 	public function tableFromFind( 
 									$findData,
 									$fields,
-									$extraContent ){
+									$extraContent = array() ){
 		
 		//Grab the model name we're dealing with here
 		$findDataKeys 	= array_keys( $findData[0] );
@@ -49,6 +49,10 @@ class ModelUIHelper extends AppHelper {
 			
 			//Create a new string to store the resulting data row
 			$rowString = '';
+			
+			if( $modelData == null ){
+				break;	
+			}
 			
 			//Loop through each field we need to display
 			foreach( $fields as $displayValue => $fieldName ){

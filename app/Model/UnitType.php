@@ -142,13 +142,6 @@ class UnitType extends AppModel {
 								)
 							));
 
-			$dd = ClassRegistry::init( 'UnitStat' );
-			$cardVie2wData = $dd->find( 'all', array(
-											'contain' => array(
-												'UnitStatMovementSet'
-											)
-										));
-			print_r( $cardViewData );
 			return $cardViewData;
 		
 	}

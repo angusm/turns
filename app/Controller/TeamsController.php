@@ -42,7 +42,22 @@ class TeamsController extends AppController {
 	//PUBLIC FUNCTION: getUnitsInTeam
 	//Return all the units in a given team
 	public function getUnitsInTeam( $teamUID ){
+	
+		//Grab the UID of the logged in user
+		$userUID = $this->Auth->user('uid');
 		
+		//Get all the teams associated with the user
+		$teams = $this->Team->getTeamsByUserUID( $userUID );
+		
+		//Set the teams variable so that it can be passed to the 
+		//view or JSON
+		$this->set( 'teams', $teams );
+		$this->set( 
+			'_serialize', 
+			array( 
+				'teams'
+			) 
+		);
 		
 	}
 	

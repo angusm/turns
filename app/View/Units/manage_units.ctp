@@ -29,7 +29,21 @@
 	
 	echo $this->TurnForm->modelSelect( $teamList );
 	
-	echo '<div class="teamUnits"></div>';
+	echo '<div class="teamUnits">';
+	
+	echo $this->ModelUI->tableFromFind( 
+									array(
+										array( 'Unit' => null )
+									),
+									array(
+										'Unit Type'	=> 'unit_types_uid',
+										'Name'		=> 'name',
+										'Count'		=> 'count',
+										'button'	=> 'extraContent'
+									)
+								);
+	
+	echo '</div>';
 	
 	//Toss up the extra libraries
 	echo $this->Html->tag(
