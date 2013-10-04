@@ -114,5 +114,18 @@ class Unit extends AppModel {
 		
 	}
 	
+	//PUBLIC FUNCTION: grantUserRandomUnit
+	//Create a new unit to give to the user based off of a random Unit Type
+	public function grantUserRandomUnit( $userUID ){
+	
+		//Grab an instance of the UnitType model so that we can grab a
+		//random Unit Type to make this unit from
+		$unitTypeModelInstance = ClassRegistry::init( 'UnitType' );
+		$randomUnitTypeUID = $unitTypeModelInstance->getRandomUnitTypeByTicket();
+		$unitTypeModelInstance->decrementTicket( $randomUnitTypeUID );
+		
+		
+	}
+	
 }
 

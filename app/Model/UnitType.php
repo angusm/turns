@@ -56,6 +56,28 @@ class UnitType extends AppModel {
 
 	}
 	
+	//PUBLIC FUNCTION: decrementTicket
+	//For the given UnitType UID drop the ticket count for that unit by one
+	public function decrementTicket( $unitTypeUID ){
+		
+		//Grab the u nit type we'll be decrementing
+		$unitToDecrement = $this->find( 'first', array(
+								'conditions' => array(
+									'UnitType.uid' => $unitTypeUID
+								)
+							));
+	
+		//Decrement it
+		if( $unitToDecrement != false ){
+			$newTicketCount = $unitToDecrement['UnitType']['remaining_rare_tickets'] - 1;
+		
+			$this->read( null, $unitToDecrement['UnitType']['uid'] );
+			$this->set( 'remaining_rare_tickets', $newTicketCount );
+			$this->save();
+		}
+		
+	}
+	
 	//PUBLIC FUNCTION: getCardViewData
 	//Get all the information necessary to display a card view
 	public function getCardViewData( $uid ){
@@ -143,6 +165,26 @@ class UnitType extends AppModel {
 							));
 
 			return $cardViewData;
+		
+	}
+	
+	//PUBLIC FUNCTION: getRandomUnitTypeByTicket
+	//Use the rarity ticket system to select a random unit
+	public function getRandomUnitTypeByTicket(){
+		
+		//Grab all of the Unit Types that still have tickets remaining
+		$eligibleUnits = $this->find( 'list', array(
+										'conditions' => array(
+											'remaining_rare_tickets' => '> 0'
+										),
+										'fields' => array(
+											'uid'
+										)
+									));
+									
+		//Grab the random UID and return it
+		$foundUnitTypeUID = $elegibleUnits[array_rand( $elegibleUnits )];
+		return $foundUnitTypeUID;
 		
 	}
 	
