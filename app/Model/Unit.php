@@ -69,21 +69,29 @@ class Unit extends AppModel {
 	
 		//Do the find and return the results
 		$unitList = $this->find( 'all', array(
-									'conditions' 	=> array(
-										'users_uid'	=> $userUID
+									'conditions' => array(
+										'users_uid' => $userUID
 									),
-									'fields'		=> array(
+									'contain' => array(
+										'UnitType' => array(
+											'fields' => array(
+												'name'
+											)
+										)
+									),											
+									'fields' => array(
 										'unit_types_uid as uid',
 										'name',
 										'COUNT( * ) as count',
 										'unit_types_uid'
 									),
-									'group'			=> 'Unit.unit_types_uid'
+									'group' => 'Unit.unit_types_uid'
 								));
 							
 		//Go through each result and move the count to the model field	
 		foreach( $unitList as $unitIndex => $unitData ){
 			$unitList[$unitIndex]['Unit']['count'] = $unitList[$unitIndex][0]['count'];
+			$unitList[$unitIndex]['Unit']['name']  = $unitList[$unitIndex]['UnitType']['name'];
 		}
 								
 		return $unitList;	
