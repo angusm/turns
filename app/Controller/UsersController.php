@@ -29,12 +29,20 @@ class UsersController extends AppController {
             $this->User->create();
 			
 			//See if we can save the user using the given data...
-			if ($this->User->save($this->request->data)) {
+			$successfulSave = $this->User->save($this->request->data);
+			
+			$userUID = $this->User->id;
+			if ( $successfulSave ) {
+				
+				//If we saved the user we better be damn sure to initialize
+				//them
+				$this->User->setupNewUser( $userUID );
 				
 				//If the user has been saved, indicate as much and do a
 				//redirect.
 				$this->Session->setFlash(__('Thank you for registering.'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				
 			} else {
 				//If the user couldn't be saved then indicate as much.
 				$this->Session->setFlash(__('We were unable to register your account. Plase, try again.'));

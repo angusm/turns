@@ -122,9 +122,49 @@ class Unit extends AppModel {
 		//random Unit Type to make this unit from
 		$unitTypeModelInstance = ClassRegistry::init( 'UnitType' );
 		$randomUnitTypeUID = $unitTypeModelInstance->getRandomUnitTypeByTicket();
+		
+		//Before we start knocking off tickets, we need to make sure that the
+		//given Unit Type is valid, if it's not, we grab a new one recursively
+		//until we get one that is. 
+		//If this seems like it could cause some problems, well it sure as shit
+		//could, that's why when we deploy we better make damn sure that we don't
+		//deploy with broken ass units. Could probably even take this out for 
+		//deployment.
+		if( $unitTypeModelInstance->validateUnitType( $randomUnitTypeUID ) == false ){
+			return $this->grantUserRandomUnit( $userUID );
+		}
+		
+		//Decrement the Unit Type's ticket count
 		$unitTypeModelInstance->decrementTicket( $randomUnitTypeUID );
+	
+		//Get data about the selected Unit Type
+		$unitTypeRecord = $unitTypeModelInstance->findByUID( $randomUnitTypeUID );
 		
+		//Next we need an instance of the Unit Art Sets model so that we can grab
+		//the default art set for the given unit type
+		$unitArtSetModelInstance = ClassRegistry::init( 'UnitArtSet' );
+		$defaultArtSet = $unitArtSetModelInstance->getDefaultArtByUnitTypeUID( $randomUnitTypeUID );
 		
+		echo $randomUnitTypeUID;
+		echo '<BR>';
+		echo $userUID;
+		echo '<BR>';
+		echo $unitTypeRecord['UnitType']['name'];
+		echo '<BR>';
+		echo $defaultArtSet['UnitArtSet']['uid'];
+		echo '<BR>';
+		echo '<BR>';
+		
+		//Now we need to make a new record and assign values to the new Unit
+		$this->create();
+		$this->set( 'unit_types_uid', 	$randomUnitTypeUID );
+		$this->set( 'users_uid',		$userUID );
+		$this->set( 'name',				$unitTypeRecord['UnitType']['name'] );
+		$this->set( 'unit_art_sets_uid', $defaultArtSet['UnitArtSet']['uid'] );
+		
+		//Return an indication about whether or not the save was successful
+		return $this->save();
+				
 	}
 	
 }

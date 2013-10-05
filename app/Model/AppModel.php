@@ -53,7 +53,7 @@ class AppModel extends Model {
 	public static $numericMessage 		= 'Numbers only, bitch.';
 	
 	//Set up some standard regular expression rules
-	public static $alphaNumericWithSpacesValidationRule	= array('custom', '/([\w.-]+ )+[\w+.-]/');
+	public static $alphaNumericWithSpacesValidationRule	= array('custom',  '/^[a-z0-9 ]*$/i');
 		
 	
 	//Handy universal functions
@@ -76,7 +76,7 @@ class AppModel extends Model {
 				//If we have a default we can set then we do
 				if( isset( $fieldCriteria['default'] ) ){
 					$modelFields[ $fieldName ] = $fieldCriteria['default'];
-                                }
+			  	}
 				
 			}
 		}
