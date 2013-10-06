@@ -49,6 +49,9 @@ class User extends AppModel {
 			$unitModelInstance->grantUserRandomUnit( $userUID );
 		}
 		
+		//Setup a default team for the user
+		$teamModelInstance = ClassRegistry::init( 'Team' );
+		$teamModelInstance->setupDefaultTeam( $userUID );
 		
 	}
 }

@@ -58,5 +58,16 @@ class Team extends AppModel {
 		
 	}
 	
+	//PUBLIC FUNCTION: setupDefaultTeam
+	//Setup a default team for the given user
+	public function setupDefaultTeam( $userUID ){
+	
+		$this->create();
+		$this->set( 'name', 'Default' );
+		$this->set( 'users_uid', $userUID );
+		$this->save();
+		
+	}
+	
 }
 
