@@ -81,10 +81,11 @@ class TurnFormHelper extends AppHelper {
 	
 	
 		//Assign and then, if necessary replace default optionals
-		$displayField		= 'name';
-		$extraAttributes 	= array();
-		$includeSaveButton	= false;
-		$includeNewButton	= false;
+		$displayField			= 'name';
+		$extraAttributes 		= array();
+		$includeSaveButton		= false;
+		$includeRemoveButton	= false;
+		$includeNewButton		= false;
 		
 		if( isset( $optionalParameters['displayField'] ) ){
 			$displayField = $optionalParameters['displayField'];
@@ -92,11 +93,14 @@ class TurnFormHelper extends AppHelper {
 		if( isset( $optionalParameters['extraAttributes'] ) ){
 			$extraAttributes = $optionalParameters['extraAttributes'];
 		}
-		if( isset( $optionalParameters['includeSaveButton'] ) ){
-			$includeSaveButton = $optionalParameters['includeSaveButton'];
-		}
 		if( isset( $optionalParameters['includeNewButton'] ) ){
 			$includeNewButton = $optionalParameters['includeNewButton'];
+		}
+		if( isset( $optionalParameters['includeRemoveButton'] ) ){
+			$includeRemoveButton = $optionalParameters['includeRemoveButton'];	
+		}
+		if( isset( $optionalParameters['includeSaveButton'] ) ){
+			$includeSaveButton = $optionalParameters['includeSaveButton'];
 		}
 		
 		///First things first, we check to see if the modelArray
@@ -157,6 +161,21 @@ class TurnFormHelper extends AppHelper {
 													  )
 												  );	
 			
+		}
+		
+		//Add a remove record button if requested
+		if( $includeRemoveButton ){
+			
+			$returnString .= $this->removeRecordButton( 
+													  $modelName, 
+													  array_merge(
+														  $baseAttributes,
+														  array(
+															'class' => 'editableSelectRemove'
+														  )
+													  )
+												  );	
+
 		}
 		
 		//Add a new record button if requested
@@ -483,6 +502,36 @@ class TurnFormHelper extends AppHelper {
 								$extraAttributes
 							)
 						);
+		
+	}
+		
+	//PUBLIC FUNCTION: removeRecordButton
+	//A button designed for removing records, just feed it
+	//a model name same as you would for a newRecordButton
+	public function removeRecordButton( $modelName, $extraAttributes=array() ){
+	
+		//Get the internal name, i.e. strip out the spaces
+		$internalModelName 	= str_replace(' ', '', $modelName);
+		$controllerName		= Inflector::pluralize( $internalModelName );
+	
+		//Add the attributes
+		$attributes = array(
+							'type'				=> 	'button',
+							'class'				=> 	'removeRecord',
+							'controllerName'	=> 	$controllerName,
+							'modelName'			=>	$internalModelName,
+							'value'				=> 	'Delete '.$modelName
+						);
+							
+		//Add any extra requeseted attributes
+		$attributes = array_merge( $attributes, $extraAttributes );
+	
+		//Return the properly formatted tag
+		return $this->Html->tag(	
+							'input',
+							'',
+							$attributes
+						);	
 		
 	}
 		

@@ -30,8 +30,9 @@
 	echo $this->TurnForm->editableModelSelect( 
 												$teamList, 
 												array(
-													'includeNewButton' 	=> true,
-													'includeSaveButton' => true
+													'includeNewButton' 		=> true,
+													'includeRemoveButton'	=> true,
+													'includeSaveButton' 	=> true
 												)
 											);
 	

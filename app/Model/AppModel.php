@@ -398,6 +398,14 @@ class AppModel extends Model {
 		}
 	
 	}
+	
+	//PUBLIC FUNCTION: remove
+	//Remove the record with the given UID
+	public function remove( $uid, $cascade=true ){
+			
+		$this->delete( $uid, $cascade );
+		
+	}
         
 	//PUBLIC FUNCTION: saveWithJSONFormData
 	//Save to the database using JSON values

@@ -1,4 +1,4 @@
-
+// JavaScript Document
 
 //PEPPER POTTS FUNCTION: handleEverything
 //Why? Because Pepper Potts is a badass chick who just takes care of it all

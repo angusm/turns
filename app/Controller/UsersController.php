@@ -61,4 +61,13 @@ class UsersController extends AppController {
 			}
 		}
 	}
+	
+	//PUBLIC FUNCTION: queueButton
+	//Just a simple page with a button to launch the user into the queue
+	public function queueButton(){
+	
+		//Do Nothing
+		
+	}
+	
 }

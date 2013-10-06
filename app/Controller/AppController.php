@@ -183,6 +183,30 @@ class AppController extends Controller {
 		$this->render('../App/newRecord');
 		
 	}
+	
+	//PUBLIC FUNCTION: remove
+	//Delete the record with the given UID
+	public function remove(){
+		
+		//Grab that sweet sweet json data
+		$jsonValues = $this->params['url'];
+		
+		//Grab the uid
+		$uid = $jsonValues['uid'];
+		
+		//Get the model name
+		$modelName = Inflector::classify( $this->request->controller );
+		
+		//Get an instance of the model name we can work with
+		$modelInstance	= ClassRegistry::init( $modelName );
+		$success = $modelInstance->remove( $uid, true );
+		
+		$this->set( 'success', $success );
+		$this->set( '_serialize', array(
+						'success'
+					));
+		
+	}
         
 	//PUBLIC FUNCTION: saveFormData
 	//Take in post data from a javascript call and then write it to the file

@@ -9,9 +9,7 @@ function manageUnits(){
 	//PUBLIC FUNCTION: addNewTeam
 	//Allow the user to add a new team to their account
 	this.addNewTeam = function( triggeringEvent ){
-	
-		alert( 'howdy bob' );
-	
+		
 		//Get the targeted element
 		var element = triggeringEvent.target;	
 		
@@ -26,6 +24,7 @@ function manageUnits(){
 			{
 			},
 			function( jSONData ){
+				//Finish up the team add
 				Unit_manageUnits.finalizeTeamAdd( jSONData );
 			}
 		).done( 
@@ -144,7 +143,9 @@ function manageUnits(){
 			jQuery( 'select[modelName="Team"].editableSelect' ).val( teamData['uid'] );
 		
 			//Adjust the text box
-			EditableSelect_editableSelect.adjustTextBoxToSelect( jQuery( 'select[modelName="Team"].editableSelect' ) );
+			jQuery( 'select[modelName="Team"].editableSelect' ).trigger( 'change' );
+		
+			Unit_manageUnits.loadTeamUnits();
 		
 		}
 		
@@ -262,10 +263,29 @@ function manageUnits(){
 	//PUBLIC FUNCTION: handleEverything
 	//The Pepper Potts function, in that it will just handle everything
 	this.handleEverything = function(){
-		Unit_manageUnits.handleNewTeamButton();
 		Unit_manageUnits.handleAddToTeamButton();
+		Unit_manageUnits.handleChangeTeam();
 		Unit_manageUnits.handleChangeTeamName();
+		Unit_manageUnits.handleNewTeamButton();
+		Unit_manageUnits.handleRemoveTeam();
 		Unit_manageUnits.loadTeamUnits();
+	}
+	
+	//PUBLIC FUNCTION: handleChangeTeam
+	//If the user changes the selected team then we better change
+	this.handleChangeTeam = function(){
+	
+		//Change the units displayed in the team pool and adjust what's shown in the unit pool
+		jQuery( '.editableSelect[modelname="Team"]' ).each( function(){
+			
+			if( ! jQuery(this).isBound( 'change', Unit_manageUnits.loadTeamUnits ) ){
+				jQuery(this).bind( 'change',
+					Unit_manageUnits.loadTeamUnits
+				);
+			}
+			
+		});
+		
 	}
 	
 	//PUBLIC FUNCTION: handleNewTeamButton
@@ -293,12 +313,29 @@ function manageUnits(){
 	//their team
 	this.handleRemoveFromTeamButton = function(){
 		
-		//Remove extraneous listeners
-		jQuery( '.removeUnitFromTeamButton' ).unbind( 'click' );
-		//Throw the listener on
-		jQuery( '.removeUnitFromTeamButton' ).click( function(){
-			Unit_manageUnits.removeUnitFromTeam( this );
-		});
+		//Don't add duplicates
+		if( ! jQuery('.removeUnitFromTeamButton').isBound( 'click', Unit_manageUnits.removeUnitFromTeam ) ){
+			//Throw the listener on
+			jQuery( '.removeUnitFromTeamButton' ).click(
+				Unit_manageUnits.removeUnitFromTeam
+			);
+		}
+		
+	}
+	
+	//PUBLIC FUNCTION: handleRemoveTeam
+	//Remove the selected team from the database when it is clicked
+	this.handleRemoveTeam = function(){
+		
+		//Don't add duplicates
+		if( ! jQuery('.editableSelectRemove').isBound( 'click', Unit_manageUnits.removeTeam ) ){
+			//Throw the listener on
+	
+			jQuery('.editableSelectRemove').unbind( 'click', EditableSelect_editableSelect.removeOption );
+			jQuery( '.editableSelectRemove' ).click(
+				Unit_manageUnits.removeTeam
+			);
+		}
 		
 	}
 	
@@ -308,7 +345,7 @@ function manageUnits(){
 		
 		//Get the controller name so that we're creating the right type 
 		//of new record
-		var teamUID = jQuery( '.editableSelect[modelname="Team"]' ).val();
+		var teamUID = jQuery( 'select.editableSelect[modelname="Team"]' ).val();
 		
 		//Make the necessary call
 		jQuery.getJSON(
@@ -370,7 +407,7 @@ function manageUnits(){
 	this.refundUnitPool = function(){
 		
 		//We refund for each element
-		jQuery( 'div.teamUnits > td[fieldname="count"]' ).each( function(){
+		jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="count"]' ).each( function(){
 			
 			//Get the count and unit type UID
 			var teamCount	= jQuery(this).attr("value");
@@ -380,18 +417,54 @@ function manageUnits(){
 			var poolCount	= jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value");
 			
 			//Calculate and set the new pool count
-			var refundedCount	= poolCount + teamCount;
+			var refundedCount	= parseInt(poolCount) + parseInt(teamCount);
 			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value", refundedCount);
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).html(refundedCount);
-			
+			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).html(refundedCount);			
 			
 		});
+		
+		//Now with everything refunded we remove the table rows
+		jQuery( 'div.teamUnits > table > tbody > tr[modelName="Unit"]' ).remove();
+		
+	}
+	
+	//PUBLIC FUNCTION: removeTeam
+	//Remove the team from the database
+	this.removeTeam = function( triggeredEvent ){
+		
+		//Grab the team UID
+		var teamUID 	= jQuery( '.editableSelect[modelname="Team"]' ).val();
+		
+		//Remove the team from the select
+		EditableSelect_editableSelect.removeOption( triggeredEvent );
+		Unit_manageUnits.loadTeamUnits();
+		
+		//Make the call
+		jQuery.getJSON(
+			homeURL + '/Teams/remove/',
+			{
+				uid:teamUID
+			},
+			function( jSONData ){
+			}
+		).done(
+			function(data){
+			}
+		).fail(
+			function(data){
+			}
+		).always(
+			function(data){
+			}
+		);
 		
 	}
 	
 	//PUBLIC FUNCTION: removeUnitFromTeam
 	//Remove the unit from the selected team
-	this.removeUnitFromTeam = function( unitElement ){
+	this.removeUnitFromTeam = function( triggeredEvent ){
+	
+		var unitElement = triggeredEvent.target;
 	
 		//Grab the unit type UID and the team UID so we can make a call to the servers
 		var unitTypeUID = jQuery( unitElement ).attr('uid');
