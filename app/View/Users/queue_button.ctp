@@ -1,4 +1,7 @@
-<input type="button" class="joinQueueButton" value="Play Now">
+<div class="matchmakingButton">
+	<input type="button" class="joinQueueButton" value="Play Now">
+	<div class="matchmakingTimeWaited"></div>
+</div>
 
 <?php
 
