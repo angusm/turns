@@ -26,7 +26,8 @@ class User extends AppModel {
 	);
 	
 	
-	
+	//PUBLIC FUNCTION: beforeSave
+	//Handle anything that we need to do before saving a user to the database for the first time
 	public function beforeSave($options = array()) {
 		if (isset($this->data[$this->alias]['password'])) {
 			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);

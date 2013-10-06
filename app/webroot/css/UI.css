@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+	body{
+		font-size: 12px;	
+	}
+
+/* Card View */
+	input[type="text"].editableSelect{
+		width: 			180px;
+		margin-left:	-200px;
+		margin-right:	20px;
+		height:			1.1em;
+		border:			0px;
+	}
+	select.editableSelect{
+		width: 200px;
+	}

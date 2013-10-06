@@ -39,6 +39,25 @@ class TeamsController extends AppController {
         }
     }
 	
+	//PUBLIC FUNCTION: changeTeamName
+	//Change the name of the given team
+	public function changeTeamName(){
+	
+		$jsonValues	= $this->params['url'];
+		$teamName	= $jsonValues['teamName'];
+		$teamUID	= $jsonValues['teamUID'];
+	
+		//Change the name of the given team
+		$success = $this->Team->changeName( $teamUID, $teamName );
+					
+		//Set it on
+		$this->set( 'success', $success );
+		$this->set( '_serialize', array(
+						'success'
+					));
+						
+	}
+	
 	//PUBLIC FUNCTION: getUnitsInTeam
 	//Return all the units in a given team
 	public function getUnitsInTeam( $teamUID ){

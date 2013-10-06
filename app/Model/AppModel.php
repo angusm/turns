@@ -81,6 +81,7 @@ class AppModel extends Model {
 			}
 		}
 		
+		//Finalize the model data
 		$modelData = array(
 			$modelName => $modelFields
 		);

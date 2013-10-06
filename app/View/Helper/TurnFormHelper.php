@@ -71,6 +71,114 @@ class TurnFormHelper extends AppHelper {
 		
 	}
 	
+	//PUBLIC FUNCTION: editableModelSelect
+	//OPTIONAL PARAMETERS:
+	//	displayField => 		The field name of the model whose value should be shown to the user
+	//	extraAttributes =>		Array of extra attributes to be attached to the select
+	//	includeSaveButton =>	Boolean indicating whether or not a save button should be shown
+	//Create a standard model select with an overlayed textbox input so that it can be edited
+	public function editableModelSelect( $modelArray, $optionalParameters=array() ){
+	
+	
+		//Assign and then, if necessary replace default optionals
+		$displayField		= 'name';
+		$extraAttributes 	= array();
+		$includeSaveButton	= false;
+		$includeNewButton	= false;
+		
+		if( isset( $optionalParameters['displayField'] ) ){
+			$displayField = $optionalParameters['displayField'];
+		}
+		if( isset( $optionalParameters['extraAttributes'] ) ){
+			$extraAttributes = $optionalParameters['extraAttributes'];
+		}
+		if( isset( $optionalParameters['includeSaveButton'] ) ){
+			$includeSaveButton = $optionalParameters['includeSaveButton'];
+		}
+		if( isset( $optionalParameters['includeNewButton'] ) ){
+			$includeNewButton = $optionalParameters['includeNewButton'];
+		}
+		
+		///First things first, we check to see if the modelArray
+		//we were given is in fact an array. If not we assume that
+		//it's a model name and carry on about our business
+		if( ! is_array( $modelArray ) ){
+			$modelName 			= $modelArray;
+			$usableModel 		= ClassRegistry::init( $modelName );
+			$modelArray 		= $usableModel->getManagementList();
+			
+		//Do a quick check to see if we have nothing to display, if we got nothing
+		//then setup a blank
+		}else if( count( $modelArray ) == 0 ){
+			
+			$modelName = 'Unknown';
+			
+		}else{
+			//First we reset our array, just in case something weird happened to it
+			reset( $modelArray[0] );
+			
+			//Now when we grab the first key of this array it'll give us the model we're working with
+			$modelName 			= key( $modelArray[0] );
+		}
+		
+		//Create a new DateTime instance so we can get a unique ID for the editable select
+		$dateTimeInstance = new DateTime();
+		
+		//We set the class to an editableModelSelect and add an editableModelSelect attribute
+		$baseAttributes = array(
+							'class' 			=> 'editableSelect',
+							'editableSelect'	=> $dateTimeInstance->getTimeStamp()
+						);
+						
+		
+		//Merge in any extra attributes we have to work with
+		$attributes = array_merge( $baseAttributes, $extraAttributes );
+		
+		
+		//Setup the return string
+		$returnString = '';
+		
+		//Add a regular model select
+		$returnString .= $this->modelSelect( $modelArray, $displayField, $attributes );
+		
+		//Setup a text box to add alongside
+		$returnString .= $this->fieldInputTextBox( $modelName, $displayField, $attributes );
+		
+		//Include a save button if requested
+		if( $includeSaveButton ){
+		
+			$returnString .= $this->saveRecordButton( 
+													  $modelName, 
+													  array_merge(
+														  $baseAttributes,
+														  array(
+															'class' => 'editableSelectSave'
+														  )
+													  )
+												  );	
+			
+		}
+		
+		//Add a new record button if requested
+		if( $includeNewButton ){
+			
+			$returnString .= $this->newRecordButton(
+													$modelName,
+													array_merge(
+														$baseAttributes,
+														array(
+															'class' => 'editableSelectNew'
+														)
+													)
+												);
+												
+		}
+		
+		return $returnString;
+		
+		
+	}
+	
 	//PUBLIC FUNCTION: fieldInput
 	//Creates a labeled field for inputting data for a table row
 	public function fieldInput( $modelName, $fieldName ){
@@ -112,22 +220,28 @@ class TurnFormHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: fieldInputTextbox
 	//Return a nice label for the field
-	public function fieldInputTextbox( $modelName, $fieldName ){
+	public function fieldInputTextbox( $modelName, $fieldName, $extraAttributes=array() ){
 		
 		//Get some nice human type names for things	
 		$humanFieldName = Inflector::humanize( $fieldName );
 		$humanModelName = Inflector::humanize( $modelName );
 		
+		//Setup the attributes array
+		$attributes = array(
+							'type'		=> 'text',
+							'class'		=> 'setupFormInputBox',
+							'name'		=> $humanModelName . ' . ' . $humanFieldName,
+							'modelName'	=> $modelName,
+							'fieldName'	=> $fieldName
+						);
+		
+		//Merge in any extra attributes we have to work with
+		$attributes = array_merge( $attributes, $extraAttributes );
+		
 		return $this->Html->tag( 
 								  'input',
 								  '',
-								  array(
-									  'type'		=> 'text',
-									  'class'		=> 'setupFormInputBox',
-									  'name'		=> $humanModelName . ' . ' . $humanFieldName,
-									  'modelName'	=> $modelName,
-									  'fieldName'	=> $fieldName
-								  )
+								  $attributes
 							  );
 		
 	}
@@ -261,18 +375,28 @@ class TurnFormHelper extends AppHelper {
 		//we were given is in fact an array. If not we assume that
 		//it's a model name and carry on about our business
 		if( ! is_array( $modelArray ) ){
+			
 			$modelName 			= $modelArray;
-			$controllerName 	= Inflector::pluralize( $modelName );
 			$usableModel 		= ClassRegistry::init( $modelName );
 			$modelArray 		= $usableModel->getManagementList();
+			
+		//Do a quick check to see if we have nothing to display, if we got nothing
+		//then setup a blank
+		}else if( count( $modelArray ) == 0 ){
+			
+			$modelName = 'Unknown';
+			
 		}else{
+			
 			//First we reset our array, just in case something weird happened to it
 			reset( $modelArray[0] );
 			
 			//Now when we grab the first key of this array it'll give us the model we're working with
 			$modelName 			= key( $modelArray[0] );
-			$controllerName 	= Inflector::pluralize( $modelName );
 		}
+		
+		//Grab the controller name		
+		$controllerName 	= Inflector::pluralize( $modelName );
 		
 		//Setup whatever containers we'll be needing.
 		$attributes		= array();
@@ -336,22 +460,27 @@ class TurnFormHelper extends AppHelper {
 	//The model name can be provided with spaces, so that if for
 	//instance we were to create a newRecord button for UnitType
 	//We could safely provide the model name as "Unit Type"
-	public function newRecordButton( $modelName ){
+	public function newRecordButton( $modelName, $extraAttributes=array() ){
 	
 		//Get the internal name, i.e. strip out the spaces
 		$internalModelName 	= str_replace(' ', '', $modelName);
 		$controllerName		= Inflector::pluralize( $internalModelName );
 	
-		//Return the properly formatted tag
-		return $this->Html->tag(	
-							'input',
-							'',
-							array(
+		$baseAttributes = array(
 								'type'				=> 	'button',
 								'class'				=> 	'addNewRecord',
 								'controllerName'	=>	$controllerName,
 								'modelName'			=>	$internalModelName,
 								'value'				=> 	'New '.$modelName
+							);
+	
+		//Return the properly formatted tag
+		return $this->Html->tag(	
+							'input',
+							'',
+							array_merge(
+								$baseAttributes,
+								$extraAttributes
 							)
 						);
 		
@@ -360,23 +489,29 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: saveRecordButton
 	//A button designed for saving records, just feed it
 	//a model name same as you would for a newRecordButton
-	public function saveRecordButton( $modelName ){
+	public function saveRecordButton( $modelName, $extraAttributes=array() ){
 	
 		//Get the internal name, i.e. strip out the spaces
 		$internalModelName 	= str_replace(' ', '', $modelName);
 		$controllerName		= Inflector::pluralize( $internalModelName );
 	
+		//Add the attributes
+		$attributes = array(
+							'type'			=> 	'button',
+							'class'			=> 	'saveRecord',
+							'controllerName'	=> 	$controllerName,
+							'modelName'		=>	$internalModelName,
+							'value'			=> 	'Save '.$modelName
+						);
+							
+		//Add any extra requeseted attributes
+		$attributes = array_merge( $attributes, $extraAttributes );
+	
 		//Return the properly formatted tag
 		return $this->Html->tag(	
 							'input',
 							'',
-							array(
-								'type'			=> 	'button',
-								'class'			=> 	'saveRecord',
-								'controllerName'	=> 	$controllerName,
-								'modelName'		=>	$internalModelName,
-								'value'			=> 	'Save '.$modelName
-							)
+							$attributes
 						);	
 		
 	}

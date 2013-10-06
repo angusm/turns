@@ -35,7 +35,7 @@ function manageUnits(){
 	
 		//Grab the unit type UID and the team UID so we can make a call to the servers
 		var unitTypeUID = jQuery( unitElement ).attr('uid');
-		var teamUID 	= jQuery( '.modelRecordSelect[modelname="Team"]' ).val();
+		var teamUID 	= jQuery( '.editableSelect[modelname="Team"]' ).val();
 		
 		//Make the necessary call
 		jQuery.getJSON(
@@ -176,10 +176,28 @@ function manageUnits(){
 		
 	}
 	
+	//PUBLIC FUCNTION: handleChangeTeamName
+	//Save team name changes to the database
+	this.handleChangeTeamName = function(){
+		
+		//Add a handler to the <input>s
+		jQuery( 'input[modelName="Team"][type="button"].editableSelectSave' ).each( function(){
+			
+			if( ! jQuery(this).isBound( 'click', Unit_manageUnits.saveTeamName ) ){
+				jQuery(this).click(
+					Unit_manageUnits.saveTeamName
+				);
+			}
+			
+		});
+				
+	}
+	
 	//PUBLIC FUNCTION: handleEverything
 	//The Pepper Potts function, in that it will just handle everything
 	this.handleEverything = function(){
 		Unit_manageUnits.handleAddToTeamButton();
+		Unit_manageUnits.handleChangeTeamName();
 		Unit_manageUnits.loadTeamUnits();
 	}
 	
@@ -203,7 +221,7 @@ function manageUnits(){
 		
 		//Get the controller name so that we're creating the right type 
 		//of new record
-		var teamUID = jQuery( '.modelRecordSelect[modelname="Team"]' ).val();
+		var teamUID = jQuery( '.editableSelect[modelname="Team"]' ).val();
 		
 		//Make the necessary call
 		jQuery.getJSON(
@@ -290,7 +308,7 @@ function manageUnits(){
 	
 		//Grab the unit type UID and the team UID so we can make a call to the servers
 		var unitTypeUID = jQuery( unitElement ).attr('uid');
-		var teamUID 	= jQuery( '.modelRecordSelect[modelname="Team"]' ).val();
+		var teamUID 	= jQuery( '.editableSelect[modelname="Team"]' ).val();
 		
 		//Make the necessary call
 		jQuery.getJSON(
@@ -313,6 +331,46 @@ function manageUnits(){
 			}
 		);
 			
+	}
+	
+	//PUBLIC FUNCTION: saveTeamName
+	//Save the team name to the database
+	this.saveTeamName = function( triggeredEvent ){
+		
+		//Get the button that was clicked
+		var element = triggeredEvent.target;
+		
+		//Grab the editableSelect value
+		var editableSelectUID = jQuery( element ).attr( 'editableSelect' );
+		
+		//Now grab the value stored in the corresponding text box
+		var typedText 	= jQuery( 'input[type="text"][editableSelect="' + editableSelectUID + '"].editableSelect' ).val();
+		
+		//We'll also need to grab the team UID
+		var teamUID		= jQuery( 'select[editableSelect="' + editableSelectUID + '"].editableSelect > option:selected' ).attr( 'uid' );
+		
+		//Make the necessary call
+		jQuery.getJSON(
+			homeURL + '/Teams/changeTeamName/', 
+			{
+				teamUID:	teamUID,
+				teamName:	typedText
+			},
+			function( jSONData ){
+				//Do nothing
+			}
+		).done( 
+			function(){
+			}
+		).fail( 
+			function(data){
+			}
+		).always(
+			function(){
+			}
+		);
+		
+		
 	}
 	
 }

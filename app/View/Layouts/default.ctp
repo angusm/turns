@@ -32,6 +32,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 		echo $this->Html->css('reset');
 		echo $this->Html->css('setupForms');
+		echo $this->Html->css('UI');
 		echo $this->Html->css('turns');
 
 		echo $this->fetch('meta');
@@ -44,11 +45,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>
+        <div id="mainMenu">
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
+
 		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(

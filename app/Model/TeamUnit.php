@@ -82,10 +82,15 @@ class TeamUnit extends AppModel {
 			//If there is no record create it
 			if( $exists == false ){
 			
+				$modelData = array(
+								'teams_uid' => $teamUID,
+								'units_uid' => $unitUID
+								);
+			
 				$this->create();
-				$this->set( 'teams_uid', $teamUID );
-				$this->set( 'units_uid', $unitUID );
-				return $this->save();
+//				$this->set( 'teams_uid', $teamUID );
+	//			$this->set( 'units_uid', $unitUID );
+				return $this->save($modelData);
 			
 			}else{
 				

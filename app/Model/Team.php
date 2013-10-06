@@ -1,5 +1,13 @@
 <?php
 class Team extends AppModel {
+	
+	//Setup the association for this class
+	public $belongsTo = array(
+							'User' => array(
+								'className' 	=> 'User',
+								'foreignKey'	=> 'users_uid'
+							)
+						);
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -21,9 +29,17 @@ class Team extends AppModel {
 					),
 					$this->validate
 				);
-		
-		
 
+	}
+	
+	//PUBLIC FUNCTION: changeName
+	//Change the name of the given team
+	public function changeName( $uid, $nuName ){
+	
+		$this->read( null, $uid );
+		$this->set( 'name', $nuName );
+		return $this->save();	
+		
 	}
 	
 	//PUBLIC FUNCTION: getTeamsByUserUID

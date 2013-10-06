@@ -27,7 +27,13 @@
 	
 	echo '</div>';
 	
-	echo $this->TurnForm->modelSelect( $teamList );
+	echo $this->TurnForm->editableModelSelect( 
+												$teamList, 
+												array(
+													'includeNewButton' 	=> true,
+													'includeSaveButton' => true
+												)
+											);
 	
 	echo '<div class="teamUnits">';
 	

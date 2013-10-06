@@ -162,10 +162,11 @@ class AppController extends Controller {
 		
 		//Get an instance of the model name we can work with
 		$modelInstance	= ClassRegistry::init( $modelName );
+		
 		//Create a new record in the database for that model
 		$nuUID = $modelInstance->createNewRecord();
 	
-	
+		//Set the variables
 		$this->set( 'modelName', 	$modelName );
 		$this->set( 'name', 		'Default' );
 		$this->set( 'uid', 			$nuUID );
