@@ -39,6 +39,27 @@ class TeamsController extends AppController {
         }
     }
 	
+	//PUBLIC FUNCTION: addNewTeam
+	//Add a new team
+	public function addNewTeam(){
+	
+		//Grab the UID of the logged in user
+		$userUID = $this->Auth->user('uid');
+		
+		//Create a new record in the database for that model
+		$teamData = $this->Team->setupDefaultTeam( $userUID );
+	
+		//Set the variables
+		$this->set( 'teamData',		$teamData );
+		$this->set( 
+			'_serialize', 
+			array( 
+				'teamData'
+			) 
+		);
+		
+	}
+	
 	//PUBLIC FUNCTION: changeTeamName
 	//Change the name of the given team
 	public function changeTeamName(){
@@ -79,5 +100,7 @@ class TeamsController extends AppController {
 		);
 		
 	}
+	
+	
 	
 }

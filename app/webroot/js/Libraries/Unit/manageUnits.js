@@ -6,6 +6,41 @@ Unit_manageUnits.handleEverything();
 //Setup the object for managing units
 function manageUnits(){
 	
+	//PUBLIC FUNCTION: addNewTeam
+	//Allow the user to add a new team to their account
+	this.addNewTeam = function( triggeringEvent ){
+	
+		alert( 'howdy bob' );
+	
+		//Get the targeted element
+		var element = triggeringEvent.target;	
+		
+		//Get the editableSelect value
+		var editableSelectUID = jQuery( element ).attr( 'editableSelect' );
+		
+		//Run the JSON to create the new team
+		
+		//Make the necessary call
+		jQuery.getJSON(
+			homeURL + '/Teams/addNewTeam/', 
+			{
+			},
+			function( jSONData ){
+				Unit_manageUnits.finalizeTeamAdd( jSONData );
+			}
+		).done( 
+			function(){
+			}
+		).fail( 
+			function(data){
+			}
+		).always(
+			function(){
+			}
+		);
+		
+	}
+	
 	//PUBLIC FUNCTION: addTeamRowForUnitTypeUID
 	//Add a row to the team table for the given UnitTypeUID
 	this.addTeamRowForUnitTypeUID = function( unitTypeUID ){
@@ -82,6 +117,37 @@ function manageUnits(){
 						
 		});
 			
+	}
+	
+	//PUBLIC FUNCTION: finalizeTeamAdd
+	//Handle the callback function after we've added the team to the database
+	//So that we can show this addition to the user
+	this.finalizeTeamAdd = function( jSONData ){
+		
+		//Make sure we're not dealing with an unsuccessful add
+		if( jSONData['teamData'] != false ){
+			
+			//Grab the team data
+			var teamData = jSONData['teamData']['Team'];
+					
+			//Create the new option
+			jQuery( 'select[modelName="Team"].editableSelect' ).append(
+				'<option ' +
+					'uid="'			+ teamData['uid'] 		+ '" ' +
+					'name="'		+ teamData['name'] 		+ '" ' +
+					'users_uid="'	+ teamData['users_uid'] + '" ' +
+					'value="' 		+ teamData['uid'] 		+ '"'  +
+					'>' + teamData['name'] + '</option>'
+			);
+		
+			//Select the new option
+			jQuery( 'select[modelName="Team"].editableSelect' ).val( teamData['uid'] );
+		
+			//Adjust the text box
+			EditableSelect_editableSelect.adjustTextBoxToSelect( jQuery( 'select[modelName="Team"].editableSelect' ) );
+		
+		}
+		
 	}
 	
 	//PUBLIC FUNCTION: finalizeUnitAdd
@@ -196,9 +262,30 @@ function manageUnits(){
 	//PUBLIC FUNCTION: handleEverything
 	//The Pepper Potts function, in that it will just handle everything
 	this.handleEverything = function(){
+		Unit_manageUnits.handleNewTeamButton();
 		Unit_manageUnits.handleAddToTeamButton();
 		Unit_manageUnits.handleChangeTeamName();
 		Unit_manageUnits.loadTeamUnits();
+	}
+	
+	//PUBLIC FUNCTION: handleNewTeamButton
+	//Handle the button that allows the user to create a new team
+	this.handleNewTeamButton = function(){
+		
+		//Remove the default handler
+		jQuery( 'input[modelName="Team"][type="button"].editableSelectNew' ).unbind( 'click' );
+		
+		//Add our sick new handler
+		jQuery( 'input[modelName="Team"][type="button"].editableSelectNew' ).each( function(){
+			
+			if( ! jQuery(this).isBound( 'click', Unit_manageUnits.addNewTeam ) ){
+				jQuery(this).click(
+					Unit_manageUnits.addNewTeam
+				);
+			}
+			
+		});
+		
 	}
 	
 	//PUBLIC FUNCTION: handleRemoveFromTeamButton

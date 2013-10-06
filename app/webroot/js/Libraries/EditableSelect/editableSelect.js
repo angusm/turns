@@ -9,6 +9,34 @@ EditableSelect_editableSelect.handleEverything();
 //Setup the object for handling this jurry rigged editable select box
 function editableSelect(){
 	
+	//PUBLIC FUNCTION: addNewOption
+	//Add a new option
+	this.addNewOption = function( triggeringEvent ){
+	
+		alert( 'woah' );
+	
+		//Get the targeted element
+		var element = triggeringEvent.target;	
+		
+		//Get the editableSelect value
+		var editableSelectUID = jQuery( element ).attr( 'editableSelect' );
+		
+		//Create a value to assign to the new option
+		var newOptionValue = 'newOption_' + jQuery.now();
+		
+		//Create the new option
+		jQuery( 'select[editableSelect="' + editableSelectUID + '"].editableSelect' ).append(
+			'<option value="' + newOptionValue + '">New Option</option>'
+		);
+		
+		//Select the new option
+		jQuery( 'select[editableSelect="' + editableSelectUID + '"].editableSelect' ).val( newOptionValue );
+		
+		//Adjust the text box
+		EditableSelect_editableSelect.adjustTextBoxToSelect( element );
+		
+	}
+	
 	//PUBLIC FUNCTION: adjustSelectToTextBox
 	//Change the option's text to match what has been typed in the select box
 	this.adjustSelectToTextBox = function( triggeringEvent ){
@@ -52,8 +80,26 @@ function editableSelect(){
 	//PUBLIC FUNCTION: handleEverything
 	//The Pepper Potts function, in that it will just handle everything
 	this.handleEverything = function(){
+		EditableSelect_editableSelect.handleNewButton();
 		EditableSelect_editableSelect.handleSaveButton();
 		EditableSelect_editableSelect.handleSelectChange();
+	}
+	
+	//PUBLIC FUNCTION: handleNewButton
+	//Setup the handlers for when the user wants to add a new record to the select
+	this.handleNewButton = function(){
+		
+		//Add the handler
+		jQuery( 'input[type="button"].editableSelectNew' ).each( function(){
+			
+			if( ! jQuery(this).isBound( 'click', EditableSelect_editableSelect.addNewOption ) ){
+				jQuery(this).click(
+					EditableSelect_editableSelect.addNewOption
+				);
+			}
+			
+		});
+		
 	}
 	
 	//PUBLIC FUCNTION: handleSaveButton

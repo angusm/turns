@@ -65,7 +65,7 @@ class Team extends AppModel {
 		$this->create();
 		$this->set( 'name', 'Default' );
 		$this->set( 'users_uid', $userUID );
-		$this->save();
+		return $this->save();
 		
 	}
 	

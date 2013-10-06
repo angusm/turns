@@ -21,39 +21,6 @@ class Game extends AppModel {
 				);		
 
 	}
-		
-	//PUBLIC FUNCTION: getActiveGames
-	//Grab all of the active games that a user may be involved in
-	public function getGamesForUser( $userUID ){
-	
-		//Run a find to get the user and all of their associated games
-		$games = $this->find( 'all', array(
-								'conditions' => array(
-									'Game.active' => 1
-								),
-								'contain' => array(
-									'GameUnit' => array(
-										'conditions' => array(
-											'GameUnit.turn' => 'Game.turn'
-										),
-										'TeamUnit' => array(
-											'Team' => array(
-												'User' => array(
-												  	'conditions' => array(
-														'User.uid' => $userUID
-													)
-												)
-											)
-										)
-									)
-								)
-							));
-							
-		//Return the games we found	
-		return $games;
-		
-		
-	}
 	
 }
 

@@ -17,13 +17,14 @@ var jsLibraryDirectory = pathname + '/js/Libraries/';
 //When the document is fully ready, call the main function
 jQuery(document).ready( function(){
 
+
+	//Add anything we always want to load
+	libraries = addStandardLibraries( libraries );
+	
 	//See if the view has defined a list of libraries, if so, get it
 	if( typeof( getLibrariesToLoad ) == "function" ){
 		getLibrariesToLoad();
 	}
-
-	//Add anything we always want to load
-	libraries = addStandardLibraries( libraries );
 
 	//One by one load all the necessary libraries
 	loadLibraries();
