@@ -88,8 +88,6 @@ class TeamUnit extends AppModel {
 								);
 			
 				$this->create();
-//				$this->set( 'teams_uid', $teamUID );
-	//			$this->set( 'units_uid', $unitUID );
 				return $this->save($modelData);
 			
 			}else{
@@ -97,6 +95,28 @@ class TeamUnit extends AppModel {
 				return false;
 				
 			}
+			
+		}
+		
+		//PUBLIC FUNCTION: getAllUnits
+		//Grab all of the the units on a given team
+		public function getAllUnits( $teamUID ){
+		
+			//Do the find...
+			$unitsOnTeam = $this->find( 'all', array(
+										'conditions' => array(
+											'teams_uid' => $teamUID
+										),
+										'contain' => array(
+											'Unit' => array(
+												'UnitType' => array(
+													'UnitStat'
+												)
+											)
+										)
+									));
+									
+			return $unitsOnTeam;
 			
 		}
 		

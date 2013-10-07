@@ -66,7 +66,16 @@ class UsersController extends AppController {
 	//Just a simple page with a button to launch the user into the queue
 	public function queueButton(){
 	
-		//Do Nothing
+		//Grab the user's UID from the Auth component
+		$userUID = $this->Auth->user('uid');
+	
+		//Get all of the teams associated with the user so that they can pick one before
+		//joining the queue.
+		$teamsModelInstance = ClassRegistry::init( 'Team' );
+		$teams = $teamsModelInstance->getTeamsByUserUID( $userUID );		
+		
+		//Set all the variables for the view
+		$this->set( 'teams', $teams );
 		
 	}
 	

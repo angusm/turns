@@ -46,7 +46,24 @@ class UserGame extends AppModel {
 							
 		//Return the games we found	
 		return $games;
+	
+	}
+	
+	//PUBLIC FUNCTION: newGame
+	//Create a new record, so that, y'know, players can play
+	public function newGame( $userUID, $gameUID ){
+	
+		//Setup the model data for this new game
+		$newGameData = array(
+						'users_uid'	=> $userUID,
+						'games_uid' => $gameUID
+					);
+					
+		//Create a new record for the game
+		$this->create();
 		
+		//Save all this luscious new data
+		return $this->save( $newGameData );
 		
 	}
 	

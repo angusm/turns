@@ -12822,3 +12822,575 @@ Request URL: /turns/js/jquery.min.map
 Stack Trace:
 #0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-10-07 06:29:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:29:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:29:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:29:27 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:29:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:33:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:33:55 Error: [MissingTableException] Table matchmaking_queues for model MatchmakingQueue was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'matchmaking_queues',
+  'class' => 'MatchmakingQueue',
+  'ds' => 'default',
+)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('matchmaking_que...')
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(39): Model->find('first', Array)
+#3 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#4 [internal function]: MatchmakingQueuesController->joinQueue()
+#5 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#6 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#8 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-10-07 06:36:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:37:00 Error: [MissingTableException] Table matchmaking_queues for model MatchmakingQueue was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'matchmaking_queues',
+  'class' => 'MatchmakingQueue',
+  'ds' => 'default',
+)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('matchmaking_que...')
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(39): Model->find('first', Array)
+#3 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#4 [internal function]: MatchmakingQueuesController->joinQueue()
+#5 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#6 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#8 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-10-07 06:38:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:38:07 Error: [MissingViewException] View file "E:\xampp\htdocs\turns\app\View\MatchmakingQueues\json\join_queue.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'E:\\xampp\\htdocs\\turns\\app\\View\\MatchmakingQueues\\json\\join_queue.ctp',
+)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\View\JsonView.php(88): View->_getViewFileName(NULL)
+#1 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): JsonView->render(NULL, NULL)
+#2 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-07 06:39:58 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:40:00 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(MatchmakingQueue), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(94): Model->save(Array)
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(43): MatchmakingQueue->placeInQueue('1', '1')
+#6 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#7 [internal function]: MatchmakingQueuesController->joinQueue()
+#8 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#9 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-10-07 06:49:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:49:09 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:49:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 06:57:02 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:28:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:28:29 Error: [MissingControllerException] Controller class TurnsController could not be found.
+Exception Attributes: array (
+  'class' => 'TurnsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/turns/posts
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:28:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:28:37 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:28:48 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:29:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:29:03 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'games_uid' cannot be null
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=3
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(UserGame), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\UserGame.php(66): Model->save(Array)
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(68): UserGame->newGame('1', NULL)
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(48): MatchmakingQueue->createGame('1', '1', '41', '3')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('41', '3')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-07 07:32:13 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:32:24 Error: [MissingControllerException] Controller class TurnsController could not be found.
+Exception Attributes: array (
+  'class' => 'TurnsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/turns/posts
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:32:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:32:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:32:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:32:39 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:33:20 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'field list'
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(UserGame), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\UserGame.php(66): Model->save(Array)
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(68): UserGame->newGame('41', Array)
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(48): MatchmakingQueue->createGame('41', '3', '1', '1')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-07 07:35:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:35:29 Error: [MissingControllerException] Controller class TurnsController could not be found.
+Exception Attributes: array (
+  'class' => 'TurnsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/turns/posts
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:35:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:35:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:35:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'games_uid' cannot be null
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=3
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(UserGame), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\UserGame.php(66): Model->save(Array)
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(68): UserGame->newGame('1', NULL)
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(48): MatchmakingQueue->createGame('1', '1', '41', '3')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('41', '3')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-07 07:36:15 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:36:20 Error: [MissingControllerException] Controller class TurnsController could not be found.
+Exception Attributes: array (
+  'class' => 'TurnsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/turns/posts
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:36:20 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:36:25 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:36:27 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_games_uid' cannot be null
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(GameUnit), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\GameUnit.php(52): Model->save(Array)
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(73): GameUnit->addToGameFromTeam(NULL, '3')
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(48): MatchmakingQueue->createGame('41', '3', '1', '1')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-07 07:39:22 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:39:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:39:35 Error: [MissingControllerException] Controller class TurnsController could not be found.
+Exception Attributes: array (
+  'class' => 'TurnsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/turns/posts
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:39:35 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:39:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:39:43 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_games_uid' cannot be null
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=3
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(GameUnit), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\GameUnit.php(52): Model->save(Array)
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(73): GameUnit->addToGameFromTeam(NULL, '1')
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(48): MatchmakingQueue->createGame('1', '1', '41', '3')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('41', '3')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-07 07:41:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:41:41 Error: [MissingControllerException] Controller class TurnsController could not be found.
+Exception Attributes: array (
+  'class' => 'TurnsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/turns/posts
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:41:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:42:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:42:02 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:42:03 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:42:08 Error: [MissingControllerException] Controller class TurnsController could not be found.
+Exception Attributes: array (
+  'class' => 'TurnsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/turns/posts
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:42:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-07 07:42:13 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

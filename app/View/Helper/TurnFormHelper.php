@@ -201,6 +201,7 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: fieldInput
 	//Creates a labeled field for inputting data for a table row
 	public function fieldInput( $modelName, $fieldName ){
+		
 		//Initialize the return string
 		$returnString = '';
 		

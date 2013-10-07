@@ -1,4 +1,17 @@
 <div class="matchmakingButton">
+
+	<?php
+	
+		echo $this->TurnForm->modelSelect( 
+										$teams,
+										'name',
+										array(
+											'class' => 'queueTeamSelect'
+										)
+									);
+	
+	?>
+
 	<input type="button" class="joinQueueButton" value="Play Now">
 	<div class="matchmakingTimeWaited"></div>
 </div>

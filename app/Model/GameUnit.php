@@ -26,5 +26,35 @@ class GameUnit extends AppModel {
 
 	}
 	
+	//PUBLIC FUNCTION: addToGameFromTeam
+	//Take all the units in a given team and add them to a game
+	public function addToGameFromTeam( $gameUID, $teamUID ){
+	
+		//Grab the team's units
+		$teamUnitModelInstance = ClassRegistry::init( 'TeamUnit' );
+		$teamUnits = $teamUnitModelInstance->getAllUnits( $teamUID );
+		
+		//Loop through all the units
+		foreach( $teamUnits as $teamUnit ){
+		
+			//Setup the data
+			$gameUnitData = array(
+									'user_games_uid' 	=> $gameUID,
+									'units_uid'			=> $teamUnit['TeamUnit']['units_uid'],
+									'turn'				=> 1,
+									'x'					=> -1,
+									'y'					=> -1,
+									'defense'			=> $teamUnit['Unit']['UnitType']['UnitStat']['defense']
+								);
+								
+			//Create a new record for the unit and save it
+			$this->create();
+			$this->save( $gameUnitData );
+											
+		}
+			
+		
+	}
+	
 }
 
