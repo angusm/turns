@@ -19,7 +19,7 @@ function gameplay(){
 		jQuery( element ).css({
 			"position"	: "absolute", 
 			"top"		: nuX + "px",
-			"left"		: nuY + "px",
+			"left"		: nuY + "px"
 		});
 		
 	}
