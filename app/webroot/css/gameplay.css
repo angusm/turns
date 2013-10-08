@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+	div.gameBoard > div.gameTile{
+		height: 50px;
+		width: 	50px;
+	}
+	
+	div.gameBoard > div.gameTile[light="0"]{
+		background-color: #AAA;
+	}
+	
+	div.gameBoard > div.gameTile[light="1"]{
+		background-color: #DDD;
+	}

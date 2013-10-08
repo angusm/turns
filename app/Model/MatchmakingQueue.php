@@ -72,7 +72,7 @@ class MatchmakingQueue extends AppModel {
 		$gameUnitModelInstance = ClassRegistry::init( 'GameUnit' );
 		$gameUnitModelInstance->addToGameFromTeam( $defenderNuGame['UserGame']['uid'], 		$defenderTeamUID );
 		$gameUnitModelInstance->addToGameFromTeam( $challengerNuGame['UserGame']['uid'], 	$challengerTeamUID );
-		
+				
 		//And just like that we've got a game. Boo yah.		
 		
 	}

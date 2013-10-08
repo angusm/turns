@@ -3,13 +3,13 @@ class GameUnit extends AppModel {
 
 	//Setup the associations for this model
 	public $belongsTo = array(
-						'Game' => array(
-							'className' 	=> 'Game',
-							'foreignKey'	=> 'games_uid'
+						'UserGame' => array(
+							'className' 	=> 'UserGame',
+							'foreignKey'	=> 'user_games_uid'
 						),
-						'TeamUnit' => array(
-							'className' 	=> 'TeamUnit',
-							'foreignKey'	=> 'team_units_uid'
+						'Unit' => array(
+							'className' 	=> 'Unit',
+							'foreignKey'	=> 'units_uid'
 						)
 					);
 

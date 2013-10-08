@@ -26,8 +26,11 @@ class UserGamesController extends AppController {
 		//Grab the games
 		$games = $this->UserGame->getGamesForUser( $userUID );
 		
-		print_r( $games );
-		
+		//Set the games to the view
+		$this->set( 'games', $games );
+		$this->set( '_serialize', array(
+						'games'
+					));
 		
 	}
 	
