@@ -1,4 +1,5 @@
 //PEPPER POTTS FUNCTION: handleEverything
+//Why Pepper Potts? Cause she's awesome.
 
 var TurnForm_manage = new manage();
 TurnForm_manage.handleEverything();
