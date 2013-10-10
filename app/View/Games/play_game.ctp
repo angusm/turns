@@ -1,7 +1,5 @@
 <?php
 
-	echo $this->Html->css('gameplay');
-
 	//print_r( $gameInformation );
 	echo $this->GamePlay->renderGame( $userUID, $gameInformation );
 	

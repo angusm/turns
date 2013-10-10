@@ -9,6 +9,38 @@ class GamePlayHelper extends AppHelper {
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
   	var $helpers = array('Html');
 	
+	//PUBLIC FUNCTION: gameplayJS
+	//Add the necessary base JS
+	public function gameplayJS(){
+		
+		// JavaScript Document
+		
+		//Create the array for all the units
+		return 'window.playerUnits 	= new Array();'.
+		'window.enemyUnits 	= new Array();'.
+		
+		//Alright let's do this matchmaking stuff
+		'function unit( nuX, nuY, nuName, nuDefense, nuDamage, nuUid, nuMovements ){'.
+			
+			'this.x			= nuX;'.
+			'this.y			= nuY;'.
+			'this.name 		= nuName;'.
+			'this.defense	= nuDefense;'.
+			'this.damage 	= nuDamage;'.
+			'this.uid 		= nuUid;'.
+			'this.movements	= nuMovements;'.
+			
+		'}'.
+		
+		'function movement( nuMustMoveAllTheWay, nuSpaces, nuDirections ){'.
+		
+			'this.directions			= nuDirections;'.
+			'this.mustMoveAllTheWay 	= nuMustMoveAllTheWay;'.
+			'this.spaces				= nuSpaces;'.
+			
+		'}';
+	}
+	
 	//PUBLIC FUNCTION: renderBoard
 	//Render the game board, it'll be beautiful
 	public function renderBoard( $board ){
@@ -48,6 +80,14 @@ class GamePlayHelper extends AppHelper {
 	
 		//Setup the return string
 		$returnString = '';
+											
+		//Add the necessary javascript and CSS for gameplay
+		$returnString .= $this->Html->css('gameplay');
+		$returnString .= $this->Html->tag(
+										'script',
+										$this->gameplayJS()
+									);
+		//$returnString .= $this->Html->script('Game/unit');
 	
 		//Render the board
 		$returnString .= $this->renderBoard( $gameInformation['Board'] );
@@ -95,7 +135,7 @@ class GamePlayHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: renderUnit
 	//Render the unit in HTML
-	public function renderUnit( $attributes ){
+	public function renderUnit( $attributes, $movements, $userUnits ){
 	
 		//Establish the return string
 		$returnString = '';
@@ -108,15 +148,130 @@ class GamePlayHelper extends AppHelper {
 		$divString		= $this->Html->tag(
 								'div',
 								$imageString,
-								array_merge(
-									$attributes,
-									array(
-										'class' => 'gameplayUnit'
-									)
+								array(
+									'class' => 'gameplayUnit',
+									'uid'	=> $attributes['uid']
 								)
 							);
+							
+		//Establish the array we're pushing onto
+		if( $userUnits ){
+			$arrayToPush = 'window.playerUnits';
+		}else{
+			$arrayToPush = 'window.enemyUnits';
+		}
+		
+		//Establish the movement string
+		$movementArrayStrings = '';
+		$phpMovementArrayString = array();
+		
+		//Loop through all the movements
+		foreach( $movements as $movementSet ){
+			
+			//Loop through the direction set movement set movements
+			//Yeah, how's that for confusing and poorly structured
+			foreach( $movementSet['MovementSet']['Movement'] as $movement ){
+						
+				//Establish the variables
+				$directions			= array();
+				$mustMoveAllTheWay 	= $movement['must_move_all_the_way'];
+				$priority			= $movement['priority'];
+				$spaces 			= $movement['spaces'];
+			
+				//Set the must move to true or false
+				if( ! $mustMoveAllTheWay ){
+					$mustMoveAllTheWay = 'false';
+				}else{
+					$mustMoveAllTheWay = 'true';
+				}
+				
+				//Loop through all the directions
+				foreach( $movement['MovementDirectionSet'] as $directionSet ){
+					
+					//Grab the direction
+					foreach( $directionSet['DirectionSet']['DirectionSetDirection'] as $direction ){
+				
+						//Now that we're all the way in here we add to our array
+						$directions[] = array(
+							'x' => $direction['Direction']['x'],
+							'y'	=> $direction['Direction']['y']
+						);
+						
+					}
+					
+				}
+				
+				//Add the movement to the array
+				$phpMovementArrayString[$priority] = array(
+							'directions'		=> $directions,
+							'mustMoveAllTheWay'	=> $mustMoveAllTheWay,	
+							'spaces' 			=> $spaces
+						);
+				
+			}
+			
+		}
+		
+		$firstTimeThroughMovements = true;
+		
+		//Loop through the php movement array 
+		for( $priority = 1; $priority <= count( $phpMovementArrayString ); $priority++ ){
 
-		return $divString;
+			//Add the comma except if it's the first time through
+			if( $firstTimeThroughMovements ){
+				$firstTimeThroughMovements = false;
+			}else{
+				$movementArrayStrings .= ', ';
+			}
+
+			//Add the basics			
+			$movementArrayStrings .= 'new movement( '.$phpMovementArrayString[$priority]['mustMoveAllTheWay'].', '.$phpMovementArrayString[$priority]['spaces'].', new Array( ';
+			
+			//Establish if this is the first element in the array
+			$firstTimeThroughDirections = true;
+			
+			//Add the directions
+			foreach( $phpMovementArrayString[$priority]['directions'] as $directionArray ){
+				
+				//Add the comma except if it's the first time through
+				if( $firstTimeThroughDirections ){
+					$firstTimeThroughDirections = false;
+				}else{
+					$movementArrayStrings .= ', ';
+				}
+				
+				//Add the direction to the movement string as an array
+				$movementArrayStrings .= 'new Array( '.$directionArray['x'].', '.$directionArray['y'].' )';
+				
+			}	
+			
+			//Finish the movement
+			$movementArrayStrings .= ' ) )';	
+				
+		}
+		
+		$movementsString = 'new Array('.
+									$movementArrayStrings .
+								')';
+							
+		//Create the javascript for this unit
+		$javascript 	= $this->Html->tag(
+								'script',
+								$arrayToPush.'.push( new unit( '.
+												$attributes['x'].', '.
+												$attributes['y'].', "'.
+												$attributes['name'].'", '.
+												$attributes['defense'].', '.
+												$attributes['damage'].', '.
+												$attributes['uid'].', '.
+												$movementsString .
+												') );'
+								);
+								
+		//Add the javascript to the display string
+		$returnString = $divString . $javascript;
+
+		return $returnString;
 		
 	}
 	
@@ -154,6 +309,7 @@ class GamePlayHelper extends AppHelper {
 				$attributes = array();
 			
 				//Grab the game specific information
+				$uid			= $gameUnit['uid'];
 				$x 				= $gameUnit['x'];
 				$y 				= $gameUnit['y'];
 				$defense		= $gameUnit['defense'];
@@ -170,31 +326,30 @@ class GamePlayHelper extends AppHelper {
 									'y'			=> $y,
 									'name'		=> $name,
 									'defense'	=> $defense,
-									'damage'	=> $damage
+									'damage'	=> $damage,
+									'uid'		=> $uid
 								)
 							);
 							
 				//Grab the display art
-				//foreach( $unitArtSet as $artSet ){
-					//Loop through each art set icon and grab the icon
-					foreach( $unitArtSet['UnitArtSetIcon'] as $artSetIcon ){
+				//Loop through each art set icon and grab the icon
+				foreach( $unitArtSet['UnitArtSetIcon'] as $artSetIcon ){
+					
+					if( isset( $artSetIcon['Icon']['image'] ) ){
 						
-						if( isset( $artSetIcon['Icon']['image'] ) ){
-							
-							//Add the attributes
-							$attributes = array_merge(
-											$attributes,
-											array(
-												'icon' => $artSetIcon['Icon']['image']
-											)
-										);
-						}
-						
+						//Add the attributes
+						$attributes = array_merge(
+										$attributes,
+										array(
+											'icon' => $artSetIcon['Icon']['image']
+										)
+									);
 					}
-				//}
+					
+				}
 				
 				//Now we need to render the unit
-				$unitsString .= $this->renderUnit( $attributes );
+				$unitsString .= $this->renderUnit( $attributes, $movements, $usersUnits );
 				
 			}
 			
