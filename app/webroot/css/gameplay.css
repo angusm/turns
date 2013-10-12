@@ -2,8 +2,7 @@
 
 	.highlighted{
    		-webkit-filter: grayscale;
-		-webkit-filter: brightness(150%); 
-			
+		-webkit-filter: brightness(150%); 		
 	}
 
 	div.gameBoard > div.gameTile{
@@ -11,10 +10,14 @@
 		width: 	70px;
 	}
 	
-	div.gameBoard > div.gameTile[light="0"]{
-		background-color: #AAA;
+	div.gameTile[light="0"]{
+		background-color: #666;
 	}
 	
-	div.gameBoard > div.gameTile[light="1"]{
-		background-color: #DDD;
+	div.gameTile[light="1"]{
+		background-color: #444;
+	}
+	
+	div.gameTile.highlightedForMove{
+   		background-color: #DDD;
 	}

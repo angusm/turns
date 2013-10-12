@@ -99,6 +99,19 @@ class Game extends AppModel {
 		
 	}
 	
+	//PUBLIC FUNCTION: isMoveValid
+	//Take in a gameUnit UID, the user who wants to make the move and 
+	//a targeted X and Y. 
+	//Then make sure that this move was possible. 
+	//If it was we need to move the game up to the next turn.
+	public function isMoveValid( $gameUnitUID, $targetX, $targetY, $userUID ){
+	
+		//Grab the game unit UID
+		$gameUnitModelInstance = ClassRegistry::init( 'GameUnit' );
+		
+		
+	}
+	
 	//PUBLIC FUNCTION: newGame
 	//Create a new game, y'know, so players can play.
 	//And of course, so haters can hate. Cause haters gonna hate.

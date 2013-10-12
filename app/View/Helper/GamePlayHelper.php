@@ -161,12 +161,13 @@ class GamePlayHelper extends AppHelper {
 			$arrayToPush = 'window.enemyUnits';
 		}
 		
-		//Establish the movement string
-		$movementArrayStrings = '';
-		$phpMovementArrayString = array();
+		$phpMovementArrayStrings = array();
 		
 		//Loop through all the movements
-		foreach( $movements as $movementSet ){
+		foreach( $movements as $movementIndex => $movementSet ){
+			
+			//Setup the array for this movement set
+			$phpMovementArrayStrings[$movementIndex] = array();
 			
 			//Loop through the direction set movement set movements
 			//Yeah, how's that for confusing and poorly structured
@@ -193,8 +194,7 @@ class GamePlayHelper extends AppHelper {
 				
 						//Now that we're all the way in here we add to our array
 						$directions[] = array(
-							'x' => $direction['Direction']['x'],
-							'y'	=> $direction['Direction']['y']
+							'angle'	=> $direction['Direction']['angle']
 						);
 						
 					}
@@ -202,7 +202,7 @@ class GamePlayHelper extends AppHelper {
 				}
 				
 				//Add the movement to the array
-				$phpMovementArrayString[$priority] = array(
+				$phpMovementArrayStrings[$movementIndex][$priority] = array(
 							'directions'		=> $directions,
 							'mustMoveAllTheWay'	=> $mustMoveAllTheWay,	
 							'spaces' 			=> $spaces
@@ -211,47 +211,66 @@ class GamePlayHelper extends AppHelper {
 			}
 			
 		}
-		
-		$firstTimeThroughMovements = true;
-		
-		//Loop through the php movement array 
-		for( $priority = 1; $priority <= count( $phpMovementArrayString ); $priority++ ){
 
-			//Add the comma except if it's the first time through
-			if( $firstTimeThroughMovements ){
-				$firstTimeThroughMovements = false;
-			}else{
-				$movementArrayStrings .= ', ';
-			}
-
-			//Add the basics			
-			$movementArrayStrings .= 'new movement( '.$phpMovementArrayString[$priority]['mustMoveAllTheWay'].', '.$phpMovementArrayString[$priority]['spaces'].', new Array( ';
-			
-			//Establish if this is the first element in the array
-			$firstTimeThroughDirections = true;
-			
-			//Add the directions
-			foreach( $phpMovementArrayString[$priority]['directions'] as $directionArray ){
+		$firstTimeThroughMovementSets = true;
+		$movementsString = '';
+		foreach( $phpMovementArrayStrings as $phpMovementArrayString ){
+		
+			$firstTimeThroughMovements = true;
 				
+			//Loop through the php movement array 
+			for( $priority = 1; $priority <= count( $phpMovementArrayString ); $priority++ ){
 				//Add the comma except if it's the first time through
-				if( $firstTimeThroughDirections ){
-					$firstTimeThroughDirections = false;
+				if( $firstTimeThroughMovements ){
+					//Establish the movement string
+					$movementArrayStrings = '';
+					$firstTimeThroughMovements = false;
 				}else{
 					$movementArrayStrings .= ', ';
 				}
+	
+				//Add the basics			
+				$movementArrayStrings .= 'new movement( '.$phpMovementArrayString[$priority]['mustMoveAllTheWay'].', '.$phpMovementArrayString[$priority]['spaces'].', new Array( ';
 				
-				//Add the direction to the movement string as an array
-				$movementArrayStrings .= 'new Array( '.$directionArray['x'].', '.$directionArray['y'].' )';
+				//Establish if this is the first element in the array
+				$firstTimeThroughDirections = true;
 				
-			}	
+				//Add the directions
+				foreach( $phpMovementArrayString[$priority]['directions'] as $directionArray ){
+					
+					//Add the comma except if it's the first time through
+					if( $firstTimeThroughDirections ){
+						$firstTimeThroughDirections = false;
+					}else{
+						$movementArrayStrings .= ', ';
+					}
+					
+					//Add the direction to the movement string as an array
+					$movementArrayStrings .= $directionArray['angle'];
+					
+				}	
+				
+				//Finish the movement
+				$movementArrayStrings .= ' ) )';	
+					
+			}
+		
+			//Build onto the first time through movement sets
+			if( $firstTimeThroughMovementSets ){
+				$firstTimeThroughMovementSets = false;
+			}else{
+				$movementsString .= ', ';	
+			}
 			
-			//Finish the movement
-			$movementArrayStrings .= ' ) )';	
-				
+			//Build onto the movements string
+			$movementsString .= 'new Array('.
+										$movementArrayStrings .
+									')';
+		
 		}
 		
-		$movementsString = 'new Array('.
-									$movementArrayStrings .
+		$movementSetsString = 'new Array('.
+									$movementsString .
 								')';
 							
 		//Create the javascript for this unit
@@ -264,7 +283,7 @@ class GamePlayHelper extends AppHelper {
 												$attributes['defense'].', '.
 												$attributes['damage'].', '.
 												$attributes['uid'].', '.
-												$movementsString .
+												$movementSetsString .
 												') );'
 								);
 								

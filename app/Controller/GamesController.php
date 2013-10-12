@@ -27,4 +27,36 @@ class GamesController extends AppController {
 		$this->set( 'userUID',			$userUID );
 	}
 	
+	//PUBLIC FUNCTION: processUnitMove
+	//Process the given unit move
+	public function processUnitMove(){
+	
+		//Grab the necessary data from the JSON
+		$jsonData = $this->params['url'];
+		
+		//Grab the GameUnit UID, the targeted X and the targeted Y
+		$gameUnitUID = $this->params['gameUnitUID'];
+		$targetedX	 = $this->params['x'];
+		$targetedY	 = $this->params['y'];
+		
+		//Grab the user UID of the user making the request
+		$userUID = $this->Auth->user( 'uid' );
+					
+		//Toss it over to the model, if the move was valid it will update the
+		//game and the game units and then return true, otherwise it will return
+		//false
+		$gameModelInstance = ClassRegistry::init( 'Game' );
+		$validMove = $gameModelInstance->isMoveValid(
+											$gameUnitUID, 
+											$targetedX, 
+											$targetY, 
+											$userUID );
+		
+		$this->set( 'success', $validMove );
+		$this->set(	'_serialize', array(
+						'success'
+					));
+		
+	}
+	
 }
