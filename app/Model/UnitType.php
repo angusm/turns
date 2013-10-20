@@ -6,24 +6,24 @@ class UnitType extends AppModel {
 						'Unit' => array(
 							'className' 	=> 'Unit',
 							'foreignKey'	=> 'unit_types_uid'
-						),
-						'UnitArtSet'	=> array(
-							'className'		=> 'UnitArtSet',
-							'foreignKey'	=> 'unit_types_uid'
-						)
-						
+						)						
 					);
 	
 	//NOTE: Problem with belongs to not fetching its has many associations in a
 	//containable array. So a finderQuery is needed.
 	public $belongsTo = array(
-							'UnitStat' => array(
-								'className'		=> 'UnitStat',
-								'foreignKey'	=> 'unit_stats_uid',
-								'finderQuery'	=> 'SELECT UnitStat.* FROM unit_types, unit_stats AS UnitStat WHERE unit_types.uid={$__cakeID__$} AND unit_types.unit_stats_uid=UnitStat.uid'
-	
-							)
-						);
+						'UnitArtSet'	=> array(
+							'className'		=> 'UnitArtSet',
+							'foreignKey'	=> 'unit_art_sets_uid',
+							'finderQuery'	=> 'SELECT UnitArtSet.* FROM unit_types, unit_art_sets AS UnitArtSet WHERE unit_types.uid={$__cakeID__$} AND unit_types.unit_art_sets_uid=UnitArtSet.uid'
+						),
+						'UnitStat' => array(
+							'className'		=> 'UnitStat',
+							'foreignKey'	=> 'unit_stats_uid',
+							'finderQuery'	=> 'SELECT UnitStat.* FROM unit_types, unit_stats AS UnitStat WHERE unit_types.uid={$__cakeID__$} AND unit_types.unit_stats_uid=UnitStat.uid'
+
+						),
+					);
 
 
 	//Override the constructor so that we can set the variables our way
@@ -72,8 +72,8 @@ class UnitType extends AppModel {
 			$newTicketCount = $unitToDecrement['UnitType']['remaining_rare_tickets'] - 1;
 		
 			$this->read( null, $unitToDecrement['UnitType']['uid'] );
-			$this->set( 'remaining_rare_tickets', $newTicketCount );
-			$this->save();
+			$this->saveField( 'remaining_rare_tickets', $newTicketCount );
+			
 		}
 		
 	}

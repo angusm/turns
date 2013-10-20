@@ -94,11 +94,11 @@ class GamePlayHelper extends AppHelper {
 		
 		//Render the units
 		$returnString .= $this->renderUnits( 
-												array(
-													'userUID' => $userUID
-												),
-												$gameInformation 
-											);
+											array(
+												'userUID' => $userUID
+											),
+											$gameInformation 
+										);
 				
 		//We didn't do all this work for nothing so let's return the fucking results
 		return $returnString;		
@@ -308,69 +308,63 @@ class GamePlayHelper extends AppHelper {
 		if( isset( $parameters['userUID'] ) ){
 			$userUID = $parameters['userUID'];
 		}
+			
+		//Loop through the game units
+		foreach( $gameInformation['GameUnit'] as $gameUnit ){
+			
+			//Renew the attributes
+			$attributes = array();
 		
-		//Start looping through all of the units each player has in the game
-		//IE the user games, so we can get through to their game units
-		foreach( $gameInformation['UserGame'] as $userGame ){
+			//Grab the game specific information
+			$uid			= $gameUnit['uid'];
+			$damage			= $gameUnit['GameUnitStat']['damage'];
+			$defense		= $gameUnit['defense'];
+			$movements		= $gameUnit['GameUnitStat']['GameUnitStatMovementSet'];
+			$name 			= $gameUnit['name'];
+			$unitArtSet 	= $gameUnit['UnitArtSet'];
+			$x 				= $gameUnit['x'];
+			$y 				= $gameUnit['y'];
+			
+			//Now we use all this information to make attributes
+			$attributes = array_merge(
+							$attributes,
+							array(
+								'x' 		=> $x,
+								'y'			=> $y,
+								'name'		=> $name,
+								'defense'	=> $defense,
+								'damage'	=> $damage,
+								'uid'		=> $uid
+							)
+						);
+						
+			//Grab the display art
+			//Loop through each art set icon and grab the icon
+			foreach( $unitArtSet['UnitArtSetIcon'] as $artSetIcon ){
+				
+				if( isset( $artSetIcon['Icon']['image'] ) ){
+					
+					//Add the attributes
+					$attributes = array_merge(
+									$attributes,
+									array(
+										'icon' => $artSetIcon['Icon']['image']
+									)
+								);
+				}
+				
+			}
 			
 			//Setup a boolean that indicates whether or not these units belong to
-			//the game
-			if( $userGame['users_uid'] == $userUID ){
+			//the active player
+			if( $gameUnit['users_uid'] == $userUID ){
 				$usersUnits = true;
 			}else{
 				$usersUnits = false;
 			}
-			
-			//Loop through the game units
-			foreach( $userGame['GameUnit'] as $gameUnit ){
 				
-				//Renew the attributes
-				$attributes = array();
-			
-				//Grab the game specific information
-				$uid			= $gameUnit['uid'];
-				$x 				= $gameUnit['x'];
-				$y 				= $gameUnit['y'];
-				$defense		= $gameUnit['defense'];
-				$name 			= $gameUnit['Unit']['UnitType']['name'];
-				$damage			= $gameUnit['Unit']['UnitType']['UnitStat']['damage'];
-				$unitArtSet 	= $gameUnit['Unit']['UnitArtSet'];
-				$movements		= $gameUnit['Unit']['UnitType']['UnitStat']['UnitStatMovementSet'];
-				
-				//Now we use all this information to make attributes
-				$attributes = array_merge(
-								$attributes,
-								array(
-									'x' 		=> $x,
-									'y'			=> $y,
-									'name'		=> $name,
-									'defense'	=> $defense,
-									'damage'	=> $damage,
-									'uid'		=> $uid
-								)
-							);
-							
-				//Grab the display art
-				//Loop through each art set icon and grab the icon
-				foreach( $unitArtSet['UnitArtSetIcon'] as $artSetIcon ){
-					
-					if( isset( $artSetIcon['Icon']['image'] ) ){
-						
-						//Add the attributes
-						$attributes = array_merge(
-										$attributes,
-										array(
-											'icon' => $artSetIcon['Icon']['image']
-										)
-									);
-					}
-					
-				}
-				
-				//Now we need to render the unit
-				$unitsString .= $this->renderUnit( $attributes, $movements, $usersUnits );
-				
-			}
+			//Now we need to render the unit
+			$unitsString .= $this->renderUnit( $attributes, $movements, $usersUnits );
 			
 		}
 					

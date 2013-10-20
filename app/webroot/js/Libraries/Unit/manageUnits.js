@@ -50,7 +50,7 @@ function manageUnits(){
 			var unitRow 	=  '<tr modelName="Unit" uid="' + unitTypeUID + '">';
 			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'uid', 		unitTypeUID );
 			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'name', 	unitName );
-			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'count', 	0 );
+			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'quantity', 0 );
 			unitRow			+= '<td modelName="Unit">';
 			unitRow			+= '<input type="button" value="<" class="removeUnitFromTeamButton"';
 			unitRow			+= ' modelName="Unit" uid="' + unitTypeUID + '"></td>';
@@ -102,16 +102,19 @@ function manageUnits(){
 		jQuery.each( jSONData['unitsOnTeam'], function( key, unitData ){
 			
 			//Grab the relevant data
-			var unitUID		= unitData['Unit']['uid'];
-			var unitCount 	= unitData['Unit']['count'];
+			var unitUID		= unitData['UnitType']['uid'];
+			var unitCount 	= unitData['TeamUnit']['quantity'];
 						
 			//Now we grab the count for the relevant element in the unit pool
-			var poolCount	= jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitUID+'"]' ).attr("value");
+			var poolCount	= jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitUID+'"]' ).attr("value");
 			
 			//Finally we calculate the debit count
-			var debitedCount = poolCount - unitCount;
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitUID+'"]' ).attr("value", debitedCount);
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitUID+'"]' ).html(debitedCount);
+			var debitedCount = parseInt( poolCount ) - parseInt( unitCount );
+			console.log( unitUID );
+			console.log( poolCount );
+			console.log( debitedCount );
+			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitUID+'"]' ).attr( "value", debitedCount );
+			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitUID+'"]' ).html( debitedCount );
 						
 						
 		});
@@ -162,25 +165,25 @@ function manageUnits(){
 			var unitTypeUID = jSONData['unitTypeUID'];
 			
 			//Update the pool count
-			var originalPoolCount = jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value");
+			var originalPoolCount = jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
 			var changedPoolCount = parseInt( originalPoolCount ) - 1;
 			
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value", changedPoolCount);
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).html(changedPoolCount);
+			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value", changedPoolCount);
+			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html(changedPoolCount);
 			
 			//Ensure that a row for this unit exists in the team table
-			if( jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).length == 0 ){
+			if( jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).length == 0 ){
 			
 				//Add the given row
 				Unit_manageUnits.addTeamRowForUnitTypeUID( unitTypeUID );
 			}
 			
 			//Update the team count
-			var originalTeamCount = jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value");
+			var originalTeamCount = jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
 			var changedTeamCount = parseInt( originalTeamCount ) + 1;
 			
-			jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value", changedTeamCount);
-			jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).html(changedTeamCount);
+			jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value", changedTeamCount);
+			jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html(changedTeamCount);
 			
 		}
 		
@@ -197,21 +200,21 @@ function manageUnits(){
 			var unitTypeUID = jSONData['unitTypeUID'];
 			
 			//Update the pool count
-			var originalPoolCount = jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value");
+			var originalPoolCount = jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
 			var changedPoolCount = parseInt( originalPoolCount ) + 1;
 			
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value", changedPoolCount);
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).html(changedPoolCount);
+			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value", changedPoolCount);
+			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html(changedPoolCount);
 			
 			//Update the team count
-			var originalTeamCount = jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value");
+			var originalTeamCount = jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
 			var changedTeamCount = parseInt( originalTeamCount ) - 1;
 			
 			if( changedTeamCount == 0 ){
 				jQuery( 'div.teamUnits > table > tbody > tr[uid="'+unitTypeUID+'"]' ).remove();
 			}else{
-				jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value", changedTeamCount);
-				jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).html(changedTeamCount);
+				jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value", changedTeamCount);
+				jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html(changedTeamCount);
 			}
 			
 		}
@@ -239,6 +242,23 @@ function manageUnits(){
 		//Throw the listener on
 		jQuery( '.addUnitToTeamButton' ).click( function(){
 			Unit_manageUnits.addUnitToTeam( this );
+		});
+		
+	}
+	
+	//PUBLIC FUNCTION: handleChangeTeam
+	//If the user changes the selected team then we better change
+	this.handleChangeTeam = function(){
+	
+		//Change the units displayed in the team pool and adjust what's shown in the unit pool
+		jQuery( '.editableSelect[modelname="Team"]' ).each( function(){
+			
+			if( ! jQuery(this).isBound( 'change', Unit_manageUnits.loadTeamUnits ) ){
+				jQuery(this).bind( 'change',
+					Unit_manageUnits.loadTeamUnits
+				);
+			}
+			
 		});
 		
 	}
@@ -271,23 +291,6 @@ function manageUnits(){
 		Unit_manageUnits.loadTeamUnits();
 	}
 	
-	//PUBLIC FUNCTION: handleChangeTeam
-	//If the user changes the selected team then we better change
-	this.handleChangeTeam = function(){
-	
-		//Change the units displayed in the team pool and adjust what's shown in the unit pool
-		jQuery( '.editableSelect[modelname="Team"]' ).each( function(){
-			
-			if( ! jQuery(this).isBound( 'change', Unit_manageUnits.loadTeamUnits ) ){
-				jQuery(this).bind( 'change',
-					Unit_manageUnits.loadTeamUnits
-				);
-			}
-			
-		});
-		
-	}
-	
 	//PUBLIC FUNCTION: handleNewTeamButton
 	//Handle the button that allows the user to create a new team
 	this.handleNewTeamButton = function(){
@@ -314,12 +317,14 @@ function manageUnits(){
 	this.handleRemoveFromTeamButton = function(){
 		
 		//Don't add duplicates
-		if( ! jQuery('.removeUnitFromTeamButton').isBound( 'click', Unit_manageUnits.removeUnitFromTeam ) ){
-			//Throw the listener on
-			jQuery( '.removeUnitFromTeamButton' ).click(
-				Unit_manageUnits.removeUnitFromTeam
-			);
-		}
+		jQuery('.removeUnitFromTeamButton').each( function( index ){
+			if( ! jQuery( this ).isBound( 'click', Unit_manageUnits.removeUnitFromTeam ) ){
+				//Throw the listener on
+				jQuery( this ).click(
+					Unit_manageUnits.removeUnitFromTeam
+				);
+			}
+		});
 		
 	}
 	
@@ -378,13 +383,13 @@ function manageUnits(){
 		jQuery.each( jSONData['unitsOnTeam'], function( key, unitData ){
 			
 			//Grab the relevant data
-			var unitUID		= unitData['Unit']['uid'];
-			var unitName 	= unitData['Unit']['UnitType']['name'];
-			var unitCount 	= unitData['Unit']['count'];
+			var unitUID		= unitData['UnitType']['uid'];
+			var unitName 	= unitData['UnitType']['name'];
+			var unitCount 	= unitData['TeamUnit']['quantity'];
 			var unitRow 	=  '<tr modelName="Unit" uid="' + unitUID + '">';
 			unitRow			+= Unit_manageUnits.getUnitTDCell( unitUID, 'uid', 		unitUID );
 			unitRow			+= Unit_manageUnits.getUnitTDCell( unitUID, 'name', 	unitName );
-			unitRow			+= Unit_manageUnits.getUnitTDCell( unitUID, 'count', 	unitCount );
+			unitRow			+= Unit_manageUnits.getUnitTDCell( unitUID, 'quantity', 	unitCount );
 			unitRow			+= '<td modelName="Unit">';
 			unitRow			+= '<input type="button" value="<" class="removeUnitFromTeamButton"';
 			unitRow			+= ' modelName="Unit" uid="' + unitUID + '"></td>';
@@ -407,19 +412,19 @@ function manageUnits(){
 	this.refundUnitPool = function(){
 		
 		//We refund for each element
-		jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="count"]' ).each( function(){
+		jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"]' ).each( function(){
 			
 			//Get the count and unit type UID
 			var teamCount	= jQuery(this).attr("value");
 			var unitTypeUID = jQuery(this).attr("uid");
 			
 			//Now we grab the count for the relevant element in the unit pool
-			var poolCount	= jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value");
+			var poolCount	= jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
 			
 			//Calculate and set the new pool count
 			var refundedCount	= parseInt(poolCount) + parseInt(teamCount);
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).attr("value", refundedCount);
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="count"][uid="'+unitTypeUID+'"]' ).html(refundedCount);			
+			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr( "value", refundedCount );
+			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html( refundedCount );			
 			
 		});
 		

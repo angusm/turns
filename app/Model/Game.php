@@ -10,6 +10,10 @@ class Game extends AppModel {
 						);
 						
 	public $hasMany 	= array(
+							'GameUnit' => array(
+								'className'		=> 'GameUnit',
+								'foreignKey'	=> 'games_uid'
+							),
 							'UserGame' => array(
 								'className' 	=> 'UserGame',
 								'foreignKey'	=> 'games_uid'
@@ -52,43 +56,40 @@ class Game extends AppModel {
 										'Game.uid' => $uid
 									),
 									'contain' => array(
-										'UserGame' => array(
-											'User',
-											'GameUnit' => array(
-												'conditions' => array(
-													'GameUnit.turn' => $currentTurn
-												),
-												'Unit' => array(
-													'UnitArtSet' => array(
-														'UnitArtSetIcon' => array(
-															'Icon' => array(
-																'conditions' => array(
-																	'icon_positions_uid' => 3
-																)
-															)
-														)
-													),
-													'UnitType' => array(
-														'UnitStat' => array(
-															'UnitStatMovementSet' => array(
-																'MovementSet' => array(
-																	'Movement' => array(
-																		'MovementDirectionSet' => array(
-																			'DirectionSet' => array(
-																				'DirectionSetDirection' => array(
-																					'Direction'
-																				)
-																			)
-																		)
+										'Board',
+										'GameUnit' => array(
+											'conditions' => array(
+												'GameUnit.turn' => $currentTurn
+											),
+											'GameUnitStat' => array(
+												'GameUnitStatMovementSet' => array(
+													'MovementSet' => array(
+														'Movement' => array(
+															'MovementDirectionSet' => array(
+																'DirectionSet' => array(
+																	'DirectionSetDirection' => array(
+																		'Direction'
 																	)
 																)
 															)
 														)
 													)
 												)
+											),
+											'MovementSet',
+											'UnitArtSet' => array(
+												'UnitArtSetIcon' => array(
+													'Icon' => array(
+														'conditions' => array(
+															'icon_positions_uid' => 3
+														)
+													)
+												)
 											)
 										),
-										'Board'
+										'UserGame' => array(
+											'User'
+										)
 									)
 								));
 

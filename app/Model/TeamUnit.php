@@ -2,9 +2,9 @@
 class TeamUnit extends AppModel {
 
 		public $belongsTo = array(
-							'Unit' => array(
-								'className' 	=> 'Unit',
-								'foreignKey'	=> 'units_uid'
+							'UnitType' => array(
+								'className' 	=> 'UnitType',
+								'foreignKey'	=> 'unit_types_uid'
 							),
 							'Team'	=> array(
 								'className'		=> 'Team',
@@ -25,81 +25,86 @@ class TeamUnit extends AppModel {
 		//Add a unit of the given type to the given team for the given user
 		public function addUnitToTeamByUnitTypeUID( $unitTypeUID, $teamUID, $userUID ){
 		
+			//Verify that the given user actually owns the given team
+			//To do this we'll need a team model instance
+			$teamModelInstance = ClassRegistry::init( 'Team' );
+			//Run the find to check if the team with the given uid and user uid exists
+			$userOwnsTeam = $teamModelInstance->find( 'first', array(
+														'conditions' => array(
+															'Team.uid' => $teamUID,
+															'Team.users_uid' => $userUID
+														)
+													));
+													
+			//Jump out if the user doesn't own the team
+			if( $userOwnsTeam == false ){
+				return false;
+			}
+		
+			//Check if there's a team unit record with the appropriate unit type and
+			//team uid
+			$appropriateRecord = $this->find( 'first', array(
+												'conditions' => array(
+													'TeamUnit.unit_types_uid'   => $unitTypeUID,
+													'TeamUnit.teams_uid'		=> $teamUID
+												)
+											));
+		
+			//If we don't have an appropriate record then create one and grab it
+			if( $appropriateRecord == false ){
+			
+				//Create a new record
+				$this->create();	
+				$this->set( 'unit_types_uid', 	$unitTypeUID );
+				$this->set( 'teams_uid',		$teamUID );
+				$this->save();
+				
+				//Grab it back
+				$appropriateRecord = $this->find( 'first', array(
+													'conditions' => array(
+														'TeamUnit.unit_types_uid'   => $unitTypeUID,
+														'TeamUnit.teams_uid'		=> $teamUID
+													)
+												));
+												
+			}
+			
+			//Now we need to make sure the user has enough of the given unit type to add 
+			//another one to the given team.
+		
 			//Create an instance of the Unit model
 			$unitModelInstance = ClassRegistry::init( 'Unit' );
-										
-			//Grab all the units that are currently on the team
-			$unitsAlreadyOnTeam = $this->find( 'list', array(
+					
+			//Grab the number of units of the given type the user has
+			$availableUnits 	= $unitModelInstance->find( 'first', array(
 											'conditions' => array(
-												'teams_uid' => $teamUID
-											),
-											'fields' => array(
-												'units_uid'
+												'Unit.unit_types_uid'  	=> $unitTypeUID,
+												'Unit.users_uid'		=> $userUID
 											)
 										));
-			
-			//Grab all the units that aren't already included
-			$availableUnits 	= $unitModelInstance->find( 'all', array(
-											'conditions' => array(
-												'NOT'				=> array(
-													'uid'			=> $unitsAlreadyOnTeam
-												),
-												'unit_types_uid'	=> $unitTypeUID,
-												'users_uid'			=> $userUID
-											)
-										));
-										
-			//Check to make sure we have a unit available and if we do throw
-			//it onto the pile
-			if( $availableUnits != false ){
-			
-				return $this->addUnitToTeamByUnitUID( 
-											$availableUnits[0]['Unit']['uid'], 
-											$teamUID 
-											);
+
+			//Now that we have the number of units that are already on the team and the number
+			//that the player owns we can check if we still have one available to add
+			if( $availableUnits['Unit']['quantity'] > $appropriateRecord['TeamUnit']['quantity'] ){
+
+				//Setup the new quantity
+				$nuQuantity = $appropriateRecord['TeamUnit']['quantity'] + 1;
+				
+				//Save the new quantity
+				$this->read( NULL, $appropriateRecord['TeamUnit']['uid'] );
+				$this->set( 'quantity', $nuQuantity );
+				$this->save();
+				return true;
 				
 			}else{
-				
 				return false;
-			
-			}
-													
+			}													
 			
 		}
-		
-		//PUBLIC FUNCTION: addUnitToTeamByUnitUID
-		//Adds the given unit to the given team
-		public function addUnitToTeamByUnitUID( $unitUID, $teamUID ){
-		
-			//Create a new record if one doesn't exist
-			$exists = $this->find( 'first', array(
-										'conditions' => array(
-											'teams_uid' => $teamUID,
-											'units_uid' => $unitUID
-										)
-									));
 				
-			//If there is no record create it
-			if( $exists == false ){
-			
-				$modelData = array(
-								'teams_uid' => $teamUID,
-								'units_uid' => $unitUID
-								);
-			
-				$this->create();
-				return $this->save($modelData);
-			
-			}else{
-				
-				return false;
-				
-			}
-			
-		}
-		
 		//PUBLIC FUNCTION: getAllUnits
 		//Grab all of the the units on a given team
+		//Returning both the types of units on the team and the quantity
 		public function getAllUnits( $teamUID ){
 		
 			//Do the find...
@@ -108,9 +113,11 @@ class TeamUnit extends AppModel {
 											'teams_uid' => $teamUID
 										),
 										'contain' => array(
-											'Unit' => array(
-												'UnitType' => array(
-													'UnitStat'
+											'Team',
+											'UnitType' => array(
+												'UnitArtSet',
+												'UnitStat' => array(
+													'UnitStatMovementSet'
 												)
 											)
 										)
@@ -120,14 +127,14 @@ class TeamUnit extends AppModel {
 			
 		}
 		
-		//PUBLIC FUNCTION: getTeamsForUnit
-		//Grab all of the teams that a unit is on
-		public function getTeamsForUnit( $unitUID ){
+		//PUBLIC FUNCTION: getTeamsForUnitType
+		//Grab all of the teams that a unit type is on
+		public function getTeamsForUnitType( $unitTypeUID ){
 			
 			//Do the find...
 			$teamsForUnit = $this->find( 'all', array(
 											'conditions' => array(
-												'units_uid' => $unitsUID
+												'unit_types_uid' => $unitTypeUID
 											)
 										));
 										
@@ -145,27 +152,15 @@ class TeamUnit extends AppModel {
 											'teams_uid' => $teamUID
 										),
 										'contain' => array(
-											'Unit' => array(
-												'fields' => array(
-													'unit_types_uid as uid',
-													'name',
-													'COUNT( * ) as count',
-													'unit_types_uid'
-												),
-												'UnitType' => array(
-													'fields' => array(
-														'name'
-													)
+											'Team',
+											'UnitType' => array(
+												'UnitArtSet',
+												'UnitStat' => array(
+													'UnitStatMovementSet'
 												)
 											)
-										),
-										'group'			=> 'Unit.unit_types_uid'
+										)
 									));
-							
-			//Go through each result and move the count to the model field	
-			foreach( $unitsOnTeam as $unitIndex => $unitData ){
-				$unitsOnTeam[$unitIndex]['Unit']['count'] = $unitsOnTeam[$unitIndex][0]['count'];
-			}
 									
 			return $unitsOnTeam;
 			
@@ -175,68 +170,61 @@ class TeamUnit extends AppModel {
 		//Remove a unit of the given type from the given team
 		public function removeUnitFromTeamByUnitTypeUID( $unitTypeUID, $teamUID, $userUID ){
 		
-			//Create an instance of the Unit model
-			$unitModelInstance = ClassRegistry::init( 'Unit' );
-										
-			//Grab all the units that are currently on the team
-			$unitsAlreadyOnTeam = $this->find( 'list', array(
-											'conditions' => array(
-												'teams_uid' => $teamUID
-											),
-											'fields' => array(
-												'units_uid'
-											)
-										));
+			//Verify that the given user actually owns the given team
+			//To do this we'll need a team model instance
+			$teamModelInstance = ClassRegistry::init( 'Team' );
+			//Run the find to check if the team with the given uid and user uid exists
+			$userOwnsTeam = $teamModelInstance->find( 'first', array(
+														'conditions' => array(
+															'Team.uid' => $teamUID,
+															'Team.users_uid' => $userUID
+														)
+													));
+													
+			//Jump out if the user doesn't own the team
+			if( $userOwnsTeam == false ){
+				return false;
+			}
+		
+			//Check if there's a team unit record with the appropriate unit type and
+			//team uid
+			$appropriateRecord = $this->find( 'first', array(
+												'conditions' => array(
+													'TeamUnit.unit_types_uid'   => $unitTypeUID,
+													'TeamUnit.teams_uid'		=> $teamUID
+												)
+											));
+		
+			//If we don't have an appropriate record then jump out and return false
+			//After all we can't remove what doesn't exist
+			if( $appropriateRecord == false ){
 			
-			//Grab all the units that aren't already included
-			$availableUnits 	= $unitModelInstance->find( 'first', array(
-											'conditions' => array(
-												'uid'				=> $unitsAlreadyOnTeam,
-												'unit_types_uid'	=> $unitTypeUID,
-												'users_uid'			=> $userUID
-											)
-										));
-										
-			//Check to make sure we have a unit available and if we do throw
-			//it onto the pile
-			if( $availableUnits != false ){
-			
-				return $this->removeUnitFromTeamByUnitUID( 
-											$availableUnits['Unit']['uid'], 
-											$teamUID 
-											);
-				
-			}else{
-				
 				return false;
 			
 			}
+
+			//Setup the new quantity
+			$nuQuantity = $appropriateRecord['TeamUnit']['quantity'] - 1;
 			
-			
-		}
-		
-		//PUBLIC FUNCTION: removeUnitFromTeamByUnitUID
-		//Remove the given unit from the given team
-		public function removeUnitFromTeamByUnitUID( $unitUID, $teamUID ){
-		
-			//Grab the first record that matches the team and unit
-			$exists = $this->find( 'first', array(
-										'conditions' => array(
-											'teams_uid' => $teamUID,
-											'units_uid' => $unitUID
-										)
-									));
+			//If the new quantity is 0 or less than we just want to remove the attachment
+			//of the given unit types to this team, otherwise we just assign the new 
+			//quantity.
+			if( $nuQuantity < 1 ){
 				
-			//If a record exists delete it
-			if( $exists != false ){
-			
-				$this->delete( $exists['TeamUnit']['uid'] );
-			
+				//Delete the record
+				$this->read( NULL, $appropriateRecord['TeamUnit']['uid'] );
+				$this->delete();
+				
 			}else{
 				
-				return false;
+				//Save the new quantity
+				$this->read( NULL, $appropriateRecord['TeamUnit']['uid'] );
+				$this->set( 'quantity', $nuQuantity );
+				$this->save();
 				
-			}			
+			}
+			
+			return true;			
 			
 		}
 	

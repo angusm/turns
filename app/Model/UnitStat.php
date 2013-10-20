@@ -10,12 +10,7 @@ class UnitStat extends AppModel {
 						'UnitStatMovementSet' => array(
 							'className'		=> 'UnitStatMovementSet',
 							'foreignKey'	=> 'unit_stats_uid'
-						),
-						'Unit'	=> array(
-							'className'	=> 'Unit',
-							'foreignKey'	=> 'unit_types_uid'
-						)
-							
+						)							
 					);
 
 	//Override the constructor so that we can set the variables our way

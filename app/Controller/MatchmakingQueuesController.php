@@ -21,10 +21,16 @@ class MatchmakingQueuesController extends AppController {
 		//Grab the user uid from the Auth component
 		$userUID = $this->Auth->user('uid'); 	
 
+		echo '<BR>Initiating User UID -> ' . $userUID;
+		echo '<BR>Initiating Team UID -> ' . $teamUID;
+
 		//Join the queue
-		$this->MatchmakingQueue->checkQueue( $userUID, $teamUID );
+		$success = $this->MatchmakingQueue->checkQueue( $userUID, $teamUID );
 		
-		$this->set( '_serialize', array() );		
+		$this->set( 'success',		$success );
+		$this->set( '_serialize', 	array(
+						'success'
+					) );		
 		
 	}
 	

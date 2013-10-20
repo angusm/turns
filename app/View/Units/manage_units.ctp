@@ -9,7 +9,7 @@
 									array(
 										'Unit Type'	=> 'unit_types_uid',
 										'Name'		=> 'name',
-										'Count'		=> 'count',
+										'Count'		=> 'quantity',
 										'button'	=> 'extraContent'
 									),
 									array(
@@ -45,7 +45,7 @@
 									array(
 										'Unit Type'	=> 'unit_types_uid',
 										'Name'		=> 'name',
-										'Count'		=> 'count',
+										'Count'		=> 'quantity',
 										'button'	=> 'extraContent'
 									)
 								);

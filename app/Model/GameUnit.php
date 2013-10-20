@@ -3,13 +3,29 @@ class GameUnit extends AppModel {
 
 	//Setup the associations for this model
 	public $belongsTo = array(
-						'UserGame' => array(
-							'className' 	=> 'UserGame',
-							'foreignKey'	=> 'user_games_uid'
+						'Game' => array(
+							'className'		=> 'Game',
+							'foreignKey'	=> 'games_uid'
 						),
-						'Unit' => array(
-							'className' 	=> 'Unit',
-							'foreignKey'	=> 'units_uid'
+						'GameUnitStat' => array(
+							'className'		=> 'GameUnitStat',
+							'foreignKey'	=> 'game_unit_stats_uid'
+						),
+						'MovementSet' => array(
+							'className'		=> 'MovementSet',
+							'foreignKey'	=> 'movement_sets_uid'
+						),
+						'UnitArtSet' => array(
+							'className'		=> 'UnitArtSet',
+							'foreignKey'	=> 'unit_art_sets_uid'
+						),
+						'UnitType' => array(
+							'className'		=> 'UnitType',
+							'foreignKey'	=> 'unit_types_uid'
+						),
+						'User' => array(
+							'className' 	=> 'User',
+							'foreignKey'	=> 'users_uid'
 						)
 					);
 
@@ -30,26 +46,55 @@ class GameUnit extends AppModel {
 	//Take all the units in a given team and add them to a game
 	public function addToGameFromTeam( $gameUID, $teamUID ){
 	
+		//Setup whatever model instances we'll be needing
+		$teamUnitModelInstance		= ClassRegistry::init( 'TeamUnit' );
+		$gameUnitStatModelInstance 	= ClassRegistry::init( 'GameUnitStat' );
+		
 		//Grab the team's units
-		$teamUnitModelInstance = ClassRegistry::init( 'TeamUnit' );
-		$teamUnits = $teamUnitModelInstance->getAllUnits( $teamUID );
+		$teamUnitTypes = $teamUnitModelInstance->getAllUnits( $teamUID );
 		
-		//Loop through all the units
-		foreach( $teamUnits as $teamUnit ){
+		//Loop through all the unit types
+		foreach( $teamUnitTypes as $teamUnitType ){
 		
-			//Setup the data
-			$gameUnitData = array(
-									'user_games_uid' 	=> $gameUID,
-									'units_uid'			=> $teamUnit['TeamUnit']['units_uid'],
-									'turn'				=> 1,
-									'x'					=> -1,
-									'y'					=> -1,
-									'defense'			=> $teamUnit['Unit']['UnitType']['UnitStat']['defense']
-								);
-								
-			//Create a new record for the unit and save it
-			$this->create();
-			$this->save( $gameUnitData );
+			//Check if there's a game unit stat equivalent to the unit stat, if there is then we'll
+			//use that for the new units, otherwise we'll create one in the rare event that this is
+			//the first time this unit type with this unit stat has been used in a game.
+			//May need to revisit this bullshit later when I'm older and wiser and less impatient and
+			//have drunk fewer scotch ales
+			
+			$gameUnitStatUID = $gameUnitStatModelInstance->getUIDForUnitStat( $teamUnitType['UnitType']['UnitStat'] );
+			
+			echo '<BR>Team Unit Type UID -> ' . $teamUnitType['UnitType']['uid'];
+			echo '<BR>Team Unit Stat Ary -> ';
+			echo print_r( $teamUnitType['UnitType']['UnitStat'] );
+			echo '<BR>Game Stat UID      -> ' . $gameUnitStatUID;
+		
+			//For each quantity of unit type we need to make a game unit
+			for( $newUnitCounter = 0; $newUnitCounter < $teamUnitType['TeamUnit']['quantity']; $newUnitCounter++ ){
+			
+				//Setup the data
+				$gameUnitData = array(
+									'GameUnit' => array(
+										'defense'					=> $teamUnitType['UnitType']['UnitStat']['defense'],
+										'last_movement_angle'		=>  0,
+										'last_movement_priority'	=>  0,
+										'name'						=> $teamUnitType['UnitType']['name'],
+										'turn'						=>  1,
+										'x'							=> -1,
+										'y'							=> -1,
+										'games_uid' 				=> $gameUID,
+										'game_unit_stats_uid'		=> $gameUnitStatUID,
+										'unit_art_sets_uid'			=> $teamUnitType['UnitType']['unit_art_sets_uid'],
+										'unit_types_uid'			=> $teamUnitType['UnitType']['uid'],
+										'users_uid'					=> $teamUnitType['Team']['users_uid']
+									)
+								  );
+									
+				//Create a new record for the unit and save it
+				$this->create();
+				$this->save( $gameUnitData );
+				
+			}
 											
 		}
 			

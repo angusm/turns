@@ -38,13 +38,24 @@ class MatchmakingQueue extends AppModel {
 											)
 										));
 		
+		
+		echo '<BR>Available Players -> ';
+		echo print_r( $availablePlayers );
+		
 		//If we didn't find any available spots then we create a new record
 		if( $availablePlayers == false ){
+			echo '<BR>No available players';
 			return $this->placeInQueue( $userUID, $teamUID );
 		}else{
+			echo '<BR>Opponent found';
 			$this->delete( $availablePlayers['MatchmakingQueue']['uid'] );
 			$defenderUserUID = $availablePlayers['MatchmakingQueue']['users_uid'];
 			$defenderTeamUID = $availablePlayers['MatchmakingQueue']['teams_uid'];
+			echo '<BR>Creating game...';
+			echo '<BR>Defender User UID -> ' . $defenderUserUID;
+			echo '<BR>Defender Team UID -> ' . $defenderTeamUID;
+			echo '<BR>Player User UID -> ' . $userUID;
+			echo '<BR>Player Team UID -> ' . $teamUID;
 			return $this->createGame( $defenderUserUID, $defenderTeamUID, $userUID, $teamUID );
 		}
 				
@@ -70,8 +81,8 @@ class MatchmakingQueue extends AppModel {
 		
 		//Create game units for each game from their teams
 		$gameUnitModelInstance = ClassRegistry::init( 'GameUnit' );
-		$gameUnitModelInstance->addToGameFromTeam( $defenderNuGame['UserGame']['uid'], 		$defenderTeamUID );
-		$gameUnitModelInstance->addToGameFromTeam( $challengerNuGame['UserGame']['uid'], 	$challengerTeamUID );
+		$gameUnitModelInstance->addToGameFromTeam( $createdGame['Game']['uid'],  $defenderTeamUID );
+		$gameUnitModelInstance->addToGameFromTeam( $createdGame['Game']['uid'],  $challengerTeamUID );
 				
 		//And just like that we've got a game. Boo yah.		
 		
