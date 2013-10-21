@@ -21,7 +21,7 @@ class Unit extends AppModel {
 		parent::__construct(); 
 		
 		//Add custom validation rules
-		/*$this->validate = array();array_merge(
+		$this->validate = array();array_merge(
 					array(
 						'unit_types_uid'	=> array(
 							'default'	=> 	'1',
@@ -35,7 +35,7 @@ class Unit extends AppModel {
 						)
 					),
 					$this->validate
-				);*/
+				);
 
 	}
 	
@@ -51,21 +51,22 @@ class Unit extends AppModel {
 									),
 									'contain' => array(
 										'UnitType' => array(
-											'fields' => array(
-												'name'
+											'UnitArtSet' => array(
+												'CardArtLayerSet' => array(
+													'CardArtLayer'
+												),
+												'UnitArtSetIcon' => array(
+													'Icon'
+												)
 											)
-										)
-									),											
-									'fields' => array(
-										'unit_types_uid as uid',
-										'quantity',
-										'unit_types_uid'
+										)								
 									)
 								));
 							
 		//Go through each result and move the count to the model field	
 		foreach( $unitList as $unitIndex => $unitData ){
 			$unitList[$unitIndex]['Unit']['name']  = $unitList[$unitIndex]['UnitType']['name'];
+			$unitList[$unitIndex]['Unit']['uid']  = $unitList[$unitIndex]['UnitType']['uid'];
 		}
 								
 		return $unitList;	

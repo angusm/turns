@@ -1,6 +1,5 @@
 <?php
 
-	//print_r( $gameInformation );
 	echo $this->GamePlay->renderGame( $userUID, $gameInformation );
 	
 	//Toss up the extra libraries

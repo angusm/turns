@@ -10,6 +10,16 @@
 		width: 	70px;
 	}
 	
+	div.gameBoardContainer{
+		position: relative;
+	}
+	
+	div.gameplayUnit{
+		left:0px;
+		position:absolute;	
+		top:0px;
+	}
+	
 	div.gameTile[light="0"]{
 		background-color: #666;
 	}

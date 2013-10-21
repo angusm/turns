@@ -4,7 +4,15 @@
 		font-size: 12px;	
 	}
 
-/* Card View */
+	div.removeFromTeam{
+		background-color:	#F00;
+		position:			absolute;
+		height:				30px;
+		left:				40px;
+		top:				40px;
+		width:				30px;	
+	}
+
 	input[type="text"].editableSelect{
 		width: 			180px;
 		margin-left:	-200px;
@@ -14,4 +22,10 @@
 	}
 	select.editableSelect{
 		width: 200px;
+	}
+	
+	.Unit_manageUnits_selectedUnit{
+		
+		font-weight: bold;	
+		
 	}

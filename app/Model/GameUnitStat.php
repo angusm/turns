@@ -60,9 +60,6 @@ class GameUnitStat extends AppModel {
 									)
 								));
 	
-		echo '<BR>Exists -> ';
-		echo print_r( $exists );
-
 		//If no such game unit stat exists, then create it.
 		if( $exists == false ){
 			$this->create();
@@ -74,10 +71,7 @@ class GameUnitStat extends AppModel {
 			$this->save();
 			
 			$created = $this->getUIDForUnitStat( $unitStatArray );
-	
-			echo '<BR>Created -> ';
-			echo print_r( $created );
-		
+			
 			return $created;
 			
 		//If we've got a game unit stat that fits the requirements then we just have to

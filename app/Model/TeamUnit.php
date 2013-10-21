@@ -11,6 +11,13 @@ class TeamUnit extends AppModel {
 								'foreignKey'	=> 'teams_uid'
 							)
 						);
+						
+		public $hasMany	= array(
+							'TeamUnitPosition' => array(
+								'className'		=> 'TeamUnitPosition',
+								'foreignKey'	=> 'team_units_uid'
+							)
+						);
 
 		//Override the constructor so that we can set the variables our way
 		//and not some punk ass way we don't much like.
@@ -93,12 +100,58 @@ class TeamUnit extends AppModel {
 				//Save the new quantity
 				$this->read( NULL, $appropriateRecord['TeamUnit']['uid'] );
 				$this->set( 'quantity', $nuQuantity );
-				$this->save();
-				return true;
+				return $this->save();
+							
+			}else{
+				
+				//Return false if there aren't enough of the unit to add it
+				return false;
+				
+			}													
+			
+		}
+		
+		//PUBLIC FUNCTION: decrementQuantityByUID
+		//Remove one quantity of a Team Unit with the given UID
+		public function decrementQuantityByUID( $teamUnitUID ){
+		
+			//Grab the given record
+			$givenRecord = $this->find( 'first', array(
+											'conditions' => array(
+												'TeamUnit.uid'   => $teamUnitUID
+											)
+										));
+		
+			//If we don't have an appropriate record then jump out and return false
+			//After all we can't remove what doesn't exist
+			if( $givenRecord == false ){
+			
+				return false;
+			
+			}
+
+			//Setup the new quantity
+			$nuQuantity = $givenRecord['TeamUnit']['quantity'] - 1;
+			
+			//If the new quantity is 0 or less than we just want to remove the attachment
+			//of the given unit types to this team, otherwise we just assign the new 
+			//quantity.
+			if( $nuQuantity < 1 ){
+				
+				//Delete the record
+				$this->read( NULL, $givenRecord['TeamUnit']['uid'] );
+				$this->delete();
 				
 			}else{
-				return false;
-			}													
+				
+				//Save the new quantity
+				$this->read( NULL, $givenRecord['TeamUnit']['uid'] );
+				$this->set( 'quantity', $nuQuantity );
+				$this->save();
+				
+			}
+			
+			return true;					
 			
 		}
 				
@@ -153,6 +206,7 @@ class TeamUnit extends AppModel {
 										),
 										'contain' => array(
 											'Team',
+											'TeamUnitPosition',
 											'UnitType' => array(
 												'UnitArtSet',
 												'UnitStat' => array(
@@ -202,29 +256,10 @@ class TeamUnit extends AppModel {
 				return false;
 			
 			}
-
-			//Setup the new quantity
-			$nuQuantity = $appropriateRecord['TeamUnit']['quantity'] - 1;
 			
-			//If the new quantity is 0 or less than we just want to remove the attachment
-			//of the given unit types to this team, otherwise we just assign the new 
-			//quantity.
-			if( $nuQuantity < 1 ){
-				
-				//Delete the record
-				$this->read( NULL, $appropriateRecord['TeamUnit']['uid'] );
-				$this->delete();
-				
-			}else{
-				
-				//Save the new quantity
-				$this->read( NULL, $appropriateRecord['TeamUnit']['uid'] );
-				$this->set( 'quantity', $nuQuantity );
-				$this->save();
-				
-			}
-			
-			return true;			
+			//Decrement the quantity, if the new quantity will be less than one then the 
+			//record is deleted
+			return $this->decrementQuantityByUID( $appropriateRecord['TeamUnit']['uid'] );		
 			
 		}
 	

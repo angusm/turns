@@ -27,15 +27,23 @@ class TeamUnitsController extends AppController {
 		//Grab the jSON values
 		$jsonValues = $this->params['url'];
 		
-		$unitTypeUID = $jsonValues['unitTypeUID'];
-		$teamUID 	 = $jsonValues['teamUID'];
+		$unitTypeUID 	= $jsonValues['unitTypeUID'];
+		$teamUID 	 	= $jsonValues['teamUID'];
+		$x			 	= $jsonValues['x'];
+		$y				= $jsonValues['y'];
 		
 		//Call the model function
 		$success = $this->TeamUnit->addUnitToTeamByUnitTypeUID( $unitTypeUID, $teamUID, $userUID );
+		
+		//If we had enough of the unit to add, add the unit to the given position
+		if( $success != false ){
+			$teamUnitPositionModelInstance = ClassRegistry::init( 'TeamUnitPosition' );
+			$teamUnitPositionModelInstance->assignPosition( $success['TeamUnit']['uid'], $x, $y );
+		}
 			
 		//Pass success to the view
-		$this->set( 'success', $success );
-		$this->set( 'unitTypeUID', $unitTypeUID );
+		$this->set( 'success', 		$success 		);
+		$this->set( 'unitTypeUID', 	$unitTypeUID 	);
 		$this->set(
 				'_serialize',
 				array(
@@ -80,20 +88,32 @@ class TeamUnitsController extends AppController {
 		//Grab the jSON values
 		$jsonValues = $this->params['url'];
 		
-		$unitTypeUID = $jsonValues['unitTypeUID'];
-		$teamUID 	 = $jsonValues['teamUID'];
+		$teamUID 	 	= $jsonValues['teamUID'];
+		$unitTypeUID 	= $jsonValues['unitTypeUID'];
+		$x 				= $jsonValues['x'];
+		$y				= $jsonValues['y'];
+		
+		//Before we can remove the unit from the TeamUnit model we need to
+		//remove it from the TeamUnitPositions model, this is why we grabbed the
+		//x and y from the jSON values
+		$teamUnitPositionModelInstance = ClassRegistry::init('TeamUnitPosition');
+		$teamUnitPositionModelInstance->removeTeamUnit( $teamUID, $unitTypeUID, $x, $y );
 		
 		//Call the model function
 		$success = $this->TeamUnit->removeUnitFromTeamByUnitTypeUID( $unitTypeUID, $teamUID, $userUID );
 			
 		//Pass success to the view
-		$this->set( 'success', $success );
-		$this->set( 'unitTypeUID', $unitTypeUID );
+		$this->set( 'success', 		$success 		);
+		$this->set( 'unitTypeUID', 	$unitTypeUID 	);
+		$this->set(	'x',			$x 				);
+		$this->set( 'y',			$y				);
 		$this->set(
 				'_serialize',
 				array(
 					'success',
-					'unitTypeUID'
+					'unitTypeUID',
+					'x',
+					'y'
 				)
 			);
 		

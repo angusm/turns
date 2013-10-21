@@ -63,12 +63,7 @@ class GameUnit extends AppModel {
 			//have drunk fewer scotch ales
 			
 			$gameUnitStatUID = $gameUnitStatModelInstance->getUIDForUnitStat( $teamUnitType['UnitType']['UnitStat'] );
-			
-			echo '<BR>Team Unit Type UID -> ' . $teamUnitType['UnitType']['uid'];
-			echo '<BR>Team Unit Stat Ary -> ';
-			echo print_r( $teamUnitType['UnitType']['UnitStat'] );
-			echo '<BR>Game Stat UID      -> ' . $gameUnitStatUID;
-		
+					
 			//For each quantity of unit type we need to make a game unit
 			for( $newUnitCounter = 0; $newUnitCounter < $teamUnitType['TeamUnit']['quantity']; $newUnitCounter++ ){
 			

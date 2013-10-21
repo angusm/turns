@@ -82,7 +82,7 @@ class GamePlayHelper extends AppHelper {
 		$returnString = '';
 											
 		//Add the necessary javascript and CSS for gameplay
-		$returnString .= $this->Html->css('gameplay');
+		//$returnString .= $this->Html->css('gameplay');
 		$returnString .= $this->Html->tag(
 										'script',
 										$this->gameplayJS()
@@ -307,6 +307,13 @@ class GamePlayHelper extends AppHelper {
 		//Replace defaults if possible
 		if( isset( $parameters['userUID'] ) ){
 			$userUID = $parameters['userUID'];
+		}
+			
+		//If 'GameUnit' is undefined just create a blank
+		//There are times when we'll want to render units without
+		//having any units to render
+		if( ! isset( $gameInformation['GameUnit'] ) ){
+			$gameInformation['GameUnit'] = array();	
 		}
 			
 		//Loop through the game units

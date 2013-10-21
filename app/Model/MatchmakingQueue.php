@@ -38,16 +38,11 @@ class MatchmakingQueue extends AppModel {
 											)
 										));
 		
-		
-		echo '<BR>Available Players -> ';
-		echo print_r( $availablePlayers );
-		
+				
 		//If we didn't find any available spots then we create a new record
 		if( $availablePlayers == false ){
-			echo '<BR>No available players';
 			return $this->placeInQueue( $userUID, $teamUID );
 		}else{
-			echo '<BR>Opponent found';
 			$this->delete( $availablePlayers['MatchmakingQueue']['uid'] );
 			$defenderUserUID = $availablePlayers['MatchmakingQueue']['users_uid'];
 			$defenderTeamUID = $availablePlayers['MatchmakingQueue']['teams_uid'];

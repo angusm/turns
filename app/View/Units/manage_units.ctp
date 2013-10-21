@@ -26,7 +26,7 @@
 								);
 	
 	echo '</div>';
-	
+		
 	echo $this->TurnForm->editableModelSelect( 
 												$teamList, 
 												array(
@@ -49,15 +49,26 @@
 										'button'	=> 'extraContent'
 									)
 								);
+								
+	echo $this->Html->tag(
+							'div',
+							$this->GamePlay->renderBoard( array( 'width' => 8, 'height' => 2 ) ) .
+							$this->GamePlay->renderUnits( '', array() ),
+							array(
+								'class' => 'gameBoardContainer'
+							)
+						);
 	
 	echo '</div>';
-	
-	//Toss up the extra libraries
+		
+	//Toss up the extra libraries and setup the unit list
 	echo $this->Html->tag(
 					'script',
 					'window.pageLibraries = new Array(
-											new Array( "Unit", "manageUnits" )
-										);'
+											new Array( "Unit", "manageUnits" ),
+											new Array( "Game", "elements" )
+										);
+					window.Unit_manageUnits_availableUnitList = '. json_encode( $unitList ).';'
 					);
 
 ?>

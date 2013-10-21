@@ -34,6 +34,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->css('setupForms');
 		echo $this->Html->css('UI');
 		echo $this->Html->css('turns');
+		echo $this->Html->css('gameplay');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
