@@ -51,13 +51,12 @@ function manageUnits(){
 			
 			//Grab the relevant data
 			var unitName 	= jQuery( 'td[fieldName="name"][uid="'+unitTypeUID+'"]' ).html();
+			var teamCost 	= jQuery( 'td[fieldName="teamcost"][uid="'+unitTypeUID+'"]' ).html();
 			var unitRow 	=  '<tr modelName="Unit" uid="' + unitTypeUID + '">';
 			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'uid', 		unitTypeUID );
 			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'name', 	unitName );
 			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'quantity', 0 );
-			unitRow			+= '<td modelName="Unit">';
-			unitRow			+= '<input type="button" value="<" class="removeUnitFromTeamButton"';
-			unitRow			+= ' modelName="Unit" uid="' + unitTypeUID + '"></td>';
+			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'teamcost', teamCost );
 			unitRow			+= '</tr>';
 			
 			//Create the necessary element
@@ -70,10 +69,18 @@ function manageUnits(){
 	//PUBLIC FUNCTION: addUnitToTeam
 	//Add the unit to the selected team
 	this.addUnitToTeam = function( tileElement ){
+		
+		if( jQuery( tileElement ).hasClass('removeFromTeam') ){
+			return false;
+		}
+		
+		tileElement = jQuery( tileElement ).closest( 'div.gameTile' );
 	
 		//Grab the x and y of the selected tile
 		var selectedX = jQuery( tileElement ).attr( 'x' );
 		var selectedY = jQuery( tileElement ).attr( 'y' );
+		console.log( selectedX );
+		console.log( selectedY );
 		
 		//Grab the Team UID 
 		var teamUID 	= jQuery( '.editableSelect[modelname="Team"]' ).val();
@@ -187,6 +194,7 @@ function manageUnits(){
 			'<img src="' + imgURL + image + '" class="gameplayUnit" uid="' + uid + '">' +
 			'<div class="removeFromTeam" uid="' + uid + '" x="' + x + '" y="' + y + '">'
 		);
+		Unit_manageUnits.handleRemoveFromTeamButton();
 		
 	}
 	
@@ -236,6 +244,12 @@ function manageUnits(){
 			//Update the pool count
 			var originalPoolCount = jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
 			var changedPoolCount = parseInt( originalPoolCount ) - 1;
+			
+			//Display the Team Cost
+			var teamCost = jQuery( 'div.TeamCost' ).html();
+			var unitTeamCost = jQuery( 'td[fieldName="teamcost"][uid="'+unitTypeUID+'"]' ).html();
+			teamCost = parseInt( teamCost ) + parseInt( unitTeamCost );
+			jQuery( 'div.TeamCost' ).html( teamCost );
 			
 			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value", changedPoolCount);
 			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html(changedPoolCount);
@@ -294,6 +308,13 @@ function manageUnits(){
 			//Update the pool count
 			var originalPoolCount = jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
 			var changedPoolCount = parseInt( originalPoolCount ) + 1;
+			
+			
+			//Display the Team Cost
+			var teamCost = jQuery( 'div.TeamCost' ).html();
+			var unitTeamCost = jQuery( 'td[fieldName="teamcost"][uid="'+unitTypeUID+'"]' ).html();
+			teamCost = parseInt( teamCost ) - parseInt( unitTeamCost );
+			jQuery( 'div.TeamCost' ).html( teamCost );
 			
 			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value", changedPoolCount);
 			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html(changedPoolCount);
@@ -527,20 +548,25 @@ function manageUnits(){
 	//Build the HTML that will actually display the team units
 	this.populateTeamUnits = function( jSONData ){
 		
+		//Team Cost 
+		var teamCost = 0;
+		
 		//Loop through the jSONData returned to grab each unit
 		jQuery.each( jSONData['unitsOnTeam'], function( key, unitData ){
 			
 			//Grab the relevant data
-			var unitUID		= unitData['UnitType']['uid'];
-			var unitName 	= unitData['UnitType']['name'];
 			var unitCount 	= unitData['TeamUnit']['quantity'];
+			var unitName 	= unitData['UnitType']['name'];
+			var unitUID		= unitData['UnitType']['uid'];
+			var unitTeamCost = jQuery( 'td[modelname="Unit"][fieldname="teamcost"][uid="'+unitUID+'"]' ).attr( 'value' );
+			//Add the amount to the team cost
+			teamCost += unitCount * unitTeamCost;
+			
 			var unitRow 	=  '<tr modelName="Unit" uid="' + unitUID + '">';
 			unitRow			+= Unit_manageUnits.getUnitTDCell( unitUID, 'uid', 		unitUID );
 			unitRow			+= Unit_manageUnits.getUnitTDCell( unitUID, 'name', 	unitName );
-			unitRow			+= Unit_manageUnits.getUnitTDCell( unitUID, 'quantity', 	unitCount );
-			unitRow			+= '<td modelName="Unit">';
-			unitRow			+= '<input type="button" value="<" class="removeUnitFromTeamButton"';
-			unitRow			+= ' modelName="Unit" uid="' + unitUID + '"></td>';
+			unitRow			+= Unit_manageUnits.getUnitTDCell( unitUID, 'quantity', unitCount );
+			unitRow			+= Unit_manageUnits.getUnitTDCell( unitUID, 'teamcost', unitTeamCost );
 			unitRow			+= '</tr>';
 			
 			//Create the necessary element
@@ -548,6 +574,9 @@ function manageUnits(){
 			Unit_manageUnits.handleRemoveFromTeamButton();
 						
 		});
+		
+		//Display the Team Cost
+		jQuery( 'div.TeamCost' ).html( teamCost );
 		
 		//Debit the unitl pool
 		Unit_manageUnits.debitUnitPool( jSONData );

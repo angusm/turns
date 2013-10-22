@@ -39,7 +39,7 @@ class TeamUnitPosition extends AppModel {
 		//Make sure we don't already have a unit in that position
 		//and that the unit is in the allowed range, we're going with
 		//the starting positions of chess, so from 0,0 to 7,1
-		if( $x > 7 or $y > 1 ){
+		if( $x > 7 or $y > 1 or $x < 0 or $y < 0 ){
 			return false;
 		}
 		
@@ -57,7 +57,7 @@ class TeamUnitPosition extends AppModel {
 														'TeamUnit.uid' => $teamUnitsUID
 													)
 												));
-		
+												
 		//Next we'll find a list of valid UIDs
 		$teamUID = $passedTeamUnit['TeamUnit']['teams_uid'];
 		$validTeamUnitUIDs = $teamUnitModelInstance->find( 'list', array(
@@ -91,7 +91,7 @@ class TeamUnitPosition extends AppModel {
 				$this->delete();
 				
 				//Now decrement the count of the unit
-				$teamUnitModelinstance->decrementQuantityByUID( $inPlaceUnit['TeamUnitPosition']['team_units_uid'] );
+				$teamUnitModelInstance->decrementQuantityByUID( $inPlaceUnit['TeamUnitPosition']['team_units_uid'] );
 				
 			}
 			

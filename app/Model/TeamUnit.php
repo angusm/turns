@@ -47,6 +47,44 @@ class TeamUnit extends AppModel {
 			if( $userOwnsTeam == false ){
 				return false;
 			}
+			
+			//Grab game constant info
+			$gameConstantModelInstance = ClassRegistry::init( 'GameConstant' );
+			$gameConstant	= $gameConstantModelInstance->find( 'first' );
+			$maxTeamCost	= $gameConstant['GameConstant']['max_team_cost'];
+			
+			//Grab the current team cost
+			$teamUnits = $this->find( 'all', array(
+											  'conditions' => array(
+												  'TeamUnit.teams_uid' => $teamUID
+											  ),
+											  'contain' => array(
+												  'UnitType' => array(
+													  'UnitStat'
+												  )
+											  )
+										  ));
+			$teamCost = 0;
+			foreach( $teamUnits as $teamUnit ){
+				$teamCost += intval( $teamUnit['UnitType']['UnitStat']['teamcost'] ) * intval( $teamUnit['TeamUnit']['quantity'] );	
+			}
+			
+			//Check if there's enough room in the team cost budget for the added unit
+			$unitTypeModelInstance = ClassRegistry::init( 'UnitType' );
+			$unitTypeRecord = $unitTypeModelInstance->find( 'first', array(
+																'conditions' => array(
+																	'UnitType.uid' => $unitTypeUID
+																),
+																'contain' => array(
+																	'UnitStat'
+																)
+															));
+
+			$newTeamCost = intval( $teamCost ) + intval( $unitTypeRecord['UnitStat']['teamcost'] );	
+				
+			if( $newTeamCost > $maxTeamCost ){
+				return false;
+			}
 		
 			//Check if there's a team unit record with the appropriate unit type and
 			//team uid

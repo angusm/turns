@@ -10,6 +10,7 @@
 										'Unit Type'	=> 'unit_types_uid',
 										'Name'		=> 'name',
 										'Count'		=> 'quantity',
+										'Cost'		=> 'teamcost',
 										'button'	=> 'extraContent'
 									),
 									array(
@@ -35,7 +36,24 @@
 													'includeSaveButton' 	=> true
 												)
 											);
+
+	echo $this->Html->tag(
+							'div',
+							0,
+							array(
+								'class' => 'TeamCost'
+							)
+						);
 	
+	echo $this->Html->tag(
+							'div',
+							'/' . $this->GamePlay->getMaxTeamCost(),
+							array(
+								'class' => 'MaxTeamCost'
+							)
+						);
+
+
 	echo '<div class="teamUnits">';
 	
 	echo $this->ModelUI->tableFromFind( 
@@ -46,7 +64,7 @@
 										'Unit Type'	=> 'unit_types_uid',
 										'Name'		=> 'name',
 										'Count'		=> 'quantity',
-										'button'	=> 'extraContent'
+										'Cost'		=> 'teamcost'
 									)
 								);
 								

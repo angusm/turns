@@ -41,6 +41,17 @@ class GamePlayHelper extends AppHelper {
 		'}';
 	}
 	
+	//PUBLIC FUNCTION: getMaxTeamCost
+	//Return the maximum cost a team is allowed to accrue
+	public function getMaxTeamCost(){
+	
+		$gameConstantModelInstance = ClassRegistry::init( 'GameConstant' );
+		$gameConstant = $gameConstantModelInstance->find( 'first' );
+		
+		return $gameConstant['GameConstant']['max_team_cost'];
+		
+	}
+	
 	//PUBLIC FUNCTION: renderBoard
 	//Render the game board, it'll be beautiful
 	public function renderBoard( $board ){

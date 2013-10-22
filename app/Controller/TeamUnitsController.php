@@ -34,7 +34,7 @@ class TeamUnitsController extends AppController {
 		
 		//Call the model function
 		$success = $this->TeamUnit->addUnitToTeamByUnitTypeUID( $unitTypeUID, $teamUID, $userUID );
-		
+
 		//If we had enough of the unit to add, add the unit to the given position
 		if( $success != false ){
 			$teamUnitPositionModelInstance = ClassRegistry::init( 'TeamUnitPosition' );

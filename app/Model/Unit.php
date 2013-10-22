@@ -58,15 +58,17 @@ class Unit extends AppModel {
 												'UnitArtSetIcon' => array(
 													'Icon'
 												)
-											)
+											),
+											'UnitStat'
 										)								
 									)
 								));
 							
 		//Go through each result and move the count to the model field	
 		foreach( $unitList as $unitIndex => $unitData ){
-			$unitList[$unitIndex]['Unit']['name']  = $unitList[$unitIndex]['UnitType']['name'];
-			$unitList[$unitIndex]['Unit']['uid']  = $unitList[$unitIndex]['UnitType']['uid'];
+			$unitList[$unitIndex]['Unit']['name']  		= $unitList[$unitIndex]['UnitType']['name'];
+			$unitList[$unitIndex]['Unit']['teamcost']  	= $unitList[$unitIndex]['UnitType']['UnitStat']['teamcost'];
+			$unitList[$unitIndex]['Unit']['uid']  		= $unitList[$unitIndex]['UnitType']['uid'];
 		}
 								
 		return $unitList;	
