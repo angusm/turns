@@ -199,20 +199,7 @@ class TeamUnit extends AppModel {
 		public function getAllUnits( $teamUID ){
 		
 			//Do the find...
-			$unitsOnTeam = $this->find( 'all', array(
-										'conditions' => array(
-											'teams_uid' => $teamUID
-										),
-										'contain' => array(
-											'Team',
-											'UnitType' => array(
-												'UnitArtSet',
-												'UnitStat' => array(
-													'UnitStatMovementSet'
-												)
-											)
-										)
-									));
+			$unitsOnTeam = $this->getUnitsOnTeam( $teamUID );
 									
 			return $unitsOnTeam;
 			

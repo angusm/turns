@@ -22,10 +22,10 @@ class TeamUnitsController extends AppController {
 	public function addUnitToTeamByUnitTypeUID(){
 			
 		//Grab the UID of the logged in user
-		$userUID = $this->Auth->user('uid');
+		$userUID 		= $this->Auth->user('uid');
 		
 		//Grab the jSON values
-		$jsonValues = $this->params['url'];
+		$jsonValues 	= $this->params['url'];
 		
 		$unitTypeUID 	= $jsonValues['unitTypeUID'];
 		$teamUID 	 	= $jsonValues['teamUID'];

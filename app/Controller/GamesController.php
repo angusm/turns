@@ -35,9 +35,9 @@ class GamesController extends AppController {
 		$jsonData = $this->params['url'];
 		
 		//Grab the GameUnit UID, the targeted X and the targeted Y
-		$gameUnitUID = $this->params['gameUnitUID'];
-		$targetedX	 = $this->params['x'];
-		$targetedY	 = $this->params['y'];
+		$gameUnitUID = $jsonData['gameUnitUID'];
+		$targetedX	 = $jsonData['x'];
+		$targetedY	 = $jsonData['y'];
 		
 		//Grab the user UID of the user making the request
 		$userUID = $this->Auth->user( 'uid' );
@@ -49,7 +49,7 @@ class GamesController extends AppController {
 		$validMove = $gameModelInstance->isMoveValid(
 											$gameUnitUID, 
 											$targetedX, 
-											$targetY, 
+											$targetedY, 
 											$userUID );
 		
 		$this->set( 'success', $validMove );

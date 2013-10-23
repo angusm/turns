@@ -1,7 +1,13 @@
 // JavaScript Document
 
-var Game_elements = new elements();
-Game_elements.handleEverything();
+var Game_elements = null;
+
+jQuery(document).ready( function(){
+	
+	Game_elements = new elements();
+	Game_elements.handleEverything();
+
+}); 
 
 function elements(){
 	//PUBLIC FUNCTION: arrangeElement

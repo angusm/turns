@@ -44,7 +44,7 @@ class GameUnit extends AppModel {
 	
 	//PUBLIC FUNCTION: addToGameFromTeam
 	//Take all the units in a given team and add them to a game
-	public function addToGameFromTeam( $gameUID, $teamUID ){
+	public function addToGameFromTeam( $gameUID, $teamUID, $topPlayer=true ){
 	
 		//Setup whatever model instances we'll be needing
 		$teamUnitModelInstance		= ClassRegistry::init( 'TeamUnit' );
@@ -55,18 +55,30 @@ class GameUnit extends AppModel {
 		
 		//Loop through all the unit types
 		foreach( $teamUnitTypes as $teamUnitType ){
-		
-			//Check if there's a game unit stat equivalent to the unit stat, if there is then we'll
-			//use that for the new units, otherwise we'll create one in the rare event that this is
-			//the first time this unit type with this unit stat has been used in a game.
-			//May need to revisit this bullshit later when I'm older and wiser and less impatient and
-			//have drunk fewer scotch ales
+			//Loop through all of their positions
+			foreach( $teamUnitType['TeamUnitPosition'] as $teamUnitPosition ){
 			
-			$gameUnitStatUID = $gameUnitStatModelInstance->getUIDForUnitStat( $teamUnitType['UnitType']['UnitStat'] );
+				//If the player is the top player, then rotate their starting positions
+				if( $topPlayer == true ){
 					
-			//For each quantity of unit type we need to make a game unit
-			for( $newUnitCounter = 0; $newUnitCounter < $teamUnitType['TeamUnit']['quantity']; $newUnitCounter++ ){
+					$teamUnitX = intval( $teamUnitPosition['x'] );
+					$teamUnitY = 6 + intval( $teamUnitPosition['y'] );
+					
+				}else{
+					
+					$teamUnitX = 7 - intval( $teamUnitPosition['x'] );
+					$teamUnitY = 1 - intval( $teamUnitPosition['y'] );
+					
+				}
 			
+				//Check if there's a game unit stat equivalent to the unit stat, if there is then we'll
+				//use that for the new units, otherwise we'll create one in the rare event that this is
+				//the first time this unit type with this unit stat has been used in a game.
+				//May need to revisit this bullshit later when I'm older and wiser and less impatient and
+				//have drunk fewer scotch ales
+				
+				$gameUnitStatUID = $gameUnitStatModelInstance->getUIDForUnitStat( $teamUnitType['UnitType']['UnitStat'] );
+				
 				//Setup the data
 				$gameUnitData = array(
 									'GameUnit' => array(
@@ -75,8 +87,8 @@ class GameUnit extends AppModel {
 										'last_movement_priority'	=>  0,
 										'name'						=> $teamUnitType['UnitType']['name'],
 										'turn'						=>  1,
-										'x'							=> -1,
-										'y'							=> -1,
+										'x'							=> $teamUnitX,
+										'y'							=> $teamUnitY,
 										'games_uid' 				=> $gameUID,
 										'game_unit_stats_uid'		=> $gameUnitStatUID,
 										'unit_art_sets_uid'			=> $teamUnitType['UnitType']['unit_art_sets_uid'],
@@ -130,16 +142,23 @@ class GameUnit extends AppModel {
 		//Grab all the movement sets 
 		$gameUnit = $this->find( 'first', array(
 									'conditions' => array(
-										'uid' => $uid
+										'GameUnit.uid' => $uid
 									),
 									'contain' => array(
-										'Unit' => array(
-											'UnitType' => array(
-												'UnitStat' => array(
-													'UnitStatMovementSet' => array(
-														'MovementSet' => array(
+										'UnitType' => array(
+											'UnitStat' => array(
+												'UnitStatMovementSet' => array(
+													'MovementSet' => array(
+														'Movement' => array(
 															'conditions' => array(
 																'priority' => $priority
+															),
+															'MovementDirectionSet' => array(
+																'DirectionSet' => array(
+																	'DirectionSetDirection' => array(
+																		'Direction'
+																	)
+																)
 															)
 														)
 													)
@@ -150,7 +169,7 @@ class GameUnit extends AppModel {
 								));
 									
 		//Return the movement sets
-		return $gameUnit['Unit']['UnitType']['UnitStat']['UnitStatMovementSet'];
+		return $gameUnit['UnitType']['UnitStat']['UnitStatMovementSet'];
 		
 	}
 	
@@ -159,16 +178,17 @@ class GameUnit extends AppModel {
 	public function findForMoveValidation( $uid ){
 	
 		//Return the GameUnit record
-		return $this->find( 'first', array(
+		$gameUnit =  $this->find( 'first', array(
 								'conditions' => array(
-									'uid' => $uid
+									'GameUnit.uid' => $uid
 								),
 								'contain' => array(
-									'UserGame' => array(
-										'Game'
+									'Game' => array(
+										'UserGame'
 									)
 								)
-							));	
+							));
+		return $gameUnit;
 		
 	}
 	
@@ -185,52 +205,40 @@ class GameUnit extends AppModel {
 										$movementSetUID ){
 		
 		//Setup the next turn
-		$nuTurn = $turn + 1;
+		$nuTurn 		= $turn + 1;
 		$nuMovePriority = $movePriority + 1;
+																	
+		//Grab all of the relevant units on the current turn and then move 
+		//them forward a turn, with the exception of the moved unit. 
 		
-		//Grab all of the user games tied to the given game UID
-		$userGameModelInstance = ClassRegistry::init( 'UserGame' );
-		$relevantUserGameUIDs = $userGameModelInstance->find( 'list', array(
-																'conditions' => array(
-																	'UserGame.games_uid' => $gameUID
-																),
-																'fields' => array(
-																	'UserGame.uid'
-																)
-															));
-															
-		//Loop through the user game UIDs and grab all of the relevant units on the 
-		//current turn and then move them forward a turn, with the exception of the 
-		//moved unit. 
-		foreach( $relevantUserGameUIDs as $relevantUID ){
-		
-			//Grab the relevant units
-			$unitsToMove = $this->find( 'all', array(
-								'conditions' => array(
-									'GameUnit.user_games_uid'	=> $relevantUID,
-									'GameUnit.turn' 			=> $turn,
-									'GameUnit.uid NOT'			=> $gameUnitUID
-								)
-							));
-							
-			//Loop through the found units and bump them up as a new record
-			foreach( $unitsToMove as $unitToMove ){
-				
-				//NOTE: MAKE NEW RECORD
-				
-				//Move the unit up
-				$this->read( NULL, $unitToMove['GameUnit']['uid'] );
-				$this->set( 'turn', $nuTurn );
-				$this->save();
-				
-			}			
+		//Grab the relevant units
+		$unitsToMove = $this->find( 'all', array(
+							'conditions' => array(
+								'GameUnit.games_uid'	=> $gameUID,
+								'GameUnit.turn' 		=> $turn,
+								'GameUnit.uid NOT'		=> $gameUnitUID
+							)
+						));
+						
+		echo 'UnitsToMove -> ' . print_r( $unitsToMove );
+						
+		//Loop through the found units and bump them up as a new record
+		foreach( $unitsToMove as $unitToMove ){
 			
-		}
-		
+			//NOTE: MAKE NEW RECORD
+			
+			//Move the unit up
+			$this->read( NULL, $unitToMove['GameUnit']['uid'] );
+			$this->set( 'turn', $nuTurn );
+			$this->save();
+			
+		}			
+			
+					
 		//NOTE: MAKE NEW RECORD
 		
 		//Now we finally get to update the unit to move
-		$this->read( NULL, $gameUID );
+		$this->read( NULL, $gameUnitUID );
 		$this->set( 'turn', $nuTurn );
 		$this->set( 'x', $targetX );
 		$this->set( 'y', $targetY );

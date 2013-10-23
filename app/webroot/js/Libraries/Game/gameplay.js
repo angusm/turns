@@ -2,15 +2,23 @@
 
 //PEPPER POTTS FUNCTION: handleEverything
 //Why? Because Pepper Potts is a badass bitch who just takes care of it all
-
-var Game_gameplay = new gameplay();
-Game_gameplay.handleEverything();
+var Game_elements = null;
 
 var loadDependenciesFor_Game_gameplay = function(){
 
 	libraries.push( new Array( 'Game', 'elements' ) );
 	
 }
+
+//DOCUMENT READY
+//When the document is fully ready, call the main function
+jQuery(document).ready( function(){
+
+	Game_elements = new elements();
+	Game_gameplay = new gameplay();
+	Game_gameplay.handleEverything();
+
+});
 
 //Alright let's do this matchmaking stuff
 function gameplay(){
@@ -125,7 +133,7 @@ function gameplay(){
 	//PUBLIC FUNCTION: handleEverything
 	//Just be Pepper Potts already, do everything
 	this.handleEverything = function(){
-		Game_gameplay.arrangeTiles();
+		Game_elements.arrangeTiles();
 		Game_gameplay.setupUnits();
 		Game_gameplay.handleUnitSelection();
 	}
@@ -266,7 +274,7 @@ function gameplay(){
 		
 		//Make the call to the server
 		jQuery.getJSON(
-			homeURL + '/Games/joinQueue/', 
+			homeURL + '/Games/processUnitMove', 
 			{
 				gameUnitUID:	Game_gameplay.selectedUnitUID,
 				x:				nuX,
