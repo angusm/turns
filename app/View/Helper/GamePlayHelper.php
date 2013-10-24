@@ -9,38 +9,6 @@ class GamePlayHelper extends AppHelper {
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
   	var $helpers = array('Html');
 	
-	//PUBLIC FUNCTION: gameplayJS
-	//Add the necessary base JS
-	public function gameplayJS(){
-		
-		// JavaScript Document
-		
-		//Create the array for all the units
-		return 'window.playerUnits 	= new Array();'.
-		'window.enemyUnits 	= new Array();'.
-		
-		//Alright let's do this matchmaking stuff
-		'function unit( nuX, nuY, nuName, nuDefense, nuDamage, nuUid, nuMovements ){'.
-			
-			'this.x			= nuX;'.
-			'this.y			= nuY;'.
-			'this.name 		= nuName;'.
-			'this.defense	= nuDefense;'.
-			'this.damage 	= nuDamage;'.
-			'this.uid 		= nuUid;'.
-			'this.movements	= nuMovements;'.
-			
-		'}'.
-		
-		'function movement( nuMustMoveAllTheWay, nuSpaces, nuDirections ){'.
-		
-			'this.directions			= nuDirections;'.
-			'this.mustMoveAllTheWay 	= nuMustMoveAllTheWay;'.
-			'this.spaces				= nuSpaces;'.
-			
-		'}';
-	}
-	
 	//PUBLIC FUNCTION: getMaxTeamCost
 	//Return the maximum cost a team is allowed to accrue
 	public function getMaxTeamCost(){
@@ -91,14 +59,6 @@ class GamePlayHelper extends AppHelper {
 	
 		//Setup the return string
 		$returnString = '';
-											
-		//Add the necessary javascript and CSS for gameplay
-		//$returnString .= $this->Html->css('gameplay');
-		$returnString .= $this->Html->tag(
-										'script',
-										$this->gameplayJS()
-									);
-		//$returnString .= $this->Html->script('Game/unit');
 	
 		//Render the board
 		$returnString .= $this->renderBoard( $gameInformation['Board'] );
@@ -285,7 +245,7 @@ class GamePlayHelper extends AppHelper {
 								')';
 							
 		//Create the javascript for this unit
-		$javascript 	= $this->Html->tag(
+		/*$javascript 	= $this->Html->tag(
 								'script',
 								$arrayToPush.'.push( new unit( '.
 												$attributes['x'].', '.
@@ -296,10 +256,10 @@ class GamePlayHelper extends AppHelper {
 												$attributes['uid'].', '.
 												$movementSetsString .
 												') );'
-								);
+								);*/
 								
 		//Add the javascript to the display string
-		$returnString = $divString . $javascript;
+		$returnString = $divString;// . $javascript;
 
 		return $returnString;
 		
@@ -326,6 +286,13 @@ class GamePlayHelper extends AppHelper {
 		if( ! isset( $gameInformation['GameUnit'] ) ){
 			$gameInformation['GameUnit'] = array();	
 		}
+		
+		//Add a json encoded version of the gameUnits to the $unitsString
+		$unitsString .= $this->Html->tag( 
+								'script',
+								'var gameUnits = ' . json_encode( $gameInformation['GameUnit'] ) . ';',
+								array()
+							);
 			
 		//Loop through the game units
 		foreach( $gameInformation['GameUnit'] as $gameUnit ){
