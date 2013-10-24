@@ -181,20 +181,16 @@ function gameplay(){
 		//Check and see if the selected unit has a currently selected MovementSet,
 		//if it does then that's the one we have to move with, otherwise the 
 		//user has options
+		if( Game_gameplay.selectedUnit.MovementSet.length == 0 ){
+			Game_gameplay.selectedUnit.MovementSet = Game_gameplay.selectedUnit.GameUnitStat.GameUnitStatMovementSet[0].MovementSet;
+		}
 		
 		//If we haven't locked in a movement set then loop through all the movement sets
 		//and light up their paths, otherwise only show paths for the currently selected
 		//movement set
-		jQuery.each( 
-			Game_gameplay.selectedUnit.GameUnitStat.GameUnitStatMovementSet,
-			function( movementSetIndex, movementSet ){
-				//
-				Game_gameplay.currentMovementSet = movementSetIndex;
-				//Highlight the path for each direction
-				var availableMovements = movementSet.Movement[Game_gameplay.selectedUnitMovePosition].directions;
-				jQuery.each( availableDirections, Game_gameplay.highlightUnitPath );
-			}
-		);
+		var availableDirections = Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnitMovePosition].directions;
+		jQuery.each( availableDirections, Game_gameplay.highlightUnitPath );
+		
 		//Loop through all the movements for the current move position
 		
 	}
