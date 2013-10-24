@@ -19826,3 +19826,1230 @@ Request URL: /turns/js/jquery.min.map
 Stack Trace:
 #0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-10-24 04:10:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:11:47 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:13:35 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 174]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 174
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:18:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:51 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:20:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 161]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 161
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:21:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:53 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php, line 158]
+Trace:
+GamePlayHelper::renderUnits() - APP\View\Helper\GamePlayHelper.php, line 158
+GamePlayHelper::renderGame() - APP\View\Helper\GamePlayHelper.php, line 72
+include - APP\View\Games\play_game.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 945
+View::_render() - CORE\Cake\View\View.php, line 907
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 948
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2013-10-24 04:26:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:29:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:31:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:32:37 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 04:35:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 05:18:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 05:20:06 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-24 05:21:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

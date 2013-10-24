@@ -106,161 +106,24 @@ class GamePlayHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: renderUnit
 	//Render the unit in HTML
-	public function renderUnit( $attributes, $movements, $userUnits ){
-	
-		//Establish the return string
-		$returnString = '';
-		
+	public function renderUnit( $uid, $icon, $userUID ){
+			
 		//Create the image of the unit
 		$imageString 	= $this->Html->image(
-								$attributes['icon']
+								$icon
 							);	
 
-		$divString		= $this->Html->tag(
+		//Establish the return string
+		$returnString	= $this->Html->tag(
 								'div',
 								$imageString,
 								array(
-									'class' => 'gameplayUnit',
-									'uid'	=> $attributes['uid']
+									'users_uid'	=> $userUID,
+									'class' 	=> 'gameplayUnit',
+									'uid'		=> $uid
 								)
 							);
-							
-		//Establish the array we're pushing onto
-		if( $userUnits ){
-			$arrayToPush = 'window.playerUnits';
-		}else{
-			$arrayToPush = 'window.enemyUnits';
-		}
-		
-		$phpMovementArrayStrings = array();
-		
-		//Loop through all the movements
-		foreach( $movements as $movementIndex => $movementSet ){
-			
-			//Setup the array for this movement set
-			$phpMovementArrayStrings[$movementIndex] = array();
-			
-			//Loop through the direction set movement set movements
-			//Yeah, how's that for confusing and poorly structured
-			foreach( $movementSet['MovementSet']['Movement'] as $movement ){
-						
-				//Establish the variables
-				$directions			= array();
-				$mustMoveAllTheWay 	= $movement['must_move_all_the_way'];
-				$priority			= $movement['priority'];
-				$spaces 			= $movement['spaces'];
-			
-				//Set the must move to true or false
-				if( ! $mustMoveAllTheWay ){
-					$mustMoveAllTheWay = 'false';
-				}else{
-					$mustMoveAllTheWay = 'true';
-				}
-				
-				//Loop through all the directions
-				foreach( $movement['MovementDirectionSet'] as $directionSet ){
-					
-					//Grab the direction
-					foreach( $directionSet['DirectionSet']['DirectionSetDirection'] as $direction ){
-				
-						//Now that we're all the way in here we add to our array
-						$directions[] = array(
-							'angle'	=> $direction['Direction']['angle']
-						);
-						
-					}
-					
-				}
-				
-				//Add the movement to the array
-				$phpMovementArrayStrings[$movementIndex][$priority] = array(
-							'directions'		=> $directions,
-							'mustMoveAllTheWay'	=> $mustMoveAllTheWay,	
-							'spaces' 			=> $spaces
-						);
-				
-			}
-			
-		}
-
-		$firstTimeThroughMovementSets = true;
-		$movementsString = '';
-		foreach( $phpMovementArrayStrings as $phpMovementArrayString ){
-		
-			$firstTimeThroughMovements = true;
-				
-			//Loop through the php movement array 
-			for( $priority = 1; $priority <= count( $phpMovementArrayString ); $priority++ ){
-				//Add the comma except if it's the first time through
-				if( $firstTimeThroughMovements ){
-					//Establish the movement string
-					$movementArrayStrings = '';
-					$firstTimeThroughMovements = false;
-				}else{
-					$movementArrayStrings .= ', ';
-				}
-	
-				//Add the basics			
-				$movementArrayStrings .= 'new movement( '.$phpMovementArrayString[$priority]['mustMoveAllTheWay'].', '.$phpMovementArrayString[$priority]['spaces'].', new Array( ';
-				
-				//Establish if this is the first element in the array
-				$firstTimeThroughDirections = true;
-				
-				//Add the directions
-				foreach( $phpMovementArrayString[$priority]['directions'] as $directionArray ){
-					
-					//Add the comma except if it's the first time through
-					if( $firstTimeThroughDirections ){
-						$firstTimeThroughDirections = false;
-					}else{
-						$movementArrayStrings .= ', ';
-					}
-					
-					//Add the direction to the movement string as an array
-					$movementArrayStrings .= $directionArray['angle'];
-					
-				}	
-				
-				//Finish the movement
-				$movementArrayStrings .= ' ) )';	
-					
-			}
-		
-			//Build onto the first time through movement sets
-			if( $firstTimeThroughMovementSets ){
-				$firstTimeThroughMovementSets = false;
-			}else{
-				$movementsString .= ', ';	
-			}
-			
-			//Build onto the movements string
-			$movementsString .= 'new Array('.
-										$movementArrayStrings .
-									')';
-		
-		}
-		
-		$movementSetsString = 'new Array('.
-									$movementsString .
-								')';
-							
-		//Create the javascript for this unit
-		/*$javascript 	= $this->Html->tag(
-								'script',
-								$arrayToPush.'.push( new unit( '.
-												$attributes['x'].', '.
-												$attributes['y'].', "'.
-												$attributes['name'].'", '.
-												$attributes['defense'].', '.
-												$attributes['damage'].', '.
-												$attributes['uid'].', '.
-												$movementSetsString .
-												') );'
-								);*/
 								
-		//Add the javascript to the display string
-		$returnString = $divString;// . $javascript;
-
 		return $returnString;
 		
 	}
@@ -271,15 +134,7 @@ class GamePlayHelper extends AppHelper {
 	
 		//Setup the return string
 		$unitsString = '';
-	
-		//Setup some defaults and then destroy them if at all possible
-		$userUID = '';
 		
-		//Replace defaults if possible
-		if( isset( $parameters['userUID'] ) ){
-			$userUID = $parameters['userUID'];
-		}
-			
 		//If 'GameUnit' is undefined just create a blank
 		//There are times when we'll want to render units without
 		//having any units to render
@@ -290,66 +145,28 @@ class GamePlayHelper extends AppHelper {
 		//Add a json encoded version of the gameUnits to the $unitsString
 		$unitsString .= $this->Html->tag( 
 								'script',
-								'var gameUnits = ' . json_encode( $gameInformation['GameUnit'] ) . ';',
+								'var gameUnits = ' . json_encode( $gameInformation['GameUnit'] ) 	. ';'.
+								'var userUID   = ' . $parameters['userUID'] 						. ';',
 								array()
 							);
 			
 		//Loop through the game units
 		foreach( $gameInformation['GameUnit'] as $gameUnit ){
-			
-			//Renew the attributes
-			$attributes = array();
-		
-			//Grab the game specific information
-			$uid			= $gameUnit['uid'];
-			$damage			= $gameUnit['GameUnitStat']['damage'];
-			$defense		= $gameUnit['defense'];
-			$movements		= $gameUnit['GameUnitStat']['GameUnitStatMovementSet'];
-			$name 			= $gameUnit['name'];
-			$unitArtSet 	= $gameUnit['UnitArtSet'];
-			$x 				= $gameUnit['x'];
-			$y 				= $gameUnit['y'];
-			
-			//Now we use all this information to make attributes
-			$attributes = array_merge(
-							$attributes,
-							array(
-								'x' 		=> $x,
-								'y'			=> $y,
-								'name'		=> $name,
-								'defense'	=> $defense,
-								'damage'	=> $damage,
-								'uid'		=> $uid
-							)
-						);
-						
+											
 			//Grab the display art
 			//Loop through each art set icon and grab the icon
-			foreach( $unitArtSet['UnitArtSetIcon'] as $artSetIcon ){
+			foreach( $gameUnit['UnitArtSet']['UnitArtSetIcon'] as $artSetIcon ){
 				
 				if( isset( $artSetIcon['Icon']['image'] ) ){
-					
 					//Add the attributes
-					$attributes = array_merge(
-									$attributes,
-									array(
-										'icon' => $artSetIcon['Icon']['image']
-									)
-								);
+					$iconImageURL = $artSetIcon['Icon']['image'];
+					break;
 				}
 				
 			}
-			
-			//Setup a boolean that indicates whether or not these units belong to
-			//the active player
-			if( $gameUnit['users_uid'] == $userUID ){
-				$usersUnits = true;
-			}else{
-				$usersUnits = false;
-			}
 				
 			//Now we need to render the unit
-			$unitsString .= $this->renderUnit( $attributes, $movements, $usersUnits );
+			$unitsString .= $this->renderUnit( $gameUnit['uid'], $iconImageURL, $gameUnit['users_uid'] );
 			
 		}
 					
