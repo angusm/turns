@@ -9,6 +9,40 @@ class GamePlayHelper extends AppHelper {
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
   	var $helpers = array('Html');
 	
+	//PUBLIC FUNCTION: getArtArray
+	//Grab the art array
+	public function getArtArray( $unitArtSet=array() ){
+		
+		//Setup the art array to return
+		$artArray = array();
+		$artArray['Icon'] 			= array();
+		$artArray['CardArtLayer']	= array();
+		
+		//Add all the icons
+		if( isset( $unitArtSet['UnitArtSetIcon'] ) ){
+			foreach( $unitArtSet['UnitArtSetIcon'] as $unitArtSetIcon ){
+				if( isset( $unitArtSetIcon['Icon']['icon_positions_uid'] ) and isset( $unitArtSetIcon['Icon']['image'] ) and $unitArtSetIcon['Icon']['icon_positions_uid'] == '3' ){
+	
+					$iconPosition = $unitArtSetIcon['Icon']['icon_positions_uid'];
+					$artArray['Icon'][$iconPosition] = $unitArtSetIcon['Icon']['image'];
+					
+				}
+			}
+		}
+		
+		//Add all the card art layers
+		if( isset( $unitArtSet['CardArtLayerSet'] ) ){
+			foreach( $unitArtSet['CardArtLayerSet'] as $cardArtLayerSet ){
+				if( isset( $cardArtLayerSet['CardArtLayer']['image'] ) ){
+					$artArray['CardArtLayer'][$cardArtLayerSet['position']] = $cardArtLayerSet['CardArtLayer']['image'];
+				}
+			}			
+		}
+		
+		return $artArray;
+		
+	}
+	
 	//PUBLIC FUNCTION: getMaxTeamCost
 	//Return the maximum cost a team is allowed to accrue
 	public function getMaxTeamCost(){
@@ -49,6 +83,427 @@ class GamePlayHelper extends AppHelper {
 									'class' => 'gameBoard'
 								)
 							);
+		
+	}
+	
+	//PUBLIC FUNCTION: renderGameUnitCard
+	//Render a card display
+	public function renderGameUnitCard( $gameUnit=array() ){
+		
+		$boardIconContent			= '';
+		$cardArtLayerContent 		= '';
+		$damageBarContent			= '';
+		$damageIconContent			= '';
+		$defenseBarContent			= '';
+		$defenseIconContent			= '';
+		$teamcostBarContent			= '';
+		$teamcostIconContent		= '';
+		$unitTypeName				= '';
+		$movementClassesContent		= '';
+		$movementSelectorsContent	= '';
+		
+		//If we have a gameUnit then we need to establish the content
+		if( count( $gameUnit ) > 0 ){
+			
+			//Set the unitTypeName if it's not already set
+			if( isset( $gameUnit['GameUnit']['name'] ) ){
+				$unitTypeName = $gameUnit['GameUnit']['name'];
+			}
+			
+			//If we have unit art get it in a nice array
+			if( isset( $gameUnit['UnitArtSet'] ) ){
+				$artArray = $this->getArtArray( $gameUnit['UnitArtSet'] );
+			}
+			
+			//Loop through the icons and grab the board icon
+			if( isset( $artArray['Icon']['3'] ) ){
+				//Grab the board icon
+				$boardIconContent .= $this->Html->image( 
+											$artArray['Icon']['3'], 
+											array( 
+												'alt' => 'Board Icon'
+											)
+										);					
+			}			
+			//Loop through all the art and add it to the card art layer content
+			foreach( $artArray['CardArtLayer'] as $position => $cardArtLayer ){
+				//Add the card art layer
+				$cardArtLayerContent .= $this->Html->image( 
+											$cardArtLayer, 
+											array(
+												'alt' => 
+													'Card Art Layer',
+												'cardArtLayerPosition' => 
+													$position
+											)
+										);	
+			}
+			
+			//Establish the damage bar content
+			if( isset( $gameUnit['GameUnitStat']['damage'] ) ){
+				
+				//Damage Value
+				$damageValue = $gameUnit['GameUnitStat']['damage'];	
+				
+				//Loop through the icons and grab the board icon
+				if( isset( $artArray['Icon']['6'] ) ){
+					for( $damageCounter = 0; $damageCounter < $damageValue; $damageCounter++ ){
+						$damageBarContent .= $this->Html->image( 
+														$artArray['Icon']['6'], 
+														array(
+															'alt' 	=> 'Damage Point',
+															'class'	=> 'attributePoint'
+														)
+													);	
+					}
+				}
+				$damageBarContent .= $this->Html->tag(
+													'div',
+													$damageValue,
+													array(
+														'class' => array(
+															'damageValue',
+															'attributeValue'
+														)
+													)
+												);
+			}
+			//Establish the damage icon content
+			//Loop through the icons and grab the board icon
+			if( isset( $artArray['Icon']['4'] ) ){
+				//Grab the board icon
+				$damageIconContent .= $this->Html->image( 
+											$artArray['Icon']['4'], 
+											array( 
+												'alt' => 'Damage Icon'
+											)
+										);					
+			}
+			
+			//Establish the damage bar content
+			if( isset( $gameUnit['GameUnit']['defense'] ) ){
+				
+				//Damage Value
+				$defenseValue = $gameUnit['GameUnit']['defense'];	
+				
+				//Loop through the icons and grab the board icon
+				if( isset( $artArray['Icon']['7'] ) ){
+					for( $defenseCounter = 0; $defenseCounter < $defenseValue; $defenseCounter++ ){
+						$defenseBarContent .= $this->Html->image( 
+														$artArray['Icon']['7'], 
+														array(
+															'alt' 	=> 'Defense Point',
+															'class'	=> 'attributePoint'
+														)
+													);	
+					}
+				}
+				$defenseBarContent .= $this->Html->tag(
+													'div',
+													$defenseValue,
+													array(
+														'class' => array(
+															'defenseValue',
+															'attributeValue'
+														)
+													)
+												);
+			}
+			//Establish the damage icon content
+			//Loop through the icons and grab the board icon
+			if( isset( $artArray['Icon']['5'] ) ){
+				//Grab the board icon
+				$defenseIconContent .= $this->Html->image( 
+											$artArray['Icon']['5'], 
+											array( 
+												'alt' => 'Defense Icon'
+											)
+										);					
+			}
+			
+			//Establish the teamcost bar content
+			if( isset( $gameUnit['GameUnitStat']['teamcost'] ) ){
+				
+				//Team Cost Value
+				$teamcostValue = $gameUnit['GameUnitStat']['teamcost'];	
+				
+				//Loop through the icons and grab the board icon
+				if( isset( $artArray['Icon']['9'] ) ){
+					for( $teamcostCounter = 0; $teamcostCounter < $teamcostValue; $teamcostCounter++ ){
+						$teamcostBarContent .= $this->Html->image( 
+														$artArray['Icon']['9'], 
+														array(
+															'alt' 	=> 'Team Cost Point',
+															'class'	=> 'attributePoint'
+														)
+													);	
+					}
+				}
+				$teamcostBarContent .= $this->Html->tag(
+													'div',
+													$teamcostValue,
+													array(
+														'class' => array(
+															'teamcostValue',
+															'attributeValue'
+														)
+													)
+												);
+			}
+			//Establish the damage icon content
+			//Loop through the icons and grab the board icon
+			if( isset( $artArray['Icon']['12'] ) ){
+				//Grab the board icon
+				$teamcostIconContent .= $this->Html->image( 
+											$artArray['Icon']['12'], 
+											array( 
+												'alt' => 'Team Cost Icon'
+											)
+										);					
+			}
+		
+		}
+
+		//Add all the content to their divs
+		
+		//Add the board icon to its div
+		$boardIconDiv		= $this->Html->tag(
+									  	'div',
+									  	$boardIconContent,
+										array(
+											'class' => 'boardIcon'
+									  	)
+								  	);
+		
+		//Add the card art layers to their div
+		$cardArtLayerDiv 	= $this->Html->tag(
+									  	'div',
+									  	$cardArtLayerContent,
+										array(
+											'class' => 'cardArtLayers'
+									  	)
+								  	);
+		
+		//Add the damage bar content to its div
+		$damageBarDiv 		= $this->Html->tag(
+										'div',
+										$damageBarContent,
+										array(
+											'class' => array(
+												'damageBar',
+												'attributeBar'
+											)
+										)
+									);
+									
+		//Add the damage icon to its div
+		$damageIconDiv		= $this->Html->tag(
+										'div',
+										$damageIconContent,
+										array(
+											'class' => array(
+												'damageIcon',
+												'attributeIcon'
+											)
+										)
+									);
+		
+		//Add the defense bar content to its div
+		$defenseBarDiv 		= $this->Html->tag(
+										'div',
+										$defenseBarContent,
+										array(
+											'class' => array(
+												'defenseBar',
+												'attributeBar'
+											)
+										)
+									);
+									
+		//Add the defense icon to its div
+		$defenseIconDiv		= $this->Html->tag(
+										'div',
+										$defenseIconContent,
+										array(
+											'class' => array(
+												'defenseIcon',
+												'attributeIcon'
+											)
+										)
+									);
+		
+		//Add the teamcost bar content to its div
+		$teamcostBarDiv 		= $this->Html->tag(
+										'div',
+										$teamcostBarContent,
+										array(
+											'class' => array(
+												'teamcostBar',
+												'attributeBar'
+											)
+										)
+									);
+									
+		//Add the teamcost icon to its div
+		$teamcostIconDiv		= $this->Html->tag(
+										'div',
+										$teamcostIconContent,
+										array(
+											'class' => array(
+												'teamcostIcon',
+												'attributeIcon'
+											)
+										)
+									);
+									
+		//Unit stat box
+		$unitStatBoxDiv			= $this->Html->tag(
+										'div',
+										$this->Html->tag(
+											'div',
+											$unitTypeName,
+											array(
+												'class' => 'unitTypeName'
+											)
+										),
+										array(
+											'class' => 'unitStatBox'
+										)
+									);
+									
+		//Setup the movement classes div
+		$movementClassesDiv		= $this->Html->tag(
+										'div',
+										$movementClassesContent,
+										array(
+											'class' => 'movementClasses'
+										)
+									);
+									
+		//Setup the movement selectors div
+		$movementSelectorsDiv	= $this->Html->tag(
+										'div',
+										$movementSelectorsContent,
+										array(
+											'class' => 'movementSelectors'
+										)
+									);
+    
+		//Add all of the card content    
+		$cardContent .= $cardArtLayerDiv;
+		$cardContent .= $boardIconDiv;
+		$cardContent .= $damageBarDiv;
+		$cardContent .= $damageIconDiv;
+		$cardContent .= $defenseBarDiv;
+		$cardContent .= $defenseIconDiv;
+		$cardContent .= $teamcostBarDiv;
+		$cardContent .= $teamcostIconDiv;
+		$cardContent .= $unitStatBoxDiv;
+		$cardContent .= $movementClassesDiv;
+		$cardContent .= $movementSelectorsDiv;
+
+		//Throw everything in the card content string into the div
+		$cardString 		= $this->Html->tag(
+									'div',
+									$cardContent,
+									array(
+										'class' => 'unitCard'
+									)
+								);
+		
+		return $cardString;
+    
+    <div class="movementClasses">
+    	<?php
+			//We need to create and display all the possible movement sets a 
+			//Unit Type might have
+			foreach( $unitTypeMovementSets as $unitTypeMovementSet ){
+				
+				$movementSet = $unitTypeMovementSet['MovementSet'];
+			
+				//Setup the div to hold this movement set
+				echo '<div 	class="movementSet" '.
+							' movementSetUID="' . $movementSet['uid'] .
+						'">';
+
+					//Toss out the name
+					echo '<div class="movementSetName">';
+						echo $movementSet['name'];
+					echo '</div>';
+					//We have to feature the movement
+					foreach( $movementSet['Movement'] as $movement ){
+						
+						//Setup the containing div, store the priority in an attribute
+						//We don't need to show this explicitly as it should be clear to
+						//the player through positioning
+						echo '<div '.
+								'class="movement" '.
+								'priority="' . $movement['priority'] . '"' .
+								'>';
+														
+							//Display the movement set background icon
+							echo $this->Html->image( $movementBoxIcon, 
+													array(
+														'alt' 		=> 	'Movement Box',
+														'class'		=>	'movementBox'
+													));
+							
+							//Display the spaces that can be covered in this move
+							echo '<div class="movementSpaces">';
+								echo $movement['spaces'];
+							echo '</div>';
+							
+							//Setup a display div for all the arrows
+							echo '<div class="movementArrows">';
+							foreach( $movement['MovementDirectionSet'] as $movementDirectionSet ){
+								foreach( $movementDirectionSet['DirectionSet']['DirectionSetDirection'] as $directionSetDirection ){
+									
+									//Get a nicer variable name to work with
+									$direction = $directionSetDirection['Direction'];
+									
+									//Toss up the image, storing its gameplay information in the
+									//HTML
+									echo $this->Html->image( $movementArrowIcon, 
+															array(
+																'alt' 		=> 	$direction['name'] . ' Movement Arrow',
+																'x'			=>  $direction['x'],
+																'y'			=> 	$direction['y'],
+																'class'		=> 	'movementArrow' . $direction['name'],
+																'direction'	=>	$direction['name']
+															));
+									
+								}
+							}
+							echo '</div>';
+							
+						echo '</div>';
+								
+					}
+					echo '</div>';		
+			}
+    	?>
+    </div>
+    <div class="movementSelectors">
+    	<?php
+			//For each movement set, toss out an icon that can be used to
+			//select it
+			foreach( $unitTypeMovementSets as $unitTypeMovementSet ){
+				$movementSet = $unitTypeMovementSet['MovementSet'];
+				echo '<div class="movementSetSelector" 
+						movementSetUID="' . $movementSet['uid'] . 
+					'">';
+					
+					echo $this->Html->image( $movementSetSelectorIcon, 
+											array(
+												'alt' 		=> 	'Movement Set Selector Icon',
+												'class'		=>  'movementSetSelector'
+											));
+															
+				echo '</div>';
+			}
+		?>
+    </div>
+</div>
 		
 	}
 	
