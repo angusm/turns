@@ -261,6 +261,161 @@ class GamePlayHelper extends AppHelper {
 											)
 										);					
 			}
+			
+			
+			//We need to create and display all the possible movement sets a 
+			//Unit Type might have
+			foreach( $gameUnit['GameUnitStat']['GameUnitStatMovementSet'] as $unitStatMovementSet ){
+				if( isset( $unitStatMovementSet['MovementSet']['uid'] ) ){
+
+					$movementSet = $unitStatMovementSet['MovementSet'];
+			
+					//Setup the movement set content
+					$movementSetContent = '';
+					
+					//Grab a name if there is one
+					if( isset( $movementSet['name'] ) ){
+						$movementSetName = $movementSet['name'];
+					}else{
+						$movementSetName = '';
+					}
+					
+					//Add the name div
+					$movementSetContent .= $this->Html->tag(
+													'div',
+													$movementSetName,
+													array(
+														'class' => 'movementSetName'
+													)
+												);
+												
+					//Add the actual movements
+					if( isset( $movementSet['Movement'] ) ){
+						foreach( $movementSet['Movement'] as $movement ){
+							if( isset( $movement['priority'] ) ){		
+							
+								//Reset the movement content for the new movement
+								$movementContent = '';
+												
+								//Establish the movement box image
+								if( isset( $artArray['Icon']['8'] ) ){
+									
+									//Display the movement set background icon
+									$movementContent .= $this->Html->image( 
+																	$artArray['Icon']['8'], 
+																	array(
+																		'alt' 		=> 	'Movement Box',
+																		'class'		=>	'movementBox'
+																	)
+																);
+								}
+							
+								//Display the spaces that can be covered in this move
+								if( isset( $movement['spaces'] ) ){
+									$movementContent .= $this->Html->tag(
+																	'div',
+																	$movement['spaces'],
+																	array(
+																		'class' => 'movementSpaces'
+																	)
+																);
+								}
+																
+							
+								//Setup a display div for all the arrows
+								$movementArrowsContent = '';
+								
+								//Grab all the movement direction set
+								if( isset( $movement['MovementDirectionSet'] ) ){
+									foreach( $movement['MovementDirectionSet'] as $movementDirectionSet ){
+										if( isset( $movementDirectionSet['DirectionSet']['DirectionSetDirection'] ) ){
+											foreach( $movementDirectionSet['DirectionSet']['DirectionSetDirection'] as $directionSetDirection ){
+												
+												if( isset( $directionSetDirection['Direction'] ) ){
+													
+													//Get a nicer variable name to work with
+													$direction = $directionSetDirection['Direction'];
+													
+													//Check to make sure we got the info we need
+													if( isset( $direction['name'] ) and isset( $direction['x'] ) and isset( $direction['y'] ) and isset( $artArray['Icon']['11'] ) ){
+													
+														//Toss up the image, storing its gameplay information in the
+														//HTML
+														echo $this->Html->image( $artArray['Icon']['11'], 
+																				array(
+																					'alt' 		=> 	$direction['name'] . ' Movement Arrow',
+																					'x'			=>  $direction['x'],
+																					'y'			=> 	$direction['y'],
+																					'class'		=> 	'movementArrow' . $direction['name'],
+																					'direction'	=>	$direction['name']
+																				));
+													
+													}
+													
+												}
+												
+											}
+										}
+									}
+								}
+							
+								$movementContent .= $this->Html->tag(
+																'div',
+																$movementArrowsContent,
+																array(
+																	'class' => 'movmentArrows'
+																)
+															);
+					
+								$movementSetContent .= $this->Html->tag(
+																	'div',
+																	$movementContent,
+																	array(
+																		'class'		=> 'movement',
+																		'priority'  => $movement['priority']
+																	)
+																);
+							}
+						}
+					}
+					
+					//Setup the div to hold this movement set
+					$movementClassesContent .= $this->Html->tag(
+														'div',
+														$movementSetContent,
+														array(
+															'class' 			=> 'movementSet',
+															'movementSetUID'	=> $movementSet['uid']
+														)
+													);
+													
+				}
+			}
+			
+			
+			//For each movement set, toss out an icon that can be used to
+			//select it
+			if( isset( $gameUnit['GameUnitStat']['GameUnitStatMovementSet'] ) ){
+				foreach( $gameUnit['GameUnitStat']['GameUnitStatMovementSet'] as $unitStatMovementSet ){
+					if( isset( $unitStatMovementSet['MovementSet']['uid'] ) and isset( $artArray['Icon']['11'] ) ){
+	
+						$movementSet = $unitStatMovementSet['MovementSet'];
+						$movementSelectorsContent .= $this->Html->tag(
+																'div',
+																$this->Html->image(
+																				$artArray['Icon']['11'],
+																				array(
+																					'alt'	=> 'Movement Set Selector Icon',
+																					'class'	=>  'movementSetSelector'
+																				)
+																			),
+																array(
+																	'class' => 'movementSetSelector'
+																)
+															);
+					}
+				}
+			}					
 		
 		}
 
@@ -412,98 +567,7 @@ class GamePlayHelper extends AppHelper {
 								);
 		
 		return $cardString;
-    
-    <div class="movementClasses">
-    	<?php
-			//We need to create and display all the possible movement sets a 
-			//Unit Type might have
-			foreach( $unitTypeMovementSets as $unitTypeMovementSet ){
-				
-				$movementSet = $unitTypeMovementSet['MovementSet'];
-			
-				//Setup the div to hold this movement set
-				echo '<div 	class="movementSet" '.
-							' movementSetUID="' . $movementSet['uid'] .
-						'">';
-
-					//Toss out the name
-					echo '<div class="movementSetName">';
-						echo $movementSet['name'];
-					echo '</div>';
-					//We have to feature the movement
-					foreach( $movementSet['Movement'] as $movement ){
-						
-						//Setup the containing div, store the priority in an attribute
-						//We don't need to show this explicitly as it should be clear to
-						//the player through positioning
-						echo '<div '.
-								'class="movement" '.
-								'priority="' . $movement['priority'] . '"' .
-								'>';
-														
-							//Display the movement set background icon
-							echo $this->Html->image( $movementBoxIcon, 
-													array(
-														'alt' 		=> 	'Movement Box',
-														'class'		=>	'movementBox'
-													));
-							
-							//Display the spaces that can be covered in this move
-							echo '<div class="movementSpaces">';
-								echo $movement['spaces'];
-							echo '</div>';
-							
-							//Setup a display div for all the arrows
-							echo '<div class="movementArrows">';
-							foreach( $movement['MovementDirectionSet'] as $movementDirectionSet ){
-								foreach( $movementDirectionSet['DirectionSet']['DirectionSetDirection'] as $directionSetDirection ){
-									
-									//Get a nicer variable name to work with
-									$direction = $directionSetDirection['Direction'];
-									
-									//Toss up the image, storing its gameplay information in the
-									//HTML
-									echo $this->Html->image( $movementArrowIcon, 
-															array(
-																'alt' 		=> 	$direction['name'] . ' Movement Arrow',
-																'x'			=>  $direction['x'],
-																'y'			=> 	$direction['y'],
-																'class'		=> 	'movementArrow' . $direction['name'],
-																'direction'	=>	$direction['name']
-															));
-									
-								}
-							}
-							echo '</div>';
-							
-						echo '</div>';
-								
-					}
-					echo '</div>';		
-			}
-    	?>
-    </div>
-    <div class="movementSelectors">
-    	<?php
-			//For each movement set, toss out an icon that can be used to
-			//select it
-			foreach( $unitTypeMovementSets as $unitTypeMovementSet ){
-				$movementSet = $unitTypeMovementSet['MovementSet'];
-				echo '<div class="movementSetSelector" 
-						movementSetUID="' . $movementSet['uid'] . 
-					'">';
-					
-					echo $this->Html->image( $movementSetSelectorIcon, 
-											array(
-												'alt' 		=> 	'Movement Set Selector Icon',
-												'class'		=>  'movementSetSelector'
-											));
-															
-				echo '</div>';
-			}
-		?>
-    </div>
-</div>
+		
 		
 	}
 	
