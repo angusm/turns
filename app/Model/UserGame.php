@@ -55,12 +55,13 @@ class UserGame extends AppModel {
 	
 	//PUBLIC FUNCTION: newGame
 	//Create a new record, so that, y'know, players can play
-	public function newGame( $userUID, $gameUID ){
+	public function newGame( $userUID, $gameUID, $priority ){
 	
 		//Setup the model data for this new game
 		$newGameData = array(
 						'users_uid'	=> $userUID,
-						'games_uid' => $gameUID
+						'games_uid' => $gameUID,
+						'priority'	=> $priority
 					);
 					
 		//Create a new record for the game

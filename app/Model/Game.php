@@ -306,6 +306,11 @@ class Game extends AppModel {
 							$angle, 
 							$movePriority, 
 							$movementSetUID );
+							
+		//Update the active user model to record who was the active user
+		//on the new turn
+		$activeUserModelInstance = ClassRegistry::init( 'ActiveUser' );
+		$activeUserModelInstance->moveToNextTurn( $gameUID );
 		
 		//Find the current game and move its turn up
 		$game = $this->find( 'first', array(

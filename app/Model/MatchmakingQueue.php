@@ -67,8 +67,8 @@ class MatchmakingQueue extends AppModel {
 		
 		//Tie the users to the new game
 		$userGameModelInstance = ClassRegistry::init( 'UserGame' );
-		$defenderNuGame 	= $userGameModelInstance->newGame( $defenderUserUID, 	$createdGame['Game']['uid'] );
-		$challengerNuGame	= $userGameModelInstance->newGame( $challengerUserUID, 	$createdGame['Game']['uid'] );
+		$defenderNuGame 	= $userGameModelInstance->newGame( $defenderUserUID, 	$createdGame['Game']['uid'], 2 );
+		$challengerNuGame	= $userGameModelInstance->newGame( $challengerUserUID, 	$createdGame['Game']['uid'], 1 );
 		
 		//Set the active player to the challenging player, as he's more likely to act first
 		//having just joined the queue.

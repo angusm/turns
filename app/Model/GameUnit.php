@@ -107,6 +107,32 @@ class GameUnit extends AppModel {
 			
 	}
 	
+	//PUBLIC FUNCTION: areAllLastMovementPrioritiesZero
+	//Check and see if all the last movement priorities for the active turn
+	//of the given game are zero
+	public function areAllLastMovementPrioritiesZero( $gameUID, $turn ){
+	
+		//Grab any unit that doesn't have a unit move priority of 0 for the
+		//given game on the given turn. If such a unit can be grabbed then
+		//return false, otherwise return true
+		$lastMovedUnit = $this->find( 'first', array(
+									'conditions' => array(
+										'GameUnit.games_uid' 					=> $gameUID,
+										'GameUnit.turn'							=> $turn,
+										'GameUnit.last_movement_priority NOT' 	=> 0
+									)
+								));	
+								
+		echo print_r( $lastMovedUnit );
+								
+		if( $lastMovedUnit == false ){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+	
 	//PUBLIC FUNCTION: findAllMovementSets
 	//Find all the movement sets associated with the GameUnit
 	public function findAllMovementSets( $uid ){
@@ -238,11 +264,31 @@ class GameUnit extends AppModel {
 			//NOTE: MAKE NEW RECORD
 			if( $unitToMove['GameUnit']['uid'] == $gameUnitUID ){
 			
+				//Update the values
 				$unitToMove['GameUnit']['x'] 						= $targetX;
 				$unitToMove['GameUnit']['y'] 						= $targetY;				
 				$unitToMove['GameUnit']['last_movement_angle'] 		= $angle;
 				$unitToMove['GameUnit']['last_movement_priority'] 	= $movePriority;
 				$unitToMove['GameUnit']['movement_sets_uid'] 		= $movementSetUID;
+				
+				//Now we need to check to make sure that the last active unit still
+				//has moves left before it is finished moving. If it doesn't then we
+				//set it's last_movement_priority back to 0.
+				//To do this we need to find a movement tied to the given movement set
+				//with the new priority
+				$movementModelInstance = ClassRegistry::init( 'Movement' );
+				$validNextMove = $movementModelInstance->find( 'first', array(
+																	'conditions' => array(
+																		'movement_sets_uid' => $movementSetUID,
+																		'priority'			=> $movePriority
+																	)
+																));
+																
+				if( $validNextMove == false ){
+					$unitToMove['GameUnit']['last_movement_priority'] 	= 0;
+					$unitToMove['GameUnit']['last_movement_angle'] 		= 0;
+					$unitToMove['GameUnit']['movement_sets_uid'] 		= NULL;
+				}					
 			
 			}
 			

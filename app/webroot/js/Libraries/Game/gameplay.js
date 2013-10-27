@@ -58,6 +58,21 @@ function gameplay(){
 		
 	}
 	
+	//PUBLIC FUNCTION: checkIfUnitShouldBeSelected
+	//Check if the unit should be selected, if it should be
+	//selected then select it.
+	this.checkIfUnitShouldBeSelected = function( unitObjectPosition, unitObject ){
+	
+		if( unitObject.last_movement_priority != "0" ){
+			
+			Game_gameplay.selectedUnit 		= unitObject;
+			Game_gameplay.selectedUnitUID 	= unitObject.uid;
+			Game_gameplay.processUnitSelection();
+			return false;				
+		}
+		
+	}
+	
 	//PUBLIC FUNCTION: disallowSelectChange
 	//Remove the ability to select any new units or deselect a currently
 	//selected unit
@@ -136,7 +151,14 @@ function gameplay(){
 	this.handleEverything = function(){
 		Game_elements.arrangeTiles();
 		Game_gameplay.setupUnits();
-		Game_gameplay.handleUnitSelection();
+		
+		//If its the player's turn then setup unit selection,
+		//otherwise setup a timer to check if it's the user's turn yet
+		if( window.playersTurn ){
+			Game_gameplay.handleUnitSelection();
+		}else{
+			//Setup callback timer	
+		}
 	}
 	
 	//PUBLIC FUNCTION: handleMoveToTile
@@ -157,12 +179,12 @@ function gameplay(){
 		
 	}
 	
-	//PUBLIC FUNCTION: handleUnitSelection
-	//Handle selecting the unit when its clicked on
-	this.handleUnitSelection = function(){
+	//PUBLIC FUNCTION: handleSelectionOfAnyUnit
+	//Setup a function to handle the selection of any of the player's units	
+	this.handleSelectionOfAnyUnit = function(){
 	
 		//We only want to be adding this once
-		jQuery( '.gameplayUnit' ).each( function(){
+		jQuery( '.gameplayUnit[users_uid="'+window.userUID+'"]' ).each( function(){
 			
 			if( ! jQuery(this).isBound( 'click', Game_gameplay.selectUnit ) ){
 				jQuery(this).bind( 
@@ -173,6 +195,19 @@ function gameplay(){
 			
 		});
 		
+	}
+	
+	//PUBLIC FUNCTION: handleUnitSelection
+	//Handle selecting the unit when its clicked on
+	this.handleUnitSelection = function(){
+	
+		//We run a check to see if the user has already selected a unit that it hasn't finished moving
+		//If this is the case we select it for the user, otherwise we allow the selection of any unit
+		jQuery.each( window.gameUnits, Game_gameplay.checkIfUnitShouldBeSelected );
+		
+		//If we still don't have a selected unit then allow the user to select any of their units
+		Game_gameplay.handleSelectionOfAnyUnit();
+	
 	}
 	
 	//PUBLIC FUNCTION: highlightSelectedUnitPaths
@@ -334,6 +369,16 @@ function gameplay(){
 		
 		//Loop through the player's units and find the selected unit
 		jQuery.each( window.gameUnits, Game_gameplay.checkIfSelected );
+		
+		Game_gameplay.processUnitSelection();
+		
+	}
+	
+	//PUBLIC FUNCTION: processUnitSelection
+	//Do the work that needs to occur after a unit has been selected.
+	this.processUnitSelection = function(){
+		
+		clickedUnit = jQuery( 'gameplayUnit[uid="' + Game_gameplay.selectedUnitUID + '"]' );
 		
 		//Reset turn data
 		Game_gameplay.resetTurnData();

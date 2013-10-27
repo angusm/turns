@@ -658,13 +658,22 @@ class GamePlayHelper extends AppHelper {
 		//If 'GameUnit' is undefined just create a blank
 		//There are times when we'll want to render units without
 		//having any units to render
-		if( isset( $gameInformation['GameUnit'] ) ){
+		echo print_r( $gameInformation );
+		if( isset( $gameInformation['GameUnit'] ) and isset( $gameInformation['ActiveUser'][0]['UserGame']['users_uid'] ) ){
+				
+			//Check to see if the current user is the active player
+			if( $gameInformation['ActiveUser'][0]['UserGame']['users_uid'] == $parameters['userUID'] ){
+				$playersTurn = 'true';	
+			}else{
+				$playersTurn = 'false';
+			}
 				
 			//Add a json encoded version of the gameUnits to the $unitsString
 			$unitsString .= $this->Html->tag( 
 									'script',
-									'var gameUnits = ' . json_encode( $gameInformation['GameUnit'] ) 	. ';'.
-									'var userUID   = ' . $parameters['userUID'] 						. ';',
+									'var gameUnits 		= ' . json_encode( $gameInformation['GameUnit'] ) 	. ';'.
+									'var userUID   		= ' . $parameters['userUID'] 						. ';'.
+									'var playersTurn	= ' . $playersTurn									. ';',
 									array()
 								);
 				
