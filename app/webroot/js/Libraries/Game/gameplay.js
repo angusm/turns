@@ -68,7 +68,7 @@ function gameplay(){
 			Game_gameplay.selectedUnit 		= unitObject;
 			Game_gameplay.selectedUnitUID 	= unitObject.uid;
 			Game_gameplay.processUnitSelection();
-			return false;				
+							
 		}
 		
 	}
@@ -382,6 +382,9 @@ function gameplay(){
 		
 		//Reset turn data
 		Game_gameplay.resetTurnData();
+		
+		//Grab the selected unit move position
+		Game_gameplay.selectedUnitMovePosition = Game_gameplay.selectedUnit.last_movement_priority;
 		
 		//Toggle the highlighted and selected units
 		Game_gameplay.highlightSelectedUnitPaths();

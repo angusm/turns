@@ -658,7 +658,7 @@ class GamePlayHelper extends AppHelper {
 		//If 'GameUnit' is undefined just create a blank
 		//There are times when we'll want to render units without
 		//having any units to render
-		echo print_r( $gameInformation );
+		
 		if( isset( $gameInformation['GameUnit'] ) and isset( $gameInformation['ActiveUser'][0]['UserGame']['users_uid'] ) ){
 				
 			//Check to see if the current user is the active player

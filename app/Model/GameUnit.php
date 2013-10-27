@@ -123,8 +123,6 @@ class GameUnit extends AppModel {
 									)
 								));	
 								
-		echo print_r( $lastMovedUnit );
-								
 		if( $lastMovedUnit == false ){
 			return true;
 		}else{

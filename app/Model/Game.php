@@ -175,7 +175,10 @@ class Game extends AppModel {
 			$movementSetModelInstance = ClassRegistry::init( 'MovementSet' );
 			$gameUnitMovementSets = array( 
 										array(
-											'MovementSet' => $movementSetModelInstance->findByUIDWithPriority( $gameUnit['GameUnit']['movement_sets_uid'], $movePriority )
+											'MovementSet' => array_merge(
+												array( 'uid' => $gameUnit['GameUnit']['movement_sets_uid'] ),
+												$movementSetModelInstance->findByUIDWithPriority( $gameUnit['GameUnit']['movement_sets_uid'], $movePriority )
+											)
 										)
 								);
 														
