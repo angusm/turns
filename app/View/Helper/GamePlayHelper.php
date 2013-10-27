@@ -92,15 +92,16 @@ class GamePlayHelper extends AppHelper {
 		
 		$boardIconContent			= '';
 		$cardArtLayerContent 		= '';
+		$cardContent				= '';
 		$damageBarContent			= '';
 		$damageIconContent			= '';
 		$defenseBarContent			= '';
 		$defenseIconContent			= '';
+		$movementClassesContent		= '';
+		$movementSelectorsContent	= '';
 		$teamcostBarContent			= '';
 		$teamcostIconContent		= '';
 		$unitTypeName				= '';
-		$movementClassesContent		= '';
-		$movementSelectorsContent	= '';
 		
 		//If we have a gameUnit then we need to establish the content
 		if( count( $gameUnit ) > 0 ){
@@ -657,38 +658,38 @@ class GamePlayHelper extends AppHelper {
 		//If 'GameUnit' is undefined just create a blank
 		//There are times when we'll want to render units without
 		//having any units to render
-		if( ! isset( $gameInformation['GameUnit'] ) ){
-			$gameInformation['GameUnit'] = array();	
-		}
-		
-		//Add a json encoded version of the gameUnits to the $unitsString
-		$unitsString .= $this->Html->tag( 
-								'script',
-								'var gameUnits = ' . json_encode( $gameInformation['GameUnit'] ) 	. ';'.
-								'var userUID   = ' . $parameters['userUID'] 						. ';',
-								array()
-							);
-			
-		//Loop through the game units
-		foreach( $gameInformation['GameUnit'] as $gameUnit ){
-											
-			//Grab the display art
-			//Loop through each art set icon and grab the icon
-			foreach( $gameUnit['UnitArtSet']['UnitArtSetIcon'] as $artSetIcon ){
+		if( isset( $gameInformation['GameUnit'] ) ){
 				
-				if( isset( $artSetIcon['Icon']['image'] ) ){
-					//Add the attributes
-					$iconImageURL = $artSetIcon['Icon']['image'];
-					break;
+			//Add a json encoded version of the gameUnits to the $unitsString
+			$unitsString .= $this->Html->tag( 
+									'script',
+									'var gameUnits = ' . json_encode( $gameInformation['GameUnit'] ) 	. ';'.
+									'var userUID   = ' . $parameters['userUID'] 						. ';',
+									array()
+								);
+				
+			//Loop through the game units
+			foreach( $gameInformation['GameUnit'] as $gameUnit ){
+												
+				//Grab the display art
+				//Loop through each art set icon and grab the icon
+				foreach( $gameUnit['UnitArtSet']['UnitArtSetIcon'] as $artSetIcon ){
+					
+					if( isset( $artSetIcon['Icon']['image'] ) ){
+						//Add the attributes
+						$iconImageURL = $artSetIcon['Icon']['image'];
+						break;
+					}
+					
 				}
+					
+				//Now we need to render the unit
+				$unitsString .= $this->renderUnit( $gameUnit['uid'], $iconImageURL, $gameUnit['users_uid'] );
 				
 			}
-				
-			//Now we need to render the unit
-			$unitsString .= $this->renderUnit( $gameUnit['uid'], $iconImageURL, $gameUnit['users_uid'] );
 			
 		}
-					
+		
 		//Now throw it all in a div and return it
 		return $this->Html->tag( 
 								'div',

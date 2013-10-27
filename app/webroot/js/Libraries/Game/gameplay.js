@@ -95,7 +95,8 @@ function gameplay(){
 		var nuLogicalY = jQuery( tileMovedTo ).attr('y');
 		var movementSetToLockIn = jQuery( tileMovedTo ).attr( 'movementSet' );
 		
-		var movementSetArray = Game_gameplay.selectedUnit.movements[movementSetToLockIn];
+		var movementSetArray = Game_gameplay.selectedUnit.MovementSet;
+		
 		Game_gameplay.selectedUnit.movements = new Array( movementSetArray );
 		
 		//Push this move to the server
@@ -188,10 +189,17 @@ function gameplay(){
 		//If we haven't locked in a movement set then loop through all the movement sets
 		//and light up their paths, otherwise only show paths for the currently selected
 		//movement set
-		var availableDirections = Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnitMovePosition].directions;
-		jQuery.each( availableDirections, Game_gameplay.highlightUnitPath );
+		var availableMovementDirectionSets = Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnitMovePosition].MovementDirectionSet;
 		
 		//Loop through all the movements for the current move position
+		jQuery.each( 
+			availableMovementDirectionSets, 
+			function( movementDirectionSetPos, movementDirectionSet ){
+				jQuery.each( 
+					movementDirectionSet.DirectionSet.DirectionSetDirection,
+					Game_gameplay.highlightUnitPath 
+				);
+			});
 		
 	}
 	
@@ -200,15 +208,16 @@ function gameplay(){
 	this.highlightUnitPath = function( directionPosition, direction ){
 		
 		//Add the angle of the previous movement to the direction of following moves
-		direction += Game_gameplay.angleOfLastMove
+		direction = parseInt(direction.Direction.angle) + Game_gameplay.angleOfLastMove;
 		
 		//Grab the stats
-		var finalX				= Game_gameplay.selectedUnit.x;
-		var finalY				= Game_gameplay.selectedUnit.y;
-		var mustMoveAllTheWay	= Game_gameplay.selectedUnit.movements[Game_gameplay.currentMovementSet][Game_gameplay.selectedUnitMovePosition].mustMoveAllTheWay;
-		var spaces 	  			= Game_gameplay.selectedUnit.movements[Game_gameplay.currentMovementSet][Game_gameplay.selectedUnitMovePosition].spaces;
+		var finalX				= parseInt(Game_gameplay.selectedUnit.x);
+		var finalY				= parseInt(Game_gameplay.selectedUnit.y);
+		var mustMoveAllTheWay	= Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnitMovePosition].mustMoveAllTheWay;
+		var spaces 	  			= Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnitMovePosition].spaces;
 		var xDirection 			=   parseInt( Math.round( Math.sin( direction * (Math.PI / 180) ) ) );
 		var yDirection 			= - parseInt( Math.round( Math.cos( direction * (Math.PI / 180) ) ) );
+		
 		
 		//Figure out the tiles to light up
 		//If we have to move all the way we only have one tile to light up
@@ -216,6 +225,8 @@ function gameplay(){
 			
 			finalX	+= ( spaces * xDirection );
 			finalY	+= ( spaces * yDirection );
+		
+		console.log( finalX );
 			jQuery( '.gameTile[x="'+finalX+'"][y="'+finalY+'"]' ).addClass( 'highlightedForMove' );
 			jQuery( '.gameTile[x="'+finalX+'"][y="'+finalY+'"]' ).attr( 'movementSet', Game_gameplay.currentMovementSet );
 
@@ -226,8 +237,10 @@ function gameplay(){
 			//Loop through the spaces
 			for( spaceCounter = 1; spaceCounter <= spaces; spaceCounter++ ){
 			
-				finalX = Game_gameplay.selectedUnit.x + ( spaceCounter * xDirection );
-				finalY = Game_gameplay.selectedUnit.y + ( spaceCounter * yDirection );
+				finalX = parseInt(Game_gameplay.selectedUnit.x) + ( spaceCounter * xDirection );
+				finalY = parseInt(Game_gameplay.selectedUnit.y) + ( spaceCounter * yDirection );
+				
+		console.log( finalX );
 				jQuery( '.gameTile[x="'+finalX+'"][y="'+finalY+'"]' ).addClass( 'highlightedForMove' );
 				jQuery( '.gameTile[x="'+finalX+'"][y="'+finalY+'"]' ).attr( 'movementSet', Game_gameplay.currentMovementSet );
 				
@@ -274,7 +287,7 @@ function gameplay(){
 		
 		//Make the call to the server
 		jQuery.getJSON(
-			homeURL + '/Games/processUnitMove', 
+			homeURL + 'Games/processUnitMove', 
 			{
 				gameUnitUID:	Game_gameplay.selectedUnitUID,
 				x:				nuX,

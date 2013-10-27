@@ -215,36 +215,38 @@ class GameUnit extends AppModel {
 		$unitsToMove = $this->find( 'all', array(
 							'conditions' => array(
 								'GameUnit.games_uid'	=> $gameUID,
-								'GameUnit.turn' 		=> $turn,
-								'GameUnit.uid NOT'		=> $gameUnitUID
+								'GameUnit.turn' 		=> $turn
 							)
 						));
-						
-		echo 'UnitsToMove -> ' . print_r( $unitsToMove );
 						
 		//Loop through the found units and bump them up as a new record
 		foreach( $unitsToMove as $unitToMove ){
 			
 			//NOTE: MAKE NEW RECORD
+			if( $unitToMove['GameUnit']['uid'] == $gameUnitUID ){
+			
+				$unitToMove['GameUnit']['x'] 						= $targetX;
+				$unitToMove['GameUnit']['y'] 						= $targetY;				
+				$unitToMove['GameUnit']['last_movement_angle'] 		= $angle;
+				$unitToMove['GameUnit']['last_movement_priority'] 	= $nuMovePriority;
+				$unitToMove['GameUnit']['movement_sets_uid'] 		= $movementSetUID;
+			
+			}
+			
+			//Update the turn
+			$unitToMove['GameUnit']['turn'] = $nuTurn;
 			
 			//Move the unit up
-			$this->read( NULL, $unitToMove['GameUnit']['uid'] );
-			$this->set( 'turn', $nuTurn );
-			$this->save();
+			unset( $unitToMove['GameUnit']['uid'] );
+			$unitToMoveGameUnit = $unitToMove['GameUnit'];
+			$unitToMove = array(
+							'GameUnit' => $unitToMoveGameUnit
+						);
 			
+			$this->create();
+			$this->save( $unitToMove );
+						
 		}			
-			
-					
-		//NOTE: MAKE NEW RECORD
-		
-		//Now we finally get to update the unit to move
-		$this->read( NULL, $gameUnitUID );
-		$this->set( 'turn', $nuTurn );
-		$this->set( 'x', $targetX );
-		$this->set( 'y', $targetY );
-		$this->set( 'last_movement_angle', $angle );
-		$this->set( 'last_movement_priotiy', $nuMovePriority );
-		$this->save();
 		
 	}
 	

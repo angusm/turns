@@ -5,6 +5,11 @@
 	}
 
 /* Card View */
+	div.manageUnitCardContainer{
+		left:700px;
+		position:absolute;
+		top:10px;
+	}
 	div.unitCard{
 		position:absolute;
 		width:250px;

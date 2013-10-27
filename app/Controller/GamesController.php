@@ -45,8 +45,7 @@ class GamesController extends AppController {
 		//Toss it over to the model, if the move was valid it will update the
 		//game and the game units and then return true, otherwise it will return
 		//false
-		$gameModelInstance = ClassRegistry::init( 'Game' );
-		$validMove = $gameModelInstance->isMoveValid(
+		$validMove = $this->Game->isMoveValid(
 											$gameUnitUID, 
 											$targetedX, 
 											$targetedY, 

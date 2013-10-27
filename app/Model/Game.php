@@ -137,14 +137,16 @@ class Game extends AppModel {
 		if( $gameUnit['Game']['turn'] != $gameUnit['GameUnit']['turn'] ){
 			return false;	
 		}
-		
+				
 		//Grab an array of the possible movements
-		if( $gameUnit['GameUnit']['movement_sets_uid'] == NULL ){
+		if( $movePriority == 1 ){
 			
 			$gameUnitMovementSets = $gameUnitModelInstance->findAllMovementSetsWithPriority( $gameUnitUID, $movePriority );
 			
 		}else{
-			
+
+			echo $gameUnit['GameUnit']['movement_sets_uid'];
+
 			//Setup a MovementSet instance to grab this one set
 			$movementSetModelInstance = ClassRegistry::init( 'MovementSet' );
 			$gameUnitMovementSets = array(
@@ -152,7 +154,9 @@ class Game extends AppModel {
 							);
 														
 		}
-				
+		
+		echo print_r( $gameUnitMovementSets );
+		
 		//See if any of the possible movements can get the unit to the target
 		foreach( $gameUnitMovementSets as $movementSets ){
 			foreach( $movementSets['MovementSet']['Movement'] as $movement ){

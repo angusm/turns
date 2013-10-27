@@ -79,6 +79,14 @@
 	
 	echo '</div>';
 		
+	echo $this->Html->tag(
+						'div',
+						$this->GamePlay->renderGameUnitCard(),
+						array(
+							'class' => 'manageUnitCardContainer'
+						)
+					);
+		
 	//Toss up the extra libraries and setup the unit list
 	echo $this->Html->tag(
 					'script',
