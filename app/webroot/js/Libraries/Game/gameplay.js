@@ -146,6 +146,15 @@ function gameplay(){
 	
 	}
 	
+	//PUBLIC FUNCTION: getGameUpdate
+	//Get an update on everything in the game and set things up appropriately
+	this.getGameUpdate = function(){
+	
+		//Make a request to the server and update all the variables
+			
+		
+	}
+	
 	//PUBLIC FUNCTION: handleEverything
 	//Just be Pepper Potts already, do everything
 	this.handleEverything = function(){
@@ -315,6 +324,26 @@ function gameplay(){
 	
 	}
 	
+	//PUBLIC FUNCTION: processUnitSelection
+	//Do the work that needs to occur after a unit has been selected.
+	this.processUnitSelection = function(){
+		
+		clickedUnit = jQuery( 'gameplayUnit[uid="' + Game_gameplay.selectedUnitUID + '"]' );
+		
+		//Reset turn data
+		Game_gameplay.resetTurnData();
+		
+		//Grab the selected unit move position
+		Game_gameplay.selectedUnitMovePosition = Game_gameplay.selectedUnit.last_movement_priority;
+		
+		//Toggle the highlighted and selected units
+		Game_gameplay.highlightSelectedUnitPaths();
+		Game_gameplay.toggleHighlight( clickedUnit );
+		Game_gameplay.toggleSelect( clickedUnit );
+		Game_gameplay.handleMoveToTile();
+		
+	}
+	
 	//PUBLIC FUNCTION: pushMoveToServer
 	//Push the selected move the unit has made to the server
 	//Then if it's successful we'll proceed to finalize the move
@@ -329,7 +358,7 @@ function gameplay(){
 				y:				nuY
 			},
 			function( jSONData ){
-				alert( 'Valid Move' );
+				Game_gameplay.getGameUpdate();
 			}
 		).done( 
 			function(){
@@ -371,26 +400,6 @@ function gameplay(){
 		jQuery.each( window.gameUnits, Game_gameplay.checkIfSelected );
 		
 		Game_gameplay.processUnitSelection();
-		
-	}
-	
-	//PUBLIC FUNCTION: processUnitSelection
-	//Do the work that needs to occur after a unit has been selected.
-	this.processUnitSelection = function(){
-		
-		clickedUnit = jQuery( 'gameplayUnit[uid="' + Game_gameplay.selectedUnitUID + '"]' );
-		
-		//Reset turn data
-		Game_gameplay.resetTurnData();
-		
-		//Grab the selected unit move position
-		Game_gameplay.selectedUnitMovePosition = Game_gameplay.selectedUnit.last_movement_priority;
-		
-		//Toggle the highlighted and selected units
-		Game_gameplay.highlightSelectedUnitPaths();
-		Game_gameplay.toggleHighlight( clickedUnit );
-		Game_gameplay.toggleSelect( clickedUnit );
-		Game_gameplay.handleMoveToTile();
 		
 	}
 	
