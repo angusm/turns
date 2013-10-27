@@ -70,6 +70,12 @@ class MatchmakingQueue extends AppModel {
 		$defenderNuGame 	= $userGameModelInstance->newGame( $defenderUserUID, 	$createdGame['Game']['uid'] );
 		$challengerNuGame	= $userGameModelInstance->newGame( $challengerUserUID, 	$createdGame['Game']['uid'] );
 		
+		//Set the active player to the challenging player, as he's more likely to act first
+		//having just joined the queue.
+		//Yeah that sounds like a good justification for the arbitrariness of it all
+		$activeUserModelInstance = ClassRegistry::init( 'ActiveUser' );
+		$activeUserModelInstance->setActiveUser( $createdGame['Game']['uid'], $challengerNuGame['UserGame']['uid'], 1 );
+		
 		//Create game units for each game from their teams
 		$gameUnitModelInstance = ClassRegistry::init( 'GameUnit' );
 		$gameUnitModelInstance->addToGameFromTeam( $createdGame['Game']['uid'],  $defenderTeamUID, false );

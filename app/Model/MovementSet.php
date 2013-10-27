@@ -58,7 +58,7 @@ class MovementSet extends AppModel {
 							'contain' => array(
 								'Movement' => array(
 									'conditions' => array(
-										'priority' => $priority
+										'Movement.priority' => $priority
 									),
 									'MovementDirectionSet' => array(
 										'DirectionSet' => array(

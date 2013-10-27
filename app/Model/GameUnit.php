@@ -188,6 +188,20 @@ class GameUnit extends AppModel {
 									)
 								)
 							));
+	
+		//Check to see if there's a unit in the same game
+		//on the same turn that's already selected, if there is then
+		//return false
+		$otherUnit = $this->find( 'first', array(
+									'conditions' => array(
+										'GameUnit.turn' => $gameUnit['GameUnit']['turn'],
+										'GameUnit.games_uid' => $gameUnit['GameUnit']['games_uid']
+									)
+								));
+		if( isset( $otherUnit['GameUnit.uid'] ) and $otherUnit['GameUnit.uid'] != $uid ){
+			return false;			
+		}										
+		
 		return $gameUnit;
 		
 	}
@@ -206,7 +220,6 @@ class GameUnit extends AppModel {
 		
 		//Setup the next turn
 		$nuTurn 		= $turn + 1;
-		$nuMovePriority = $movePriority + 1;
 																	
 		//Grab all of the relevant units on the current turn and then move 
 		//them forward a turn, with the exception of the moved unit. 
@@ -228,7 +241,7 @@ class GameUnit extends AppModel {
 				$unitToMove['GameUnit']['x'] 						= $targetX;
 				$unitToMove['GameUnit']['y'] 						= $targetY;				
 				$unitToMove['GameUnit']['last_movement_angle'] 		= $angle;
-				$unitToMove['GameUnit']['last_movement_priority'] 	= $nuMovePriority;
+				$unitToMove['GameUnit']['last_movement_priority'] 	= $movePriority;
 				$unitToMove['GameUnit']['movement_sets_uid'] 		= $movementSetUID;
 			
 			}

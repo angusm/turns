@@ -117,17 +117,16 @@ class Game extends AppModel {
 	//Then make sure that this move was possible. 
 	//If it was we need to move the game up to the next turn.
 	public function isMoveValid( $gameUnitUID, $targetX, $targetY, $userUID ){
-		
+				
 		//Grab the gameUnit 
 		$gameUnitModelInstance 	= ClassRegistry::init( 'GameUnit' );
 		$gameUnit 				= $gameUnitModelInstance->findForMoveValidation( $gameUnitUID );
-		$movePriority 			= $gameUnit['GameUnit']['last_movement_priority'] + 1;
 		
-		//Grab the staring positions and last move angle
-		$startX 	= $gameUnit['GameUnit']['x'];
-		$startY 	= $gameUnit['GameUnit']['y'];
-		$lastAngle	= $gameUnit['GameUnit']['last_movement_angle'];
-		$gameUID 	= $gameUnit['Game']['uid'];
+		//The gameUnit find will return false if there's another unit in this game that
+		//is currently selected.
+		if( $gameUnit == false ){
+			return false;
+		}
 		
 		//Make sure the unit has a user game that belongs to the user and that
 		//the game and the game unit are on the same turn
@@ -138,6 +137,23 @@ class Game extends AppModel {
 			return false;	
 		}
 				
+		//Make sure the given user is the active user for the current game
+		$activeUserModelInstance = ClassRegistry::init( 'ActiveUser' );
+		$activePlayer = $activeUserModelInstance->findActiveUser( $gameUnit['Game']['uid'], $gameUnit['Game']['turn'] );
+		if( ! isset( $activePlayer ) or $activePlayer['UserGame']['users_uid'] != $userUID ){
+			return false;
+		}
+				
+		//Get the new priority for this unit
+		$movePriority 			= $gameUnit['GameUnit']['last_movement_priority'] + 1;
+		
+		//Grab the staring positions and last move angle
+		$startX 	= $gameUnit['GameUnit']['x'];
+		$startY 	= $gameUnit['GameUnit']['y'];
+		$lastAngle	= $gameUnit['GameUnit']['last_movement_angle'];
+		$gameUID 	= $gameUnit['Game']['uid'];
+		
+		
 		//Grab an array of the possible movements
 		if( $movePriority == 1 ){
 			
@@ -145,17 +161,16 @@ class Game extends AppModel {
 			
 		}else{
 
-			echo $gameUnit['GameUnit']['movement_sets_uid'];
-
 			//Setup a MovementSet instance to grab this one set
 			$movementSetModelInstance = ClassRegistry::init( 'MovementSet' );
-			$gameUnitMovementSets = array(
-								$movementSetModelInstance->findByUIDWithPriority( $gameUnit['GameUnit']['movement_sets_uid'], $movePriority )
-							);
+			$gameUnitMovementSets = array( 
+										array(
+											'MovementSet' => $movementSetModelInstance->findByUIDWithPriority( $gameUnit['GameUnit']['movement_sets_uid'], $movePriority )
+										)
+								);
 														
 		}
 		
-		echo print_r( $gameUnitMovementSets );
 		
 		//See if any of the possible movements can get the unit to the target
 		foreach( $gameUnitMovementSets as $movementSets ){

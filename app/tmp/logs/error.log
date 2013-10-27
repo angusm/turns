@@ -21778,3 +21778,294 @@ Request URL: /turns/js/jquery.min.map
 Stack Trace:
 #0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-10-27 08:01:22 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:01:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:02:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:03:48 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:05:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:05:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:06:02 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:06:47 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:09:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:09:25 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:20:46 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:22:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:23:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:24:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:57:26 Error: [MissingTableException] Table active_users for model ActiveUser was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'active_users',
+  'class' => 'ActiveUser',
+  'ds' => 'default',
+)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('active_users')
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1485): Model->schema()
+#3 E:\xampp\htdocs\turns\app\Model\ActiveUser.php(27): Model->create()
+#4 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(77): ActiveUser->setActiveUser(NULL, NULL, NULL)
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(50): MatchmakingQueue->createGame('2', '2', '1', '1')
+#6 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#7 [internal function]: MatchmakingQueuesController->joinQueue()
+#8 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#9 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-10-27 08:58:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-27 08:58:59 Error: [MissingTableException] Table active_users for model ActiveUser was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'active_users',
+  'class' => 'ActiveUser',
+  'ds' => 'default',
+)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('active_users')
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1485): Model->schema()
+#3 E:\xampp\htdocs\turns\app\Model\ActiveUser.php(27): Model->create()
+#4 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(77): ActiveUser->setActiveUser('1', '1', '2')
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(50): MatchmakingQueue->createGame('2', '2', '1', '1')
+#6 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#7 [internal function]: MatchmakingQueuesController->joinQueue()
+#8 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#9 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-10-27 09:00:01 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`turns`.`active_users`, CONSTRAINT `fk_active_user_user_games1` FOREIGN KEY (`user_games_uid`) REFERENCES `user_games` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(ActiveUser), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\ActiveUser.php(31): Model->save()
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(77): ActiveUser->setActiveUser('1', '1', '2')
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(50): MatchmakingQueue->createGame('2', '2', '1', '1')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-27 09:00:28 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`turns`.`active_users`, CONSTRAINT `fk_active_user_user_games1` FOREIGN KEY (`user_games_uid`) REFERENCES `user_games` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(ActiveUser), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\ActiveUser.php(31): Model->save()
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(77): ActiveUser->setActiveUser('2', '1', '4')
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(50): MatchmakingQueue->createGame('2', '2', '1', '1')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-27 09:00:49 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`turns`.`active_users`, CONSTRAINT `fk_active_user_user_games1` FOREIGN KEY (`user_games_uid`) REFERENCES `user_games` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(ActiveUser), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\ActiveUser.php(31): Model->save()
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(77): ActiveUser->setActiveUser('3', '1', '6')
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(50): MatchmakingQueue->createGame('2', '2', '1', '1')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-27 09:02:08 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`turns`.`active_users`, CONSTRAINT `fk_active_user_user_games1` FOREIGN KEY (`user_games_uid`) REFERENCES `user_games` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(ActiveUser), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\ActiveUser.php(31): Model->save()
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(77): ActiveUser->setActiveUser('4', '8', 1)
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(50): MatchmakingQueue->createGame('2', '2', '1', '1')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-27 09:02:15 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`turns`.`active_users`, CONSTRAINT `fk_active_user_user_games1` FOREIGN KEY (`user_games_uid`) REFERENCES `user_games` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(ActiveUser), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\ActiveUser.php(31): Model->save()
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(77): ActiveUser->setActiveUser('5', '10', 1)
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(50): MatchmakingQueue->createGame('2', '2', '1', '1')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-27 09:03:51 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`turns`.`active_users`, CONSTRAINT `fk_active_user_user_games1` FOREIGN KEY (`user_games_uid`) REFERENCES `user_games` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `tu...', Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `tu...')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1744): DboSource->create(Object(ActiveUser), Array, Array)
+#4 E:\xampp\htdocs\turns\app\Model\ActiveUser.php(31): Model->save()
+#5 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(77): ActiveUser->setActiveUser('6', '12', 1)
+#6 E:\xampp\htdocs\turns\app\Model\MatchmakingQueue.php(50): MatchmakingQueue->createGame('2', '2', '1', '1')
+#7 E:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php(25): MatchmakingQueue->checkQueue('1', '1')
+#8 [internal function]: MatchmakingQueuesController->joinQueue()
+#9 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MatchmakingQueuesController), Array)
+#10 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#12 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-27 09:04:25 Error: [MissingViewException] View file "E:\xampp\htdocs\turns\app\View\MatchmakingQueues\join_queue.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'E:\\xampp\\htdocs\\turns\\app\\View\\MatchmakingQueues\\join_queue.ctp',
+)
+Request URL: /turns//MatchmakingQueues/joinQueue/?teamUID=1
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MatchmakingQueuesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
