@@ -10,6 +10,10 @@ class Game extends AppModel {
 						);
 						
 	public $hasMany 	= array(
+							'ActiveUser' => array(
+								'className' 	=> 'ActiveUser',
+								'foreignKey'	=> 'games_uid'
+							),
 							'GameUnit' => array(
 								'className'		=> 'GameUnit',
 								'foreignKey'	=> 'games_uid'
@@ -56,6 +60,12 @@ class Game extends AppModel {
 										'Game.uid' => $uid
 									),
 									'contain' => array(
+										'ActiveUser' => array(
+											'conditions' => array(
+												'ActiveUser.turn' => $currentTurn
+											),
+											'UserGame'
+										),
 										'Board' => array(
 											'fields' => array(
 												'height',

@@ -3,6 +3,10 @@ class UserGame extends AppModel {
 
 	//Setup the associations for this model
 	public $hasMany = array(
+						'ActiveUser' => array(
+							'className' 	=> 'ActiveUser',
+							'foreignKey'	=> 'user_games_uid'
+						),
 						'GameUnit' => array(
 							'className' 	=> 'GameUnit',
 							'foreignKey'	=> 'user_games_uid'

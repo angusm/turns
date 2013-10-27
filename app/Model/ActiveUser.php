@@ -3,6 +3,16 @@ class ActiveUser extends AppModel {
 
 	public $primaryKey = 'uid';
 	
+	public $belongsTo 	= array(
+							'Game' => array(
+								'className'		=> 'Game',
+								'foreignKey'	=> 'games_uid'
+							),
+							'UserGame' => array(
+								'className'		=> 'UserGame',
+								'foreignKey'	=> 'user_games_uid'
+							)
+						);
 	
 	//PUBLIC FUNCTION: findActiveUser
 	//Find the active user for the given game on the given turn
