@@ -7,6 +7,31 @@ class GamesController extends AppController {
         parent::beforeFilter();
     }
 	
+	//PUBLIC FUNCTION: getGameUpdate
+	//Return JSON data to a client when they need to know about a 
+	//possible new state of the game
+	public function getGameUpdate(){
+		
+		//Grab the JSON Data
+		$jsonData = $this->params['url'];
+		
+		//Grab the game uid
+		$gameUID = $jsonData['gameUID'];
+		$userUID = $this->Auth->user('uid');
+		
+		//Get all that good game information
+		$gameInformation = $this->Game->getInfoForPlay( $gameUID );
+			
+		//And everything else will be handled by the View and Javascript
+		//Scary huh?
+		$this->set( 'gameInformation', 	$gameInformation );
+		$this->set( '_serialize', array(
+						'gameInformation'
+						)
+					);
+		
+	}
+	
 	//PUBLIC FUNCTION: playGame
 	//Create a nice little view with a playable game in it
 	public function playGame(){

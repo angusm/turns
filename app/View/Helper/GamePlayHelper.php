@@ -671,6 +671,7 @@ class GamePlayHelper extends AppHelper {
 			//Add a json encoded version of the gameUnits to the $unitsString
 			$unitsString .= $this->Html->tag( 
 									'script',
+									'var gameUID		= ' . $gameInformation['Game']['uid']				. ';'.
 									'var gameUnits 		= ' . json_encode( $gameInformation['GameUnit'] ) 	. ';'.
 									'var userUID   		= ' . $parameters['userUID'] 						. ';'.
 									'var playersTurn	= ' . $playersTurn									. ';',

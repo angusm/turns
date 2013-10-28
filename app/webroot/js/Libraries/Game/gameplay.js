@@ -151,6 +151,24 @@ function gameplay(){
 	this.getGameUpdate = function(){
 	
 		//Make a request to the server and update all the variables
+		jQuery.getJSON(
+			homeURL + 'Games/getGameUpdate', 
+			{
+				gameUID: window.gameUID
+			},
+			function( jSONData ){
+				//Game_gameplay.getGameUpdate();
+			}
+		).done( 
+			function(){
+			}
+		).fail( 
+			function(data){
+			}
+		).always(
+			function(){
+			}
+		);
 			
 		
 	}
