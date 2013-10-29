@@ -157,7 +157,15 @@ function gameplay(){
 				gameUID: window.gameUID
 			},
 			function( jSONData ){
-				//Game_gameplay.getGameUpdate();
+				
+				//Echo the game update
+				console.log( jSONData );
+				
+				//Grab the game update
+				window.gameUnits = jSONData.gameInformation.GameUnit;
+				
+				Game_gameplay.setupUnits();
+				
 			}
 		).done( 
 			function(){
