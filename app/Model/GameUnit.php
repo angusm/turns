@@ -303,14 +303,13 @@ class GameUnit extends AppModel {
 			$unitToMove['GameUnit']['turn'] = $nuTurn;
 			
 			//Move the unit up
-			unset( $unitToMove['GameUnit']['uid'] );
 			$unitToMove['GameUnit']['previous_game_unit_uid'] = $originalGameUnit['GameUnit']['uid'];
 			$unitToMoveGameUnit = $unitToMove['GameUnit'];
 			$unitToMove = array(
 							'GameUnit' => $unitToMoveGameUnit
 						);
 			
-			$this->create();
+			$this->read( NULL, $unitToMove['GameUnit']['uid'] );
 			$this->save( $unitToMove );
 						
 		}			
