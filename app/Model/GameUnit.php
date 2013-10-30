@@ -259,6 +259,15 @@ class GameUnit extends AppModel {
 		//Loop through the found units and bump them up as a new record
 		foreach( $unitsToMove as $unitToMove ){
 			
+			//Store the original unit so we can record a record of it.
+			$originalGameUnit = $unitToMove['GameUnit'];
+			unset( $originalGameUnit['uid'] );
+			$originalGameUnit = array(
+									'GameUnit' => $originalGameUnit
+								);
+			$this->create();
+			$originalGameUnit = $this->save( $originalGameUnit );
+			
 			//NOTE: MAKE NEW RECORD
 			if( $unitToMove['GameUnit']['uid'] == $gameUnitUID ){
 			
@@ -295,6 +304,7 @@ class GameUnit extends AppModel {
 			
 			//Move the unit up
 			unset( $unitToMove['GameUnit']['uid'] );
+			$unitToMove['GameUnit']['previous_game_unit_uid'] = $originalGameUnit['GameUnit']['uid'];
 			$unitToMoveGameUnit = $unitToMove['GameUnit'];
 			$unitToMove = array(
 							'GameUnit' => $unitToMoveGameUnit
