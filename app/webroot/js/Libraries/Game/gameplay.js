@@ -45,6 +45,13 @@ function gameplay(){
 		
 	}
 	
+	this.checkForUpdates = function(){
+		window.setTimeout(function() {
+     		Game_gameplay.getGameUpdate();
+   		}, 5000);
+	}
+
+	
 	//PUBLIC FUNCTION: checkIfSelected
 	//See if the given unit is selected, if it is set the position
 	this.checkIfSelected = function( unitObjectPosition, unitObject ){
@@ -165,6 +172,9 @@ function gameplay(){
 				window.gameUnits = jSONData.gameInformation.GameUnit;
 				
 				Game_gameplay.setupUnits();
+				Game_gameplay.handleUnitSelection();
+				
+				Game_gameplay.checkForUpdates();
 				
 			}
 		).done( 
@@ -192,7 +202,8 @@ function gameplay(){
 		if( window.playersTurn ){
 			Game_gameplay.handleUnitSelection();
 		}else{
-			//Setup callback timer	
+			//Setup callback timer to get game updates
+			Game_gameplay.checkForUpdates();
 		}
 	}
 	

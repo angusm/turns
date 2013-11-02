@@ -275,7 +275,7 @@ class GameUnit extends AppModel {
 				$unitToMove['GameUnit']['x'] 						= $targetX;
 				$unitToMove['GameUnit']['y'] 						= $targetY;				
 				$unitToMove['GameUnit']['last_movement_angle'] 		= $angle;
-				$unitToMove['GameUnit']['last_movement_priority'] 	= $movePriority;
+				$unitToMove['GameUnit']['last_movement_priority'] 	= $movePriority + 1;
 				$unitToMove['GameUnit']['movement_sets_uid'] 		= $movementSetUID;
 				
 				//Now we need to check to make sure that the last active unit still
@@ -287,7 +287,7 @@ class GameUnit extends AppModel {
 				$validNextMove = $movementModelInstance->find( 'first', array(
 																	'conditions' => array(
 																		'movement_sets_uid' => $movementSetUID,
-																		'priority'			=> $movePriority
+																		'priority'			=> $unitToMove['GameUnit']['last_movement_priority']
 																	)
 																));
 																

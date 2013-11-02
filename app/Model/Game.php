@@ -121,6 +121,41 @@ class Game extends AppModel {
 		
 	}
 	
+	//PUBLIC FUNCTION: getUpdateInfo
+	//Much like getInfoForPlay but grabs as little information as possible
+	public function getUpdateInfo( $uid ){
+		
+		//Grab the game so that we can get the current turn
+		$currentGame 		= $this->find( 'first', array(
+										'conditions' => array(
+											'Game.uid' => $uid
+										)
+									));
+									
+		//Grab the turn
+		$currentTurn 		= $currentGame['Game']['turn'];
+											
+		//Grab the minimal information
+		$gameInformation 	= $this->find( 'first', array(
+									'conditions' => array(
+										'Game.uid' => $uid
+									),
+									'contain' => array(
+										'GameUnit' => array(
+											'conditions' => array(
+												'GameUnit.turn' => $currentTurn
+											)
+										)
+									)
+								));
+
+		//Alright now that we've pretty much downloaded the internet with
+		//that fucking bloated find, let's return that mess so that we can
+		//do more work with it somewhere the fuck else
+		return $gameInformation;
+		
+	}
+	
 	//PUBLIC FUNCTION: isMoveValid
 	//Take in a gameUnit UID, the user who wants to make the move and 
 	//a targeted X and Y. 
@@ -155,7 +190,7 @@ class Game extends AppModel {
 		}
 				
 		//Get the new priority for this unit
-		$movePriority 			= $gameUnit['GameUnit']['last_movement_priority'] + 1;
+		$movePriority 			= $gameUnit['GameUnit']['last_movement_priority'];
 		
 		//Grab the staring positions and last move angle
 		$startX 	= $gameUnit['GameUnit']['x'];
@@ -165,7 +200,7 @@ class Game extends AppModel {
 		
 		
 		//Grab an array of the possible movements
-		if( $movePriority == 1 ){
+		if( $movePriority == 0 ){
 			
 			$gameUnitMovementSets = $gameUnitModelInstance->findAllMovementSetsWithPriority( $gameUnitUID, $movePriority );
 			

@@ -20,7 +20,7 @@ class GamesController extends AppController {
 		$userUID = $this->Auth->user('uid');
 		
 		//Get all that good game information
-		$gameInformation = $this->Game->getInfoForPlay( $gameUID );
+		$gameInformation = $this->Game->getUpdateInfo( $gameUID );
 			
 		//And everything else will be handled by the View and Javascript
 		//Scary huh?
