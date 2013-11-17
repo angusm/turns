@@ -141,9 +141,44 @@ class Game extends AppModel {
 										'Game.uid' => $uid
 									),
 									'contain' => array(
+										'ActiveUser' => array(
+											'conditions' => array(
+												'ActiveUser.turn' => $currentTurn
+											),
+											'UserGame'
+										),
 										'GameUnit' => array(
 											'conditions' => array(
 												'GameUnit.turn' => $currentTurn
+											),
+											'GameUnitStat' => array(
+												'fields' => array(
+													'damage',
+													'name'
+												),
+												'GameUnitStatMovementSet' => array(
+													'MovementSet' => array(
+														'Movement' => array(
+															'MovementDirectionSet' => array(
+																'DirectionSet' => array(
+																	'DirectionSetDirection' => array(
+																		'Direction'
+																	)
+																)
+															)
+														)
+													)
+												)
+											),
+											'MovementSet',
+											'UnitArtSet' => array(
+												'UnitArtSetIcon' => array(
+													'Icon' => array(
+														'conditions' => array(
+															'icon_positions_uid' => 3
+														)
+													)
+												)
 											)
 										)
 									)

@@ -21,15 +21,7 @@ jQuery(document).ready( function(){
 });
 
 //Alright let's do this matchmaking stuff
-function gameplay(){
-	
-	var angleOfLastMove				= 0;
-	var currentMovementSet			= 0;
-	var selectedUnitMovePosition	= 0;
-	var selectedUnit		 		= null;
-	var selectedUnitUID				= -1;
-	var currentTurn					= -1;
-	
+function gameplay(){	
 	
 	//PUBLIC FUNCTION: arrangeUnit
 	//Arrange the unit
@@ -58,10 +50,8 @@ function gameplay(){
 	this.checkIfSelected = function( unitObjectPosition, unitObject ){
 	
 		//Compare the unit object UID with the selected unit UID	
-		if( unitObject.uid == Game_gameplay.selectedUnitUID ){
-		
+		if( unitObject.uid == Game_gameplay.selectedUnit.uid ){
 			Game_gameplay.selectedUnit = unitObject;
-			
 		}
 		
 	}
@@ -73,9 +63,14 @@ function gameplay(){
 	
 		if( unitObject.last_movement_priority != "0" ){
 			
-			Game_gameplay.selectedUnit 		= unitObject;
-			Game_gameplay.selectedUnitUID 	= unitObject.uid;
-			Game_gameplay.processUnitSelection();
+			//If the unti belongs to the current player then process it's selection
+			if( unitObject.users_uid == window.userUID ){
+				
+				//Set the selected unit info
+				Game_gameplay.selectedUnit = unitObject;
+				//Game_gameplay.processUnitSelection();
+				
+			}
 							
 		}
 		
@@ -101,14 +96,6 @@ function gameplay(){
 		
 	}
 	
-	//PUBLIC FUNCTION: dontRotate
-	//Just leave the x and y alone
-	this.dontRotate = function( originalX, originalY ){
-	
-		return new Array( orginalX, orginalY );	
-		
-	}
-	
 	//PUBLIC FUNCTION: executeMove
 	//Adjust the stats and display to reflect the move
 	this.executeMove = function( tileMovedTo ){
@@ -124,16 +111,7 @@ function gameplay(){
 		
 		//Push this move to the server
 		Game_gameplay.pushMoveToServer( nuLogicalX, nuLogicalY );
-		
-		//Match the closest angle that's a multiple of 45 and store it as the
-		//last move angle
-		Game_gameplay.angleOfLastMove = Math.round( 
-											Math.atan2(
-												nuLogicalX - Game_gameplay.selectedUnit.x, 
-												nuLogicalY - Game_gameplay.selectedUnit.y
-											) * 180 / Math.PI 
-										);
-		
+				
 		//Change the data of the selected unit
 		Game_gameplay.selectedUnit.x = parseInt( nuLogicalX );
 		Game_gameplay.selectedUnit.y = parseInt( nuLogicalY );
@@ -143,7 +121,7 @@ function gameplay(){
 		var nuY = Game_gameplay.selectedUnit.y * 70;
 		
 		//Increase the selected unit move position
-		Game_gameplay.selectedUnitMovePosition++;
+		Game_gameplay.selectedUnit.last_movement_priority++;
 
 		//Move the unit visually
 		jQuery( '.gameplayUnit[uid="' + Game_gameplay.selectedUnit.uid + '"]' ).css({
@@ -166,17 +144,19 @@ function gameplay(){
 				turn:	 Game_gameplay.currentTurn
 			},
 			function( jSONData ){
-				
-				//Echo the game update
-				console.log( jSONData );
-				
+								
 				//Grab the game update
-				window.gameUnits = jSONData.gameInformation.GameUnit;
+				window.gameUnits 	= jSONData.gameInformation.GameUnit;
+
+				//Find whose turn it is
+				if( jSONData.gameInformation.ActiveUser[0].UserGame.users_uid == window.userUID ){
+					window.playersTurn	= true;
+				}else{
+					window.playersTurn	= false;
+				}
 				
-				Game_gameplay.setupUnits();
-				Game_gameplay.handleUnitSelection();
-				
-				Game_gameplay.checkForUpdates();
+				//Reset the turn data
+				Game_gameplay.resetTurnData();
 				
 			}
 		).done( 
@@ -199,18 +179,14 @@ function gameplay(){
 		
 		//Arrange the board and the pieces
 		Game_elements.arrangeTiles();
-		Game_gameplay.setupUnits();
+	
+		//Initialized the selected unit
+		Game_gameplay.selectedUnit = new Object();
+		Game_gameplay.selectedUnit.uid = false;
+	
+		//Set everything up for the new turn
+		Game_gameplay.resetTurnData();
 		
-		//Grab the current turn
-		
-		//If its the player's turn then setup unit selection,
-		//otherwise setup a timer to check if it's the user's turn yet
-		if( window.playersTurn ){
-			Game_gameplay.handleUnitSelection();
-		}else{
-			//Setup callback timer to get game updates
-			Game_gameplay.checkForUpdates();
-		}
 	}
 	
 	//PUBLIC FUNCTION: handleMoveToTile
@@ -252,13 +228,13 @@ function gameplay(){
 	//PUBLIC FUNCTION: handleUnitSelection
 	//Handle selecting the unit when its clicked on
 	this.handleUnitSelection = function(){
-	
-		//We run a check to see if the user has already selected a unit that it hasn't finished moving
-		//If this is the case we select it for the user, otherwise we allow the selection of any unit
-		jQuery.each( window.gameUnits, Game_gameplay.checkIfUnitShouldBeSelected );
 		
 		//If we still don't have a selected unit then allow the user to select any of their units
-		Game_gameplay.handleSelectionOfAnyUnit();
+		if( Game_gameplay.selectedUnit.uid != false ){
+			Game_gameplay.processUnitSelection();	
+		}else{
+			Game_gameplay.handleSelectionOfAnyUnit();
+		}
 	
 	}
 	
@@ -276,7 +252,7 @@ function gameplay(){
 		//If we haven't locked in a movement set then loop through all the movement sets
 		//and light up their paths, otherwise only show paths for the currently selected
 		//movement set
-		var availableMovementDirectionSets = Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnitMovePosition].MovementDirectionSet;
+		var availableMovementDirectionSets = Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnit.last_movement_priority].MovementDirectionSet;
 		
 		//Loop through all the movements for the current move position
 		jQuery.each( 
@@ -286,7 +262,8 @@ function gameplay(){
 					movementDirectionSet.DirectionSet.DirectionSetDirection,
 					Game_gameplay.highlightUnitPath 
 				);
-			});
+			}
+		);
 		
 	}
 	
@@ -295,13 +272,13 @@ function gameplay(){
 	this.highlightUnitPath = function( directionPosition, direction ){
 		
 		//Add the angle of the previous movement to the direction of following moves
-		direction = parseInt(direction.Direction.angle) + Game_gameplay.angleOfLastMove;
+		direction = parseInt(direction.Direction.angle) + parseInt(Game_gameplay.selectedUnit.last_movement_angle);
 		
 		//Grab the stats
 		var finalX				= parseInt(Game_gameplay.selectedUnit.x);
 		var finalY				= parseInt(Game_gameplay.selectedUnit.y);
-		var mustMoveAllTheWay	= Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnitMovePosition].mustMoveAllTheWay;
-		var spaces 	  			= Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnitMovePosition].spaces;
+		var mustMoveAllTheWay	= Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnit.last_movement_priority].mustMoveAllTheWay;
+		var spaces 	  			= Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnit.last_movement_priority].spaces;
 		var xDirection 			=   parseInt( Math.round( Math.sin( direction * (Math.PI / 180) ) ) );
 		var yDirection 			= - parseInt( Math.round( Math.cos( direction * (Math.PI / 180) ) ) );
 		
@@ -313,7 +290,6 @@ function gameplay(){
 			finalX	+= ( spaces * xDirection );
 			finalY	+= ( spaces * yDirection );
 		
-		console.log( finalX );
 			jQuery( '.gameTile[x="'+finalX+'"][y="'+finalY+'"]' ).addClass( 'highlightedForMove' );
 			jQuery( '.gameTile[x="'+finalX+'"][y="'+finalY+'"]' ).attr( 'movementSet', Game_gameplay.currentMovementSet );
 
@@ -327,7 +303,6 @@ function gameplay(){
 				finalX = parseInt(Game_gameplay.selectedUnit.x) + ( spaceCounter * xDirection );
 				finalY = parseInt(Game_gameplay.selectedUnit.y) + ( spaceCounter * yDirection );
 				
-		console.log( finalX );
 				jQuery( '.gameTile[x="'+finalX+'"][y="'+finalY+'"]' ).addClass( 'highlightedForMove' );
 				jQuery( '.gameTile[x="'+finalX+'"][y="'+finalY+'"]' ).attr( 'movementSet', Game_gameplay.currentMovementSet );
 				
@@ -344,41 +319,22 @@ function gameplay(){
 		//Disable all of the other units from being selected
 		Game_gameplay.disallowSelectChange();
 		
+		//Reset the highlighted units 
+		Game_gameplay.unhighlightUnitPaths();
+		
 		//Grab the moved to tile and perform the move
 		var tileMovedTo = triggeredEvent.target;
 		Game_gameplay.executeMove( tileMovedTo );
 				
-		//Reset the highlighted units 
-		Game_gameplay.unhighlightUnitPaths();
-		
-		//Now we want to check if the unit has more moves left
-		if( Game_gameplay.selectedUnit.movements[0].length > Game_gameplay.selectedUnitMovePosition ){
-			Game_gameplay.prepareSelectedUnitForNextMove();
-		}
-		
-	}
-	
-	//PUBLIC FUNCTION: prepareSelectedUnitForNextMove
-	//Prepare the currently selected u nit for the next move it can make
-	this.prepareSelectedUnitForNextMove = function(){
-		
-		Game_gameplay.highlightSelectedUnitPaths();
-		Game_gameplay.handleMoveToTile();
-	
+				
 	}
 	
 	//PUBLIC FUNCTION: processUnitSelection
 	//Do the work that needs to occur after a unit has been selected.
 	this.processUnitSelection = function(){
 		
-		clickedUnit = jQuery( 'gameplayUnit[uid="' + Game_gameplay.selectedUnitUID + '"]' );
-		
-		//Reset turn data
-		Game_gameplay.resetTurnData();
-		
-		//Grab the selected unit move position
-		Game_gameplay.selectedUnitMovePosition = Game_gameplay.selectedUnit.last_movement_priority;
-		
+		clickedUnit = jQuery( 'gameplayUnit[uid="' + Game_gameplay.selectedUnit.uid + '"]' );
+				
 		//Toggle the highlighted and selected units
 		Game_gameplay.highlightSelectedUnitPaths();
 		Game_gameplay.toggleHighlight( clickedUnit );
@@ -396,7 +352,7 @@ function gameplay(){
 		jQuery.getJSON(
 			homeURL + 'Games/processUnitMove', 
 			{
-				gameUnitUID:	Game_gameplay.selectedUnitUID,
+				gameUnitUID:	Game_gameplay.selectedUnit.uid,
 				x:				nuX,
 				y:				nuY
 			},
@@ -419,13 +375,25 @@ function gameplay(){
 	//PUBLIC FUNCTION: resetTurnData
 	//Reset everything as if a unit has never moved
 	this.resetTurnData = function(){
-	
-		//Reset the selected unit turn position and angle
-		Game_gameplay.selectedUnitMovePosition  = 0;
-		Game_gameplay.angleOfLastMove			= 0;
+		
+		//Reposition all the units
+		Game_gameplay.setupUnits();
 		
 		//Reset the highlighted units 
 		jQuery( '.highlightedForMove' ).removeClass( 'highlightedForMove' );
+	
+		//We run a check to see if the user has already selected a unit that it hasn't finished moving
+		//If this is the case we select it for the user, otherwise we allow the selection of any unit
+		jQuery.each( window.gameUnits, Game_gameplay.checkIfUnitShouldBeSelected );
+				
+		//If its the player's turn then setup unit selection,
+		//otherwise setup a timer to check if it's the user's turn yet
+		if( window.playersTurn ){
+			Game_gameplay.handleUnitSelection();
+		}else{
+			//Setup callback timer to get game updates
+			Game_gameplay.checkForUpdates();
+		}
 		
 	}
 	
@@ -437,7 +405,7 @@ function gameplay(){
 		var clickedUnit = jQuery( triggeredEvent.target ).closest( '.gameplayUnit' );
 		
 		//Grab the UID from the unitElement 
-		Game_gameplay.selectedUnitUID = jQuery( clickedUnit ).attr( 'uid' );
+		Game_gameplay.selectedUnit.uid = jQuery( clickedUnit ).attr( 'uid' );
 		
 		//Loop through the player's units and find the selected unit
 		jQuery.each( window.gameUnits, Game_gameplay.checkIfSelected );
