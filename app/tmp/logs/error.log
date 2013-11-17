@@ -22809,3 +22809,246 @@ Request URL: /turns/js/jquery.min.map
 Stack Trace:
 #0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-11-03 02:12:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-16 19:06:27 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/users/login
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(199): Model->schema()
+#7 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(453): FormHelper->_introspectModel('User', 'fields')
+#8 E:\xampp\htdocs\turns\app\View\Users\login.ctp(3): FormHelper->create('User')
+#9 E:\xampp\htdocs\turns\lib\Cake\View\View.php(945): include('E:\xampp\htdocs...')
+#10 E:\xampp\htdocs\turns\lib\Cake\View\View.php(907): View->_evaluate('E:\xampp\htdocs...', Array)
+#11 E:\xampp\htdocs\turns\lib\Cake\View\View.php(471): View->_render('E:\xampp\htdocs...')
+#12 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#13 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#14 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-11-16 19:07:00 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/users/login
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(199): Model->schema()
+#7 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(453): FormHelper->_introspectModel('User', 'fields')
+#8 E:\xampp\htdocs\turns\app\View\Users\login.ctp(3): FormHelper->create('User')
+#9 E:\xampp\htdocs\turns\lib\Cake\View\View.php(945): include('E:\xampp\htdocs...')
+#10 E:\xampp\htdocs\turns\lib\Cake\View\View.php(907): View->_evaluate('E:\xampp\htdocs...', Array)
+#11 E:\xampp\htdocs\turns\lib\Cake\View\View.php(471): View->_render('E:\xampp\htdocs...')
+#12 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#13 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#14 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-11-16 19:08:33 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/users/login
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(199): Model->schema()
+#7 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(453): FormHelper->_introspectModel('User', 'fields')
+#8 E:\xampp\htdocs\turns\app\View\Users\login.ctp(3): FormHelper->create('User')
+#9 E:\xampp\htdocs\turns\lib\Cake\View\View.php(945): include('E:\xampp\htdocs...')
+#10 E:\xampp\htdocs\turns\lib\Cake\View\View.php(907): View->_evaluate('E:\xampp\htdocs...', Array)
+#11 E:\xampp\htdocs\turns\lib\Cake\View\View.php(471): View->_render('E:\xampp\htdocs...')
+#12 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#13 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#14 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-11-16 19:08:37 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/users/login
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(199): Model->schema()
+#7 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(453): FormHelper->_introspectModel('User', 'fields')
+#8 E:\xampp\htdocs\turns\app\View\Users\login.ctp(3): FormHelper->create('User')
+#9 E:\xampp\htdocs\turns\lib\Cake\View\View.php(945): include('E:\xampp\htdocs...')
+#10 E:\xampp\htdocs\turns\lib\Cake\View\View.php(907): View->_evaluate('E:\xampp\htdocs...', Array)
+#11 E:\xampp\htdocs\turns\lib\Cake\View\View.php(471): View->_render('E:\xampp\htdocs...')
+#12 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#13 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#14 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-11-16 19:10:44 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/users/login
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(199): Model->schema()
+#7 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(453): FormHelper->_introspectModel('User', 'fields')
+#8 E:\xampp\htdocs\turns\app\View\Users\login.ctp(3): FormHelper->create('User')
+#9 E:\xampp\htdocs\turns\lib\Cake\View\View.php(945): include('E:\xampp\htdocs...')
+#10 E:\xampp\htdocs\turns\lib\Cake\View\View.php(907): View->_evaluate('E:\xampp\htdocs...', Array)
+#11 E:\xampp\htdocs\turns\lib\Cake\View\View.php(471): View->_render('E:\xampp\htdocs...')
+#12 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#13 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#14 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-11-16 19:11:29 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/users/login
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(199): Model->schema()
+#7 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(453): FormHelper->_introspectModel('User', 'fields')
+#8 E:\xampp\htdocs\turns\app\View\Users\login.ctp(3): FormHelper->create('User')
+#9 E:\xampp\htdocs\turns\lib\Cake\View\View.php(945): include('E:\xampp\htdocs...')
+#10 E:\xampp\htdocs\turns\lib\Cake\View\View.php(907): View->_evaluate('E:\xampp\htdocs...', Array)
+#11 E:\xampp\htdocs\turns\lib\Cake\View\View.php(471): View->_render('E:\xampp\htdocs...')
+#12 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#13 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#14 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-11-16 19:11:51 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/users/login
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(199): Model->schema()
+#7 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(453): FormHelper->_introspectModel('User', 'fields')
+#8 E:\xampp\htdocs\turns\app\View\Users\login.ctp(3): FormHelper->create('User')
+#9 E:\xampp\htdocs\turns\lib\Cake\View\View.php(945): include('E:\xampp\htdocs...')
+#10 E:\xampp\htdocs\turns\lib\Cake\View\View.php(907): View->_evaluate('E:\xampp\htdocs...', Array)
+#11 E:\xampp\htdocs\turns\lib\Cake\View\View.php(471): View->_render('E:\xampp\htdocs...')
+#12 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#13 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#14 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-11-16 19:11:51 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/users/login
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(199): Model->schema()
+#7 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(453): FormHelper->_introspectModel('User', 'fields')
+#8 E:\xampp\htdocs\turns\app\View\Users\login.ctp(3): FormHelper->create('User')
+#9 E:\xampp\htdocs\turns\lib\Cake\View\View.php(945): include('E:\xampp\htdocs...')
+#10 E:\xampp\htdocs\turns\lib\Cake\View\View.php(907): View->_evaluate('E:\xampp\htdocs...', Array)
+#11 E:\xampp\htdocs\turns\lib\Cake\View\View.php(471): View->_render('E:\xampp\htdocs...')
+#12 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#13 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#14 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-11-16 19:12:12 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+',
+  'enabled' => true,
+)
+Request URL: /turns/users/login
+Stack Trace:
+#0 E:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 E:\xampp\htdocs\turns\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#3 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#5 E:\xampp\htdocs\turns\lib\Cake\Model\Model.php(1318): Model->getDataSource()
+#6 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(199): Model->schema()
+#7 E:\xampp\htdocs\turns\lib\Cake\View\Helper\FormHelper.php(453): FormHelper->_introspectModel('User', 'fields')
+#8 E:\xampp\htdocs\turns\app\View\Users\login.ctp(3): FormHelper->create('User')
+#9 E:\xampp\htdocs\turns\lib\Cake\View\View.php(945): include('E:\xampp\htdocs...')
+#10 E:\xampp\htdocs\turns\lib\Cake\View\View.php(907): View->_evaluate('E:\xampp\htdocs...', Array)
+#11 E:\xampp\htdocs\turns\lib\Cake\View\View.php(471): View->_render('E:\xampp\htdocs...')
+#12 E:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#13 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#14 E:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 E:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}

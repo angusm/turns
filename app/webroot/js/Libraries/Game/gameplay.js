@@ -28,6 +28,7 @@ function gameplay(){
 	var selectedUnitMovePosition	= 0;
 	var selectedUnit		 		= null;
 	var selectedUnitUID				= -1;
+	var currentTurn					= -1;
 	
 	
 	//PUBLIC FUNCTION: arrangeUnit
@@ -48,7 +49,7 @@ function gameplay(){
 	this.checkForUpdates = function(){
 		window.setTimeout(function() {
      		Game_gameplay.getGameUpdate();
-   		}, 5000);
+   		}, 1000);
 	}
 
 	
@@ -161,7 +162,8 @@ function gameplay(){
 		jQuery.getJSON(
 			homeURL + 'Games/getGameUpdate', 
 			{
-				gameUID: window.gameUID
+				gameUID: window.gameUID,
+				turn:	 Game_gameplay.currentTurn
 			},
 			function( jSONData ){
 				
@@ -194,8 +196,12 @@ function gameplay(){
 	//PUBLIC FUNCTION: handleEverything
 	//Just be Pepper Potts already, do everything
 	this.handleEverything = function(){
+		
+		//Arrange the board and the pieces
 		Game_elements.arrangeTiles();
 		Game_gameplay.setupUnits();
+		
+		//Grab the current turn
 		
 		//If its the player's turn then setup unit selection,
 		//otherwise setup a timer to check if it's the user's turn yet
