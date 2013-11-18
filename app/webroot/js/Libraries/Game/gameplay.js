@@ -48,9 +48,9 @@ function gameplay(){
 	//PUBLIC FUNCTION: checkIfSelected
 	//See if the given unit is selected, if it is set the position
 	this.checkIfSelected = function( unitObjectPosition, unitObject ){
-	
+		
 		//Compare the unit object UID with the selected unit UID	
-		if( unitObject.uid == Game_gameplay.selectedUnit.uid ){
+		if( unitObject.uid == Game_gameplay.selectedUnitUID ){
 			Game_gameplay.selectedUnit = unitObject;
 		}
 		
@@ -68,11 +68,34 @@ function gameplay(){
 				
 				//Set the selected unit info
 				Game_gameplay.selectedUnit = unitObject;
-				//Game_gameplay.processUnitSelection();
 				
 			}
 							
 		}
+		
+	}
+	
+	//PUBLIC FUNCTION: clearEverything
+	//Clear everything from the previous turn
+	this.clearEverything = function(){
+		
+		//Reset the highlighted units 
+		jQuery( '.highlightedForMove' ).removeClass( 'highlightedForMove' );
+		
+		//Clear the selected unit DOM's class		
+		Game_gameplay.clearSelectedUnit();
+		Game_gameplay.unhighlightUnitPaths();
+		Game_gameplay.unhighlightEverything();
+				
+	}
+		
+	//PUBLIC FUNCTION: clearSelectedUnit
+	//Clear the selection of the given unit
+	this.clearSelectedUnit = function(){
+		
+		//Unselect other units and select them
+		jQuery( '.selected' ).removeClass( 'selected' );
+		jQuery( 'highlighted' ).removeClass( 'highlighted' );
 		
 	}
 	
@@ -177,12 +200,11 @@ function gameplay(){
 	//Just be Pepper Potts already, do everything
 	this.handleEverything = function(){
 		
+		//Initialize the selected unit UID
+		Game_gameplay.selectedUnitUID = -1;
+		
 		//Arrange the board and the pieces
 		Game_elements.arrangeTiles();
-	
-		//Initialized the selected unit
-		Game_gameplay.selectedUnit = new Object();
-		Game_gameplay.selectedUnit.uid = false;
 	
 		//Set everything up for the new turn
 		Game_gameplay.resetTurnData();
@@ -192,6 +214,19 @@ function gameplay(){
 	//PUBLIC FUNCTION: handleMoveToTile
 	//Handle clicks on tiles highlighted for movement
 	this.handleMoveToTile = function(){
+		
+		
+		//Clear out any old event listeners
+		jQuery( '.gameTile' ).each( function(){
+			
+			if( jQuery(this).isBound( 'click', Game_gameplay.moveSelectedUnitToTile ) ){
+				jQuery(this).unbind( 
+					'click',
+					Game_gameplay.moveSelectedUnitToTile
+				);
+			}
+			
+		});
 	
 		//We only want to be adding this once per tile
 		jQuery( '.highlightedForMove' ).each( function(){
@@ -282,7 +317,6 @@ function gameplay(){
 		var xDirection 			=   parseInt( Math.round( Math.sin( direction * (Math.PI / 180) ) ) );
 		var yDirection 			= - parseInt( Math.round( Math.cos( direction * (Math.PI / 180) ) ) );
 		
-		
 		//Figure out the tiles to light up
 		//If we have to move all the way we only have one tile to light up
 		if( mustMoveAllTheWay ){
@@ -333,12 +367,16 @@ function gameplay(){
 	//Do the work that needs to occur after a unit has been selected.
 	this.processUnitSelection = function(){
 		
-		clickedUnit = jQuery( 'gameplayUnit[uid="' + Game_gameplay.selectedUnit.uid + '"]' );
+		//Clear everything
+		Game_gameplay.clearEverything();
+		
+		//Grab the selected unit DOM element
+		selectedUnitDOMElement = jQuery( '.gameplayUnit[uid="' + Game_gameplay.selectedUnit.uid + '"]' );
 				
 		//Toggle the highlighted and selected units
 		Game_gameplay.highlightSelectedUnitPaths();
-		Game_gameplay.toggleHighlight( clickedUnit );
-		Game_gameplay.toggleSelect( clickedUnit );
+		jQuery( selectedUnitDOMElement ).addClass( 'selected' );
+		jQuery( selectedUnitDOMElement ).addClass( 'highlighted' );
 		Game_gameplay.handleMoveToTile();
 		
 	}
@@ -379,8 +417,12 @@ function gameplay(){
 		//Reposition all the units
 		Game_gameplay.setupUnits();
 		
-		//Reset the highlighted units 
-		jQuery( '.highlightedForMove' ).removeClass( 'highlightedForMove' );
+		//Clear everything
+		Game_gameplay.clearEverything();
+	
+		//Reset the selected unit
+		Game_gameplay.selectedUnit 		= new Object();
+		Game_gameplay.selectedUnit.uid 	= false;
 	
 		//We run a check to see if the user has already selected a unit that it hasn't finished moving
 		//If this is the case we select it for the user, otherwise we allow the selection of any unit
@@ -389,6 +431,7 @@ function gameplay(){
 		//If its the player's turn then setup unit selection,
 		//otherwise setup a timer to check if it's the user's turn yet
 		if( window.playersTurn ){
+			//Handle selecting of the player's units
 			Game_gameplay.handleUnitSelection();
 		}else{
 			//Setup callback timer to get game updates
@@ -405,9 +448,10 @@ function gameplay(){
 		var clickedUnit = jQuery( triggeredEvent.target ).closest( '.gameplayUnit' );
 		
 		//Grab the UID from the unitElement 
-		Game_gameplay.selectedUnit.uid = jQuery( clickedUnit ).attr( 'uid' );
+		Game_gameplay.selectedUnitUID = jQuery( clickedUnit ).attr( 'uid' );
 		
-		//Loop through the player's units and find the selected unit
+		//Loop through the player's units and check if there is a unit with
+		//a move already in progress and select that Unit instead.
 		jQuery.each( window.gameUnits, Game_gameplay.checkIfSelected );
 		
 		Game_gameplay.processUnitSelection();
@@ -432,32 +476,12 @@ function gameplay(){
 			
 	}
 	
-	//PUBLIC FUNCTION: toggleHighlight
-	//Toggle a highlight effect on the given element
-	this.toggleHighlight = function( element ){
-		
-		//If this unit is highlighted unhighlight it, otherwise unhighlight
-		//everything else then highlight it
-		if( jQuery( element ).hasClass( 'highlighted' ) ){
-			jQuery( element ).removeClass( 'highlighted' );
-		}else{
-			jQuery( '.highlighted' ).removeClass( 'highlighted' );
-			jQuery( element ).addClass( 'highlighted' );
-		}
-		
-	}
+	//PUBLIC FUNCTION: unhighlightEverything
+	//Unhighlight everything that has been highlighted
+	this.unhighlightEverything = function(){
 	
-	//PUBLIC FUNCTION: toggleSelect
-	//Toggle the select of the given element
-	this.toggleSelect = function( element ){
-		
-		//Unselect other units and select them
-		if( jQuery( element ).hasClass( 'selected' ) ){
-			jQuery( element ).removeClass( 'selected' );
-		}else{
-			jQuery( '.selected' ).removeClass( 'selected' );
-			jQuery( element ).addClass( 'selected' );
-		}
+		jQuery( '.highlighted' ).removeClass( 'highlighted' );	
+		jQuery( '.highlightedForMove' ).removeClass( 'highlightedForMove' );
 		
 	}
 	
