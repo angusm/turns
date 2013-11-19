@@ -191,151 +191,6 @@ class Game extends AppModel {
 		
 	}
 	
-	//PUBLIC FUNCTION: isMoveValid
-	//Take in a gameUnit UID, the user who wants to make the move and 
-	//a targeted X and Y. 
-	//Then make sure that this move was possible. 
-	//If it was we need to move the game up to the next turn.
-	public function isMoveValid( $gameUnitUID, $targetX, $targetY, $userUID ){
-				
-		//Grab the gameUnit 
-		$gameUnitModelInstance 	= ClassRegistry::init( 'GameUnit' );
-		$gameUnit 				= $gameUnitModelInstance->findForMoveValidation( $gameUnitUID );
-		
-		//The gameUnit find will return false if there's another unit in this game that
-		//is currently selected.
-		if( $gameUnit == false ){
-			return false;
-		}
-		
-		//Make sure the unit has a user game that belongs to the user and that
-		//the game and the game unit are on the same turn
-		if( $gameUnit['GameUnit']['users_uid'] != $userUID ){
-			return false;
-		}
-		if( $gameUnit['Game']['turn'] != $gameUnit['GameUnit']['turn'] ){
-			return false;	
-		}
-				
-		//Make sure the given user is the active user for the current game
-		$activeUserModelInstance = ClassRegistry::init( 'ActiveUser' );
-		$activePlayer = $activeUserModelInstance->findActiveUser( $gameUnit['Game']['uid'], $gameUnit['Game']['turn'] );
-		if( ! isset( $activePlayer ) or $activePlayer['UserGame']['users_uid'] != $userUID ){
-			return false;
-		}
-				
-		//Get the new priority for this unit
-		$movePriority 			= $gameUnit['GameUnit']['last_movement_priority'];
-		
-		//Grab the staring positions and last move angle
-		$startX 	= $gameUnit['GameUnit']['x'];
-		$startY 	= $gameUnit['GameUnit']['y'];
-		$lastAngle	= $gameUnit['GameUnit']['last_movement_angle'];
-		$gameUID 	= $gameUnit['Game']['uid'];
-		
-		
-		//Grab an array of the possible movements
-		if( $movePriority == 0 ){
-			
-			$gameUnitMovementSets = $gameUnitModelInstance->findAllMovementSetsWithPriority( $gameUnitUID, $movePriority );
-			
-		}else{
-
-			//Setup a MovementSet instance to grab this one set
-			$movementSetModelInstance = ClassRegistry::init( 'MovementSet' );
-			$gameUnitMovementSets = array( 
-										array(
-											'MovementSet' => array_merge(
-												array( 'uid' => $gameUnit['GameUnit']['movement_sets_uid'] ),
-												$movementSetModelInstance->findByUIDWithPriority( $gameUnit['GameUnit']['movement_sets_uid'], $movePriority )
-											)
-										)
-								);
-														
-		}
-		
-		
-		//See if any of the possible movements can get the unit to the target
-		foreach( $gameUnitMovementSets as $movementSets ){
-			foreach( $movementSets['MovementSet']['Movement'] as $movement ){
-		
-				//Grab the spaces this move can travel along with whether it
-				//must travel them all or only some
-				$spaces				= intval( $movement['spaces'] );
-				$mustMoveAllTheWay	= intval( $movement['must_move_all_the_way'] );
-								
-				//Loop through all the movement direction sets and direction sets
-				foreach( $movement['MovementDirectionSet'] as $movementDirectionSet ){
-					foreach( $movementDirectionSet['DirectionSet']['DirectionSetDirection'] as $directionSetDirection ){
-					
-						//Grab the direction
-						$direction = $directionSetDirection['Direction'];
-						
-						//Get the angle 
-						$angleToCheck = $direction['angle'] + $lastAngle;
-						
-						//Grab the x and y direction we'll be checking
-						$xDirection =   intval( round( sin( $angleToCheck * ( pi() / 180 ) ) ) );
-						$yDirection = - intval( round( cos( $angleToCheck * ( pi() / 180 ) ) ) );
-						
-						if( $mustMoveAllTheWay ){
-							
-							//Find the x and y to check and if they're successful then we can return true
-							$xToCheck = $startX + ( $spaces * $xDirection );
-							$yToCheck = $startY + ( $spaces * $yDirection );
-								
-							//If we have a match, update the game and then return true
-							if( $xToCheck == $targetX and $yToCheck == $targetY ){
-							
-								$this->updateGame( 
-										$gameUID, 
-										$gameUnit['GameUnit']['turn'], 
-										$gameUnitUID, 
-										$targetX, 
-										$targetY, 
-										$angleToCheck,
-										$movePriority,
-										$movementSets['MovementSet']['uid'] );
-								return true;
-								
-							}
-								
-						}else{	
-						
-							//Check the x and y of each space we move along
-							for( $spaceCounter = 1; $spaceCounter <= $spaces; $spaceCounter++ ){
-								
-								$xToCheck = $startX + ( $spaceCounter * $xDirection );
-								$yToCheck = $startY + ( $spaceCounter * $yDirection );
-								
-								//If we have a match, update the game and then return true
-								if( $xToCheck == $targetX and $yToCheck == $targetY ){
-								
-									$this->updateGame( 
-										$gameUID, 
-										$gameUnit['GameUnit']['turn'], 
-										$gameUnitUID, 
-										$targetX, 
-										$targetY, 
-										$angle,
-										$movePriority,
-										$movementSets['MovementSet']['uid'] );
-									return true;
-									
-								}
-								
-							}
-							
-						}	
-					
-					}
-							
-				}					
-			}
-		}
-		
-	}
-	
 	//PUBLIC FUNCTION: newGame
 	//Create a new game, y'know, so players can play.
 	//And of course, so haters can hate. Cause haters gonna hate.
@@ -395,6 +250,151 @@ class Game extends AppModel {
 		$this->read( NULL, $gameUID );
 		$this->set( 'turn', $nuTurn );
 		$this->save();
+		
+	}
+	
+	//PUBLIC FUNCTION: validateMove
+	//Take in a gameUnit UID, the user who wants to make the move and 
+	//a targeted X and Y. 
+	//Then make sure that this move was possible. 
+	//If it was we need to move the game up to the next turn.
+	public function validateMove( $gameUnitUID, $targetX, $targetY, $userUID ){
+				
+		//Grab the gameUnit 
+		$gameUnitModelInstance 	= ClassRegistry::init( 'GameUnit' );
+		$gameUnit 				= $gameUnitModelInstance->findForMoveValidation( $gameUnitUID );
+		
+		//The gameUnit find will return false if there's another unit in this game that
+		//is currently selected.
+		if( $gameUnit == false ){
+			return false;
+		}
+		
+		//Make sure the unit has a user game that belongs to the user and that the game 
+		//and the game unit are on the same turn
+		if( $gameUnit['GameUnit']['users_uid'] != $userUID ){
+			return false;
+		}
+		if( $gameUnit['Game']['turn'] != $gameUnit['GameUnit']['turn'] ){
+			return false;	
+		}
+				
+		//Make sure the given user is the active user for the current game
+		$activeUserModelInstance = ClassRegistry::init( 'ActiveUser' );
+		$activePlayer = $activeUserModelInstance->findActiveUser( $gameUnit['Game']['uid'], $gameUnit['Game']['turn'] );
+		if( ! isset( $activePlayer ) or $activePlayer['UserGame']['users_uid'] != $userUID ){
+			return false;
+		}
+				
+		//Get the new priority for this unit
+		$movePriority 			= $gameUnit['GameUnit']['last_movement_priority'];
+		
+		//Grab the staring positions and last move angle
+		$startX 	= $gameUnit['GameUnit']['x'];
+		$startY 	= $gameUnit['GameUnit']['y'];
+		$lastAngle	= $gameUnit['GameUnit']['last_movement_angle'];
+		$gameUID 	= $gameUnit['Game']['uid'];
+		
+		
+		//Grab an array of the possible movements
+		if( $movePriority == 0 ){
+			
+			$gameUnitMovementSets = $gameUnitModelInstance->findAllMovementSetsWithPriority( $gameUnitUID, $movePriority );
+			
+		}else{
+
+			//Setup a MovementSet instance to grab this one set
+			$movementSetModelInstance = ClassRegistry::init( 'MovementSet' );
+			$gameUnitMovementSets = array( 
+										array(
+											'MovementSet' => array_merge(
+												array( 'uid' => $gameUnit['GameUnit']['movement_sets_uid'] ),
+												$movementSetModelInstance->findByUIDWithPriority( $gameUnit['GameUnit']['movement_sets_uid'], $movePriority )
+											)
+										)
+								);
+														
+		}
+				
+		//See if any of the possible movements can get the unit to the target
+		foreach( $gameUnitMovementSets as $movementSets ){
+			foreach( $movementSets['MovementSet']['Movement'] as $movement ){
+		
+				//Grab the spaces this move can travel along with whether it
+				//must travel them all or only some
+				$spaces				= intval( $movement['spaces'] );
+				$mustMoveAllTheWay	= intval( $movement['must_move_all_the_way'] );
+								
+				//Loop through all the movement direction sets and direction sets
+				foreach( $movement['MovementDirectionSet'] as $movementDirectionSet ){
+					foreach( $movementDirectionSet['DirectionSet']['DirectionSetDirection'] as $directionSetDirection ){
+					
+						//Grab the direction
+						$direction = $directionSetDirection['Direction'];
+						
+						//Get the angle 
+						$angleToCheck = $direction['angle'] + $lastAngle;
+						
+						//Grab the x and y direction we'll be checking
+						$xDirection =   intval( round( sin( $angleToCheck * ( pi() / 180 ) ) ) );
+						$yDirection = - intval( round( cos( $angleToCheck * ( pi() / 180 ) ) ) );
+						
+						//Check if the unit has to move all the way						
+						if( $mustMoveAllTheWay ){
+							
+							//Find the x and y to check and if they're successful then we can return true
+							$xToCheck = $startX + ( $spaces * $xDirection );
+							$yToCheck = $startY + ( $spaces * $yDirection );
+								
+							//If we have a match, update the game and then return true
+							if( $xToCheck == $targetX and $yToCheck == $targetY ){
+							
+								$this->updateGame( 
+										$gameUID, 
+										$gameUnit['GameUnit']['turn'], 
+										$gameUnitUID, 
+										$targetX, 
+										$targetY, 
+										$angleToCheck,
+										$movePriority,
+										$movementSets['MovementSet']['uid'] );
+								return true;
+								
+							}
+								
+						}else{	
+						
+							//Check the x and y of each space we move along
+							for( $spaceCounter = 1; $spaceCounter <= $spaces; $spaceCounter++ ){
+								
+								$xToCheck = $startX + ( $spaceCounter * $xDirection );
+								$yToCheck = $startY + ( $spaceCounter * $yDirection );
+								
+								//If we have a match, update the game and then return true
+								if( $xToCheck == $targetX and $yToCheck == $targetY ){
+								
+									$this->updateGame( 
+										$gameUID, 
+										$gameUnit['GameUnit']['turn'], 
+										$gameUnitUID, 
+										$targetX, 
+										$targetY, 
+										$angle,
+										$movePriority,
+										$movementSets['MovementSet']['uid'] );
+									return true;
+									
+								}
+								
+							}
+							
+						}	
+					
+					}
+							
+				}					
+			}
+		}
 		
 	}
 	

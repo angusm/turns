@@ -67,10 +67,9 @@ class GamesController extends AppController {
 		//Grab the user UID of the user making the request
 		$userUID = $this->Auth->user( 'uid' );
 					
-		//Toss it over to the model, if the move was valid it will update the
-		//game and the game units and then return true, otherwise it will return
-		//false
-		$validMove = $this->Game->isMoveValid(
+		//Toss it over to the model, if the move was valid it will update the game 
+		//and the game units and then return true, otherwise it will return false
+		$validMove = $this->Game->validateMove(
 											$gameUnitUID, 
 											$targetedX, 
 											$targetedY, 
