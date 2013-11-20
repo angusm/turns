@@ -232,7 +232,7 @@ class GameUnit extends AppModel {
 	
 	//PRIVATE FUNCTION: moveGameUnitToNextTurn
 	//Move the game unit to the next turn
-	private function moveGameUnitToNextTurn( $unitToMove ){
+	private function moveGameUnitToNextTurn( $unitToMove, $originalGameUnit ){
 	
 		//Update the turn
 		$unitToMove['GameUnit']['turn'] = $unitToMove['GameUnit']['turn'] + 1;
@@ -286,7 +286,7 @@ class GameUnit extends AppModel {
 						
 			
 		//Store the original unit so we can record a record of it.
-		$this->storeOriginalUnit( $movedUnit );
+		$originalGameUnit = $this->storeOriginalUnit( $movedUnit );
 			
 		//Update the values
 		$movedUnit['GameUnit']['x'] 						= $targetX;
@@ -307,20 +307,30 @@ class GameUnit extends AppModel {
 																'priority'			=> $movedUnit['GameUnit']['last_movement_priority']
 															)
 														));
-														
+
+		//If the unit has a valid next move set it as the selected unit, otherwise clear its
+		//movement stats
 		if( $validNextMove == false ){
 			$movedUnit['GameUnit']['last_movement_priority'] 	= 0;
 			$movedUnit['GameUnit']['last_movement_angle'] 		= 0;
 			$movedUnit['GameUnit']['movement_sets_uid'] 		= NULL;
-		}	
+			$this->selectUnit( NULL, $gameUID );
+		}else{
+			$this->selectUnit( $gameUnitUID, $gameUID );	
+		}
 		
-		$this->moveGameUnitToNextTurn( $movedUnit );
+		$this->moveGameUnitToNextTurn( $movedUnit, $originalGameUnit );
 					
 		//Loop through the found units and bump them up as a new record
 		foreach( $unitsToMove as $unitToMove ){
 			
-			//Store the original unit so we can record a record of it.
-			$this->storeOriginalUnit( $unitToMove );
+			if( $unitToMove['GameUnit']['defense'] > 0 ){
+				//Store the original unit so we have a record of it.
+				$originalGameUnit = $this->storeOriginalUnit( $unitToMove );
+				$unitAlreadyDead = false;
+			}else{
+				$unitAlreadyDead = true;
+			}
 			
 			//We need to check if the current unit was positioned where the moved 
 			//unit landed, if this is the case then we have some serious work cut 
@@ -333,6 +343,7 @@ class GameUnit extends AppModel {
 
 					//If the unit is friendly then buff the damage of the bumped unit
 					$unitToMove['GameUnit']['damage'] += $movedUnit['GameUnit']['damage'];
+					$this->selectUnit( $movedUnit['GameUnit']['uid'], $gameUID );
 
 				}else{
 					
@@ -343,14 +354,32 @@ class GameUnit extends AppModel {
 					}else{
 						$unitToMove['GameUnit']['defense'] = 0;
 					}
+					$this->selectUnit( NULL, $gameUID );
 					
 				}
 				
 			}
-			
-			$this->moveGameUnitToNextTurn( $unitToMove );
+						
+			//If the unit wasn't dead before this turn started move it to the next turn
+			if( ! $unitAlreadyDead ){
+				$this->moveGameUnitToNextTurn( $unitToMove, $originalGameUnit );
+			}
 									
 		}			
+		
+	}
+	
+	//PUBLIC FUNCTION: selectUnit
+	//Set the game unit to as the selected unit for the given game
+	public function selectUnit( $gameUnitUID, $gameUID ){
+		
+		//Setup the game model instance
+		$gameModelInstance = ClassRegistry::init( 'Game' );
+		
+		//Change the selected unit UID		
+		$gameModelInstance->read( NULL, $gameUID );
+		$gameModelInstance->set( 'selected_unit_uid', $gameUnitUID );
+		$gameModelInstance->save();
 		
 	}
 	

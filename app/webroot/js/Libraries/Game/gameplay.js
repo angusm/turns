@@ -50,7 +50,7 @@ function gameplay(){
 	this.checkIfSelected = function( unitObjectPosition, unitObject ){
 		
 		//Compare the unit object UID with the selected unit UID	
-		if( unitObject.uid == Game_gameplay.selectedUnitUID ){
+		if( unitObject.uid == window.selectedUnitUID ){
 			Game_gameplay.selectedUnit = unitObject;
 		}
 		
@@ -169,7 +169,12 @@ function gameplay(){
 			function( jSONData ){
 								
 				//Grab the game update
-				window.gameUnits 	= jSONData.gameInformation.GameUnit;
+				window.gameUnits 		= jSONData.gameInformation.GameUnit;
+				window.selectedUnitUID 	= jSONData.gameInformation.Game.selected_unit_uid;
+				
+				if( window.selectedUnitUID == null ){
+					Game_gameplay.resetSelectedUnit();
+				}
 
 				//Find whose turn it is
 				if( jSONData.gameInformation.ActiveUser[0].UserGame.users_uid == window.userUID ){
@@ -200,9 +205,9 @@ function gameplay(){
 	//Just be Pepper Potts already, do everything
 	this.handleEverything = function(){
 		
-		//Initialize the selected unit UID
-		Game_gameplay.selectedUnitUID = -1;
-		
+		//Set the selectedUnit to a default
+		Game_gameplay.resetSelectedUnit();
+				
 		//Arrange the board and the pieces
 		Game_elements.arrangeTiles();
 	
@@ -410,6 +415,15 @@ function gameplay(){
 		
 	}
 	
+	//PUBLIC FUNCTION: resetSelectedUnit
+	//Reset the selected unit
+	this.resetSelectedUnit = function(){
+	
+		Game_gameplay.selectedUnit = new Object();
+		Game_gameplay.selectedUnit.uid = false;
+		
+	}
+	
 	//PUBLIC FUNCTION: resetTurnData
 	//Reset everything as if a unit has never moved
 	this.resetTurnData = function(){
@@ -419,15 +433,10 @@ function gameplay(){
 		
 		//Clear everything
 		Game_gameplay.clearEverything();
-	
-		//Reset the selected unit
-		Game_gameplay.selectedUnit 		= new Object();
-		Game_gameplay.selectedUnit.uid 	= false;
-	
-		//We run a check to see if the user has already selected a unit that it hasn't finished moving
-		//If this is the case we select it for the user, otherwise we allow the selection of any unit
-		jQuery.each( window.gameUnits, Game_gameplay.checkIfUnitShouldBeSelected );
-				
+		
+		//Grab the selected unit		
+		jQuery.each( window.gameUnits, Game_gameplay.checkIfSelected );
+		
 		//If its the player's turn then setup unit selection,
 		//otherwise setup a timer to check if it's the user's turn yet
 		if( window.playersTurn ){
@@ -448,7 +457,7 @@ function gameplay(){
 		var clickedUnit = jQuery( triggeredEvent.target ).closest( '.gameplayUnit' );
 		
 		//Grab the UID from the unitElement 
-		Game_gameplay.selectedUnitUID = jQuery( clickedUnit ).attr( 'uid' );
+		window.selectedUnitUID = jQuery( clickedUnit ).attr( 'uid' );
 		
 		//Loop through the player's units and check if there is a unit with
 		//a move already in progress and select that Unit instead.
