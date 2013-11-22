@@ -83,6 +83,7 @@ class GameUnit extends AppModel {
 				$gameUnitData = array(
 									'GameUnit' => array(
 										'defense'					=> $teamUnitType['UnitType']['UnitStat']['defense'],
+										'damage'					=> $teamUnitType['UnitType']['UnitStat']['damage'],
 										'last_movement_angle'		=>  0,
 										'last_movement_priority'	=>  0,
 										'name'						=> $teamUnitType['UnitType']['name'],

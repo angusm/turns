@@ -236,6 +236,35 @@ function gameplay(){
 		//We only want to be adding this once per tile
 		jQuery( '.highlightedForMove' ).each( function(){
 			
+			var highlightedTile = jQuery(this);
+			
+			//Check to see if there are any units that are on the same space as one
+			//of the highlighted tiles. If there are then add a listener on the unit to
+			//move the selected Unit onto its tile.
+			jQuery.each( window.gameUnits, function( unitIndex, unitObject ){
+				
+				console.log( unitObject.uid + ' > ' + 'Comparing ' + unitObject.x + ' and ' + highlightedTile.attr('x') );
+				console.log( unitObject.uid + ' > ' + 'Comparing ' + unitObject.y + ' and ' + highlightedTile.attr('y') );
+				
+				if( parseInt(unitObject.x) == parseInt(highlightedTile.attr('x')) && parseInt(unitObject.y) == parseInt(highlightedTile.attr('y')) ){
+					
+					console.log( 'Found' );
+					
+					//We still only want to add a listener to this unit once
+					var unitElement = jQuery('div.gameplayUnit[uid="'+unitObject.uid+'"]');
+					
+					console.log( unitElement );
+					
+					if( ! unitElement.isBound( 'click', Game_gameplay.moveSelectedUnitToUnit ) ){
+						unitElement.bind(
+							'click',
+							Game_gameplay.moveSelectedUnitToUnit
+						);	
+					}
+				}
+			});
+			
+			//Add a listener on the tile itself
 			if( ! jQuery(this).isBound( 'click', Game_gameplay.moveSelectedUnitToTile ) ){
 				jQuery(this).bind( 
 					'click',
@@ -368,6 +397,25 @@ function gameplay(){
 				
 	}
 	
+	//PUBLIC FUNCTION: moveSelectedUnitToUnit
+	//Move the selected unit to the position of the unselected unit
+	this.moveSelectedUnitToUnit = function( triggeredEvent ){
+	
+		//Grab the x and y of the game unit that was the target of this event
+		var unitElement = triggeredEvent.target;
+		jQuery.each( window.gameUnits, function( unitIndex, unitObject ){
+			
+			//Grab the targeted X and Y
+			var targetedX = unitObject.x;
+			var targetedY = unitObject.y;
+			
+			//Trigger the event on the tile the targeted unit sits on
+			jQuery( 'div.gameTile[x="'+targetedX+'"][y="'+targetedY+'"]' ).click();
+			
+		});
+		
+	}
+	
 	//PUBLIC FUNCTION: processUnitSelection
 	//Do the work that needs to occur after a unit has been selected.
 	this.processUnitSelection = function(){
@@ -497,6 +545,18 @@ function gameplay(){
 	//PUBLIC FUNCTION: unhighlightUnitPaths
 	//Remove all the paths for the selected unit
 	this.unhighlightUnitPaths = function(){
+		
+		//Remove the event listeners from any units
+		jQuery( '.gameplayUnit' ).each( function(){
+			
+			if( jQuery(this).isBound( 'click', Game_gameplay.moveSelectedUnitToUnit ) ){
+				jQuery(this).unbind(
+					'click',
+					Game_gameplay.moveSelectedUnitToUnit
+				);	
+			}
+			
+		});
 		
 		//Remove the event listener for the highlighted tiles
 		jQuery( '.highlightedForMove' ).each( function(){
