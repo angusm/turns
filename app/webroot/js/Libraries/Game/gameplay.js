@@ -30,11 +30,14 @@ function gameplay(){
 		var nuX = unitObject.x * 70;
 		var nuY = unitObject.y * 70;
 		
-		jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).css({
-			"position"	: "absolute", 
-			"left"		: nuX + "px",
-			"top"		: nuY + "px"
-		});
+		jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).animate(
+																{
+																	"position"	: "absolute", 
+																	"left"		: nuX + "px",
+																	"top"		: nuY + "px"
+																},
+																1000
+																);
 		
 	}
 	
@@ -147,11 +150,7 @@ function gameplay(){
 		Game_gameplay.selectedUnit.last_movement_priority++;
 
 		//Move the unit visually
-		jQuery( '.gameplayUnit[uid="' + Game_gameplay.selectedUnit.uid + '"]' ).css({
-			"position"	: "absolute", 
-			"left"		: nuX + "px",
-			"top"		: nuY + "px"
-		});
+		Game_gameplay.setupUnit( 1, Game_gameplay.selectedUnit );
 	
 	}
 	
@@ -380,6 +379,40 @@ function gameplay(){
 		
 	}
 	
+	//PUBLIC FUNCTION: killUnit
+	//Kill the given unit
+	this.killUnit = function( unitObject ){
+			 
+		//Grab the current width, height, x and y
+		var startHeight	= parseInt( jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).css( 'height' ) );
+		var startWidth	= parseInt( jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).css( 'width' )	);
+		var startX 		= parseInt( jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).css( 'left' )	);
+		var startY 		= parseInt( jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).css( 'top' ) 	);
+		
+		//Calculate the scaling
+		var scale 		= 2;
+		var endHeight	= startHeight 	* scale;
+		var endWidth	= startWidth 	* scale;
+		var endX		= startX 		- startWidth;
+		var endY		= startY		- startHeight;
+			 
+		//Make the unit disappear
+		jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).animate(
+																{
+																	"position"	: "absolute", 
+																	"left"		: endX + "px",
+																	"top"		: endY + "px",
+																	"width"		: endWidth + "px",
+																	"height"	: endHeight + "px"
+																},
+																1000,
+																'swing'
+															);
+	
+			
+		
+	}
+	
 	//PUBLIC FUNCTION: moveSelectedUnitToTile
 	//When a highlighted tile is clicked the selected unit should be moved to it
 	this.moveSelectedUnitToTile = function( triggeredEvent ){
@@ -518,9 +551,20 @@ function gameplay(){
 	//PUBLIC FUNCTION: setupUnit
 	//Setup the given unit
 	this.setupUnit = function( unitObjectPosition, unitObject ){
+
+		//If the unit is still alive, move it into position
+		if( unitObject.defense > 0 ){
+						
+			//Align the unit with its tile position
+			Game_gameplay.arrangeUnit( unitObject );
 		
-		//Align the unit with its tile position
-		Game_gameplay.arrangeUnit( unitObject );
+		//If the unit isn't alive, kill it	
+		}else{
+			
+			//Kill it
+			Game_gameplay.killUnit( unitObject );
+			
+		}
 		
 	}
 	

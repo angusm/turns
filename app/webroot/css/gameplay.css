@@ -15,9 +15,9 @@
 	}
 	
 	div.gameplayUnit{
-		left:0px;
-		position:absolute;	
-		top:0px;
+		left:		245px;
+		position:	absolute;	
+		top:		245px;
 	}
 	
 	div.gameTile[light="0"]{
