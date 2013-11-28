@@ -20,6 +20,11 @@
 		top:		245px;
 	}
 	
+	div.gameplayUnit img{
+		height:		100%;
+		width:		100%;
+	}
+	
 	div.gameTile[light="0"]{
 		background-color: #666;
 	}

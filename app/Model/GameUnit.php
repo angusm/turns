@@ -319,8 +319,6 @@ class GameUnit extends AppModel {
 		}else{
 			$this->selectUnit( $gameUnitUID, $gameUID );	
 		}
-		
-		$this->moveGameUnitToNextTurn( $movedUnit, $originalGameUnit );
 					
 		//Loop through the found units and bump them up as a new record
 		foreach( $unitsToMove as $unitToMove ){
@@ -351,7 +349,7 @@ class GameUnit extends AppModel {
 					//If the unit is an enemy check if the moved unit has enough damage
 					//to destroy it or if the moved unit should be destroyed.
 					if( $unitToMove['GameUnit']['defense'] > $movedUnit['GameUnit']['damage'] ){
-						$movedUnit['GameUnit']['defense'] = 0;
+						$movedUnit['GameUnit']['defense']  = 0;
 					}else{
 						$unitToMove['GameUnit']['defense'] = 0;
 					}
@@ -366,7 +364,10 @@ class GameUnit extends AppModel {
 				$this->moveGameUnitToNextTurn( $unitToMove, $originalGameUnit );
 			}
 									
-		}			
+		}	
+		
+		//Move the unit that moved
+		$this->moveGameUnitToNextTurn( $movedUnit, $originalGameUnit );		
 		
 	}
 	

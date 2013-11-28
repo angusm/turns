@@ -102,6 +102,24 @@ function gameplay(){
 		
 	}
 	
+	//PUBLIC FUNCTION: colorUnits
+	//Color the units according to the player
+	this.colorUnits = function(){
+		
+		//Loop through all the units
+		jQuery.each( window.gameUnits, function( unitPos, unitObject ){
+			
+			//Color the unit according to whose side it's on
+			if( unitObject.users_uid == window.userUID ){
+				jQuery('.gameplayUnit[uid="'+unitObject.uid+'"] > img').pixastic("coloradjust", {red:0,green:0,blue:0.2});
+			}else{
+				jQuery('.gameplayUnit[uid="'+unitObject.uid+'"] > img').pixastic("coloradjust", {red:0.2,green:0,blue:0});
+			}
+			
+		});
+	
+	}
+	
 	//PUBLIC FUNCTION: disallowSelectChange
 	//Remove the ability to select any new units or deselect a currently
 	//selected unit
@@ -204,6 +222,9 @@ function gameplay(){
 	//Just be Pepper Potts already, do everything
 	this.handleEverything = function(){
 		
+		//Setup the unit colors
+		Game_gameplay.colorUnits();
+		
 		//Set the selectedUnit to a default
 		Game_gameplay.resetSelectedUnit();
 				
@@ -241,18 +262,11 @@ function gameplay(){
 			//of the highlighted tiles. If there are then add a listener on the unit to
 			//move the selected Unit onto its tile.
 			jQuery.each( window.gameUnits, function( unitIndex, unitObject ){
-				
-				console.log( unitObject.uid + ' > ' + 'Comparing ' + unitObject.x + ' and ' + highlightedTile.attr('x') );
-				console.log( unitObject.uid + ' > ' + 'Comparing ' + unitObject.y + ' and ' + highlightedTile.attr('y') );
-				
+								
 				if( parseInt(unitObject.x) == parseInt(highlightedTile.attr('x')) && parseInt(unitObject.y) == parseInt(highlightedTile.attr('y')) ){
-					
-					console.log( 'Found' );
 					
 					//We still only want to add a listener to this unit once
 					var unitElement = jQuery('div.gameplayUnit[uid="'+unitObject.uid+'"]');
-					
-					console.log( unitElement );
 					
 					if( ! unitElement.isBound( 'click', Game_gameplay.moveSelectedUnitToUnit ) ){
 						unitElement.bind(
@@ -393,8 +407,8 @@ function gameplay(){
 		var scale 		= 2;
 		var endHeight	= startHeight 	* scale;
 		var endWidth	= startWidth 	* scale;
-		var endX		= startX 		- startWidth;
-		var endY		= startY		- startHeight;
+		var endX		= startX 		- ( startWidth  / scale );
+		var endY		= startY		- ( startHeight / scale );
 			 
 		//Make the unit disappear
 		jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).animate(
@@ -403,10 +417,14 @@ function gameplay(){
 																	"left"		: endX + "px",
 																	"top"		: endY + "px",
 																	"width"		: endWidth + "px",
-																	"height"	: endHeight + "px"
+																	"height"	: endHeight + "px",
+																	"opacity"	: 0
 																},
 																1000,
-																'swing'
+																'swing',
+																function(){
+																	jQuery(this).remove();
+																}
 															);
 	
 			
@@ -416,7 +434,7 @@ function gameplay(){
 	//PUBLIC FUNCTION: moveSelectedUnitToTile
 	//When a highlighted tile is clicked the selected unit should be moved to it
 	this.moveSelectedUnitToTile = function( triggeredEvent ){
-	
+			
 		//Disable all of the other units from being selected
 		Game_gameplay.disallowSelectChange();
 		
@@ -433,17 +451,23 @@ function gameplay(){
 	//PUBLIC FUNCTION: moveSelectedUnitToUnit
 	//Move the selected unit to the position of the unselected unit
 	this.moveSelectedUnitToUnit = function( triggeredEvent ){
-	
+			
 		//Grab the x and y of the game unit that was the target of this event
-		var unitElement = triggeredEvent.target;
+		var unitElement = jQuery( triggeredEvent.target ).closest( '.gameplayUnit' );
+		
+		console.log( unitElement);
 		jQuery.each( window.gameUnits, function( unitIndex, unitObject ){
 			
-			//Grab the targeted X and Y
-			var targetedX = unitObject.x;
-			var targetedY = unitObject.y;
-			
-			//Trigger the event on the tile the targeted unit sits on
-			jQuery( 'div.gameTile[x="'+targetedX+'"][y="'+targetedY+'"]' ).click();
+			if( jQuery(unitElement).attr('uid') == unitObject.uid ){
+				
+				//Grab the targeted X and Y
+				var targetedX = unitObject.x;
+				var targetedY = unitObject.y;
+				
+				//Trigger the event on the tile the targeted unit sits on
+				jQuery( 'div.gameTile[x="'+targetedX+'"][y="'+targetedY+'"]' ).click();
+				
+			}
 			
 		});
 		
