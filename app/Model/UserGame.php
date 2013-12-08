@@ -37,14 +37,14 @@ class UserGame extends AppModel {
 	}
 	
 		
-	//PUBLIC FUNCTION: getGamesForUser
+	//PUBLIC FUNCTION: getGamesByUserUID
 	//Grab all of the active games that a user may be involved in
-	public function getGamesForUser( $userUID ){
+	public function getGamesByUserUID( $userUID ){
 	
 		//Run a find to get the user and all of their associated games
 		$games = $this->find( 'all', array(
 								'conditions' => array(
-									'UserGame.users_uid' => $userUID
+									'users_uid' => $userUID
 								)
 							));		
 							

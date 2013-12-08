@@ -35,6 +35,22 @@ class User extends AppModel {
 		return true;
 	}
 	
+	//PUBLIC FUNCTION: getGamesByUserUID
+	//Get the games that the user is involved in 
+	public function getGamesByUserUID( $userUID ){
+		
+		//Find all the games
+		$allGames = $this->find( 'all', array(
+						'conditions' => array(
+							'users_uid' => $userUID
+						)
+					));
+					
+		//Return the games 
+		return $allGames;
+		
+	}
+	
 	//PUBLIC FUNCTION: setupNewUser
 	//Function used to initialize all of the various data we'll need to have a proper
 	//and usable user account. So let's do this.

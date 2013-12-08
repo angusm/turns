@@ -35,16 +35,13 @@ class AppController extends Controller {
 	
 	public $helpers = array( 'TurnForm', 'Html' );
     public $components = array(
-        'Auth' => array(
-            'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
-        ),
+        'Auth',
 		'RequestHandler',
         'Session'
     );
 
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view');
+       //$this->Auth->allow();
     }
 	
 	//PUBLIC FUNCTION: add

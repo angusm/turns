@@ -50,7 +50,7 @@ class UsersController extends AppController {
         }
     }
 	
-	
+	//PUBLIC FUNCTION: login
 	public function login() {
 		//If we're dealing with a posted message
 		if ($this->request->is('post')) {
@@ -60,23 +60,6 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('Invalid username or password, try again'));
 			}
 		}
-	}
-	
-	//PUBLIC FUNCTION: queueButton
-	//Just a simple page with a button to launch the user into the queue
-	public function queueButton(){
-	
-		//Grab the user's UID from the Auth component
-		$userUID = $this->Auth->user('uid');
-	
-		//Get all of the teams associated with the user so that they can pick one before
-		//joining the queue.
-		$teamsModelInstance = ClassRegistry::init( 'Team' );
-		$teams = $teamsModelInstance->getTeamsByUserUID( $userUID );		
-		
-		//Set all the variables for the view
-		$this->set( 'teams', $teams );
-		
 	}
 	
 }

@@ -85,22 +85,52 @@ class MatchmakingQueue extends AppModel {
 		return $createdGame;
 		
 	}
+	
+	//PUBLIC FUNCTION: getPendingGamesByUserUID
+	//Return all of the pending games by their user UID
+	public function getPendingGamesByUserUID( $userUID ){
+		
+		//Grab them all
+		$pendingGames = $this->find( 'all', array(
+							'conditions' => array(
+								'MatchmakingQueue.users_uid' => $userUID
+							)
+						));
+						
+		//And returning them
+		return $pendingGames;
+		
+	}
 		
 	//PUBLIC FUNCTION: placeInQueue
 	//Create a record for the team in the queue
 	public function placeInQueue( $userUID, $teamUID ){
 		
-		//Establish data to save
-		$queueData = array( 
-						'users_uid' => $userUID,
-						'teams_uid' => $teamUID
-						);
+		//We first check to make sure that the user isn't already waiting for a game to start
+		$exists = $this->find( 'first', array(
+								'conditions' => array(
+									'users_uid' => $userUID
+								)
+							));
 		
-		//Create a record
-		$this->create();
-							
-		//Return whether or not the save was successful
-		return $this->save( $queueData );
+		//If we don't already have this user in the queue then add them
+		if( $exists == false ){
+			
+			//Establish data to save
+			$queueData = array( 
+							'users_uid' => $userUID,
+							'teams_uid' => $teamUID
+							);
+			
+			//Create a record
+			$this->create();
+					
+			//Return whether or not the save was successful
+			return $this->save( $queueData );	
+			
+		}else{
+			return false;
+		}				
 		
 		
 	}

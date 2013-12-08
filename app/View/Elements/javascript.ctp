@@ -12,7 +12,7 @@
 			'var getJSURL 		= "'. $this->Html->url(array("controller" => "js", "action" => "")) .'/";' .
 			'var homeURL 		= "'. $this->webroot .'";' .
 			'var imgURL 		= "'. $this->Html->url(array("controller" => "img", "action" => "")) . '/";' .
-			'var boardTileSize 	= 70;' .
+			'var boardTileSize 	= 70;'.
 		'</script>';
 		
 ?>

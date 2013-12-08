@@ -12,7 +12,10 @@ function joinQueue(){
 	//PUBLIC FUNCTION: handleEverything
 	//Just be Pepper Potts already, do everything
 	this.handleEverything = function(){
+		
+		//Handle the button
 		Matchmaking_joinQueue.handleJoinQueueButton();
+		
 	}
 	
 	//PUBLIC FUNCTION: handleJoinQueueButton
@@ -48,7 +51,10 @@ function joinQueue(){
 				teamUID:teamUID
 			},
 			function( jSONData ){
-				//Do nothing
+				
+				console.log( jSONData );
+				jQuery('.joinQueueButton').trigger( 'joinedQueue' );
+								
 			}
 		).done( 
 			function(){
