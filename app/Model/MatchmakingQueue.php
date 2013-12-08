@@ -106,32 +106,17 @@ class MatchmakingQueue extends AppModel {
 	//Create a record for the team in the queue
 	public function placeInQueue( $userUID, $teamUID ){
 		
-		//We first check to make sure that the user isn't already waiting for a game to start
-		$exists = $this->find( 'first', array(
-								'conditions' => array(
-									'users_uid' => $userUID
-								)
-							));
+		//Establish data to save
+		$queueData = array( 
+						'users_uid' => $userUID,
+						'teams_uid' => $teamUID
+						);
 		
-		//If we don't already have this user in the queue then add them
-		if( $exists == false ){
-			
-			//Establish data to save
-			$queueData = array( 
-							'users_uid' => $userUID,
-							'teams_uid' => $teamUID
-							);
-			
-			//Create a record
-			$this->create();
-					
-			//Return whether or not the save was successful
-			return $this->save( $queueData );	
-			
-		}else{
-			return false;
-		}				
-		
+		//Create a record
+		$this->create();
+				
+		//Return whether or not the save was successful
+		return $this->save( $queueData );	
 		
 	}
 	

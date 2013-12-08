@@ -24948,3 +24948,220 @@ Stack Trace:
 #1 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UserGamesController), Object(CakeRequest), Object(CakeResponse))
 #2 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2013-12-08 15:51:47 Error: [MissingControllerException] Controller class PhpStorm-bfb2e5d9-fc39-4ec6-aca7-ea8706c040f1.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'PhpStorm-bfb2e5d9-fc39-4ec6-aca7-ea8706c040f1.phpController',
+  'plugin' => NULL,
+)
+Request URL: /turns/PhpStorm-bfb2e5d9-fc39-4ec6-aca7-ea8706c040f1.php
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 15:52:25 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'getGamesForUser' at line 1
+Request URL: /turns/UserGames/getAvailableGamesList/
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('getGamesForUser', Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('getGamesForUser', Array, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('getGamesForUser', Array, Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): DboSource->query('getGamesForUser', Array, Object(UserGame))
+#5 C:\xampp\htdocs\turns\app\Controller\UserGamesController.php(27): Model->__call('getGamesForUser', Array)
+#6 C:\xampp\htdocs\turns\app\Controller\UserGamesController.php(27): UserGame->getGamesForUser('1')
+#7 [internal function]: UserGamesController->getAvailableGamesList()
+#8 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UserGamesController), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UserGamesController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-12-08 15:52:32 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 15:52:56 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 15:52:57 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'getGamesForUser' at line 1
+Request URL: /turns/UserGames/getAvailableGamesList/
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('getGamesForUser', Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('getGamesForUser', Array, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('getGamesForUser', Array, Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): DboSource->query('getGamesForUser', Array, Object(UserGame))
+#5 C:\xampp\htdocs\turns\app\Controller\UserGamesController.php(27): Model->__call('getGamesForUser', Array)
+#6 C:\xampp\htdocs\turns\app\Controller\UserGamesController.php(27): UserGame->getGamesForUser('1')
+#7 [internal function]: UserGamesController->getAvailableGamesList()
+#8 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UserGamesController), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UserGamesController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-12-08 16:03:49 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:03:50 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'getGamesForUser' at line 1
+Request URL: /turns/UserGames/getAvailableGamesList/
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('getGamesForUser', Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('getGamesForUser', Array, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('getGamesForUser', Array, Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): DboSource->query('getGamesForUser', Array, Object(UserGame))
+#5 C:\xampp\htdocs\turns\app\Controller\UserGamesController.php(27): Model->__call('getGamesForUser', Array)
+#6 C:\xampp\htdocs\turns\app\Controller\UserGamesController.php(27): UserGame->getGamesForUser('1')
+#7 [internal function]: UserGamesController->getAvailableGamesList()
+#8 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UserGamesController), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UserGamesController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-12-08 16:03:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:03:57 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'getGamesForUser' at line 1
+Request URL: /turns/UserGames/getAvailableGamesList/
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('getGamesForUser', Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('getGamesForUser', Array, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('getGamesForUser', Array, Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): DboSource->query('getGamesForUser', Array, Object(UserGame))
+#5 C:\xampp\htdocs\turns\app\Controller\UserGamesController.php(27): Model->__call('getGamesForUser', Array)
+#6 C:\xampp\htdocs\turns\app\Controller\UserGamesController.php(27): UserGame->getGamesForUser('1')
+#7 [internal function]: UserGamesController->getAvailableGamesList()
+#8 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UserGamesController), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UserGamesController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-12-08 16:04:36 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:11:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:13:58 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:20:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:21:03 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:22:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:25:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:25:43 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:28:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:28:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:29:20 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-08 16:29:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

@@ -24,15 +24,15 @@ class UserGamesController extends AppController {
 		}
 		
 		//Grab the games
-		$games = $this->UserGame->getGamesForUser( $userUID );
+		$games 							= $this->UserGame->getGamesByUserUID( $userUID );
 		
 		//Grab all of the pending matches
-		$matchmakingQueueModelInstance = ClassRegistry::init( 'MatchmakingQueue' );
-		$pendingMatches = $matchmakingQueueModelInstance->getPendingGamesByUserUID( $userUID );
+		$matchmakingQueueModelInstance 	= ClassRegistry::init( 'MatchmakingQueue' );
+		$pendingMatches					= $matchmakingQueueModelInstance->getPendingGamesByUserUID( $userUID );
 		
 		//And toss it all back
-		$this->set( 'games', $games );
-		$this->set( 'pendingMatches', $pendingMatches );
+		$this->set( 'games', 			$games );
+		$this->set( 'pendingMatches', 	$pendingMatches );
 		$this->set( '_serialize', array(
 						'games',
 						'pendingMatches'
@@ -57,7 +57,7 @@ class UserGamesController extends AppController {
 		}
 		
 		//Grab the games
-		$games = $this->UserGame->getGamesForUser( $userUID );
+		$games = $this->UserGame->getGamesByUserUID( $userUID );
 		
 		//Set the games to the view
 		$this->set( 'games', $games );
