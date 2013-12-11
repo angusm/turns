@@ -367,7 +367,29 @@ class GameUnit extends AppModel {
 		}	
 		
 		//Move the unit that moved
-		$this->moveGameUnitToNextTurn( $movedUnit, $originalGameUnit );		
+		$this->moveGameUnitToNextTurn( $movedUnit, $originalGameUnit );	
+		
+	}
+	
+	//PUBLIC FUNCTION: playerHasActiveUnit
+	//Return a true false result indicating whether or not the player
+	//still has active living units in the game
+	public function playerHasActiveUnit( $userUID, $gameUID, $turn ){
+		
+		$exists = $this->find( 'first', array(
+									'conditions' => array(
+										'GameUnit.users_uid'	=> $userUID,
+										'GameUnit.games_uid' 	=> $gameUID,
+										'GameUnit.defense >'	=> 0,
+										'GameUnit.turn'			=> $turn
+									)
+								));
+								
+		if( $exists != false ){
+			return true;
+		}else{
+			return false;
+		}
 		
 	}
 	

@@ -37,6 +37,44 @@ class Game extends AppModel {
 
 	}
 	
+	//PUBLIC FUNCTION: checkForGameOver
+	//Check if the game still has living units on both sides, if it doesn't then shut it down
+	public function checkForGameOver( $uid ){
+	
+		//Grab the game's information
+		$game = $this->find( 'first', array(
+										'conditions' => array(
+											'Game.uid' => $uid
+										)
+									));
+									
+		//Grab the players for this game
+		$userGameModelInstance = ClassRegistry::init( 'UserGame' );
+		$userGames	= $userGameModelInstance->find('all', array(
+														'conditions' => array(
+															'UserGame.games_uid' => $uid
+														)
+													));
+													
+		//Loop through all of the user games and check if the users have at least one
+		//unit still in the game left alive.
+		//We setup a GameUnit model instance so we can check this and start with the assumption
+		//that the game isn't over and then work to disprove it.
+		$gameUnitModelInstance = ClassRegistry::init( 'GameUnit' );
+		$gameStillActive = true;		
+		foreach( $userGames as $userGame ){
+			
+			if( ! $gameUnitModelInstance->playerHasActiveUnit( $userGame['users_uid'], $uid, $game['Game']['turn'] ) ){
+				$gameStillActive = false;
+				break;
+			}
+			
+		}
+		
+		return $gameStillActive;
+		
+	}
+	
 	//PUBLIC FUNCTION: getInfoForPlay
 	//There's a bunch of information that's going to be necessary to 
 	//actually play the game, so let's go ahead and get it all.
@@ -247,8 +285,15 @@ class Game extends AppModel {
 								)
 							));
 		$nuTurn = $game['Game']['turn'] + 1;
-		$this->read( NULL, $gameUID );
-		$this->set( 'turn', $nuTurn );
+		
+		//One last step before we update the game is to see if there are still units
+		//alive on both sides.
+		$gameOver = $this->checkForGameOver( $gameUID );
+		
+		//Update the game
+		$this->read( NULL, 		$gameUID );
+		$this->set( 'turn', 	$nuTurn );
+		$this->set( 'active', 	$gameOver );
 		$this->save();
 		
 	}
