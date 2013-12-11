@@ -64,7 +64,7 @@ class Game extends AppModel {
 		$gameStillActive = true;		
 		foreach( $userGames as $userGame ){
 			
-			if( ! $gameUnitModelInstance->playerHasActiveUnit( $userGame['users_uid'], $uid, $game['Game']['turn'] ) ){
+			if( ! $gameUnitModelInstance->playerHasActiveUnit( $userGame['UserGame']['users_uid'], $uid, $game['Game']['turn'] ) ){
 				$gameStillActive = false;
 				break;
 			}
@@ -161,17 +161,26 @@ class Game extends AppModel {
 	
 	//PUBLIC FUNCTION: getUpdateInfo
 	//Much like getInfoForPlay but grabs as little information as possible
-	public function getUpdateInfo( $uid ){
+	public function getUpdateInfo( $uid, $lastKnownTurn ){
 		
 		//Grab the game so that we can get the current turn
 		$currentGame 		= $this->find( 'first', array(
 										'conditions' => array(
 											'Game.uid' => $uid
+										),
+										'fields' => array(
+											'turn'
 										)
 									));
 									
 		//Grab the turn
 		$currentTurn 		= $currentGame['Game']['turn'];
+									
+		//If there hasn't been a change in the turn for the game then we
+		//just return FALSE
+		if( $lastKnownTurn == $currentTurn ){
+			return FALSE;
+		}
 											
 		//Grab the minimal information
 		$gameInformation 	= $this->find( 'first', array(
@@ -183,24 +192,82 @@ class Game extends AppModel {
 											'conditions' => array(
 												'ActiveUser.turn' => $currentTurn
 											),
-											'UserGame'
+											'fields' => array(
+												'ActiveUser.uid',
+												'ActiveUser.games_uid',
+												'ActiveUser.user_games_uid'
+											),
+											'UserGame' => array(
+												'fields' => array(
+													'UserGame.uid',
+													'UserGame.users_uid'
+												)
+											)
 										),
 										'GameUnit' => array(
 											'conditions' => array(
 												'GameUnit.turn' => $currentTurn
 											),
+											'fields' => array(
+												'GameUnit.uid',
+												'GameUnit.damage',
+												'GameUnit.defense',
+												'GameUnit.last_movement_angle',
+												'GameUnit.last_movement_priority',
+												'GameUnit.movement_sets_uid',
+												'GameUnit.previous_game_unit_uid',
+												'GameUnit.game_unit_stats_uid',
+												'GameUnit.users_uid',
+												'GameUnit.x',
+												'GameUnit.y'
+											),
 											'GameUnitStat' => array(
 												'fields' => array(
-													'damage',
-													'name'
+													'GameUnitStat.uid',
+													'GameUnitStat.damage',
+													'GameUnitStat.defense',
+													'GameUnitStat.name'
 												),
 												'GameUnitStatMovementSet' => array(
+													'fields' => array(
+														'GameUnitStatMovementSet.uid',
+														'GameUnitStatMovementSet.movement_sets_uid',
+														'GameUnitStatMovementSet.game_unit_stats_uid'
+													),
 													'MovementSet' => array(
+														'fields' => array(
+															'MovementSet.uid',
+															'MovementSet.name'
+														),
 														'Movement' => array(
+															'fields' => array(
+																'Movement.uid',
+																'Movement.movement_sets_uid',
+																'Movement.must_move_all_the_way',
+																'Movement.spaces'
+															),
 															'MovementDirectionSet' => array(
+																'fields' => array(
+																	'MovementDirectionSet.uid',
+																	'MovementDirectionSet.movements_uid',
+																	'MovementDirectionSet.direction_sets_uid'
+																),
 																'DirectionSet' => array(
+																	'fields' => array(
+																		'DirectionSet.uid'
+																	),
 																	'DirectionSetDirection' => array(
-																		'Direction'
+																		'fields' => array(
+																			'DirectionSetDirection.uid',
+																			'DirectionSetDirection.direction_sets_uid',
+																			'DirectionSetDirection.directions_uid'
+																		),
+																		'Direction' => array(
+																			'fields' => array(
+																				'Direction.uid',
+																				'Direction.angle'
+																			)
+																		)
 																	)
 																)
 															)
@@ -208,17 +275,63 @@ class Game extends AppModel {
 													)
 												)
 											),
-											'MovementSet',
-											'UnitArtSet' => array(
-												'UnitArtSetIcon' => array(
-													'Icon' => array(
-														'conditions' => array(
-															'icon_positions_uid' => 3
+											'MovementSet' => array(
+												'fields' => array(
+													'MovementSet.uid',
+													'MovementSet.name'
+												),
+												'Movement' => array(
+													'fields' => array(
+														'Movement.uid',
+														'Movement.movement_sets_uid',
+														'Movement.must_move_all_the_way',
+														'Movement.spaces'
+													),
+													'MovementDirectionSet' => array(
+														'fields' => array(
+															'MovementDirectionSet.uid',
+															'MovementDirectionSet.movements_uid',
+															'MovementDirectionSet.direction_sets_uid'
+														),
+														'DirectionSet' => array(
+															'fields' => array(
+																'DirectionSet.uid',
+																'DirectionSet.name'
+															),
+															'DirectionSetDirection' => array(
+																'fields' => array(
+																	'DirectionSetDirection.uid',
+																	'DirectionSetDirection.direction_sets_uid',
+																	'DirectionSetDirection.directions_uid'
+																),
+																'Direction' => array(
+																	'fields' => array(
+																		'Direction.uid',
+																		'Direction.angle'
+																	)
+																)
+															)
 														)
 													)
 												)
-											)
+											)/*,
+											'UnitArtSet' => array(
+												'fields' => array(),
+												'UnitArtSetIcon' => array(
+													'fields' => array(),
+													'Icon' => array(
+														'fields' => array(),
+														'conditions' => array(
+															'Icon.icon_positions_uid' => 3
+														)
+													)
+												)
+											)*/
 										)
+									),
+									'fields' => array(
+										'Game.turn',
+										'Game.selected_unit_uid'
 									)
 								));
 

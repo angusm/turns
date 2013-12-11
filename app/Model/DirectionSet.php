@@ -5,6 +5,10 @@ class DirectionSet extends AppModel {
 							'DirectionSetDirection' => array(
 								'className'		=> 'DirectionSetDirection',
 								'foreignKey'	=> 'direction_sets_uid'
+							),
+							'MovementDirectionSet' => array(
+								'className'		=> 'MovementDirectionSet',
+								'foreignKey'	=> 'direction_sets_uid'
 							)
 						);	
 	

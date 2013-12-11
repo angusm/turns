@@ -119,9 +119,11 @@ class TurnMenuHelper extends AppHelper {
 		$returnString .= $this->Html->link( 
 							'Play Game '.$gameUID,
 						    array(
-						        'controller' => 'Games',
-						        'action' => 'playGame',
-								$gameUID
+						        'controller' 	=> 'Games',
+						        'action' 		=> 'playGame',
+								'?'				=> array(
+									'gameUID'		=> $gameUID
+								)
 						    )
 						);
 						

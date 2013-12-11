@@ -16,11 +16,13 @@ class GamesController extends AppController {
 		$jsonData = $this->params['url'];
 		
 		//Grab the game uid
-		$gameUID = $jsonData['gameUID'];
-		$userUID = $this->Auth->user('uid');
+		$gameUID 		= $jsonData['gameUID'];
 		
+		//Get the last known turn for the given game
+		$lastKnownTurn 	= $jsonData['lastKnownTurn'];
+			
 		//Get all that good game information
-		$gameInformation = $this->Game->getUpdateInfo( $gameUID );
+		$gameInformation = $this->Game->getUpdateInfo( $gameUID, $lastKnownTurn );
 			
 		//And everything else will be handled by the View and Javascript
 		//Scary huh?

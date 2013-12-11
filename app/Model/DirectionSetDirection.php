@@ -5,6 +5,10 @@ class DirectionSetDirection extends AppModel {
 							'Direction' => array(
 								'className'		=> 'Direction',
 								'foreignKey'	=> 'directions_uid'
+							),
+							'DirectionSet' => array(
+								'className'		=> 'DirectionSet',
+								'foreignKey'	=> 'direction_sets_uid'
 							)
 						);	
   

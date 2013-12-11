@@ -6,7 +6,14 @@ class Movement extends AppModel {
 								'className'		=> 'MovementDirectionSet',
 								'foreignKey'	=> 'movements_uid'
 							)
-						);	
+						);
+						
+	public $belongsTo = array( 
+							'MovementSet' => array(
+								'className'		=> 'MovementSet',
+								'foreignKey'	=> 'movement_sets_uid'
+							)
+						);
 
 	//PUBLIC FUNCTION: __construct
 	//Override the constructor to setup some fun stuff

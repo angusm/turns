@@ -180,29 +180,38 @@ function gameplay(){
 		jQuery.getJSON(
 			homeURL + 'Games/getGameUpdate', 
 			{
-				gameUID: window.gameUID,
-				turn:	 Game_gameplay.currentTurn
+				gameUID: 		 window.gameUID,
+				lastKnownTurn:	 window.currentTurn
 			},
 			function( jSONData ){
 								
-				//Grab the game update
-				window.gameUnits 		= jSONData.gameInformation.GameUnit;
-				window.selectedUnitUID 	= jSONData.gameInformation.Game.selected_unit_uid;
-				
-				if( window.selectedUnitUID == null ){
-					Game_gameplay.resetSelectedUnit();
-				}
-
-				//Find whose turn it is
-				if( jSONData.gameInformation.ActiveUser[0].UserGame.users_uid == window.userUID ){
-					window.playersTurn	= true;
+				if( jSONData.gameInformation == false ){
+					Game_gameplay.getGameUpdate()
 				}else{
-					window.playersTurn	= false;
+								
+					//Set the new turn 
+					window.currentTurn = jSONData.gameInformation.Game.turn;
+													
+					//Grab the game update
+					window.gameUnits 		= jSONData.gameInformation.GameUnit;
+					window.selectedUnitUID 	= jSONData.gameInformation.Game.selected_unit_uid;
+					
+					if( window.selectedUnitUID == null ){
+						Game_gameplay.resetSelectedUnit();
+					}
+
+					//Find whose turn it is
+					if( jSONData.gameInformation.ActiveUser[0].UserGame.users_uid == window.userUID ){
+						window.playersTurn	= true;
+					}else{
+						window.playersTurn	= false;
+					}
+					
+					//Reset the turn data
+					Game_gameplay.resetTurnData();
+					
 				}
-				
-				//Reset the turn data
-				Game_gameplay.resetTurnData();
-				
+					
 			}
 		).done( 
 			function(){
@@ -327,7 +336,7 @@ function gameplay(){
 		//Check and see if the selected unit has a currently selected MovementSet,
 		//if it does then that's the one we have to move with, otherwise the 
 		//user has options
-		if( Game_gameplay.selectedUnit.MovementSet.length == 0 ){
+		if( Game_gameplay.selectedUnit.MovementSet.Movement === undefined ){
 			Game_gameplay.selectedUnit.MovementSet = Game_gameplay.selectedUnit.GameUnitStat.GameUnitStatMovementSet[0].MovementSet;
 		}
 		
@@ -359,7 +368,7 @@ function gameplay(){
 		//Grab the stats
 		var finalX				= parseInt(Game_gameplay.selectedUnit.x);
 		var finalY				= parseInt(Game_gameplay.selectedUnit.y);
-		var mustMoveAllTheWay	= Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnit.last_movement_priority].mustMoveAllTheWay;
+		var mustMoveAllTheWay	= Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnit.last_movement_priority].must_move_all_the_way;
 		var spaces 	  			= Game_gameplay.selectedUnit.MovementSet.Movement[Game_gameplay.selectedUnit.last_movement_priority].spaces;
 		var xDirection 			=   parseInt( Math.round( Math.sin( direction * (Math.PI / 180) ) ) );
 		var yDirection 			= - parseInt( Math.round( Math.cos( direction * (Math.PI / 180) ) ) );
@@ -524,8 +533,8 @@ function gameplay(){
 	//Reset the selected unit
 	this.resetSelectedUnit = function(){
 	
-		Game_gameplay.selectedUnit = new Object();
-		Game_gameplay.selectedUnit.uid = false;
+		Game_gameplay.selectedUnit 		= new Object();
+		Game_gameplay.selectedUnit.uid 	= false;
 		
 	}
 	

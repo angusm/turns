@@ -48,7 +48,7 @@ function availableGameList(){
 	//Get an element for active games
 	this.getGameElement = function( gameObject ){
 	
-		return '<div class="playGameButton"><a href="/turns/Games/playGame/'+gameObject.games_uid+'">Play Game '+gameObject.games_uid+'</a></div>';
+		return '<div class="playGameButton"><a href="/turns/Games/playGame/?gameUID='+gameObject.games_uid+'">Play Game '+gameObject.games_uid+'</a></div>';
 		
 	}
 		
