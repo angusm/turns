@@ -334,7 +334,7 @@ class GameUnit extends AppModel {
 			//We need to check if the current unit was positioned where the moved 
 			//unit landed, if this is the case then we have some serious work cut 
 			//out for us
-			if( $unitToMove['GameUnit']['x'] == $targetX and $unitToMove['GameUnit']['y'] == $targetY ){
+			if( $unitToMove['GameUnit']['x'] == $targetX and $unitToMove['GameUnit']['y'] == $targetY and $validNextMove == false){
 
 				//Well looks like the moved unit bumped another unit, now we need
 				//to check if the bumped unit was friendly or an enemy
@@ -342,7 +342,7 @@ class GameUnit extends AppModel {
 
 					//If the unit is friendly then buff the damage of the bumped unit
 					$unitToMove['GameUnit']['damage'] += $movedUnit['GameUnit']['damage'];
-					$this->selectUnit( $movedUnit['GameUnit']['uid'], $gameUID );
+					$this->selectUnit( $unitToMove['GameUnit']['uid'], $gameUID );
 
 				}else{
 					
