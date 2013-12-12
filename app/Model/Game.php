@@ -342,6 +342,29 @@ class Game extends AppModel {
 		
 	}
 	
+	//PUBLIC FUNCTION: isAUnitSelected
+	//Return true or false depending on whether or not a unit is selected
+	public function isAUnitSelected( $gameUID ){
+		
+		//Grab the relevant game
+		$game = $this->find( 'first', array(
+								'conditions' => array(
+									'Game.uid'	=> $gameUID,
+									'NOT'		=> array(
+										'Game.selected_unit_uid' => null
+									)
+								)
+							));
+							
+		//See if the unit is selected and return accordingly
+		if( $game == false ){
+			return false;
+		}else{
+			return TRUE;
+		}
+		
+	}
+	
 	//PUBLIC FUNCTION: newGame
 	//Create a new game, y'know, so players can play.
 	//And of course, so haters can hate. Cause haters gonna hate.

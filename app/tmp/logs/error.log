@@ -26605,3 +26605,383 @@ Request URL: /turns/js/jquery.min.map
 Stack Trace:
 #0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-12-12 04:36:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:42:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:43:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:43:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:47:22 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:47:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:48:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:49:04 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:53:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:54:09 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:54:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:54:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:55:43 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 04:59:09 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:00:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:00:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:01:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:01:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:03:46 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:04:06 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:25:45 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC), expecting ';' or '{' in [C:\xampp\htdocs\turns\app\Model\Game.php, line 352]
+2013-12-12 05:25:45 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC), expecting ';' or '{'
+Request URL: /turns/Games/getGameUpdate?gameUID=3&lastKnownTurn=7
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 352)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 352, Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 352, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-12 05:29:46 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:29:47 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:30:57 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:31:14 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'isAUnitSelected' at line 1
+Request URL: /turns/Games/processUnitMove?gameUnitUID=715&x=3&y=3
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('isAUnitSelected', Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('isAUnitSelected', Array, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('isAUnitSelected', Array, Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): DboSource->query('isAUnitSelected', Array, Object(GameUnit))
+#5 C:\xampp\htdocs\turns\app\Model\ActiveUser.php(56): Model->__call('isAUnitSelected', Array)
+#6 C:\xampp\htdocs\turns\app\Model\ActiveUser.php(56): GameUnit->isAUnitSelected('3')
+#7 C:\xampp\htdocs\turns\app\Model\Game.php(415): ActiveUser->moveToNextTurn('3')
+#8 C:\xampp\htdocs\turns\app\Model\Game.php(541): Game->updateGame('3', '7', '715', '3', '3', 270, '0', '1')
+#9 C:\xampp\htdocs\turns\app\Controller\GamesController.php(78): Game->validateMove('715', '3', '3', '2')
+#10 [internal function]: GamesController->processUnitMove()
+#11 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(GamesController), Array)
+#12 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#13 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#14 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-12-12 05:31:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:31:35 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'isAUnitSelected' at line 1
+Request URL: /turns/Games/processUnitMove?gameUnitUID=1265&x=3&y=3
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('isAUnitSelected', Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('isAUnitSelected', Array, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('isAUnitSelected', Array, Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): DboSource->query('isAUnitSelected', Array, Object(GameUnit))
+#5 C:\xampp\htdocs\turns\app\Model\ActiveUser.php(56): Model->__call('isAUnitSelected', Array)
+#6 C:\xampp\htdocs\turns\app\Model\ActiveUser.php(56): GameUnit->isAUnitSelected('3')
+#7 C:\xampp\htdocs\turns\app\Model\Game.php(415): ActiveUser->moveToNextTurn('3')
+#8 C:\xampp\htdocs\turns\app\Model\Game.php(541): Game->updateGame('3', '7', '1265', '3', '3', 270, '0', '1')
+#9 C:\xampp\htdocs\turns\app\Controller\GamesController.php(78): Game->validateMove('1265', '3', '3', '2')
+#10 [internal function]: GamesController->processUnitMove()
+#11 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(GamesController), Array)
+#12 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#13 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#14 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-12-12 05:31:41 Error: [MissingViewException] View file "C:\xampp\htdocs\turns\app\View\Games\process_unit_move.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\xampp\\htdocs\\turns\\app\\View\\Games\\process_unit_move.ctp',
+)
+Request URL: /turns/Games/processUnitMove?gameUnitUID=1265&x=3&y=3
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-12 05:31:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:31:58 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'isAUnitSelected' at line 1
+Request URL: /turns/Games/processUnitMove?gameUnitUID=1279&x=3&y=3
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('isAUnitSelected', Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('isAUnitSelected', Array, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('isAUnitSelected', Array, Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): DboSource->query('isAUnitSelected', Array, Object(GameUnit))
+#5 C:\xampp\htdocs\turns\app\Model\ActiveUser.php(56): Model->__call('isAUnitSelected', Array)
+#6 C:\xampp\htdocs\turns\app\Model\ActiveUser.php(56): GameUnit->isAUnitSelected('3')
+#7 C:\xampp\htdocs\turns\app\Model\Game.php(415): ActiveUser->moveToNextTurn('3')
+#8 C:\xampp\htdocs\turns\app\Model\Game.php(541): Game->updateGame('3', '7', '1279', '3', '3', 270, '0', '1')
+#9 C:\xampp\htdocs\turns\app\Controller\GamesController.php(78): Game->validateMove('1279', '3', '3', '2')
+#10 [internal function]: GamesController->processUnitMove()
+#11 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(GamesController), Array)
+#12 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#13 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#14 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-12-12 05:34:07 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:34:11 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'isAUnitSelected' at line 1
+Request URL: /turns/Games/processUnitMove?gameUnitUID=1293&x=3&y=3
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('isAUnitSelected', Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('isAUnitSelected', Array, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('isAUnitSelected', Array, Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): DboSource->query('isAUnitSelected', Array, Object(GameUnit))
+#5 C:\xampp\htdocs\turns\app\Model\ActiveUser.php(56): Model->__call('isAUnitSelected', Array)
+#6 C:\xampp\htdocs\turns\app\Model\ActiveUser.php(56): GameUnit->isAUnitSelected('3')
+#7 C:\xampp\htdocs\turns\app\Model\Game.php(415): ActiveUser->moveToNextTurn('3')
+#8 C:\xampp\htdocs\turns\app\Model\Game.php(541): Game->updateGame('3', '7', '1293', '3', '3', 270, '0', '1')
+#9 C:\xampp\htdocs\turns\app\Controller\GamesController.php(78): Game->validateMove('1293', '3', '3', '2')
+#10 [internal function]: GamesController->processUnitMove()
+#11 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(GamesController), Array)
+#12 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#13 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#14 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-12-12 05:34:17 Error: [MissingViewException] View file "C:\xampp\htdocs\turns\app\View\Games\process_unit_move.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\xampp\\htdocs\\turns\\app\\View\\Games\\process_unit_move.ctp',
+)
+Request URL: /turns/Games/processUnitMove?gameUnitUID=1293&x=3&y=3
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-12 05:34:46 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:35:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:35:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-12 05:35:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

@@ -25,6 +25,13 @@ function elements(){
 		
 	}
 	
+	//PUBLIC FUNCTION: arrangeStaticElements
+	//Arrange everything that wont' be moving later
+	this.arrangeStaticElements = function(){
+		Game_elements.arrangeTiles();	
+		Game_elements.arrangeUnitCard();
+	}
+	
 	//PUBLIC FUNCTION: arrangeTiles
 	//Arrange all of the gameplay tiles
 	this.arrangeTiles = function(){
@@ -36,6 +43,23 @@ function elements(){
 			
 		});
 			
+	}
+	
+	//PUBLIC FUNCTION: arrangeUnitCard
+	//Position the unit card properly
+	this.arrangeUnitCard = function(){
+		
+		//Position the card properly
+		jQuery( '.unitCard' ).each( function(){
+			
+			jQuery( this ).css({
+				"position"	: "absolute", 
+				"left"		: "600px",
+				"top"		: "20px"
+			});
+		
+		});
+		
 	}
 	
 	//PUBLIC FUNCTION: handleEverything

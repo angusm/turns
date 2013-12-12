@@ -626,17 +626,47 @@ class GamePlayHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: renderUnit
 	//Render the unit in HTML
-	public function renderUnit( $uid, $icon, $userUID ){
+	public function renderUnit( $gameUnit, $icon ){
+			
+		//Grab some info from the unit
+		$userUID 	= $gameUnit['users_uid'];
+		$uid		= $gameUnit['uid'];
+		$damage		= $gameUnit['damage'];
+		$defense	= $gameUnit['defense'];
 			
 		//Create the image of the unit
 		$imageString 	= $this->Html->image(
 								$icon
 							);	
+							
+		//Create the div that'll contain the unit's defense
+		$defenseDiv = $this->Html->tag(
+									'div',
+									$defense,
+									array(
+										'class' => 'gameplayUnitDefense'
+									)
+								);
+		
+		//Create the div that'll contain the unit's attack
+		$attackDiv = $this->Html->tag(
+									'div',
+									$damage,
+									array(
+										'class' => 'gameplayUnitAttack'
+									)
+								);
+
+		//Link together the final contents
+		$finalContents = '';
+		$finalContents .= $imageString;
+		$finalContents .= $defenseDiv;
+		$finalContents .= $attackDiv;
 
 		//Establish the return string
 		$returnString	= $this->Html->tag(
 								'div',
-								$imageString,
+								$finalContents,
 								array(
 									'users_uid'	=> $userUID,
 									'class' 	=> 'gameplayUnit',
@@ -696,7 +726,7 @@ class GamePlayHelper extends AppHelper {
 				}
 					
 				//Now we need to render the unit
-				$unitsString .= $this->renderUnit( $gameUnit['uid'], $iconImageURL, $gameUnit['users_uid'] );
+				$unitsString .= $this->renderUnit( $gameUnit, $iconImageURL );
 				
 			}
 			

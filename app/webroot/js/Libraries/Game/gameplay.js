@@ -238,7 +238,7 @@ function gameplay(){
 		Game_gameplay.resetSelectedUnit();
 				
 		//Arrange the board and the pieces
-		Game_elements.arrangeTiles();
+		Game_elements.arrangeStaticElements();
 	
 		//Set everything up for the new turn
 		Game_gameplay.resetTurnData();

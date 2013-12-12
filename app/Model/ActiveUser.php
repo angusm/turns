@@ -50,10 +50,10 @@ class ActiveUser extends AppModel {
 		$nextUserGameUID 	= $latestTurn['ActiveUser']['user_games_uid'];
 		
 		//In order to see if the active user is changing this turn we need
-		//to check with the game units for this game, if they all have a 
-		//last move priority of 0 then it's time to move to the next turn
-		$gameUnitModelInstance = ClassRegistry::init( 'GameUnit' );
-		if( $gameUnitModelInstance->areAllLastMovementPrioritiesZero( $gameUID, $nextTurn ) ){
+		//to check with the game to see if there's a selected unit. If one 
+		//isn't selected we move to the next user
+		$gameModelInstance = ClassRegistry::init( 'Game' );
+		if( ! $gameModelInstance->isAUnitSelected( $gameUID ) ){
 			
 			//If we've got to move to the next user then we have a bit more
 			//work cut out for us, we need to grab the user game for the current
