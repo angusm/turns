@@ -237,7 +237,7 @@ class GameUnit extends AppModel {
 	
 		//Update the turn
 		$unitToMove['GameUnit']['turn'] = $unitToMove['GameUnit']['turn'] + 1;
-			
+						
 		//Move the unit up
 		$unitToMove['GameUnit']['previous_game_unit_uid'] = $originalGameUnit['GameUnit']['uid'];
 		$unitToMoveGameUnit = $unitToMove['GameUnit'];
@@ -274,6 +274,9 @@ class GameUnit extends AppModel {
 								'GameUnit.games_uid'	=> $gameUID,
 								'GameUnit.turn' 		=> $turn,
 								'GameUnit.uid NOT'		=> $gameUnitUID
+							),
+							'contain' => array(
+								'GameUnitStat'
 							)
 						));
 						
@@ -282,6 +285,9 @@ class GameUnit extends AppModel {
 								'GameUnit.games_uid'	=> $gameUID,
 								'GameUnit.turn' 		=> $turn,
 								'GameUnit.uid'			=> $gameUnitUID
+							),
+							'contain' => array(
+								'GameUnitStat'
 							)
 						));
 						
@@ -321,14 +327,12 @@ class GameUnit extends AppModel {
 		}
 					
 		//Loop through the found units and bump them up as a new record
-		foreach( $unitsToMove as $unitToMove ){
+		foreach( $unitsToMove as $unitToMoveIndex => $unitToMove ){
 			
+			//If the unit is going to live we store its original
 			if( $unitToMove['GameUnit']['defense'] > 0 ){
 				//Store the original unit so we have a record of it.
 				$originalGameUnit = $this->storeOriginalUnit( $unitToMove );
-				$unitAlreadyDead = false;
-			}else{
-				$unitAlreadyDead = true;
 			}
 			
 			//We need to check if the current unit was positioned where the moved 
@@ -358,16 +362,38 @@ class GameUnit extends AppModel {
 				}
 				
 			}
-						
-			//If the unit wasn't dead before this turn started move it to the next turn
-			if( ! $unitAlreadyDead ){
-				$this->moveGameUnitToNextTurn( $unitToMove, $originalGameUnit );
-			}
+			
+			$unitsToMove[$unitToMoveIndex] = $unitToMove;
 									
 		}	
+		//Check if there's a currently selected unit for the game if there isn't then we need
+		//to reset the attack damage of all units
+		$gameModelInstance = ClassRegistry::init( 'Game' );
+		$preserveDamage = $gameModelInstance->isAUnitSelected( $gameUID );
+		if( ! $preserveDamage ){
+			$movedUnit['GameUnit']['damage'] = $movedUnit['GameUnitStat']['damage'];
+			foreach( $unitsToMove as $unitToMove ){
+				$unitToMove['GameUnit']['damage'] = $unitToMove['GameUnitStat']['damage'];
+			}
+		}
+				
+		//Now we move all of the units to the next turn	
+		foreach( $unitsToMove as $unitToMove ){
+			
+			//If the unit wasn't dead before this turn started move it to the next turn
+			if( $unitToMove['GameUnit']['defense'] > 0 ){
+				$this->moveGameUnitToNextTurn( $unitToMove, $originalGameUnit );
+			}
+			
+		}
 		
-		//Move the unit that moved
-		$this->moveGameUnitToNextTurn( $movedUnit, $originalGameUnit );	
+		if( $movedUnit['GameUnit']['defense'] > 0 ){
+			
+			//Move the unit that moved
+			$this->moveGameUnitToNextTurn( $movedUnit, $originalGameUnit );	
+		
+		}
+		
 		
 	}
 	

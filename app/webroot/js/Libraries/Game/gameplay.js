@@ -585,6 +585,9 @@ function gameplay(){
 	//Setup the given unit
 	this.setupUnit = function( unitObjectPosition, unitObject ){
 
+		//Set the unit's defense and damage display
+		Game_gameplay.updateUnitStats( unitObject );
+
 		//If the unit is still alive, move it into position
 		if( unitObject.defense > 0 ){
 						
@@ -649,6 +652,16 @@ function gameplay(){
 		
 		//Remove the highlighted class
 		jQuery( '.highlightedForMove' ).removeClass( 'highlightedForMove' );
+		
+	}
+	
+	//PUBLIC FUNCTION: updateUnitStats
+	//Update the unit's statistics as they are displayed on its game tile
+	this.updateUnitStats = function( unitObject ){
+		
+		//For this unit set its damage and defense
+		jQuery( '.gameplayUnit[uid="'+unitObject.uid+'"] > .gameplayUnitAttack' ).html( unitObject.damage );
+		jQuery( '.gameplayUnit[uid="'+unitObject.uid+'"] > .gameplayUnitDefense' ).html( unitObject.defense );
 		
 	}
 	

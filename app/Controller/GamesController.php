@@ -7,6 +7,35 @@ class GamesController extends AppController {
         parent::beforeFilter();
     }
 	
+	//PUBLIC FUNCTION: clearGames
+	//Clear out all of the data from active GamesController
+	//FOR TESTING PURPOSES ONLY
+	public function clearGames(){
+		
+		$gameModelInstance = ClassRegistry::init('Game');
+		$games = $gameModelInstance->find( 'all' );
+		foreach( $games as $gameToDelete ){
+			
+			$gameModelInstance->read( NULL, $gameToDelete['Game']['uid'] );
+			$gameModelInstance->set( 'selected_unit_uid', NULL );
+			$gameModelInstance->save();
+						
+		}
+		
+		$activeUserModel = ClassRegistry::init('ActiveUser');
+		$activeUserModel->deleteAll('1=1');
+		
+		$userGameModel = ClassRegistry::init('UserGame');
+		$userGameModel->deleteAll('1=1');
+		
+		$gameUnitModel = ClassRegistry::init('GameUnit');
+		$gameUnitModel->deleteAll('1=1');
+		
+		$gameModelInstance->deleteAll('1=1');
+		
+		
+	}
+	
 	//PUBLIC FUNCTION: getGameUpdate
 	//Return JSON data to a client when they need to know about a 
 	//possible new state of the game

@@ -27048,3 +27048,713 @@ Request URL: /turns/js/jquery.min.map
 Stack Trace:
 #0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-12-16 04:03:58 Error: [MissingControllerException] Controller class WebrootController could not be found.
+Exception Attributes: array (
+  'class' => 'WebrootController',
+  'plugin' => NULL,
+)
+Request URL: /turns/webroot/js/Libraries/Game/gameplay.js
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:07:15 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:09:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:10:59 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:12:46 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:13:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:13:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:18:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:18:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:24:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:24:20 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:24:22 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:24:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:24:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:24:36 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:37:18 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'hasSelectedUnit' at line 1
+Request URL: /turns/Games/processUnitMove?gameUnitUID=3674&x=6&y=1
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('hasSelectedUnit', Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('hasSelectedUnit', Array, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('hasSelectedUnit', Array, Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): DboSource->query('hasSelectedUnit', Array, Object(Game))
+#5 C:\xampp\htdocs\turns\app\Model\GameUnit.php(376): Model->__call('hasSelectedUnit', Array)
+#6 C:\xampp\htdocs\turns\app\Model\GameUnit.php(376): Game->hasSelectedUnit('6')
+#7 C:\xampp\htdocs\turns\app\Model\Game.php(410): GameUnit->moveGameUnitsToNextTurn('6', '9', '3674', '6', '1', 180, '0', '1')
+#8 C:\xampp\htdocs\turns\app\Model\Game.php(541): Game->updateGame('6', '9', '3674', '6', '1', 180, '0', '1')
+#9 C:\xampp\htdocs\turns\app\Controller\GamesController.php(78): Game->validateMove('3674', '6', '1', '1')
+#10 [internal function]: GamesController->processUnitMove()
+#11 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(GamesController), Array)
+#12 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#13 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#14 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-12-16 04:37:26 Error: [MissingViewException] View file "C:\xampp\htdocs\turns\app\View\Games\process_unit_move.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\xampp\\htdocs\\turns\\app\\View\\Games\\process_unit_move.ctp',
+)
+Request URL: /turns/Games/processUnitMove?gameUnitUID=3674&x=6&y=1
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-16 04:38:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:38:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:39:10 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:39:10 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:40:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:40:17 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:40:48 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:40:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:40:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:41:27 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:41:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:46:10 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:46:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:46:22 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:46:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:46:56 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:48:18 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:48:19 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:48:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:48:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:48:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:50:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:50:07 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:50:15 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:50:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:50:35 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:50:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 04:54:08 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\xampp\htdocs\turns\app\Controller\GamesController.php, line 17]
+2013-12-16 04:54:09 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /turns/Games/getGameUpdate?gameUID=10&lastKnownTurn=1
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 17)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 17, Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 17, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-16 05:00:03 Error: [MissingViewException] View file "C:\xampp\htdocs\turns\app\View\Games\clear_games.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\xampp\\htdocs\\turns\\app\\View\\Games\\clear_games.ctp',
+)
+Request URL: /turns/Games/clearGames
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-16 05:00:24 Error: [MissingViewException] View file "C:\xampp\htdocs\turns\app\View\Games\clear_games.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\xampp\\htdocs\\turns\\app\\View\\Games\\clear_games.ctp',
+)
+Request URL: /turns/Games/clearGames
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-16 05:00:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:00:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:00:32 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:00:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:02:54 Error: [MissingViewException] View file "C:\xampp\htdocs\turns\app\View\Games\clear_games.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\xampp\\htdocs\\turns\\app\\View\\Games\\clear_games.ctp',
+)
+Request URL: /turns/Games/clearGames
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-16 05:03:13 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:03:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:03:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:03:32 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:04:04 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:09:32 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:09:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:09:38 Error: [MissingViewException] View file "C:\xampp\htdocs\turns\app\View\Games\clear_games.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\xampp\\htdocs\\turns\\app\\View\\Games\\clear_games.ctp',
+)
+Request URL: /turns/Games/clearGames
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(GamesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-16 05:09:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:09:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:12:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:12:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:12:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:13:19 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:13:32 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:13:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:15:58 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:17:03 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:17:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:20:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:22:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:22:13 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:24:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-16 05:24:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
