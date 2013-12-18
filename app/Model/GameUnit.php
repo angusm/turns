@@ -333,6 +333,9 @@ class GameUnit extends AppModel {
 			if( $unitToMove['GameUnit']['defense'] > 0 ){
 				//Store the original unit so we have a record of it.
 				$originalGameUnit = $this->storeOriginalUnit( $unitToMove );
+			}else{
+				//If the unit was already dead, drop it
+				unset( $unitsToMove[$unitToMoveIndex] );
 			}
 			
 			//We need to check if the current unit was positioned where the moved 
@@ -380,20 +383,13 @@ class GameUnit extends AppModel {
 		//Now we move all of the units to the next turn	
 		foreach( $unitsToMove as $unitToMove ){
 			
-			//If the unit wasn't dead before this turn started move it to the next turn
-			if( $unitToMove['GameUnit']['defense'] > 0 ){
-				$this->moveGameUnitToNextTurn( $unitToMove, $originalGameUnit );
-			}
+			$this->moveGameUnitToNextTurn( $unitToMove, $originalGameUnit );
 			
 		}
 		
-		if( $movedUnit['GameUnit']['defense'] > 0 ){
-			
-			//Move the unit that moved
-			$this->moveGameUnitToNextTurn( $movedUnit, $originalGameUnit );	
-		
-		}
-		
+		//Move the unit that moved
+		$this->moveGameUnitToNextTurn( $movedUnit, $originalGameUnit );	
+				
 		
 	}
 	
