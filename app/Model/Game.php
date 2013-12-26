@@ -314,19 +314,7 @@ class Game extends AppModel {
 														)
 													)
 												)
-											)/*,
-											'UnitArtSet' => array(
-												'fields' => array(),
-												'UnitArtSetIcon' => array(
-													'fields' => array(),
-													'Icon' => array(
-														'fields' => array(),
-														'conditions' => array(
-															'Icon.icon_positions_uid' => 3
-														)
-													)
-												)
-											)*/
+											)
 										)
 									),
 									'fields' => array(
@@ -334,6 +322,29 @@ class Game extends AppModel {
 										'Game.selected_unit_uid'
 									)
 								));
+
+		//Loop through the game information and make sure there's at least
+		//two players that still have units in the game
+		$gameOver 			= true;
+		$playerFound 		= NULL;
+		$playersFoundCount 	= 0;
+		foreach( $gameInformation['GameUnit'] as $gameUnit ){
+			
+			if( $gameUnit['users_uid'] != $playerFound and $gameUnit['defense'] > 0 ){
+				if( $playersFoundCount == 0 ){
+					$playersFoundCount += 1;
+					$playerFound 		= $gameUnit['users_uid'];					
+				}else{
+					$gameOver = false;
+					break;
+				}				
+			}
+			
+		}
+		
+		//Now that we know whether or not the game is over, we can store that
+		//in the game information
+		$gameInformation['game_over'] = $gameOver;
 
 		//Alright now that we've pretty much downloaded the internet with
 		//that fucking bloated find, let's return that mess so that we can

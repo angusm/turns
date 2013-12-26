@@ -140,6 +140,14 @@ function gameplay(){
 		
 	}
 	
+	//PUBLIC FUNCTION: endGame
+	//End the game
+	this.endGame = function(){
+		
+		alert( 'GAME OVER' );
+		
+	}
+	
 	//PUBLIC FUNCTION: executeMove
 	//Adjust the stats and display to reflect the move
 	this.executeMove = function( tileMovedTo ){
@@ -188,27 +196,18 @@ function gameplay(){
 				if( jSONData.gameInformation == false ){
 					Game_gameplay.getGameUpdate()
 				}else{
-								
-					//Set the new turn 
-					window.currentTurn = jSONData.gameInformation.Game.turn;
-													
-					//Grab the game update
-					window.gameUnits 		= jSONData.gameInformation.GameUnit;
-					window.selectedUnitUID 	= jSONData.gameInformation.Game.selected_unit_uid;
 					
-					if( window.selectedUnitUID == null ){
-						Game_gameplay.resetSelectedUnit();
+					//Process the game update			
+					Game_gameplay.processGameUpdate( jSONData );
+						
+						console.log( jSONData );
+						
+						window.asdf = jSONData;
+						
+					//Check if the game's over
+					if( jSONData.gameInformation.game_over == true ){
+						Game_gameplay.endGame();
 					}
-
-					//Find whose turn it is
-					if( jSONData.gameInformation.ActiveUser[0].UserGame.users_uid == window.userUID ){
-						window.playersTurn	= true;
-					}else{
-						window.playersTurn	= false;
-					}
-					
-					//Reset the turn data
-					Game_gameplay.resetTurnData();
 					
 				}
 					
@@ -277,7 +276,8 @@ function gameplay(){
 					//We still only want to add a listener to this unit once
 					var unitElement = jQuery('div.gameplayUnit[uid="'+unitObject.uid+'"]');
 					
-					if( ! unitElement.isBound( 'click', Game_gameplay.moveSelectedUnitToUnit ) ){
+					if( unitObject.defense > 0 && ! unitElement.isBound( 'click', Game_gameplay.moveSelectedUnitToUnit ) ){
+						
 						unitElement.bind(
 							'click',
 							Game_gameplay.moveSelectedUnitToUnit
@@ -464,7 +464,6 @@ function gameplay(){
 		//Grab the x and y of the game unit that was the target of this event
 		var unitElement = jQuery( triggeredEvent.target ).closest( '.gameplayUnit' );
 		
-		console.log( unitElement);
 		jQuery.each( window.gameUnits, function( unitIndex, unitObject ){
 			
 			if( jQuery(unitElement).attr('uid') == unitObject.uid ){
@@ -479,6 +478,33 @@ function gameplay(){
 			}
 			
 		});
+		
+	}
+	
+	//PUBLIC FUNCTION: processGameUpdate
+	//Handle game update
+	this.processGameUpdate = function( jSONData ){
+		
+		//Set the new turn 
+		window.currentTurn = jSONData.gameInformation.Game.turn;
+										
+		//Grab the game update
+		window.gameUnits 		= jSONData.gameInformation.GameUnit;
+		window.selectedUnitUID 	= jSONData.gameInformation.Game.selected_unit_uid;
+		
+		if( window.selectedUnitUID == null ){
+			Game_gameplay.resetSelectedUnit();
+		}
+
+		//Find whose turn it is
+		if( jSONData.gameInformation.ActiveUser[0].UserGame.users_uid == window.userUID ){
+			window.playersTurn	= true;
+		}else{
+			window.playersTurn	= false;
+		}
+		
+		//Reset the turn data
+		Game_gameplay.resetTurnData();
 		
 	}
 	

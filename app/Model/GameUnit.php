@@ -231,6 +231,44 @@ class GameUnit extends AppModel {
 		
 	}
 	
+	//PUBLIC FUNCTION: getInfoForCard
+	//Return information about the game unit so that a card display can be created from it 
+	//with javascript
+	public function getInfoForCard( $uid ){
+		
+		$cardInfo = $this->find( 'first', array( 
+									'conditions' => array(
+										'GameUnit.uid' => $uid
+									),
+									'contain'	=> array(
+										'GameUnitStat' => array(
+											'GameUnitStatMovementSet' => array(
+												'MovementSet' => array(
+													'Movement' => array(
+														'MovementDirectionSet' => array(
+															'DirectionSet' => array(
+																'DirectionSetDirection' => array(
+																	'Direction'
+																)
+															)
+														)
+													)
+												)
+											)
+										),
+										'UnitArtSet' => array(
+											'UnitArtSetIcon' => array(
+												'Icon'
+											),
+											'CardArtLayerSet' => array(
+												'CardArtLayer'
+											)
+										)									
+									)
+								));
+		
+	}
+	
 	//PRIVATE FUNCTION: moveGameUnitToNextTurn
 	//Move the game unit to the next turn
 	private function moveGameUnitToNextTurn( $unitToMove, $originalGameUnit ){
