@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="C:\xampp\htdocs\turns\app\Turns.clpprj">
-	<settings><PM_URL><![CDATA[http://localhost/turns/]]></PM_URL><PM_HOME_URL><![CDATA[http://localhost/turns/]]></PM_HOME_URL><PM_LIBS><![CDATA[]]></PM_LIBS><PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION><PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR><PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE></settings><removed value=";"/><added value=""/><errors version="4.5">
-		<errfile name="C:\xampp\htdocs\turns\app\webroot\css\gameplay.css">
-			<error val="5;3;31;3;2502;1;"/>
-			<error val="2;4;35;4;2502;1;"/>
-		</errfile>
-	</errors>
-	<codestructure version="4.6.1">
+	<settings><PM_URL><![CDATA[http://localhost/turns/]]></PM_URL><PM_HOME_URL><![CDATA[http://localhost/turns/]]></PM_HOME_URL><PM_LIBS><![CDATA[]]></PM_LIBS><PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION><PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR><PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE></settings><removed value=";"/><added value=""/><codestructure version="4.6.1">
 		<phptree>
 			<treenode node="APP_DIR;PHP:PHP Word;C:\xampp\htdocs\turns\app\webroot\test.php;f9;49;16;49;;C:\xampp\htdocs\turns\app\webroot\index.php;f9;48;16;48;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -368,7 +362,7 @@
 				<treenode node="primaryKey;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\DirectionSetsController.php;f8;5;19;5;;;;vpos;;v;;r;;d-1,-1;;b1,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="Game;PHP:Class Name;C:\xampp\htdocs\turns\app\Model\Game.php;f0;1;1;581;;;;vpos;;vAppModel;;c;;r;;d28,1;;b0,0;;m">
+			<treenode node="Game;PHP:Class Name;C:\xampp\htdocs\turns\app\Model\Game.php;f0;1;1;592;;;;vpos;;vAppModel;;c;;r;;d28,1;;b0,0;;m">
 				<treenode node="__construct;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;28;2;37;;;;vpos;;v;;r;;d31,28;;b1,0;;m">
 					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;33;7;33;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -403,124 +397,132 @@
 					<treenode node="uid;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f33;81;37;81;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="getUpdateInfo;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;163;2;342;;;;vpos;;v;;r;;d54,163;;b1,0;;muid;;plastKnownTurn;;p">
+				<treenode node="getUpdateInfo;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;163;2;353;;;;vpos;;v;;r;;d54,163;;b1,0;;muid;;plastKnownTurn;;p">
 					<treenode node="currentGame;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;166;14;166;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="currentTurn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;176;14;176;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="gameInformation;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;185;18;185;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
+					<treenode node="gameOver;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;327;11;327;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="gameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f43;330;52;330;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 					<treenode node="lastKnownTurn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f38;163;52;163;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="playerFound;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;328;14;328;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="playersFoundCount;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;329;20;329;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f19;166;24;166;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="uid;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f32;163;36;163;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="isAUnitSelected;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;346;2;365;;;;vpos;;v;;r;;d44,346;;b1,0;;mgameUID;;p">
-					<treenode node="game;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;349;7;349;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="isAUnitSelected;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;357;2;376;;;;vpos;;v;;r;;d44,357;;b1,0;;mgameUID;;p">
+					<treenode node="game;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;360;7;360;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f34;346;42;346;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f34;357;42;357;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f10;349;15;349;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="newGame;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;370;2;385;;;;vpos;;v;;r;;d26,370;;b1,0;;m">
-					<treenode node="newGameData;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;373;14;373;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;380;7;380;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f10;360;15;360;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="updateGame;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;389;2;434;;;;vpos;;v;;r;;d24,397;;b1,0;;mgameUID;;pturn;;pgameUnitUID;;ptargetX;;ptargetY;;pangle;;pmovePriority;;pmovementSetUID;;p">
-					<treenode node="activeUserModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;413;26;413;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="newGame;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;381;2;396;;;;vpos;;v;;r;;d26,381;;b1,0;;m">
+					<treenode node="newGameData;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;384;14;384;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="angle;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;395;13;395;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="game;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;417;7;417;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="gameOver;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;426;11;426;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;390;15;390;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="gameUnitModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;400;24;400;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;392;19;392;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementSetUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;397;22;397;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movePriority;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;396;20;396;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuTurn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;422;9;422;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="targetX;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;393;15;393;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="targetY;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;394;15;394;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f10;417;15;417;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="turn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;391;12;391;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;391;7;391;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="validateMove;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;441;2;579;;;;vpos;;v;;r;;d75,441;;b1,0;;mgameUnitUID;;ptargetX;;ptargetY;;puserUID;;p">
-					<treenode node="activePlayer;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;464;15;464;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="updateGame;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;400;2;445;;;;vpos;;v;;r;;d24,408;;b1,0;;mgameUID;;pturn;;pgameUnitUID;;ptargetX;;ptargetY;;pangle;;pmovePriority;;pmovementSetUID;;p">
+					<treenode node="activeUserModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;424;26;424;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="activeUserModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;463;26;463;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="angle;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;406;13;406;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="angle;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f10;562;16;562;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="game;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;428;7;428;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="angleToCheck;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f6;516;19;516;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameOver;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;437;11;437;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="direction;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f6;513;16;513;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;401;15;401;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="directionSetDirection;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f80;510;102;510;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUnitModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;411;24;411;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;476;10;476;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;403;19;403;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;445;11;445;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="movementSetUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;408;22;408;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUnitModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;444;24;444;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="movePriority;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;407;20;407;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUnitMovementSets;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f3;482;24;482;;;;vposarray;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="nuTurn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;433;9;433;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f31;441;43;441;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="targetX;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;404;15;404;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="lastAngle;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;475;12;475;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="targetY;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;405;15;405;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="movement;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f56;501;65;501;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f10;428;15;428;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="movementDirectionSet;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f50;509;71;509;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="turn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;402;12;402;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="movementSetModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f3;487;28;487;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="validateMove;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;452;2;590;;;;vpos;;v;;r;;d75,452;;b1,0;;mgameUnitUID;;ptargetX;;ptargetY;;puserUID;;p">
+					<treenode node="activePlayer;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;475;15;475;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="movementSets;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f36;500;49;500;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="activeUserModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;474;26;474;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="movePriority;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;470;15;470;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="angle;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f10;573;16;573;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="mustMoveAllTheWay;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f4;506;22;506;;;;vposint;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="angleToCheck;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f6;527;19;527;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="spaceCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f12;548;25;548;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="direction;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f6;524;16;524;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="spaces;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f4;505;11;505;;;;vposint;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="directionSetDirection;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f80;521;102;521;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="startX;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;473;9;473;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;487;10;487;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="startY;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;474;9;474;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;456;11;456;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="targetX;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f45;441;53;441;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUnitModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;455;24;455;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="targetY;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f55;441;63;441;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUnitMovementSets;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f3;493;24;493;;;;vposarray;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;532;13;532;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f31;452;43;452;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f65;441;73;441;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="lastAngle;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;486;12;486;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="xDirection;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f6;519;17;519;;;;vposint;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="movement;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f56;512;65;512;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="xToCheck;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;526;16;526;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="movementDirectionSet;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f50;520;71;520;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="yDirection;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f6;520;17;520;;;;vposint;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="movementSetModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f3;498;28;498;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="yToCheck;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;527;16;527;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="movementSets;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f36;511;49;511;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movePriority;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;481;15;481;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="mustMoveAllTheWay;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f4;517;22;517;;;;vposint;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="spaceCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f12;559;25;559;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="spaces;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f4;516;11;516;;;;vposint;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="startX;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;484;9;484;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="startY;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f2;485;9;485;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="targetX;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f45;452;53;452;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="targetY;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f55;452;63;452;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;543;13;543;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f65;452;73;452;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xDirection;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f6;530;17;530;;;;vposint;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xToCheck;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;537;16;537;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="yDirection;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f6;531;17;531;;;;vposint;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="yToCheck;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f7;538;16;538;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="belongsTo;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\Game.php;f8;4;18;4;;;;vpos;;v;;r;;d-1,-1;;b1,0;;m">
@@ -531,151 +533,151 @@
 			<treenode node="GameConstant;PHP:Class Name;C:\xampp\htdocs\turns\app\Model\GameConstant.php;f0;1;1;5;;;;vpos;;vAppModel;;c;;r;;d36,1;;b0,0;;m">
 			</treenode>
 			<treenode node="GamePlayHelper;PHP:Class Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f0;6;1;745;;;;vpos;;vAppHelper;;c;;r;;d39,6;;b0,0;;m">
-				<treenode node="getArtArray;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;12;2;42;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;13;2;43;;;;vpos;;v;;r;;d51,13;;b1,0;;munitArtSet;;p">
-					<treenode node="artArray;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;15;11;15;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;16;11;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="getArtArray;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;13;2;43;;;;vpos;;v;;r;;d51,13;;b1,0;;munitArtSet;;p">
+					<treenode node="artArray;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;16;11;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="cardArtLayerSet;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f46;33;62;33;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f46;34;62;34;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="cardArtLayerSet;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f46;34;62;34;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="iconPosition;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f5;24;18;24;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f5;25;18;25;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="iconPosition;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f5;25;18;25;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="unitArtSet;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f30;12;41;12;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f30;13;41;13;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="unitArtSet;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f30;13;41;13;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="unitArtSetIcon;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f45;21;60;21;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f45;22;60;22;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="getMaxTeamCost;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;46;2;53;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;47;2;54;;;;vpos;;v;;r;;d33,47;;b1,0;;m">
-					<treenode node="gameConstant;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;49;15;49;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;50;15;50;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="gameConstantModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;48;28;48;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;49;28;49;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="unitArtSetIcon;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f45;22;60;22;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="renderBoard;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;57;2;85;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;58;2;86;;;;vpos;;v;;r;;d38,58;;b1,0;;mboard;;p">
-					<treenode node="board;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f30;57;36;57;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f30;58;36;58;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="getMaxTeamCost;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;47;2;54;;;;vpos;;v;;r;;d33,47;;b1,0;;m">
+					<treenode node="gameConstant;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;50;15;50;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f20;68;25;68;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f20;69;25;69;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="tilesString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;60;14;60;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;61;14;61;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="xCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f7;64;16;64;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f7;65;16;65;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="yCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;65;17;65;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;66;17;66;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameConstantModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;49;28;49;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="renderGame;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;576;2;595;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;577;2;596;;;;vpos;;v;;r;;d57,577;;b1,0;;muserUID;;pgameInformation;;p">
-					<treenode node="gameInformation;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f39;576;55;576;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f39;577;55;577;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="renderBoard;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;58;2;86;;;;vpos;;v;;r;;d38,58;;b1,0;;mboard;;p">
+					<treenode node="board;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f30;58;36;58;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="returnString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;579;15;579;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;580;15;580;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f20;69;25;69;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f19;582;24;582;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f19;583;24;583;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="tilesString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;61;14;61;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f29;576;37;576;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f29;577;37;577;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="xCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f7;65;16;65;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-				</treenode>
-				<treenode node="renderGameUnitCard;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;89;2;571;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;90;2;572;;;;vpos;;v;;r;;d56,90;;b1,0;;mgameUnit;;p">
-					<treenode node="artArray;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f4;114;13;114;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;115;13;115;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="boardIconContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;91;19;91;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;92;19;92;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="boardIconDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;424;15;424;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;425;15;425;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="cardArtLayer;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f54;128;67;128;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f54;129;67;129;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="cardArtLayerContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;92;22;92;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;93;22;93;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="cardArtLayerDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;433;18;433;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;434;18;434;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="cardContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;93;14;93;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;94;14;94;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="cardString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;560;13;560;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;561;13;561;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="damageBarContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;94;19;94;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;95;19;95;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="damageBarDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;442;15;442;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;443;15;443;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="damageCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f10;149;24;149;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f10;150;24;150;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="damageIconContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;95;20;95;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;96;20;96;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="damageIconDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;454;16;454;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;455;16;455;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="damageValue;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f4;145;16;145;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;146;16;146;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="defenseBarContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;96;20;96;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;97;20;97;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="defenseBarDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;466;16;466;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;467;16;467;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="defenseCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f10;190;25;190;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f10;191;25;191;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="defenseIconContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;97;21;97;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;98;21;98;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="defenseIconDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;478;17;478;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;479;17;479;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="defenseValue;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f4;186;17;186;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;187;17;187;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="direction;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f13;336;23;336;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f13;337;23;337;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="directionSetDirection;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f86;331;108;331;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f86;332;108;332;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="gameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f37;89;46;89;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f37;90;46;90;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movement;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f43;293;52;293;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f43;294;52;294;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementArrowsContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;325;30;325;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;326;30;326;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementClassesContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;98;25;98;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;99;25;99;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementClassesDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;529;21;529;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;530;21;530;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;297;24;297;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;298;24;298;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementDirectionSet;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f55;329;76;329;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f55;330;76;330;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementSelectorsContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;99;27;99;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;100;27;100;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementSelectorsDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;538;23;538;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;539;23;539;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementSet;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f5;270;17;270;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f5;271;17;271;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementSetContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f5;273;24;273;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f5;274;24;274;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementSetName;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f6;277;22;277;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f6;278;22;278;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="position;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f41;128;50;128;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f41;129;50;129;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="teamcostBarContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;100;21;100;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;101;21;101;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="teamcostBarDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;490;17;490;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;491;17;491;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="teamcostCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f10;231;26;231;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f10;232;26;232;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="teamcostIconContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;101;22;101;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;102;22;102;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="teamcostIconDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;502;18;502;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;503;18;503;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="teamcostValue;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f4;227;18;227;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;228;18;228;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f16;114;21;114;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f16;115;21;115;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitStatBoxDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;514;17;514;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;515;17;515;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitStatMovementSet;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f68;267;88;267;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f68;268;88;268;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitTypeName;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;102;15;102;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;103;15;103;;;;vposint;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="yCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;66;17;66;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="renderTile;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;600;2;623;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;601;2;624;;;;vpos;;v;;r;;d37,601;;b1,0;;mx;;py;;p">
-					<treenode node="attributes;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;609;13;609;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;610;13;610;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="renderGame;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;577;2;596;;;;vpos;;v;;r;;d57,577;;b1,0;;muserUID;;pgameInformation;;p">
+					<treenode node="gameInformation;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f39;577;55;577;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f9;617;14;617;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f9;618;14;618;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="returnString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;580;15;580;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="tilesWhite;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;606;13;606;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;607;13;607;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f19;583;24;583;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="x;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f29;600;31;600;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f29;601;31;601;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="y;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f33;600;35;600;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f33;601;35;601;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f29;577;37;577;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="renderUnit;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;627;2;647;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;628;2;678;;;;vpos;;v;;r;;d47,628;;b1,0;;mgameUnit;;picon;;p">
+				<treenode node="renderGameUnitCard;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;90;2;572;;;;vpos;;v;;r;;d56,90;;b1,0;;mgameUnit;;p">
+					<treenode node="artArray;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;115;13;115;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="boardIconContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;92;19;92;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="boardIconDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;425;15;425;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="cardArtLayer;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f54;129;67;129;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="cardArtLayerContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;93;22;93;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="cardArtLayerDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;434;18;434;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="cardContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;94;14;94;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="cardString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;561;13;561;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="damageBarContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;95;19;95;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="damageBarDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;443;15;443;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="damageCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f10;150;24;150;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="damageIconContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;96;20;96;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="damageIconDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;455;16;455;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="damageValue;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;146;16;146;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="defenseBarContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;97;20;97;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="defenseBarDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;467;16;467;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="defenseCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f10;191;25;191;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="defenseIconContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;98;21;98;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="defenseIconDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;479;17;479;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="defenseValue;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;187;17;187;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="direction;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f13;337;23;337;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="directionSetDirection;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f86;332;108;332;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="gameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f37;90;46;90;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movement;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f43;294;52;294;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementArrowsContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;326;30;326;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementClassesContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;99;25;99;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementClassesDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;530;21;530;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;298;24;298;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementDirectionSet;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f55;330;76;330;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementSelectorsContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;100;27;100;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementSelectorsDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;539;23;539;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementSet;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f5;271;17;271;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementSetContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f5;274;24;274;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementSetName;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f6;278;22;278;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="position;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f41;129;50;129;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="teamcostBarContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;101;21;101;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="teamcostBarDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;491;17;491;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="teamcostCounter;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f10;232;26;232;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="teamcostIconContent;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;102;22;102;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="teamcostIconDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;503;18;503;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="teamcostValue;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;228;18;228;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f16;115;21;115;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitStatBoxDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;515;17;515;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitStatMovementSet;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f68;268;88;268;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitTypeName;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;103;15;103;;;;vposint;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="renderTile;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;601;2;624;;;;vpos;;v;;r;;d37,601;;b1,0;;mx;;py;;p">
+					<treenode node="attributes;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;610;13;610;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f9;618;14;618;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="tilesWhite;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;607;13;607;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="x;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f29;601;31;601;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="y;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f33;601;35;601;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="renderUnit;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;628;2;678;;;;vpos;;v;;r;;d47,628;;b1,0;;mgameUnit;;picon;;p">
 					<treenode node="attackDiv;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;651;12;651;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="damage;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;633;9;633;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -688,85 +690,99 @@
 					</treenode>
 					<treenode node="gameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f29;628;38;628;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="icon;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f35;627;40;627;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f40;628;45;628;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="icon;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f40;628;45;628;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="imageString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;630;14;630;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;637;14;637;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="imageString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;637;14;637;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="returnString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;635;15;635;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;666;15;666;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="returnString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;666;15;666;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f18;630;23;630;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f18;637;23;637;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f18;637;23;637;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="uid;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f29;627;33;627;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;632;6;632;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="uid;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;632;6;632;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f42;627;50;627;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;631;10;631;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="renderUnits;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f8;651;2;712;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;682;2;743;;;;vpos;;v;;r;;d61,682;;b1,0;;mparameters;;pgameInformation;;p">
-					<treenode node="artSetIcon;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f58;686;69;686;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f58;717;69;717;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f58;717;69;717;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="gameInformation;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f43;651;59;651;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f43;682;59;682;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f43;682;59;682;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="gameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f44;682;53;682;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f44;713;53;713;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f44;713;53;713;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="iconImageURL;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f6;690;19;690;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f6;721;19;721;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f6;721;19;721;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="parameters;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f30;651;41;651;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f30;682;41;682;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f30;682;41;682;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="playersTurn;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f4;664;16;664;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;695;16;695;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;695;16;695;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f19;670;24;670;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f19;701;24;701;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f19;701;24;701;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitsString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f2;654;14;654;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;685;14;685;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;685;14;685;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;631;10;631;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="helpers;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\Codelobster0.php;f7;8;15;8;;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f7;9;15;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="renderUnits;PHP:Function Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f8;682;2;743;;;;vpos;;v;;r;;d61,682;;b1,0;;mparameters;;pgameInformation;;p">
+					<treenode node="artSetIcon;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f58;717;69;717;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="gameInformation;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f43;682;59;682;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="gameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f44;713;53;713;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="iconImageURL;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f6;721;19;721;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="parameters;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f30;682;41;682;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="playersTurn;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f4;695;16;695;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f19;701;24;701;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitsString;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f2;685;14;685;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="helpers;PHP:Var Name;C:\xampp\htdocs\turns\app\View\Helper\GamePlayHelper.php;f7;9;15;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="GamesController;PHP:Class Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f0;1;1;86;;;;vpos;;vAppController;;c;;r;;d44,1;;b0,0;;m">
+			<treenode node="GamesController;PHP:Class Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f0;1;1;115;;;;vpos;;vAppController;;c;;r;;d44,1;;b0,0;;m">
 				<treenode node="beforeFilter;PHP:Function Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f11;5;5;7;;;;vpos;;v;;r;;d35,5;;b1,0;;m">
 				</treenode>
-				<treenode node="getGameUpdate;PHP:Function Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f8;12;2;34;;;;vpos;;v;;r;;d32,12;;b1,0;;m">
-					<treenode node="gameInformation;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;24;18;24;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="clearGames;PHP:Function Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f8;12;2;36;;;;vpos;;v;;r;;d29,12;;b1,0;;m">
+					<treenode node="activeUserModel;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;24;18;24;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;18;10;18;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;14;20;14;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="jsonData;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;15;11;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="games;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;15;8;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="lastKnownTurn;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;21;16;21;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameToDelete;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f21;16;34;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f14;15;19;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUnitModel;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;30;16;30;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-				</treenode>
-				<treenode node="playGame;PHP:Function Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f8;38;2;54;;;;vpos;;v;;r;;d27,38;;b1,0;;m">
-					<treenode node="gameInformation;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;48;18;48;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;44;10;44;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="jsonData;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;41;11;41;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f14;41;19;41;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;45;10;45;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="userGameModel;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;27;16;27;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="processUnitMove;PHP:Function Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f8;58;2;84;;;;vpos;;v;;r;;d34,58;;b1,0;;m">
-					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;64;14;64;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="getGameUpdate;PHP:Function Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f8;41;2;63;;;;vpos;;v;;r;;d32,41;;b1,0;;m">
+					<treenode node="gameInformation;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;53;18;53;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="jsonData;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;61;11;61;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;47;10;47;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="targetedX;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;65;12;65;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="jsonData;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;44;11;44;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="targetedY;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;66;12;66;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="lastKnownTurn;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;50;16;50;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f14;61;19;61;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f14;44;19;44;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;69;10;69;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="playGame;PHP:Function Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f8;67;2;83;;;;vpos;;v;;r;;d27,67;;b1,0;;m">
+					<treenode node="gameInformation;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;77;18;77;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="validMove;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;73;12;73;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;73;10;73;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="jsonData;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;70;11;70;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f14;70;19;70;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;74;10;74;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="processUnitMove;PHP:Function Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f8;87;2;113;;;;vpos;;v;;r;;d34,87;;b1,0;;m">
+					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;93;14;93;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="jsonData;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;90;11;90;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="targetedX;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;94;12;94;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="targetedY;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;95;12;95;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f14;90;19;90;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;98;10;98;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="validMove;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GamesController.php;f2;102;12;102;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 			</treenode>
-			<treenode node="GameUnit;PHP:Class Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f0;1;1;429;;;;vpos;;vAppModel;;c;;r;;d32,1;;b0,0;;m">
+			<treenode node="GameUnit;PHP:Class Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f0;1;1;491;;;;vpos;;vAppModel;;c;;r;;d32,1;;b0,0;;m">
 				<treenode node="__construct;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;33;2;42;;;;vpos;;v;;r;;d31,33;;b1,0;;m">
 					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;38;7;38;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -837,81 +853,107 @@
 					<treenode node="uid;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f40;202;44;202;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="moveGameUnitsToNextTurn;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;254;2;371;;;;vpos;;v;;r;;d27,262;;b1,0;;mgameUID;;pturn;;pgameUnitUID;;ptargetX;;ptargetY;;pangle;;pmovePriority;;pmovementSetUID;;p">
-					<treenode node="angle;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;260;16;260;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="getInfoForCard;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;236;2;271;;;;vpos;;v;;r;;d39,236;;b1,0;;muid;;p">
+					<treenode node="cardInfo;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;238;11;238;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;255;18;255;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f14;238;19;238;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;257;22;257;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movedUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;279;12;279;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;303;24;303;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementSetUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;262;25;262;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movePriority;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;261;23;261;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuTurn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;265;9;265;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="originalGameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;289;19;289;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="targetX;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;258;18;258;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="targetY;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;259;18;259;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f17;271;22;271;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="turn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;256;15;256;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitAlreadyDead;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f4;328;20;328;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitsToMove;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;271;14;271;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitToMove;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f27;323;38;323;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="validNextMove;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;304;16;304;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="uid;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f33;236;37;236;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="moveGameUnitToNextTurn;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f9;235;2;250;;;;vpos;;v;;r;;d74,235;;b3,0;;munitToMove;;poriginalGameUnit;;p">
-					<treenode node="originalGameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f55;235;72;235;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="moveGameUnitsToNextTurn;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;294;2;433;;;;vpos;;v;;r;;d27,302;;b1,0;;mgameUID;;pturn;;pgameUnitUID;;ptargetX;;ptargetY;;pangle;;pmovePriority;;pmovementSetUID;;p">
+					<treenode node="angle;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;300;16;300;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;247;7;247;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;413;20;413;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="unitToMove;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f42;235;53;235;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;295;18;295;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="unitToMoveGameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;242;21;242;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;297;22;297;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movedUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;322;12;322;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;349;24;349;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementSetUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;302;25;302;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movePriority;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;301;23;301;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nuTurn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;305;9;305;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="originalGameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;335;19;335;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="preserveDamage;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;414;17;414;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="targetX;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;298;18;298;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="targetY;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;299;18;299;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f17;311;22;311;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="turn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f10;296;15;296;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitsToMove;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;311;14;311;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitToMove;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f47;369;58;369;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitToMoveIndex;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f27;369;43;369;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="validNextMove;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;350;16;350;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="playerHasActiveUnit;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;376;2;393;;;;vpos;;v;;r;;d65,376;;b1,0;;muserUID;;pgameUID;;pturn;;p">
-					<treenode node="exists;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;378;9;378;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="moveGameUnitToNextTurn;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f9;275;2;290;;;;vpos;;v;;r;;d74,275;;b3,0;;munitToMove;;poriginalGameUnit;;p">
+					<treenode node="originalGameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f55;275;72;275;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f48;376;56;376;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;287;7;287;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f12;378;17;378;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="unitToMove;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f42;275;53;275;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="turn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f58;376;63;376;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f38;376;46;376;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="unitToMoveGameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;282;21;282;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="selectUnit;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;397;2;407;;;;vpos;;v;;r;;d53,397;;b1,0;;mgameUnitUID;;pgameUID;;p">
-					<treenode node="gameModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;400;20;400;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="playerHasActiveUnit;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;438;2;455;;;;vpos;;v;;r;;d65,438;;b1,0;;muserUID;;pgameUID;;pturn;;p">
+					<treenode node="exists;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;440;9;440;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f43;397;51;397;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f48;438;56;438;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f29;397;41;397;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f12;440;17;440;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="turn;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f58;438;63;438;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="userUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f38;438;46;438;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="storeOriginalUnit;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;411;2;427;;;;vpos;;v;;r;;d46,411;;b1,0;;mnewUnit;;p">
-					<treenode node="newUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f36;411;44;411;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="selectUnit;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;459;2;469;;;;vpos;;v;;r;;d53,459;;b1,0;;mgameUnitUID;;pgameUID;;p">
+					<treenode node="gameModelInstance;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f2;462;20;462;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="originalGameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f3;413;20;413;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f43;459;51;459;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f3;421;8;421;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f29;459;41;459;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="storeOriginalUnit;PHP:Function Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;473;2;489;;;;vpos;;v;;r;;d46,473;;b1,0;;mnewUnit;;p">
+					<treenode node="newUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f36;473;44;473;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="originalGameUnit;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f3;475;20;475;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f3;483;8;483;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="belongsTo;PHP:Var Name;C:\xampp\htdocs\turns\app\Model\GameUnit.php;f8;4;18;4;;;;vpos;;v;;r;;d-1,-1;;b1,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="GameUnitsController;PHP:Class Name;C:\xampp\htdocs\turns\app\Controller\GameUnitsController.php;f0;1;1;33;;;;vpos;;vAppController;;c;;r;;d48,1;;b0,0;;m">
+				<treenode node="beforeFilter;PHP:Function Name;C:\xampp\htdocs\turns\app\Controller\GameUnitsController.php;f11;5;5;7;;;;vpos;;v;;r;;d35,5;;b1,0;;m">
+				</treenode>
+				<treenode node="getGameUnitCardInfo;PHP:Function Name;C:\xampp\htdocs\turns\app\Controller\GameUnitsController.php;f8;12;2;31;;;;vpos;;v;;r;;d38,12;;b1,0;;m">
+					<treenode node="gameUnitUID;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GameUnitsController.php;f2;18;14;18;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="jsonData;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GameUnitsController.php;f2;15;11;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GameUnitsController.php;f16;15;21;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitInfo;PHP:Var Name;C:\xampp\htdocs\turns\app\Controller\GameUnitsController.php;f2;21;11;21;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
 			</treenode>
 			<treenode node="GameUnitStat;PHP:Class Name;C:\xampp\htdocs\turns\app\Model\GameUnitStat.php;f0;1;1;100;;;;vpos;;vAppModel;;c;;r;;d36,1;;b0,0;;m">
@@ -1928,6 +1970,284 @@
 			</treenode>
 		</phptree>
 		<jstree>
+			<treenode node="elements;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f0;11;1;70;;;;vpos;;v;;r;;d19,11;;b0,0;;m">
+				<treenode node="arrangeElement;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;14;2;25;;;;vpos;;v;;r;;d42,14;;b0,0;;melement;;p">
+					<treenode node="element;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f33;14;40;14;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nuX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;16;9;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nuY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;17;9;17;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="arrangeStaticElements;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;29;2;32;;;;vpos;;v;;r;;d40,29;;b0,0;;m">
+					<treenode node="Game_elements;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f2;30;15;30;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="arrangeTiles;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;36;2;45;;;;vpos;;v;;r;;d31,36;;b0,0;;m">
+					<treenode node="Game_elements;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f3;41;16;41;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="arrangeUnitCard;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;49;2;62;;;;vpos;;v;;r;;d34,49;;b0,0;;m">
+				</treenode>
+				<treenode node="handleEverything;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;66;2;68;;;;vpos;;v;;r;;d35,66;;b0,0;;m">
+					<treenode node="Game_elements;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f2;67;15;67;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+			</treenode>
+			<treenode node="gameplay;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f0;23;1;758;;;;vpos;;v;;r;;d19,23;;b0,0;;m">
+				<treenode node="arrangeUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;31;2;45;;;;vpos;;v;;r;;d42,31;;b0,0;;munitObject;;p">
+					<treenode node="nuX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;33;9;33;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nuY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;34;9;34;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f30;31;40;31;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="checkForUpdates;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;47;2;51;;;;vpos;;v;;r;;d34,47;;b0,0;;m">
+					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;48;8;48;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="checkIfSelected;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;56;2;63;;;;vpos;;v;;r;;d66,56;;b0,0;;munitObjectPosition;;punitObject;;p">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f3;60;16;60;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f54;56;64;56;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitObjectPosition;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f34;56;52;56;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f24;59;30;59;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="checkIfUnitShouldBeSelected;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;68;2;82;;;;vpos;;v;;r;;d78,68;;b0,0;;munitObjectPosition;;punitObject;;p">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f4;76;17;76;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f66;68;76;68;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitObjectPosition;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f46;68;64;68;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f31;73;37;73;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="clearEverything;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;86;2;96;;;;vpos;;v;;r;;d34,86;;b0,0;;m">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;92;15;92;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="clearSelectedUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;100;2;106;;;;vpos;;v;;r;;d36,100;;b0,0;;m">
+				</treenode>
+				<treenode node="colorUnits;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;110;2;124;;;;vpos;;v;;r;;d29,110;;b0,0;;m">
+					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;113;8;113;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="disallowSelectChange;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;129;2;144;;;;vpos;;v;;r;;d39,129;;b0,0;;m">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f38;134;51;134;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="displayUnitCard;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;148;0;194;;;;vpos;;v;;r;;d50,148;;b0,0;;mtriggeredEvent;;p">
+					<treenode node="endGame;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;188;2;192;;;;vpos;;v;;r;;d26,188;;b0,0;;m">
+					</treenode>
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f27;158;40;158;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f3;163;9;163;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="mousedOverUnit;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;151;20;151;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="mousedOverUnitUID;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;154;23;154;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="triggeredEvent;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f34;148;48;148;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="executeMove;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;196;2;224;;;;vpos;;v;;r;;d43,196;;b0,0;;mtileMovedTo;;p">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f25;203;38;203;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementSetArray;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;203;22;203;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="movementSetToLockIn;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;201;25;201;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nuLogicalX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;199;16;199;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nuLogicalY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;200;16;200;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nuX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;215;9;215;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nuY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;216;9;216;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="tileMovedTo;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f30;196;41;196;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="getGameUpdate;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;228;0;290;;;;vpos;;v;;r;;d32,228;;b0,0;;m">
+					<treenode node="handleCardDisplay;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;274;2;288;;;;vpos;;v;;r;;d48,274;;b0,0;;munitObject;;p">
+						<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f44;279;57;279;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+						</treenode>
+						<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f36;274;46;274;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+						</treenode>
+					</treenode>
+					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;231;8;231;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="handleEverything;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;292;2;306;;;;vpos;;v;;r;;d35,292;;b0,0;;m">
+					<treenode node="Game_elements;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;301;15;301;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;295;15;295;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="handleMoveToTile;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;310;2;360;;;;vpos;;v;;r;;d35,310;;b0,0;;m">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f38;316;51;316;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="highlightedTile;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f7;328;22;328;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f3;333;9;333;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="handleSelectionOfAnyUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;364;2;378;;;;vpos;;v;;r;;d43,364;;b0,0;;m">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f40;369;53;369;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f38;367;44;367;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="handleUnitSelection;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;382;2;391;;;;vpos;;v;;r;;d38,382;;b0,0;;m">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;385;19;385;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="highlightSelectedUnitPaths;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;395;2;420;;;;vpos;;v;;r;;d45,395;;b0,0;;m">
+					<treenode node="availableMovementDirectionSets;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;407;36;407;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;400;19;400;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;410;8;410;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="undefined;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f58;400;67;400;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="highlightUnitPath;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;424;2;464;;;;vpos;;v;;r;;d66,424;;b0,0;;mdirectionPosition;;pdirection;;p">
+					<treenode node="direction;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f55;424;64;424;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="directionPosition;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f36;424;53;424;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="finalX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;430;12;430;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="finalY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;431;12;431;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f61;427;74;427;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="mustMoveAllTheWay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;432;23;432;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="spaceCounter;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f8;452;20;452;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="spaces;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;433;12;433;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xDirection;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;434;16;434;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="yDirection;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;435;16;435;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="killUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;468;2;502;;;;vpos;;v;;r;;d39,468;;b0,0;;munitObject;;p">
+					<treenode node="endHeight;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;478;15;478;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="endWidth;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;479;14;479;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="endX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;480;10;480;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="endY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;481;10;481;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="scale;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;477;11;477;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="startHeight;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;471;17;471;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="startWidth;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;472;16;472;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="startX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;473;12;473;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="startY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;474;12;474;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f27;468;37;468;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="moveSelectedUnitToTile;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;506;2;519;;;;vpos;;v;;r;;d57,506;;b0,0;;mtriggeredEvent;;p">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;509;15;509;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="tileMovedTo;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;515;17;515;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="triggeredEvent;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f41;506;55;506;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="moveSelectedUnitToUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;523;2;543;;;;vpos;;v;;r;;d57,523;;b0,0;;mtriggeredEvent;;p">
+					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;528;8;528;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="triggeredEvent;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f41;523;55;523;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitElement;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;526;17;526;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="processGameUpdate;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;547;2;570;;;;vpos;;v;;r;;d46,547;;b0,0;;mjSONData;;p">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f3;557;16;557;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="jSONData;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f36;547;44;547;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;550;8;550;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="processUnitSelection;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;574;2;588;;;;vpos;;v;;r;;d39,574;;b0,0;;m">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;577;15;577;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="selectedUnitDOMElement;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;580;24;580;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="pushMoveToServer;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;593;0;628;;;;vpos;;v;;r;;d45,593;;b0,0;;mnuX;;pnuY;;p">
+					<treenode node="resetSelectedUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;621;2;626;;;;vpos;;v;;r;;d36,621;;b0,0;;m">
+						<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;623;15;623;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+						</treenode>
+					</treenode>
+					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;596;8;596;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nuX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f35;593;38;593;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nuY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f40;593;43;593;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="resetTurnData;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;630;2;651;;;;vpos;;v;;r;;d32,630;;b0,0;;m">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;633;15;633;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;639;8;639;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;643;12;643;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="selectUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;655;2;669;;;;vpos;;v;;r;;d45,655;;b0,0;;mtriggeredEvent;;p">
+					<treenode node="clickedUnit;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;658;17;658;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;667;15;667;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;665;8;665;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="triggeredEvent;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f29;655;43;655;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;661;8;661;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="setupUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;673;2;695;;;;vpos;;v;;r;;d60,673;;b0,0;;munitObjectPosition;;punitObject;;p">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;676;15;676;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f48;673;58;673;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="unitObjectPosition;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f28;673;46;673;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="setupUnits;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;699;2;704;;;;vpos;;v;;r;;d29,699;;b0,0;;m">
+					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;702;8;702;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="unhighlightEverything;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;708;2;713;;;;vpos;;v;;r;;d40,708;;b0,0;;m">
+				</treenode>
+				<treenode node="unhighlightUnitPaths;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;717;2;746;;;;vpos;;v;;r;;d39,717;;b0,0;;m">
+					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f38;722;51;722;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="updateUnitStats;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;750;2;756;;;;vpos;;v;;r;;d46,750;;b0,0;;munitObject;;p">
+					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f34;750;44;750;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="cardUnitUID;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;27;17;27;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
 			<treenode node="availableGameList;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Matchmaking\availableGameList.js;f0;9;26;9;;;;vpos;;v;;r;;d28,9;;b0,0;;m">
 				<treenode node="addListElementsFromJSON;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Matchmaking\availableGameList.js;f6;14;2;44;;;;vpos;;v;;r;;d52,14;;b0,0;;mjSONData;;p">
 					<treenode node="currentGames;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Matchmaking\availableGameList.js;f2;22;14;22;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -1957,252 +2277,6 @@
 				</treenode>
 				<treenode node="updateList;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Matchmaking\availableGameList.js;f6;73;0;0;;;;vpos;;v;;r;;d29,73;;b0,0;;m">
 					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Matchmaking\availableGameList.js;f2;77;8;77;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-			</treenode>
-			<treenode node="elements;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f0;11;1;70;;;;vpos;;v;;r;;d19,11;;b0,0;;m">
-				<treenode node="arrangeElement;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;14;2;25;;;;vpos;;v;;r;;d42,14;;b0,0;;melement;;p">
-					<treenode node="element;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f33;14;40;14;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;16;9;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;17;9;17;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="arrangeStaticElements;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;29;2;32;;;;vpos;;v;;r;;d40,29;;b0,0;;m">
-					<treenode node="Game_elements;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f2;30;15;30;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="arrangeTiles;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;36;2;45;;;;vpos;;v;;r;;d31,36;;b0,0;;m">
-					<treenode node="Game_elements;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f3;41;16;41;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="arrangeUnitCard;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;49;2;62;;;;vpos;;v;;r;;d34,49;;b0,0;;m">
-				</treenode>
-				<treenode node="handleEverything;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f6;66;2;68;;;;vpos;;v;;r;;d35,66;;b0,0;;m">
-					<treenode node="Game_elements;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f2;67;15;67;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-			</treenode>
-			<treenode node="gameplay;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f0;23;1;654;;;;vpos;;v;;r;;d19,23;;b0,0;;m">
-				<treenode node="arrangeUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;27;2;41;;;;vpos;;v;;r;;d42,27;;b0,0;;munitObject;;p">
-					<treenode node="nuX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;29;9;29;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;30;9;30;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f30;27;40;27;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="checkForUpdates;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;43;2;47;;;;vpos;;v;;r;;d34,43;;b0,0;;m">
-					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;44;8;44;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="checkIfSelected;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;52;2;59;;;;vpos;;v;;r;;d66,52;;b0,0;;munitObjectPosition;;punitObject;;p">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f3;56;16;56;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f54;52;64;52;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitObjectPosition;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f34;52;52;52;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f24;55;30;55;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="checkIfUnitShouldBeSelected;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;64;2;78;;;;vpos;;v;;r;;d78,64;;b0,0;;munitObjectPosition;;punitObject;;p">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f4;72;17;72;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f66;64;76;64;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitObjectPosition;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f46;64;64;64;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f31;69;37;69;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="clearEverything;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;82;2;92;;;;vpos;;v;;r;;d34,82;;b0,0;;m">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;88;15;88;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="clearSelectedUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;96;2;102;;;;vpos;;v;;r;;d36,96;;b0,0;;m">
-				</treenode>
-				<treenode node="colorUnits;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;106;2;120;;;;vpos;;v;;r;;d29,106;;b0,0;;m">
-					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;109;8;109;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="disallowSelectChange;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;125;2;140;;;;vpos;;v;;r;;d39,125;;b0,0;;m">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f38;130;51;130;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="executeMove;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;144;2;172;;;;vpos;;v;;r;;d43,144;;b0,0;;mtileMovedTo;;p">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f25;151;38;151;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementSetArray;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;151;22;151;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="movementSetToLockIn;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;149;25;149;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuLogicalX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;147;16;147;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuLogicalY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;148;16;148;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;163;9;163;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;164;9;164;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="tileMovedTo;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f30;144;41;144;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="getGameUpdate;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;176;0;247;;;;vpos;;v;;r;;d32,176;;b0,0;;m">
-					<treenode node="handleEverything;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;231;2;245;;;;vpos;;v;;r;;d35,231;;b0,0;;m">
-						<treenode node="Game_elements;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;240;15;240;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-						</treenode>
-						<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;234;15;234;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-						</treenode>
-					</treenode>
-					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;179;8;179;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="handleMoveToTile;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;249;2;298;;;;vpos;;v;;r;;d35,249;;b0,0;;m">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f38;255;51;255;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="highlightedTile;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f7;267;22;267;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f3;272;9;272;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="handleSelectionOfAnyUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;302;2;316;;;;vpos;;v;;r;;d43,302;;b0,0;;m">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f40;307;53;307;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f38;305;44;305;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="handleUnitSelection;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;320;2;329;;;;vpos;;v;;r;;d38,320;;b0,0;;m">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;323;19;323;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="highlightSelectedUnitPaths;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;333;2;358;;;;vpos;;v;;r;;d45,333;;b0,0;;m">
-					<treenode node="availableMovementDirectionSets;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;345;36;345;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;338;19;338;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;348;8;348;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="undefined;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f58;338;67;338;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="highlightUnitPath;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;362;2;402;;;;vpos;;v;;r;;d66,362;;b0,0;;mdirectionPosition;;pdirection;;p">
-					<treenode node="direction;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f55;362;64;362;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="directionPosition;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f36;362;53;362;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="finalX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;368;12;368;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="finalY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;369;12;369;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f61;365;74;365;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="mustMoveAllTheWay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;370;23;370;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="spaceCounter;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f8;390;20;390;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="spaces;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;371;12;371;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="xDirection;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;372;16;372;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="yDirection;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;373;16;373;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="killUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;406;2;440;;;;vpos;;v;;r;;d39,406;;b0,0;;munitObject;;p">
-					<treenode node="endHeight;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;416;15;416;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="endWidth;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;417;14;417;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="endX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;418;10;418;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="endY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;419;10;419;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="scale;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;415;11;415;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="startHeight;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;409;17;409;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="startWidth;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;410;16;410;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="startX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;411;12;411;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="startY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;412;12;412;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f27;406;37;406;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="moveSelectedUnitToTile;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;444;2;457;;;;vpos;;v;;r;;d57,444;;b0,0;;mtriggeredEvent;;p">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;447;15;447;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="tileMovedTo;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;453;17;453;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="triggeredEvent;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f41;444;55;444;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="moveSelectedUnitToUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;461;2;482;;;;vpos;;v;;r;;d57,461;;b0,0;;mtriggeredEvent;;p">
-					<treenode node="console;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;466;9;466;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;467;8;467;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="triggeredEvent;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f41;461;55;461;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitElement;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;464;17;464;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="processUnitSelection;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;486;2;500;;;;vpos;;v;;r;;d39,486;;b0,0;;m">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;489;15;489;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="selectedUnitDOMElement;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;492;24;492;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="pushMoveToServer;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;505;0;540;;;;vpos;;v;;r;;d45,505;;b0,0;;mnuX;;pnuY;;p">
-					<treenode node="resetSelectedUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;533;2;538;;;;vpos;;v;;r;;d36,533;;b0,0;;m">
-						<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;535;15;535;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-						</treenode>
-					</treenode>
-					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;508;8;508;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuX;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f35;505;38;505;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nuY;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f40;505;43;505;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="resetTurnData;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;542;2;563;;;;vpos;;v;;r;;d32,542;;b0,0;;m">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;545;15;545;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;551;8;551;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;555;12;555;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="selectUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;567;2;581;;;;vpos;;v;;r;;d45,567;;b0,0;;mtriggeredEvent;;p">
-					<treenode node="clickedUnit;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;570;17;570;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;579;15;579;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;577;8;577;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="triggeredEvent;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f29;567;43;567;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;573;8;573;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="setupUnit;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;585;2;601;;;;vpos;;v;;r;;d60,585;;b0,0;;munitObjectPosition;;punitObject;;p">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f3;591;16;591;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitObject;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f48;585;58;585;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="unitObjectPosition;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f28;585;46;585;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="setupUnits;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;605;2;610;;;;vpos;;v;;r;;d29,605;;b0,0;;m">
-					<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f2;608;8;608;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="unhighlightEverything;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;614;2;619;;;;vpos;;v;;r;;d40,614;;b0,0;;m">
-				</treenode>
-				<treenode node="unhighlightUnitPaths;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f6;623;2;652;;;;vpos;;v;;r;;d39,623;;b0,0;;m">
-					<treenode node="Game_gameplay;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f38;628;51;628;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 			</treenode>
@@ -3066,6 +3140,10 @@
 				<treenode node="e;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\JQuery.js;f19700;1;19701;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="t;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\JQuery.js;f19707;1;19708;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="loadDependenciesFor_Game_gameplay;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f4;6;1;10;;;;vpos;;v;;r;;d50,6;;b0,0;;m">
+				<treenode node="libraries;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f1;8;10;8;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="m;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\JQuery.js;f2536;0;16264;1;;;;vpos;;v;;r;;d15752,1;;b0,0;;me;;pt;;pe;;pt;;pn;;pr;;po;;pa;;p">
@@ -6508,10 +6586,6 @@
 				<treenode node="u;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\JQuery.js;f14251;2;14252;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="loadDependenciesFor_Game_gameplay;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f4;6;1;10;;;;vpos;;v;;r;;d50,6;;b0,0;;m">
-				<treenode node="libraries;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f1;8;10;8;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
 			<treenode node="loadLibraries;JS:Function Name;C:\xampp\htdocs\turns\app\webroot\js\Core.js;f0;75;1;118;;;;vpos;;v;;r;;d24,75;;b0,0;;m">
 				<treenode node="document;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Core.js;f17;84;25;84;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -7642,7 +7716,7 @@
 			</treenode>
 			<treenode node="G;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\JQuery.js;f10726;0;10727;0;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="Game_elements;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f4;2;17;2;;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f4;4;17;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="Game_elements;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js;f4;4;17;4;;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js;f4;2;17;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="getCopy;JS:JS Var Name;C:\xampp\htdocs\turns\app\webroot\js\Libraries\Pixastic\pixastic.core.js;f33;370;40;370;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -8195,14 +8269,10 @@
 		</scsstree>
 		<lesstree>
 		</lesstree>
-	</codestructure><cakedata>
-	</cakedata>
-	<dplmenupath>
-	</dplmenupath><smartyassings>
-	</smartyassings><yiidata>
-	</yiidata>
-	<todoblock>
+	</codestructure><todoblock>
 	</todoblock>
+	<dbgurls>
+	</dbgurls>
 	<filescache>
 		<file name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\Unit\manageUnits.js" crc="1610249839"/>
 		<file name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\TurnForm\manage.js" crc="-480344216"/>
@@ -8243,7 +8313,7 @@
 		<file name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\Matchmaking\joinQueue.js" crc="1639091763"/>
 		<file name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\Matchmaking\availableGameList.js" crc="-1472618041"/>
 		<file name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\unit.js" crc="-1871277477"/>
-		<file name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js" crc="-174295102"/>
+		<file name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\gameplay.js" crc="-1883248313"/>
 		<file name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game\elements.js" crc="-115227460"/>
 		<file name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\EditableSelect\editableSelect.js" crc="1919085581"/>
 		<file name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\Disclosure\handleDisclosure.js" crc="1808395671"/>
@@ -8327,9 +8397,9 @@
 		<file name="C:\xampp\htdocs\turns\app\Model\Icon.php" crc="-69315217"/>
 		<file name="C:\xampp\htdocs\turns\app\Model\GameUnitStatMovementSet.php" crc="-742815976"/>
 		<file name="C:\xampp\htdocs\turns\app\Model\GameUnitStat.php" crc="-767454280"/>
-		<file name="C:\xampp\htdocs\turns\app\Model\GameUnit.php" crc="397971289"/>
+		<file name="C:\xampp\htdocs\turns\app\Model\GameUnit.php" crc="-1860122767"/>
 		<file name="C:\xampp\htdocs\turns\app\Model\GameConstant.php" crc="486338285"/>
-		<file name="C:\xampp\htdocs\turns\app\Model\Game.php" crc="1785490486"/>
+		<file name="C:\xampp\htdocs\turns\app\Model\Game.php" crc="-1863250931"/>
 		<file name="C:\xampp\htdocs\turns\app\Model\DirectionSetDirection.php" crc="1509114703"/>
 		<file name="C:\xampp\htdocs\turns\app\Model\DirectionSet.php" crc="-1037611952"/>
 		<file name="C:\xampp\htdocs\turns\app\Model\Direction.php" crc="1422437591"/>
@@ -8356,7 +8426,8 @@
 		<file name="C:\xampp\htdocs\turns\app\Controller\MovementDirectionSetsController.php" crc="-1628542894"/>
 		<file name="C:\xampp\htdocs\turns\app\Controller\MatchmakingQueuesController.php" crc="922702015"/>
 		<file name="C:\xampp\htdocs\turns\app\Controller\IconsController.php" crc="507145635"/>
-		<file name="C:\xampp\htdocs\turns\app\Controller\GamesController.php" crc="-1169691817"/>
+		<file name="C:\xampp\htdocs\turns\app\Controller\GameUnitsController.php" crc="-691198312"/>
+		<file name="C:\xampp\htdocs\turns\app\Controller\GamesController.php" crc="-1363263788"/>
 		<file name="C:\xampp\htdocs\turns\app\Controller\DirectionSetsController.php" crc="114860547"/>
 		<file name="C:\xampp\htdocs\turns\app\Controller\DirectionSetDirectionsController.php" crc="1746327514"/>
 		<file name="C:\xampp\htdocs\turns\app\Controller\CardArtLayerSetsController.php" crc="-97690461"/>
@@ -8375,7 +8446,7 @@
 		<file name="C:\xampp\htdocs\turns\app\Config\acl.php" crc="1075028772"/>
 		<file name="C:\xampp\htdocs\turns\app\Config\acl.ini.php" crc="-1295032204"/>
 		<file name="C:\xampp\htdocs\turns\app\.idea\scopes\scope_settings.xml" crc="2157974"/>
-		<file name="C:\xampp\htdocs\turns\app\.idea\workspace.xml" crc="-126710843"/>
+		<file name="C:\xampp\htdocs\turns\app\.idea\workspace.xml" crc="-944987736"/>
 		<file name="C:\xampp\htdocs\turns\app\.idea\vcs.xml" crc="-782377546"/>
 		<file name="C:\xampp\htdocs\turns\app\.idea\modules.xml" crc="-1429091407"/>
 		<file name="C:\xampp\htdocs\turns\app\.idea\misc.xml" crc="-456079630"/>

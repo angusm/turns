@@ -266,6 +266,8 @@ class GameUnit extends AppModel {
 										)									
 									)
 								));
+								
+		return $cardInfo;
 		
 	}
 	

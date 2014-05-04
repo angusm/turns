@@ -22,6 +22,10 @@ jQuery(document).ready( function(){
 
 //Alright let's do this matchmaking stuff
 function gameplay(){	
+
+
+	//VARIABLES
+	this.cardUnitUID = null;
 	
 	//PUBLIC FUNCTION: arrangeUnit
 	//Arrange the unit
@@ -140,6 +144,46 @@ function gameplay(){
 		
 	}
 	
+	//PUBLIC FUNCTION: displayUnitCard
+	//Display the card for a moused over unit
+	this.displayUnitCard = function( triggeredEvent ){
+	
+		//Click unit
+		var mousedOverUnit = jQuery( triggeredEvent.target ).closest( '.gameplayUnit' );
+		
+		//Grab the UID from the unitElement 
+		var mousedOverUnitUID = jQuery( mousedOverUnit ).attr( 'uid' );
+		
+		//Check if this was the last unit we moused over, we don't need to make this call 
+		//twice.
+		if( mousedOverUnitUID != Game_gameplay.cardUnitUID ){
+			
+			Game_gameplay.cardUnitUID = mousedOverUnitUID;
+			
+			//Make the call to the server
+			jQuery.getJSON(
+				homeURL + 'GameUnits/getGameUnitCardInfo', 
+				{
+					uid: mousedOverUnitUID
+				},
+				function( jSONData ){
+					console.log( jSONData );
+				}
+			).done( 
+				function(){
+				}
+			).fail( 
+				function(data){
+				}
+			).always(
+				function(){
+				}
+			);	
+			
+		}
+		
+	}
+	
 	//PUBLIC FUNCTION: endGame
 	//End the game
 	this.endGame = function(){
@@ -223,6 +267,24 @@ function gameplay(){
 			}
 		);
 			
+		
+	}
+	
+	//PUBLIC FUNCTION: handleCardDisplay
+	//Display the unit card containing all of the unit's statistics when it's moused over
+	this.handleCardDisplay = function( unitObject ){
+		
+		//Add the listener to each unit
+		jQuery( '.gameplayUnit[uid="'+unitObject.uid+'"]' ).each( function(){ 
+		
+			if( ! jQuery(this).isBound( 'mouseover', Game_gameplay.displayUnitCard ) ){
+				jQuery(this).bind(
+					'mouseover',
+					Game_gameplay.displayUnitCard
+				)
+			}
+		
+		});
 		
 	}
 	
@@ -613,6 +675,9 @@ function gameplay(){
 
 		//Set the unit's defense and damage display
 		Game_gameplay.updateUnitStats( unitObject );
+		
+		//Add the event handler that will display cards on a mouse over
+		Game_gameplay.handleCardDisplay( unitObject );
 
 		//If the unit is still alive, move it into position
 		if( unitObject.defense > 0 ){
