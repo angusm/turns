@@ -6,8 +6,8 @@
 	}
 
 	div.gameBoard > div.gameTile{
-		height: 70px;
-		width: 	70px;
+		height: 166px;
+		width: 	192px;
 	}
 	
 	div.gameBoardContainer{
@@ -44,11 +44,11 @@
 	}
 	
 	div.gameTile[light="0"]{
-		background-color: #666;
+        background-image: url(../img/Sprites/Tiles/dark.png);
 	}
 	
 	div.gameTile[light="1"]{
-		background-color: #444;
+        background-image: url(../img/Sprites/Tiles/bright.png);
 	}
 	
 	div.gameTile.highlightedForMove{

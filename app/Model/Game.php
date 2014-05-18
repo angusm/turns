@@ -74,7 +74,29 @@ class Game extends AppModel {
 		return $gameStillActive;
 		
 	}
-	
+
+    //PUBLIC FUNCTION: getBoard
+    //Grab the game board
+    public function getBoard( $uid ){
+
+        $gameBoard = $this->find( 'first', array(
+                                    'conditions' => array(
+                                       'Game.uid' => $uid
+                                    ),
+                                    'contain' => array(
+                                        'Board' => array(
+                                            'fields' => array(
+                                                'Board.width',
+                                                'Board.height'
+                                            )
+                                        )
+                                    )
+                                ));
+
+        return $gameBoard['Board'];
+
+    }
+
 	//PUBLIC FUNCTION: getInfoForPlay
 	//There's a bunch of information that's going to be necessary to 
 	//actually play the game, so let's go ahead and get it all.
@@ -327,13 +349,11 @@ class Game extends AppModel {
 		//two players that still have units in the game
 		$gameOver 			= true;
 		$playerFound 		= NULL;
-		$playersFoundCount 	= 0;
 		foreach( $gameInformation['GameUnit'] as $gameUnit ){
 			
 			if( $gameUnit['users_uid'] != $playerFound and $gameUnit['defense'] > 0 ){
-				if( $playersFoundCount == 0 ){
-					$playersFoundCount += 1;
-					$playerFound 		= $gameUnit['users_uid'];					
+				if( $playerFound == NULL ){
+					$playerFound = $gameUnit['users_uid'];
 				}else{
 					$gameOver = false;
 					break;
@@ -570,8 +590,8 @@ class Game extends AppModel {
 										$gameUnit['GameUnit']['turn'], 
 										$gameUnitUID, 
 										$targetX, 
-										$targetY, 
-										$angle,
+										$targetY,
+                                        $angleToCheck,
 										$movePriority,
 										$movementSets['MovementSet']['uid'] );
 									return true;

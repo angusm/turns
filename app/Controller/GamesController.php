@@ -35,7 +35,29 @@ class GamesController extends AppController {
 		
 		
 	}
-	
+
+    //PUBLIC FUNCTION: getGameBoard
+    //Return the details of the current board for the given game
+    public function getGameBoard(){
+
+        //Grab the jsonData
+        $jsonData = $this->params['url'];
+
+        //Grab the game UID
+        $gameUID = $jsonData['gameUID'];
+
+        //Get the board
+        $gameBoard = $this->Game->getBoard( $gameUID );
+
+        //Set it
+        $this->set( 'board', $gameBoard );
+        $this->set( '_serialize', array(
+                        'board'
+                        )
+                    );
+
+    }
+
 	//PUBLIC FUNCTION: getGameUpdate
 	//Return JSON data to a client when they need to know about a 
 	//possible new state of the game
@@ -73,16 +95,12 @@ class GamesController extends AppController {
 		//Grab the game uid
 		$gameUID = $jsonData['gameUID'];
 		$userUID = $this->Auth->user('uid');
-		
-		//Get all that good game information
-		$gameInformation = $this->Game->getInfoForPlay( $gameUID );
-			
+
 		//And everything else will be handled by the View and Javascript
-		//Scary huh?
-		$this->set( 'gameInformation', 	$gameInformation );
-		$this->set( 'userUID',			$userUID );
+		$this->set( 'userUID',	$userUID );
+        $this->set( 'gameUID',  $gameUID );
 	}
-	
+
 	//PUBLIC FUNCTION: processUnitMove
 	//Process the given unit move
 	public function processUnitMove(){

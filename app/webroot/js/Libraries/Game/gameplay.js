@@ -45,19 +45,12 @@ function gameplay(){
 		
 	}
 	
-	this.checkForUpdates = function(){
-		window.setTimeout(function() {
-     		Game_gameplay.getGameUpdate();
-   		}, 1000);
-	}
-
-	
 	//PUBLIC FUNCTION: checkIfSelected
 	//See if the given unit is selected, if it is set the position
 	this.checkIfSelected = function( unitObjectPosition, unitObject ){
 		
 		//Compare the unit object UID with the selected unit UID	
-		if( unitObject.uid == window.selectedUnitUID ){
+		if( unitObject.uid == window.pageData.Game.selected_unit_uid ){
 			Game_gameplay.selectedUnit = unitObject;
 		}
 		
@@ -71,7 +64,7 @@ function gameplay(){
 		if( unitObject.last_movement_priority != "0" ){
 			
 			//If the unti belongs to the current player then process it's selection
-			if( unitObject.users_uid == window.userUID ){
+			if( unitObject.users_uid == window.pageData.User.uid ){
 				
 				//Set the selected unit info
 				Game_gameplay.selectedUnit = unitObject;
@@ -111,10 +104,10 @@ function gameplay(){
 	this.colorUnits = function(){
 		
 		//Loop through all the units
-		jQuery.each( window.gameUnits, function( unitPos, unitObject ){
+		jQuery.each( window.pageData.Game.GameUnit, function( unitPos, unitObject ){
 			
 			//Color the unit according to whose side it's on
-			if( unitObject.users_uid == window.userUID ){
+			if( unitObject.users_uid == window.pageData['User']['uid'] ){
 				jQuery('.gameplayUnit[uid="'+unitObject.uid+'"] > img').pixastic("coloradjust", {red:0,green:0,blue:0.2});
 			}else{
 				jQuery('.gameplayUnit[uid="'+unitObject.uid+'"] > img').pixastic("coloradjust", {red:0.2,green:0,blue:0});
@@ -232,8 +225,8 @@ function gameplay(){
 		jQuery.getJSON(
 			homeURL + 'Games/getGameUpdate', 
 			{
-				gameUID: 		 window.gameUID,
-				lastKnownTurn:	 window.currentTurn
+				gameUID: 		 window.pageData.Game.uid,
+				lastKnownTurn:	 window.pageData.Game.currentTurn
 			},
 			function( jSONData ){
 								
@@ -243,10 +236,12 @@ function gameplay(){
 					
 					//Process the game update			
 					Game_gameplay.processGameUpdate( jSONData );
-						
-						console.log( jSONData );
-						
-						window.asdf = jSONData;
+
+                    //Setup the unit colors
+                    Game_gameplay.colorUnits();
+
+                    //Set everything up for the new turn
+                    Game_gameplay.resetTurnData();
 						
 					//Check if the game's over
 					if( jSONData.gameInformation.game_over == true ){
@@ -291,18 +286,12 @@ function gameplay(){
 	//PUBLIC FUNCTION: handleEverything
 	//Just be Pepper Potts already, do everything
 	this.handleEverything = function(){
-		
-		//Setup the unit colors
-		Game_gameplay.colorUnits();
-		
-		//Set the selectedUnit to a default
-		Game_gameplay.resetSelectedUnit();
-				
-		//Arrange the board and the pieces
-		Game_elements.arrangeStaticElements();
-	
-		//Set everything up for the new turn
-		Game_gameplay.resetTurnData();
+
+        //Arrange the board and the pieces
+        Game_elements.arrangeStaticElements( window.pageData.Game.uid );
+
+        //Get the game data
+        Game_gameplay.getGameUpdate();
 		
 	}
 	
@@ -331,7 +320,7 @@ function gameplay(){
 			//Check to see if there are any units that are on the same space as one
 			//of the highlighted tiles. If there are then add a listener on the unit to
 			//move the selected Unit onto its tile.
-			jQuery.each( window.gameUnits, function( unitIndex, unitObject ){
+			jQuery.each( window.pageData.Game.GameUnit, function( unitIndex, unitObject ){
 								
 				if( parseInt(unitObject.x) == parseInt(highlightedTile.attr('x')) && parseInt(unitObject.y) == parseInt(highlightedTile.attr('y')) ){
 					
@@ -355,7 +344,7 @@ function gameplay(){
 					Game_gameplay.moveSelectedUnitToTile
 				);
 			}
-			
+
 		});
 		
 	}
@@ -365,7 +354,7 @@ function gameplay(){
 	this.handleSelectionOfAnyUnit = function(){
 	
 		//We only want to be adding this once
-		jQuery( '.gameplayUnit[users_uid="'+window.userUID+'"]' ).each( function(){
+		jQuery( '.gameplayUnit[users_uid="'+window.pageData.User.uid+'"]' ).each( function(){
 			
 			if( ! jQuery(this).isBound( 'click', Game_gameplay.selectUnit ) ){
 				jQuery(this).bind( 
@@ -526,7 +515,7 @@ function gameplay(){
 		//Grab the x and y of the game unit that was the target of this event
 		var unitElement = jQuery( triggeredEvent.target ).closest( '.gameplayUnit' );
 		
-		jQuery.each( window.gameUnits, function( unitIndex, unitObject ){
+		jQuery.each( window.pageData.Game.GameUnit, function( unitIndex, unitObject ){
 			
 			if( jQuery(unitElement).attr('uid') == unitObject.uid ){
 				
@@ -548,21 +537,21 @@ function gameplay(){
 	this.processGameUpdate = function( jSONData ){
 		
 		//Set the new turn 
-		window.currentTurn = jSONData.gameInformation.Game.turn;
+		window.pageData.Game.currentTurn = jSONData.gameInformation.Game.turn;
 										
 		//Grab the game update
-		window.gameUnits 		= jSONData.gameInformation.GameUnit;
-		window.selectedUnitUID 	= jSONData.gameInformation.Game.selected_unit_uid;
+		window.pageData.Game.GameUnit 		    = jSONData.gameInformation.GameUnit;
+		window.pageData.Game.selected_unit_uid  = jSONData.gameInformation.Game.selected_unit_uid;
 		
-		if( window.selectedUnitUID == null ){
+		if( window.pageData.Game.selected_unit_uid == null ){
 			Game_gameplay.resetSelectedUnit();
 		}
 
 		//Find whose turn it is
-		if( jSONData.gameInformation.ActiveUser[0].UserGame.users_uid == window.userUID ){
-			window.playersTurn	= true;
+		if( jSONData.gameInformation.ActiveUser[0].UserGame.users_uid == window.pageData['User']['uid'] ){
+			window.pageData.Game.playersTurn	= true;
 		}else{
-			window.playersTurn	= false;
+			window.pageData.Game.playersTurn    = false;
 		}
 		
 		//Reset the turn data
@@ -637,16 +626,16 @@ function gameplay(){
 		Game_gameplay.clearEverything();
 		
 		//Grab the selected unit		
-		jQuery.each( window.gameUnits, Game_gameplay.checkIfSelected );
+		jQuery.each( window.pageData.Game.GameUnit, Game_gameplay.checkIfSelected );
 		
 		//If its the player's turn then setup unit selection,
 		//otherwise setup a timer to check if it's the user's turn yet
-		if( window.playersTurn ){
+		if( window.pageData.Game.playersTurn ){
 			//Handle selecting of the player's units
 			Game_gameplay.handleUnitSelection();
 		}else{
 			//Setup callback timer to get game updates
-			Game_gameplay.checkForUpdates();
+			Game_gameplay.getGameUpdate();
 		}
 		
 	}
@@ -659,11 +648,11 @@ function gameplay(){
 		var clickedUnit = jQuery( triggeredEvent.target ).closest( '.gameplayUnit' );
 		
 		//Grab the UID from the unitElement 
-		window.selectedUnitUID = jQuery( clickedUnit ).attr( 'uid' );
+		window.pageData.Game.selected_unit_uid = jQuery( clickedUnit ).attr( 'uid' );
 		
 		//Loop through the player's units and check if there is a unit with
 		//a move already in progress and select that Unit instead.
-		jQuery.each( window.gameUnits, Game_gameplay.checkIfSelected );
+		jQuery.each( window.pageData.Game.GameUnit, Game_gameplay.checkIfSelected );
 		
 		Game_gameplay.processUnitSelection();
 		
@@ -700,7 +689,7 @@ function gameplay(){
 	this.setupUnits = function(){
 		
 		//Loop through all of the units
-		jQuery.each( window.gameUnits,  Game_gameplay.setupUnit );
+		jQuery.each( window.pageData.Game.GameUnit,  Game_gameplay.setupUnit );
 			
 	}
 	
