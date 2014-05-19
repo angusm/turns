@@ -19,8 +19,8 @@
 		border-color:#000;
 	}
 	div.unitCard img{
-		margin:0px;
-		padding:0px;
+		margin:     0px;
+		padding:    0px;
 	}
 	div.unitCard div{
 		position:absolute;
@@ -110,7 +110,7 @@
 	
 	/* Movement Boxes */
 		div.movementSet{
-			width:
+
 		}
 		div.unitCard div.movementClasses{
 			width:228px;

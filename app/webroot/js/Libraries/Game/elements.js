@@ -3,13 +3,9 @@
 var Game_elements = null;
 
 jQuery(document).ready( function(){
-	
-	Game_elements = new elements();
-	Game_elements.handleEverything();
-
 }); 
 
-function elements(){
+var GameElements = function(){
 
     //Establish the tile width and height
     this.tileHeight  = 108;
@@ -22,8 +18,8 @@ function elements(){
 		var xPos = jQuery( element ).attr( 'x' );
 		var yPos = jQuery( element ).attr( 'y' );
 
-        var nuX = (yPos * Game_elements.tileWidth  / 2 ) - (xPos * Game_elements.tileWidth  / 2 ) + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth );
-        var nuY = (xPos * Game_elements.tileHeight / 2 ) + (yPos * Game_elements.tileHeight / 2 ) + 150;
+        var nuX = (xPos * Game_elements.tileWidth  / 2 ) - (yPos * Game_elements.tileWidth  / 2 ) + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth );
+        var nuY = (yPos * Game_elements.tileHeight / 2 ) + (xPos * Game_elements.tileHeight / 2 ) + 150;
 		
 		jQuery( element ).css({
 			"position"	: "absolute", 
@@ -116,9 +112,9 @@ function elements(){
 
                 //Store the board information
                 window.pageData.Game.Board          = jSONData.board;
-
                 Game_elements.createBoard();
                 Game_elements.arrangeTiles();
+                EventBus.dispatch( "GAME_BOARD_CREATED", Game_elements );
                 //Game_elements.arrangeUnitCard();
 
             }
@@ -134,10 +130,5 @@ function elements(){
         );
 
     }
-
-	//PUBLIC FUNCTION: handleEverything
-	//Setup the tiles
-	this.handleEverything = function(){
-	}
 	
 }

@@ -7,11 +7,12 @@ libraries = new Array();
 var loadedLibraries = new Array();
 
 //PATHS
-var fullPathname = window.location.pathname;
+
 var pathname = window.location.pathname;
 pathname = pathname.split('/').slice( 0,2 ).join('/');
-var jsDirectory = pathname + '/js/';
-var jsLibraryDirectory = pathname + '/js/Libraries/';
+
+var jsLibraryDirectory  = pathname + '/js/Libraries/';
+var imgLibraryDirectory = pathname + '/img/'
 
 //DOCUMENT READY
 //When the document is fully ready, call the main function
@@ -52,7 +53,11 @@ function coreMain(){
 function addStandardLibraries(){
 	libraries.push(
 				new Array( 'Disclosure',		'handleDisclosure' ),
-				new Array( 'EditableSelect',	'editableSelect' )
+				new Array( 'EditableSelect',	'editableSelect' ),
+                new Array( 'Events',            'EventBus' ),
+                new Array( 'Pixastic',          'pixastic.jquery' ),
+                new Array( 'Pixastic',          'pixastic.core' ),
+                new Array( 'Pixastic/actions',  'coloradjust' )
 			);
 
 	return libraries;
@@ -91,13 +96,18 @@ function loadLibraries(){
 			
 			//Add the library we loaded to the list of loaded libraries
 			loadedLibraries.push( libraries[0][0] + '/' + libraries[0][1] + '.js' );
-			
-			//Check to see if there's dependencies to load
-			eval(
-				'if( typeof( loadDependenciesFor_'+libraries[0][0]+'_'+libraries[0][1]+' ) == "function" ){' +
-					'loadDependenciesFor_'+libraries[0][0]+'_'+libraries[0][1]+'();' +
-				'}'
-			);
+
+            //We don't allow the '.'s in the names as it will cause the eval to treat anything after
+            //the period as a function or property of an undefined value, same with slashes
+            var loadDependenciesFunction = 'loadDependenciesFor_'+libraries[0][0]+'_'+libraries[0][1]
+            loadDependenciesFunction = loadDependenciesFunction.replace('.', '_');
+            loadDependenciesFunction = loadDependenciesFunction.replace('/', '_');
+
+            //If the function to load dependencies exists then we load the dependencies
+            if ( eval( 'typeof '+loadDependenciesFunction ) == "function") {
+                eval( loadDependenciesFunction+'();' );
+            }
+
 			//Remove the library we just loaded from our list of things to load
 			libraries = libraries.splice( 1, (libraries.length - 1) );
 			
@@ -118,6 +128,14 @@ function loadLibraries(){
 
 }
 
+/// ----------------------------- OOP FUNCTIONS ------------------------------------
+
+//FUNCTION: extend
+//Extends classes, OOP YAY!
+function extend(ChildClass, ParentClass) {
+    ChildClass.prototype = new ParentClass();
+    ChildClass.prototype.constructor = ChildClass;
+}
 
 /// ----------------------------- UTILITY FUNCTIONS ------------------------------------
 
@@ -129,7 +147,7 @@ function loadLibraries(){
 jQuery.fn.isBound = function(eventType, callBackFunction) {
 
 	//To do this we've got to grab some data from the jQuery library
-	var eventData = jQuery._data(this[0], 'events');
+	var eventData   = jQuery._data(this[0], 'events');
 	var returnValue = false;
 	
 	//If there's no event data then there can't be a bound function
@@ -138,20 +156,22 @@ jQuery.fn.isBound = function(eventType, callBackFunction) {
 	}
 	
 	//If there's nothing bound to the event, then our function can't be bound
-	if( ! jQuery.inArray(eventType, eventData) ){
+	if( ! jQuery.inArray(eventType, eventData) || eventData[eventType] == undefined){
 		return false;
 	}
-	
+
 	//We now know there is functions bound the the given event, it's our job
 	//to loop through them and see if any of them are the one we're looking for
-	jQuery.each( eventData[eventType], function( indexKey, value ){
-		
-		if( value['handler'] == callBackFunction ){
-			returnValue = true;				
-		}
-		
-	});
-	
+    if( eventData[eventType].length != 0 ){
+        jQuery.each( eventData[eventType], function( indexKey, value ){
+
+            if( value['handler'] == callBackFunction ){
+                returnValue = true;
+            }
+
+        });
+    }
+
 	//Return the result
     return returnValue;
 	

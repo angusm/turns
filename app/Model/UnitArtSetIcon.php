@@ -5,7 +5,11 @@ class UnitArtSetIcon extends AppModel {
 							'Icon' => array(
 								'className'		=> 'Icon',
 								'foreignKey'	=> 'icons_uid'
-							)
+							),
+                            'UnitArtSet' => array(
+                                'className'     => 'UnitArtSet',
+                                'foreignKey'    => 'unit_art_sets_uid'
+                            )
 						);
 
 	//Override the constructor so that we can set the variables our way

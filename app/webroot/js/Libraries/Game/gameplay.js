@@ -14,34 +14,51 @@ var loadDependenciesFor_Game_gameplay = function(){
 //When the document is fully ready, call the main function
 jQuery(document).ready( function(){
 
-	Game_elements = new elements();
-	Game_gameplay = new gameplay();
+	Game_elements = new GameElements();
+	Game_gameplay = new Gameplay();
 	Game_gameplay.handleEverything();
 
 });
 
 //Alright let's do this matchmaking stuff
-function gameplay(){	
+var Gameplay = function(){
 
 
 	//VARIABLES
 	this.cardUnitUID = null;
+    this.boardReady  = false;
 	
 	//PUBLIC FUNCTION: arrangeUnit
 	//Arrange the unit
 	this.arrangeUnit = function( unitObject ){
-			
-		var nuX = unitObject.x * 70;
-		var nuY = unitObject.y * 70;
-		
+
+        var gameplayUnitDOMElement = jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]');
+
+        var unitWidth   = gameplayUnitDOMElement.width();
+        var unitHeight  = gameplayUnitDOMElement.height();
+
+        var xPos = unitObject.x;
+        var yPos = unitObject.y;
+
+        var nuX     = (xPos * Game_elements.tileWidth  / 2 )
+                    - (yPos * Game_elements.tileWidth  / 2 )
+                    + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth )
+                    + (Game_elements.tileWidth  / 2)
+                    - (unitWidth                / 2);
+
+        var nuY     = (yPos * Game_elements.tileHeight  / 2 )
+                    + (xPos * Game_elements.tileHeight  / 2 )
+                    - ( unitHeight                      - 70 )
+                    + 150;
+
 		jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).animate(
 																{
-																	"position"	: "absolute", 
-																	"left"		: nuX + "px",
-																	"top"		: nuY + "px"
+																	'position'	: 'absolute',
+																	'left'		: nuX + 'px',
+																	'top'		: nuY + 'px'
 																},
 																1000
-																);
+															);
 		
 	}
 	
@@ -102,7 +119,7 @@ function gameplay(){
 	//PUBLIC FUNCTION: colorUnits
 	//Color the units according to the player
 	this.colorUnits = function(){
-		
+
 		//Loop through all the units
 		jQuery.each( window.pageData.Game.GameUnit, function( unitPos, unitObject ){
 			
@@ -116,6 +133,59 @@ function gameplay(){
 		});
 	
 	}
+
+    //PUBLIC FUNCTION: createUnitDOMElement
+    //Create the unit DOM element
+    this.createUnitDOMElement = function( unitObject ){
+
+        //See if we can grab the element
+        var elementExists = false;
+        jQuery( '.gameplayUnit[uid="'+unitObject.uid+'"]').each( function(){
+           elementExists = true;
+        });
+
+        //Grab the icons
+        var boardIcon       = '';
+
+        //If the element doesn't exist then create it
+        if( elementExists == false ){
+            //Create the div
+            jQuery.each( unitObject.UnitArtSet.UnitArtSetIcon, function( iconPos, unitArtSetIcon ){
+
+                var iconPosition    = unitArtSetIcon.Icon.icon_positions_uid;
+                switch( iconPosition ){
+
+                    case "3":
+                        boardIcon = unitArtSetIcon.Icon.image;
+
+                }
+
+            });
+            var gameplayUnitDiv =   '<div uid="'+unitObject.uid+'" class="gameplayUnit" users_uid="'+unitObject.users_uid+'">' +
+                                        '<img src="' + imgLibraryDirectory + boardIcon + '" />' +
+                                        '<div class="gameplayUnitAttack">' +
+                                            unitObject.damage +
+                                        '</div>' +
+                                        '<div class="gameplayUnitDefense">' +
+                                            unitObject.defense +
+                                        '</div>' +
+                                    '</div>';
+
+            //Place the unit on the board
+            jQuery( 'div.gameBoard' ).append( gameplayUnitDiv );
+
+            //Color the unit according to whose side it's on
+            jQuery('.gameplayUnit[uid="'+unitObject.uid+'"] > img').load( function(){
+                if( unitObject.users_uid == window.pageData['User']['uid'] ){
+                    jQuery(this).pixastic("coloradjust", {red:0,green:0,blue:0.2});
+                }else{
+                    jQuery(this).pixastic("coloradjust", {red:0.2,green:0,blue:0});
+                }
+            });
+
+        }
+
+    }
 	
 	//PUBLIC FUNCTION: disallowSelectChange
 	//Remove the ability to select any new units or deselect a currently
@@ -160,7 +230,7 @@ function gameplay(){
 					uid: mousedOverUnitUID
 				},
 				function( jSONData ){
-					console.log( jSONData );
+					//console.log( jSONData );
 				}
 			).done( 
 				function(){
@@ -237,12 +307,6 @@ function gameplay(){
 					//Process the game update			
 					Game_gameplay.processGameUpdate( jSONData );
 
-                    //Setup the unit colors
-                    Game_gameplay.colorUnits();
-
-                    //Set everything up for the new turn
-                    Game_gameplay.resetTurnData();
-						
 					//Check if the game's over
 					if( jSONData.gameInformation.game_over == true ){
 						Game_gameplay.endGame();
@@ -286,6 +350,14 @@ function gameplay(){
 	//PUBLIC FUNCTION: handleEverything
 	//Just be Pepper Potts already, do everything
 	this.handleEverything = function(){
+
+        //Trigger the flag that indicates when the board has been setup
+        EventBus.addEventListener("GAME_BOARD_CREATED", function(){
+
+            //Get the game data
+            Game_gameplay.boardReady = true;
+
+        }, Game_elements );
 
         //Arrange the board and the pieces
         Game_elements.arrangeStaticElements( window.pageData.Game.uid );
@@ -537,12 +609,24 @@ function gameplay(){
 	this.processGameUpdate = function( jSONData ){
 		
 		//Set the new turn 
-		window.pageData.Game.currentTurn = jSONData.gameInformation.Game.turn;
+		window.pageData.Game.currentTurn        = jSONData.gameInformation.Game.turn;
 										
-		//Grab the game update
-		window.pageData.Game.GameUnit 		    = jSONData.gameInformation.GameUnit;
+		//Grab the game update, if we have no previous update then we can just do a direct pass
+        if( window.pageData.Game.GameUnit == undefined ){
+
+            window.pageData.Game.GameUnit       = jSONData.gameInformation.GameUnit;
+
+        //If we already have all the static information we only want to update the dynamic data
+        }else{
+            jQuery.each( jSONData.gameInformation.GameUnit, function( gameUnitIndex, gameUnitData ){
+                jQuery.each( jSONData.gameInformation.GameUnit[gameUnitIndex], function( newKey, newValue ){
+                   window.pageData.Game.GameUnit[gameUnitIndex][newKey] = newValue;
+                });
+            });
+        }
+
+        //Note the selected unit
 		window.pageData.Game.selected_unit_uid  = jSONData.gameInformation.Game.selected_unit_uid;
-		
 		if( window.pageData.Game.selected_unit_uid == null ){
 			Game_gameplay.resetSelectedUnit();
 		}
@@ -618,26 +702,40 @@ function gameplay(){
 	//PUBLIC FUNCTION: resetTurnData
 	//Reset everything as if a unit has never moved
 	this.resetTurnData = function(){
-		
-		//Reposition all the units
-		Game_gameplay.setupUnits();
-		
-		//Clear everything
-		Game_gameplay.clearEverything();
-		
-		//Grab the selected unit		
-		jQuery.each( window.pageData.Game.GameUnit, Game_gameplay.checkIfSelected );
-		
-		//If its the player's turn then setup unit selection,
-		//otherwise setup a timer to check if it's the user's turn yet
-		if( window.pageData.Game.playersTurn ){
-			//Handle selecting of the player's units
-			Game_gameplay.handleUnitSelection();
-		}else{
-			//Setup callback timer to get game updates
-			Game_gameplay.getGameUpdate();
-		}
-		
+
+        if( ! Game_gameplay.boardReady ){
+
+            //Don't setup the game until the board is ready
+            EventBus.addEventListener("GAME_BOARD_CREATED", function(){
+
+                Game_gameplay.boardReady = true;
+                Game_gameplay.resetTurnData();
+
+            }, Game_elements );
+
+        }else{
+
+            //Reposition all the units
+            Game_gameplay.setupUnits();
+
+            //Clear everything
+            Game_gameplay.clearEverything();
+
+            //Grab the selected unit
+            jQuery.each( window.pageData.Game.GameUnit, Game_gameplay.checkIfSelected );
+
+            //If its the player's turn then setup unit selection,
+            //otherwise setup a timer to check if it's the user's turn yet
+            if( window.pageData.Game.playersTurn ){
+                //Handle selecting of the player's units
+                Game_gameplay.handleUnitSelection();
+            }else{
+                //Setup callback timer to get game updates
+                Game_gameplay.getGameUpdate();
+            }
+
+        }
+
 	}
 	
 	//PUBLIC FUNCTION: selectUnit
@@ -661,6 +759,10 @@ function gameplay(){
 	//PUBLIC FUNCTION: setupUnit
 	//Setup the given unit
 	this.setupUnit = function( unitObjectPosition, unitObject ){
+
+        //Create the DOM element for the unit if it doesn't
+        //already exist
+        Game_gameplay.createUnitDOMElement( unitObject );
 
 		//Set the unit's defense and damage display
 		Game_gameplay.updateUnitStats( unitObject );
@@ -690,6 +792,9 @@ function gameplay(){
 		
 		//Loop through all of the units
 		jQuery.each( window.pageData.Game.GameUnit,  Game_gameplay.setupUnit );
+
+        //Setup the unit colors
+        Game_gameplay.colorUnits();
 			
 	}
 	
@@ -705,33 +810,42 @@ function gameplay(){
 	//PUBLIC FUNCTION: unhighlightUnitPaths
 	//Remove all the paths for the selected unit
 	this.unhighlightUnitPaths = function(){
-		
-		//Remove the event listeners from any units
-		jQuery( '.gameplayUnit' ).each( function(){
-			
-			if( jQuery(this).isBound( 'click', Game_gameplay.moveSelectedUnitToUnit ) ){
-				jQuery(this).unbind(
-					'click',
-					Game_gameplay.moveSelectedUnitToUnit
-				);	
-			}
-			
-		});
-		
-		//Remove the event listener for the highlighted tiles
-		jQuery( '.highlightedForMove' ).each( function(){
-			
-			if( jQuery(this).isBound( 'click', Game_gameplay.moveSelectedUnitToTile ) ){
-				jQuery(this).unbind( 
-					'click',
-					Game_gameplay.moveSelectedUnitToTile
-				);
-			}
-			
-		});
-		
-		//Remove the highlighted class
-		jQuery( '.highlightedForMove' ).removeClass( 'highlightedForMove' );
+
+        var gameplayUnitDOMElements         = jQuery('.gameplayUnit');
+        var highlightedForMoveDOMElements   = jQuery('.highlightedForMove');
+
+        //Do nothing if there's nothing to do anything to
+        if( gameplayUnitDOMElements.length != 0 ){
+            //Remove the event listeners from any units
+            jQuery.each( gameplayUnitDOMElements, function(){
+
+                if( jQuery(this).isBound( 'click', Game_gameplay.moveSelectedUnitToUnit ) ){
+                        jQuery(this).unbind(
+                        'click',
+                        Game_gameplay.moveSelectedUnitToUnit
+                    );
+                }
+
+            });
+        }
+
+        //Do nothing if there's nothing to do anything to
+        if( highlightedForMoveDOMElements.length != 0 ){
+            //Remove the event listener for the highlighted tiles
+            jQuery.each( highlightedForMoveDOMElements, function(){
+
+                if( jQuery(this).isBound( 'click', Game_gameplay.moveSelectedUnitToTile ) ){
+                    jQuery(this).unbind(
+                        'click',
+                        Game_gameplay.moveSelectedUnitToTile
+                    );
+                }
+                //Remove the highlighted class
+                jQuery(this).removeClass('highlightedForMove');
+
+            });
+
+        }
 		
 	}
 	

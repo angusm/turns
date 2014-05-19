@@ -202,174 +202,188 @@ class Game extends AppModel {
 		//just return FALSE
 		if( $lastKnownTurn == $currentTurn ){
 			return FALSE;
-		}
-											
-		//Grab the minimal information
-		$gameInformation 	= $this->find( 'first', array(
-									'conditions' => array(
-										'Game.uid' => $uid
-									),
-									'contain' => array(
-										'ActiveUser' => array(
-											'conditions' => array(
-												'ActiveUser.turn' => $currentTurn
-											),
-											'fields' => array(
-												'ActiveUser.uid',
-												'ActiveUser.games_uid',
-												'ActiveUser.user_games_uid'
-											),
-											'UserGame' => array(
-												'fields' => array(
-													'UserGame.uid',
-													'UserGame.users_uid'
-												)
-											)
-										),
-										'GameUnit' => array(
-											'conditions' => array(
-												'GameUnit.turn' => $currentTurn
-											),
-											'fields' => array(
-												'GameUnit.uid',
-												'GameUnit.damage',
-												'GameUnit.defense',
-												'GameUnit.last_movement_angle',
-												'GameUnit.last_movement_priority',
-												'GameUnit.movement_sets_uid',
-												'GameUnit.previous_game_unit_uid',
-												'GameUnit.game_unit_stats_uid',
-												'GameUnit.users_uid',
-												'GameUnit.x',
-												'GameUnit.y'
-											),
-											'GameUnitStat' => array(
-												'fields' => array(
-													'GameUnitStat.uid',
-													'GameUnitStat.damage',
-													'GameUnitStat.defense',
-													'GameUnitStat.name'
-												),
-												'GameUnitStatMovementSet' => array(
-													'fields' => array(
-														'GameUnitStatMovementSet.uid',
-														'GameUnitStatMovementSet.movement_sets_uid',
-														'GameUnitStatMovementSet.game_unit_stats_uid'
-													),
-													'MovementSet' => array(
-														'fields' => array(
-															'MovementSet.uid',
-															'MovementSet.name'
-														),
-														'Movement' => array(
-															'fields' => array(
-																'Movement.uid',
-																'Movement.movement_sets_uid',
-																'Movement.must_move_all_the_way',
-																'Movement.spaces'
-															),
-															'MovementDirectionSet' => array(
-																'fields' => array(
-																	'MovementDirectionSet.uid',
-																	'MovementDirectionSet.movements_uid',
-																	'MovementDirectionSet.direction_sets_uid'
-																),
-																'DirectionSet' => array(
-																	'fields' => array(
-																		'DirectionSet.uid'
-																	),
-																	'DirectionSetDirection' => array(
-																		'fields' => array(
-																			'DirectionSetDirection.uid',
-																			'DirectionSetDirection.direction_sets_uid',
-																			'DirectionSetDirection.directions_uid'
-																		),
-																		'Direction' => array(
-																			'fields' => array(
-																				'Direction.uid',
-																				'Direction.angle'
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											),
-											'MovementSet' => array(
-												'fields' => array(
-													'MovementSet.uid',
-													'MovementSet.name'
-												),
-												'Movement' => array(
-													'fields' => array(
-														'Movement.uid',
-														'Movement.movement_sets_uid',
-														'Movement.must_move_all_the_way',
-														'Movement.spaces'
-													),
-													'MovementDirectionSet' => array(
-														'fields' => array(
-															'MovementDirectionSet.uid',
-															'MovementDirectionSet.movements_uid',
-															'MovementDirectionSet.direction_sets_uid'
-														),
-														'DirectionSet' => array(
-															'fields' => array(
-																'DirectionSet.uid',
-																'DirectionSet.name'
-															),
-															'DirectionSetDirection' => array(
-																'fields' => array(
-																	'DirectionSetDirection.uid',
-																	'DirectionSetDirection.direction_sets_uid',
-																	'DirectionSetDirection.directions_uid'
-																),
-																'Direction' => array(
-																	'fields' => array(
-																		'Direction.uid',
-																		'Direction.angle'
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									),
-									'fields' => array(
-										'Game.turn',
-										'Game.selected_unit_uid'
-									)
-								));
+		}else{
 
-		//Loop through the game information and make sure there's at least
-		//two players that still have units in the game
-		$gameOver 			= true;
-		$playerFound 		= NULL;
-		foreach( $gameInformation['GameUnit'] as $gameUnit ){
-			
-			if( $gameUnit['users_uid'] != $playerFound and $gameUnit['defense'] > 0 ){
-				if( $playerFound == NULL ){
-					$playerFound = $gameUnit['users_uid'];
-				}else{
-					$gameOver = false;
-					break;
-				}				
-			}
-			
-		}
-		
-		//Now that we know whether or not the game is over, we can store that
-		//in the game information
-		$gameInformation['game_over'] = $gameOver;
+            //Establish the game unit array
+            $gameUnitArray = array(
+                'conditions' => array(
+                    'GameUnit.turn' => $currentTurn
+                ),
+                'fields' => array(
+                    'GameUnit.uid',
+                    'GameUnit.damage',
+                    'GameUnit.defense',
+                    'GameUnit.last_movement_angle',
+                    'GameUnit.last_movement_priority',
+                    'GameUnit.movement_sets_uid',
+                    'GameUnit.previous_game_unit_uid',
+                    'GameUnit.game_unit_stats_uid',
+                    'GameUnit.users_uid',
+                    'GameUnit.x',
+                    'GameUnit.y'
+                )
+            );
 
-		//Alright now that we've pretty much downloaded the internet with
-		//that fucking bloated find, let's return that mess so that we can
-		//do more work with it somewhere the fuck else
-		return $gameInformation;
+            //If we're on the first turn (that the player knows about) we add to it
+            if( $lastKnownTurn == 0 ){
+                $gameUnitArray['GameUnitStat'] = array(
+                    'fields' => array(
+                        'GameUnitStat.uid',
+                        'GameUnitStat.damage',
+                        'GameUnitStat.defense',
+                        'GameUnitStat.name'
+                    ),
+                    'GameUnitStatMovementSet' => array(
+                        'fields' => array(
+                            'GameUnitStatMovementSet.uid',
+                            'GameUnitStatMovementSet.movement_sets_uid',
+                            'GameUnitStatMovementSet.game_unit_stats_uid'
+                        ),
+                        'MovementSet' => array(
+                            'fields' => array(
+                                'MovementSet.uid',
+                                'MovementSet.name'
+                            ),
+                            'Movement' => array(
+                                'fields' => array(
+                                    'Movement.uid',
+                                    'Movement.movement_sets_uid',
+                                    'Movement.must_move_all_the_way',
+                                    'Movement.spaces'
+                                ),
+                                'MovementDirectionSet' => array(
+                                    'fields' => array(
+                                        'MovementDirectionSet.uid',
+                                        'MovementDirectionSet.movements_uid',
+                                        'MovementDirectionSet.direction_sets_uid'
+                                    ),
+                                    'DirectionSet' => array(
+                                        'fields' => array(
+                                            'DirectionSet.uid'
+                                        ),
+                                        'DirectionSetDirection' => array(
+                                            'fields' => array(
+                                                'DirectionSetDirection.uid',
+                                                'DirectionSetDirection.direction_sets_uid',
+                                                'DirectionSetDirection.directions_uid'
+                                            ),
+                                            'Direction' => array(
+                                                'fields' => array(
+                                                    'Direction.uid',
+                                                    'Direction.angle'
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                );
+                $gameUnitArray['UnitArtSet'] = array(
+                    'UnitArtSetIcon' => array(
+                        'Icon'
+                    )
+                );
+                $gameUnitArray['MovementSet'] = array(
+                    'fields' => array(
+                        'MovementSet.uid',
+                        'MovementSet.name'
+                    ),
+                    'Movement' => array(
+                        'fields' => array(
+                            'Movement.uid',
+                            'Movement.movement_sets_uid',
+                            'Movement.must_move_all_the_way',
+                            'Movement.spaces'
+                        ),
+                        'MovementDirectionSet' => array(
+                            'fields' => array(
+                                'MovementDirectionSet.uid',
+                                'MovementDirectionSet.movements_uid',
+                                'MovementDirectionSet.direction_sets_uid'
+                            ),
+                            'DirectionSet' => array(
+                                'fields' => array(
+                                    'DirectionSet.uid',
+                                    'DirectionSet.name'
+                                ),
+                                'DirectionSetDirection' => array(
+                                    'fields' => array(
+                                        'DirectionSetDirection.uid',
+                                        'DirectionSetDirection.direction_sets_uid',
+                                        'DirectionSetDirection.directions_uid'
+                                    ),
+                                    'Direction' => array(
+                                        'fields' => array(
+                                            'Direction.uid',
+                                            'Direction.angle'
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                );
+            }
+
+            //Grab the minimal information
+            $gameInformation 	= $this->find( 'first', array(
+                                        'conditions' => array(
+                                            'Game.uid' => $uid
+                                        ),
+                                        'contain' => array(
+                                            'ActiveUser' => array(
+                                                'conditions' => array(
+                                                    'ActiveUser.turn' => $currentTurn
+                                                ),
+                                                'fields' => array(
+                                                    'ActiveUser.uid',
+                                                    'ActiveUser.games_uid',
+                                                    'ActiveUser.user_games_uid'
+                                                ),
+                                                'UserGame' => array(
+                                                    'fields' => array(
+                                                        'UserGame.uid',
+                                                        'UserGame.users_uid'
+                                                    )
+                                                )
+                                            ),
+                                            'GameUnit' => $gameUnitArray
+                                        ),
+                                        'fields' => array(
+                                            'Game.turn',
+                                            'Game.selected_unit_uid'
+                                        )
+                                    ));
+
+            //Loop through the game information and make sure there's at least
+            //two players that still have units in the game
+            $gameOver 		= true;
+            $playerFound    = NULL;
+            foreach( $gameInformation['GameUnit'] as $gameUnit ){
+
+                if( $gameUnit['users_uid'] != $playerFound and $gameUnit['defense'] > 0 ){
+                    if( $playerFound == NULL ){
+                        $playerFound = $gameUnit['users_uid'];
+                    }else{
+                        $gameOver = false;
+                        break;
+                    }
+                }
+
+            }
+
+            //Now that we know whether or not the game is over, we can store that
+            //in the game information
+            $gameInformation['game_over'] = $gameOver;
+
+            //Alright now that we've pretty much downloaded the internet with
+            //that fucking bloated find, let's return that mess so that we can
+            //do more work with it somewhere the fuck else
+            return $gameInformation;
+
+        }
 		
 	}
 	

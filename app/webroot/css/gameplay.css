@@ -6,39 +6,41 @@
 	}
 
 	div.gameBoard > div.gameTile{
-		height: 166px;
-		width: 	192px;
+        position:   relative;
+		height:     166px;
+		width: 	    192px;
 	}
 	
-	div.gameBoardContainer{
-		position: relative;
+	div.gameBoard{
+		position: absolute;
 	}
 	
 	div.gameplayUnit{
-		left:		245px;
-		position:	absolute;	
-		top:		245px;
+        position:	absolute;
+        height:     70px;
+        width:      70px;
 	}
 	
 	div.gameplayUnitDefense{
-		bottom: 0;
-		font-size: 18px;
-		font-weight: bold;
-		left: 0;
-		padding: 5px;
-		position: absolute;
+		bottom:         0px;
+		font-size:      18px;
+		font-weight:    bold;
+		left:           0px;
+		padding:        5px;
+		position:       absolute;
 	}
 	
 	div.gameplayUnitAttack{
-		bottom: 0;
-		font-size: 18px;
-		font-weight: bold;
-		padding: 5px;
-		position: absolute;
-		right: 0;
+		bottom:         0px;
+		font-size:      18px;
+		font-weight:    bold;
+		padding:        5px;
+		position:       absolute;
+		right:          0px;
 	}
 	
 	div.gameplayUnit img{
+        position:   absolute;
 		height:		100%;
 		width:		100%;
 	}
@@ -51,6 +53,10 @@
         background-image: url(../img/Sprites/Tiles/bright.png);
 	}
 	
-	div.gameTile.highlightedForMove{
-   		background-color: #DDD;
-	}
+	div.gameTile.highlightedForMove[light="0"]{
+        background-image: url(../img/Sprites/Tiles/darkHighlighted.png);
+    }
+
+    div.gameTile.highlightedForMove[light="1"]{
+        background-image: url(../img/Sprites/Tiles/brightHighlighted.png);
+    }
