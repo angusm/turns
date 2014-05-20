@@ -273,13 +273,12 @@ class GameUnit extends AppModel {
 	
 	//PRIVATE FUNCTION: moveGameUnitToNextTurn
 	//Move the game unit to the next turn
-	private function moveGameUnitToNextTurn( $unitToMove, $originalGameUnit ){
+	private function moveGameUnitToNextTurn( $unitToMove ){
 	
 		//Update the turn
-		$unitToMove['GameUnit']['turn'] = $unitToMove['GameUnit']['turn'] + 1;
+		$unitToMove['GameUnit']['turn']++;
 						
 		//Move the unit up
-		$unitToMove['GameUnit']['previous_game_unit_uid'] = $originalGameUnit['GameUnit']['uid'];
 		$unitToMoveGameUnit = $unitToMove['GameUnit'];
 		$unitToMove = array(
 						'GameUnit' => $unitToMoveGameUnit
@@ -311,29 +310,45 @@ class GameUnit extends AppModel {
 		//Grab the relevant units
 		$unitsToMove = $this->find( 'all', array(
 							'conditions' => array(
-								'GameUnit.games_uid'	=> $gameUID,
-								'GameUnit.turn' 		=> $turn,
+                                'GameUnit.defense >'    => 0,
+                                'GameUnit.games_uid'	=> $gameUID,
+                                'GameUnit.turn <=' 		=> $turn,
 								'GameUnit.uid NOT'		=> $gameUnitUID
 							),
 							'contain' => array(
 								'GameUnitStat'
-							)
+							),
+                            'fields' => array(
+                                'GameUnit.uid',
+                                'GameUnit.damage',
+                                'GameUnit.defense',
+                                'GameUnit.last_movement_angle',
+                                'GameUnit.last_movement_priority',
+                                'GameUnit.movement_sets_uid',
+                                'DISTINCT GameUnit.game_identifier',
+                                'GameUnit.game_unit_stats_uid',
+                                'GameUnit.users_uid',
+                                'GameUnit.x',
+                                'GameUnit.y'
+                            ),
+                            'order' => array(
+                                'GameUnit.turn DESC'
+                            )
 						));
-						
+
 		$movedUnit 	= $this->find( 'first', array(
 							'conditions' => array(
 								'GameUnit.games_uid'	=> $gameUID,
-								'GameUnit.turn' 		=> $turn,
+								'GameUnit.turn <=' 		=> $turn,
 								'GameUnit.uid'			=> $gameUnitUID
 							),
 							'contain' => array(
 								'GameUnitStat'
 							)
-						));
-						
+                        ));
 			
 		//Store the original unit so we can record a record of it.
-		$originalGameUnit = $this->storeOriginalUnit( $movedUnit );
+		$this->storeOriginalUnit( $movedUnit );
 			
 		//Update the values
 		$movedUnit['GameUnit']['x'] 						= $targetX;
@@ -349,6 +364,9 @@ class GameUnit extends AppModel {
 		//with the new priority
 		$movementModelInstance = ClassRegistry::init( 'Movement' );
 		$validNextMove = $movementModelInstance->find( 'first', array(
+                                                            'fields' => array(
+                                                                'Movement.uid'
+                                                            ),
 															'conditions' => array(
 																'movement_sets_uid' => $movementSetUID,
 																'priority'			=> $movedUnit['GameUnit']['last_movement_priority']
@@ -362,73 +380,86 @@ class GameUnit extends AppModel {
 			$movedUnit['GameUnit']['last_movement_angle'] 		= 0;
 			$movedUnit['GameUnit']['movement_sets_uid'] 		= NULL;
 			$this->selectUnit( NULL, $gameUID );
+            $preserveDamage = false;
 		}else{
-			$this->selectUnit( $gameUnitUID, $gameUID );	
+			$this->selectUnit( $gameUnitUID, $gameUID );
+            $preserveDamage = true;
 		}
-					
-		//Loop through the found units and bump them up as a new record
+
+		//Loop through the found units and make a list of any that need to be updated
+        //We use this to check if the damage should be preserved
 		foreach( $unitsToMove as $unitToMoveIndex => $unitToMove ){
-			
-			//If the unit is going to live we store its original
-			if( $unitToMove['GameUnit']['defense'] > 0 ){
-				//Store the original unit so we have a record of it.
-				$originalGameUnit = $this->storeOriginalUnit( $unitToMove );
-			}else{
-				//If the unit was already dead, drop it
-				unset( $unitsToMove[$unitToMoveIndex] );
-			}
-			
-			//We need to check if the current unit was positioned where the moved 
-			//unit landed, if this is the case then we have some serious work cut 
+
+			//We need to check if the current unit was positioned where the moved
+			//unit landed, if this is the case then we have some serious work cut
 			//out for us
-			if( $unitToMove['GameUnit']['x'] == $targetX and $unitToMove['GameUnit']['y'] == $targetY and $validNextMove == false){
+			if( $unitToMove['GameUnit']['x'] == $targetX and
+                $unitToMove['GameUnit']['y'] == $targetY and
+                $validNextMove == false ){
 
 				//Well looks like the moved unit bumped another unit, now we need
 				//to check if the bumped unit was friendly or an enemy
 				if( $unitToMove['GameUnit']['users_uid'] == $movedUnit['GameUnit']['users_uid'] ){
 
 					//If the unit is friendly then buff the damage of the bumped unit
+                    $this->storeOriginalUnit( $unitToMove );
 					$unitToMove['GameUnit']['damage'] += $movedUnit['GameUnit']['damage'];
 					$this->selectUnit( $unitToMove['GameUnit']['uid'], $gameUID );
+                    $preserveDamage = true;
 
 				}else{
-					
+
 					//If the unit is an enemy check if the moved unit has enough damage
 					//to destroy it or if the moved unit should be destroyed.
 					if( $unitToMove['GameUnit']['defense'] > $movedUnit['GameUnit']['damage'] ){
-						$movedUnit['GameUnit']['defense']  = 0;
+						$movedUnit['GameUnit']['defense']   = 0;
 					}else{
-						$unitToMove['GameUnit']['defense'] = 0;
+                        $this->storeOriginalUnit( $unitToMove );
+						$unitToMove['GameUnit']['defense']  = 0;
+                        $this->moveGameUnitToNextTurn( $unitToMove );
 					}
 					$this->selectUnit( NULL, $gameUID );
-					
+
 				}
-				
-			}
-			
-			$unitsToMove[$unitToMoveIndex] = $unitToMove;
-									
-		}	
-		//Check if there's a currently selected unit for the game if there isn't then we need
-		//to reset the attack damage of all units
-		$gameModelInstance = ClassRegistry::init( 'Game' );
-		$preserveDamage = $gameModelInstance->isAUnitSelected( $gameUID );
-		if( ! $preserveDamage ){
-			$movedUnit['GameUnit']['damage'] = $movedUnit['GameUnitStat']['damage'];
-			foreach( $unitsToMove as $unitToMove ){
-				$unitToMove['GameUnit']['damage'] = $unitToMove['GameUnitStat']['damage'];
-			}
+
+                $unitsToMove[$unitToMoveIndex] = $unitToMove;
+
+            //Unset any unaffected units that were already dead
+			}else{
+
+                //If the unit was already dead, drop it
+                if( $unitToMove['GameUnit']['defense'] < 1 ){
+                    unset( $unitsToMove[$unitToMoveIndex] );
+                }
+
+            }
+
 		}
-				
-		//Now we move all of the units to the next turn	
-		foreach( $unitsToMove as $unitToMove ){
-			
-			$this->moveGameUnitToNextTurn( $unitToMove, $originalGameUnit );
-			
+		//If we're not going to be preserving the damage then we must move any units with a higher
+        //damage then their default to the next turn with restored default damage
+		if( ! $preserveDamage ){
+
+            //Reset the moved unit's damage
+			$movedUnit['GameUnit']['damage'] = $movedUnit['GameUnitStat']['damage'];
+
+            //Loop through and reset unmoved units damage as necessary, other units are removed
+			foreach( $unitsToMove as $unitToMove ){
+                if( $unitToMove['GameUnit']['damage']   != $unitToMove['GameUnitStat']['damage'] and
+                    $unitToMove['GameUnit']['defense']  != 0 ){
+
+                    //Store the original unit and then update the unit
+                    $this->storeOriginalUnit( $unitToMove );
+				    $unitToMove['GameUnit']['damage'] = $unitToMove['GameUnitStat']['damage'];
+                    $this->moveGameUnitToNextTurn( $unitToMove );
+
+                }else{
+                    unset( $unitsToMove[$unitToMoveIndex] );
+                }
+			}
 		}
 		
 		//Move the unit that moved
-		$this->moveGameUnitToNextTurn( $movedUnit, $originalGameUnit );	
+		$this->moveGameUnitToNextTurn( $movedUnit );
 				
 		
 	}

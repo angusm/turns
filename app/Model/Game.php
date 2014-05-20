@@ -207,7 +207,8 @@ class Game extends AppModel {
             //Establish the game unit array
             $gameUnitArray = array(
                 'conditions' => array(
-                    'GameUnit.turn' => $currentTurn
+                    'GameUnit.turn <= '     => $currentTurn,
+                    'GameUnit.defense > '   => 0
                 ),
                 'fields' => array(
                     'GameUnit.uid',
@@ -216,11 +217,14 @@ class Game extends AppModel {
                     'GameUnit.last_movement_angle',
                     'GameUnit.last_movement_priority',
                     'GameUnit.movement_sets_uid',
-                    'GameUnit.previous_game_unit_uid',
+                    'DISTINCT GameUnit.game_identifier',
                     'GameUnit.game_unit_stats_uid',
                     'GameUnit.users_uid',
                     'GameUnit.x',
                     'GameUnit.y'
+                ),
+                'order' => array(
+                    'GameUnit.turn DESC'
                 )
             );
 
