@@ -222,12 +222,14 @@ class TeamUnit extends AppModel {
 		
 		//PUBLIC FUNCTION: getUnitsOnTeam
 		//Grab all of the units that are posted on a given team
-		public function getUnitsOnTeam( $teamUID ){
+		public function getUnitsOnTeam( $teamUIDs ){
 		
 			//Do the find...
 			$unitsOnTeam = $this->find( 'all', array(
 										'conditions' => array(
-											'teams_uid' => $teamUID
+                                            'OR' => array(
+											    'teams_uid' => $teamUIDs
+                                            )
 										),
 										'contain' => array(
 											'Team',

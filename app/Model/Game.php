@@ -413,20 +413,125 @@ class Game extends AppModel {
 	//PUBLIC FUNCTION: newGame
 	//Create a new game, y'know, so players can play.
 	//And of course, so haters can hate. Cause haters gonna hate.
-	public function newGame(){
-		
-		//Setup the default data for a new Game
-		$newGameData = array(
-							'active' 		=> 1,
+	public function newGame(
+        $defenderUserUID,
+        $defenderTeamUID,
+        $challengerUserUID,
+        $challengerTeamUID ){
+
+        //Setup the model instances
+        $activeUserModelInstance    = ClassRegistry::init('ActiveUser');
+        $gameUnitModelInstance      = ClassRegistry::init('GameUnit');
+        $gameUnitStatModelInstance  = ClassRegistry::init('GameUnitStat');
+        $teamUnitModelInstance      = ClassRegistry::init('TeamUnit');
+        $userGameModelInstance      = ClassRegistry::init('UserGame');
+
+        //Gather the teams
+        $teamUnitTypes = $teamUnitModelInstance->getAllUnits(
+                                                        array(
+                                                            $defenderTeamUID,
+                                                            $challengerTeamUID
+                                                        )
+                                                    );
+
+        //Setup the new game data
+        $newGameData = array(
+                            'active' 		=> 1,
 							'boards_uid'	=> 1,
 							'turn' 			=> 1
 						);
-		
-		//Create a new record
-		$this->create();
-		
-		//Save the game
-		return $this->save( $newGameData );
+        //Grab the data source so we can do this as a transaction
+        $dataSource = $this->getDataSource();
+
+        //Run the transaction
+        try{
+
+            $dataSource->begin();
+
+            //Create the game
+            $this->create();
+            $gameObject = $this->save( $newGameData );
+
+            //Create the user games
+            $defenderUserGameData = array(
+                                        'users_uid' => $defenderUserUID,
+                                        'games_uid' => $gameObject['Game']['uid'],
+                                        'priority'  => 2
+                                    );
+            $challengerUserGameData = array(
+                                        'users_uid' => $defenderUserUID,
+                                        'games_uid' => $gameObject['Game']['uid'],
+                                        'priority'  => 1
+                                    );
+
+            $userGameModelInstance->create();
+            $challengerUserGameUID  = $userGameModelInstance->save( $challengerUserGameData );
+            $userGameModelInstance->create();
+            $userGameModelInstance->save( $defenderUserGameData );
+
+            //Set the active user
+            $activeUserData = array(
+                'games_uid'         => $gameObject,
+                'user_games_uid'    => $challengerUserGameUID['UserGame']['uid'],
+                'turn'              => 1
+            );
+            $activeUserModelInstance->create();
+            $activeUserModelInstance->save( $activeUserData );
+
+            //Add the game units
+            $gameIdentifier = 0;
+            foreach( $teamUnitTypes as $teamUnitType ){
+                foreach( $teamUnitType['TeamUnitPositions'] as $teamUnitPosition ){
+
+                    //If the player is the challenger position them at the top
+                    if( $teamUnitType['Team']['users_uid'] == $challengerUserUID ){
+                        $teamUnitX = intval( $teamUnitPosition['x'] );
+                        $teamUnitY = 6 + intval( $teamUnitPosition['y'] );
+                    }else{
+                        $teamUnitX = 7 - intval( $teamUnitPosition['x'] );
+                        $teamUnitY = 1 - intval( $teamUnitPosition['y'] );
+                    }
+
+                    //Check if there's a game unit stat equivalent to the unit stat, if there is then we'll
+                    //use that for the new units, otherwise we'll create one in the rare event that this is
+                    //the first time this unit type with this unit stat has been used in a game.
+                    //May need to revisit this bullshit later when I'm older and wiser and less impatient and
+                    //have drunk fewer scotch ales
+                    $gameUnitStatUID = $gameUnitStatModelInstance->getUIDForUnitStat( $teamUnitType['UnitType']['UnitStat'] );
+
+                    //Setup the data
+                    $gameUnitData = array(
+                        'GameUnit' => array(
+                            'defense'					=> $teamUnitType['UnitType']['UnitStat']['defense'],
+                            'damage'					=> $teamUnitType['UnitType']['UnitStat']['damage'],
+                            'last_movement_angle'		=>  0,
+                            'last_movement_priority'	=>  0,
+                            'name'						=> $teamUnitType['UnitType']['name'],
+                            'turn'						=>  1,
+                            'x'							=> $teamUnitX,
+                            'y'							=> $teamUnitY,
+                            'game_identifier'           => $gameIdentifier,
+                            'games_uid' 				=> $gameObject['Game']['uid'],
+                            'game_unit_stats_uid'		=> $gameUnitStatUID,
+                            'unit_art_sets_uid'			=> $teamUnitType['UnitType']['unit_art_sets_uid'],
+                            'unit_types_uid'			=> $teamUnitType['UnitType']['uid'],
+                            'users_uid'					=> $teamUnitType['Team']['users_uid']
+                        )
+                    );
+
+                    $gameUnitModelInstance->create();
+                    $gameUnitModelInstance->save( $gameUnitData );
+                    $gameIdentifier++;
+
+                }
+            }
+
+            return $gameObject;
+
+        }catch(Exception $e){
+            $dataSource->rollback();
+            return false;
+        }
 		
 	}
 	

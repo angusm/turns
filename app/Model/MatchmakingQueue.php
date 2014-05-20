@@ -46,44 +46,12 @@ class MatchmakingQueue extends AppModel {
 			$this->delete( $availablePlayers['MatchmakingQueue']['uid'] );
 			$defenderUserUID = $availablePlayers['MatchmakingQueue']['users_uid'];
 			$defenderTeamUID = $availablePlayers['MatchmakingQueue']['teams_uid'];
-			
-			return $this->createGame( $defenderUserUID, $defenderTeamUID, $userUID, $teamUID );
+
+            //Grab a game model instance and create them
+            $gameModelInstance = ClassRegistry::init( 'Game' );
+			return $gameModelInstance->newGame( $defenderUserUID, $defenderTeamUID, $userUID, $teamUID );
 		}
 				
-	}
-	
-	//PUBLIC FUNCTION: createGame
-	//Create a new game and place both of these users and their teams in the
-	//game
-	public function createGame( 
-						$defenderUserUID, 
-						$defenderTeamUID, 
-						$challengerUserUID, 
-						$challengerTeamUID ){
-		
-		//Setup a new game
-		$gameModelInstance = ClassRegistry::init( 'Game' );
-		$createdGame = $gameModelInstance->newGame();
-		
-		//Tie the users to the new game
-		$userGameModelInstance = ClassRegistry::init( 'UserGame' );
-		$defenderNuGame 	= $userGameModelInstance->newGame( $defenderUserUID, 	$createdGame['Game']['uid'], 2 );
-		$challengerNuGame	= $userGameModelInstance->newGame( $challengerUserUID, 	$createdGame['Game']['uid'], 1 );
-		
-		//Set the active player to the challenging player, as he's more likely to act first
-		//having just joined the queue.
-		//Yeah that sounds like a good justification for the arbitrariness of it all
-		$activeUserModelInstance = ClassRegistry::init( 'ActiveUser' );
-		$activeUserModelInstance->setActiveUser( $createdGame['Game']['uid'], $challengerNuGame['UserGame']['uid'], 1 );
-		
-		//Create game units for each game from their teams
-		$gameUnitModelInstance = ClassRegistry::init( 'GameUnit' );
-		$gameUnitModelInstance->addToGameFromTeam( $createdGame['Game']['uid'],  $defenderTeamUID, false );
-		$gameUnitModelInstance->addToGameFromTeam( $createdGame['Game']['uid'],  $challengerTeamUID );
-				
-		//And just like that we've got a game. Boo yah.		
-		return $createdGame;
-		
 	}
 	
 	//PUBLIC FUNCTION: getPendingGamesByUserUID
