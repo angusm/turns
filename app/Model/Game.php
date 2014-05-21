@@ -463,7 +463,7 @@ class Game extends AppModel {
                                         'priority'  => 2
                                     );
             $challengerUserGameData = array(
-                                        'users_uid' => $defenderUserUID,
+                                        'users_uid' => $challengerUserUID,
                                         'games_uid' => $gameObject['Game']['uid'],
                                         'priority'  => 1
                                     );
@@ -475,7 +475,7 @@ class Game extends AppModel {
 
             //Set the active user
             $activeUserData = array(
-                'games_uid'         => $gameObject,
+                'games_uid'         => $gameObject['Game']['uid'],
                 'user_games_uid'    => $challengerUserGameUID['UserGame']['uid'],
                 'turn'              => 1
             );
@@ -485,7 +485,7 @@ class Game extends AppModel {
             //Add the game units
             $gameIdentifier = 0;
             foreach( $teamUnitTypes as $teamUnitType ){
-                foreach( $teamUnitType['TeamUnitPositions'] as $teamUnitPosition ){
+                foreach( $teamUnitType['TeamUnitPosition'] as $teamUnitPosition ){
 
                     //If the player is the challenger position them at the top
                     if( $teamUnitType['Team']['users_uid'] == $challengerUserUID ){
@@ -529,6 +529,8 @@ class Game extends AppModel {
 
                 }
             }
+
+            $dataSource->commit();
 
             return $gameObject;
 

@@ -300,10 +300,7 @@ class GameUnit extends AppModel {
 										$angle, 
 										$movePriority, 
 										$movementSetUID ){
-		
-		//Setup the next turn
-		$nuTurn 		= $turn + 1;
-																	
+
 		//Grab all of the relevant units on the current turn and then move 
 		//them forward a turn, with the exception of the moved unit. 
 		

@@ -33,6 +33,11 @@ class MatchmakingQueue extends AppModel {
 											'conditions' => array(
 												'MatchmakingQueue.users_uid NOT' => $userUID
 											),
+                                            'fields' => array(
+                                                'MatchmakingQueue.uid',
+                                                'MatchmakingQueue.teams_uid',
+                                                'MatchmakingQueue.users_uid'
+                                            ),
 											'order' => array(
 												'MatchmakingQueue.created'
 											)
