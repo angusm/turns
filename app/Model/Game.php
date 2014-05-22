@@ -230,6 +230,9 @@ class Game extends AppModel {
                     'GameUnit.turn DESC'
                 ),
                 'contain' => array(
+                ),
+                'group' => array(
+                    'GameUnit.game_identifier'
                 )
             );
 
