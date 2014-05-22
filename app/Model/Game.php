@@ -211,13 +211,13 @@ class Game extends AppModel {
                     'GameUnit.defense > '   => 0
                 ),
                 'fields' => array(
+                    'DISTINCT GameUnit.game_identifier',
                     'GameUnit.uid',
                     'GameUnit.damage',
                     'GameUnit.defense',
                     'GameUnit.last_movement_angle',
                     'GameUnit.last_movement_priority',
                     'GameUnit.movement_sets_uid',
-                    'DISTINCT GameUnit.game_identifier',
                     'GameUnit.game_unit_stats_uid',
                     'GameUnit.users_uid',
                     'GameUnit.x',
