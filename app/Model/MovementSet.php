@@ -5,7 +5,11 @@ class MovementSet extends AppModel {
 							'Movement' => array(
 								'className'		=> 'Movement',
 								'foreignKey'	=> 'movement_sets_uid'
-							)
+							),
+                            'GameUnit' => array(
+                                'className'     => 'GameUnit',
+                                'foreignKey'    => 'movement_sets_uid'
+                            )
 						);	
 	
 	public function __construct() { 

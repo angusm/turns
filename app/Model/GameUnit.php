@@ -316,17 +316,20 @@ class GameUnit extends AppModel {
 								'GameUnitStat'
 							),
                             'fields' => array(
+                                'DISTINCT GameUnit.game_identifier',
                                 'GameUnit.uid',
                                 'GameUnit.damage',
                                 'GameUnit.defense',
                                 'GameUnit.last_movement_angle',
                                 'GameUnit.last_movement_priority',
                                 'GameUnit.movement_sets_uid',
-                                'DISTINCT GameUnit.game_identifier',
                                 'GameUnit.game_unit_stats_uid',
                                 'GameUnit.users_uid',
                                 'GameUnit.x',
                                 'GameUnit.y'
+                            ),
+                            'group' => array(
+                                'GameUnit.game_identifier'
                             ),
                             'order' => array(
                                 'GameUnit.turn DESC'
@@ -482,6 +485,15 @@ class GameUnit extends AppModel {
 		}
 		
 	}
+
+    //PUBLIC FUNCTION: selectUsingArray
+    //Grab a collection of units given a passed array
+    public function selectUsingArray( $givenArray ){
+
+        //Grab the units
+        return $this->find( 'all', $givenArray );
+
+    }
 	
 	//PUBLIC FUNCTION: selectUnit
 	//Set the game unit to as the selected unit for the given game

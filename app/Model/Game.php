@@ -207,6 +207,7 @@ class Game extends AppModel {
             //Establish the game unit array
             $gameUnitArray = array(
                 'conditions' => array(
+                    'GameUnit.games_uid'    => $uid,
                     'GameUnit.turn <= '     => $currentTurn,
                     'GameUnit.defense > '   => 0
                 ),
@@ -215,66 +216,72 @@ class Game extends AppModel {
                     'GameUnit.uid',
                     'GameUnit.damage',
                     'GameUnit.defense',
+                    'GameUnit.game_unit_stats_uid',
                     'GameUnit.last_movement_angle',
                     'GameUnit.last_movement_priority',
                     'GameUnit.movement_sets_uid',
-                    'GameUnit.game_unit_stats_uid',
+                    'GameUnit.turn',
+                    'GameUnit.unit_art_sets_uid',
                     'GameUnit.users_uid',
                     'GameUnit.x',
                     'GameUnit.y'
                 ),
                 'order' => array(
                     'GameUnit.turn DESC'
+                ),
+                'contain' => array(
                 )
             );
 
             //If we're on the first turn (that the player knows about) we add to it
             if( $lastKnownTurn == 0 ){
-                $gameUnitArray['GameUnitStat'] = array(
-                    'fields' => array(
-                        'GameUnitStat.uid',
-                        'GameUnitStat.damage',
-                        'GameUnitStat.defense',
-                        'GameUnitStat.name'
-                    ),
-                    'GameUnitStatMovementSet' => array(
+                $gameUnitArray['contain'] = array(
+                    'GameUnitStat' => array(
                         'fields' => array(
-                            'GameUnitStatMovementSet.uid',
-                            'GameUnitStatMovementSet.movement_sets_uid',
-                            'GameUnitStatMovementSet.game_unit_stats_uid'
+                            'GameUnitStat.uid',
+                            'GameUnitStat.damage',
+                            'GameUnitStat.defense',
+                            'GameUnitStat.name'
                         ),
-                        'MovementSet' => array(
+                        'GameUnitStatMovementSet' => array(
                             'fields' => array(
-                                'MovementSet.uid',
-                                'MovementSet.name'
+                                'GameUnitStatMovementSet.uid',
+                                'GameUnitStatMovementSet.movement_sets_uid',
+                                'GameUnitStatMovementSet.game_unit_stats_uid'
                             ),
-                            'Movement' => array(
+                            'MovementSet' => array(
                                 'fields' => array(
-                                    'Movement.uid',
-                                    'Movement.movement_sets_uid',
-                                    'Movement.must_move_all_the_way',
-                                    'Movement.spaces'
+                                    'MovementSet.uid',
+                                    'MovementSet.name'
                                 ),
-                                'MovementDirectionSet' => array(
+                                'Movement' => array(
                                     'fields' => array(
-                                        'MovementDirectionSet.uid',
-                                        'MovementDirectionSet.movements_uid',
-                                        'MovementDirectionSet.direction_sets_uid'
+                                        'Movement.uid',
+                                        'Movement.movement_sets_uid',
+                                        'Movement.must_move_all_the_way',
+                                        'Movement.spaces'
                                     ),
-                                    'DirectionSet' => array(
+                                    'MovementDirectionSet' => array(
                                         'fields' => array(
-                                            'DirectionSet.uid'
+                                            'MovementDirectionSet.uid',
+                                            'MovementDirectionSet.movements_uid',
+                                            'MovementDirectionSet.direction_sets_uid'
                                         ),
-                                        'DirectionSetDirection' => array(
+                                        'DirectionSet' => array(
                                             'fields' => array(
-                                                'DirectionSetDirection.uid',
-                                                'DirectionSetDirection.direction_sets_uid',
-                                                'DirectionSetDirection.directions_uid'
+                                                'DirectionSet.uid'
                                             ),
-                                            'Direction' => array(
+                                            'DirectionSetDirection' => array(
                                                 'fields' => array(
-                                                    'Direction.uid',
-                                                    'Direction.angle'
+                                                    'DirectionSetDirection.uid',
+                                                    'DirectionSetDirection.direction_sets_uid',
+                                                    'DirectionSetDirection.directions_uid'
+                                                ),
+                                                'Direction' => array(
+                                                    'fields' => array(
+                                                        'Direction.uid',
+                                                        'Direction.angle'
+                                                    )
                                                 )
                                             )
                                         )
@@ -282,48 +289,63 @@ class Game extends AppModel {
                                 )
                             )
                         )
-                    )
-                );
-                $gameUnitArray['UnitArtSet'] = array(
-                    'UnitArtSetIcon' => array(
-                        'Icon'
-                    )
-                );
-                $gameUnitArray['MovementSet'] = array(
-                    'fields' => array(
-                        'MovementSet.uid',
-                        'MovementSet.name'
                     ),
-                    'Movement' => array(
+                    'MovementSet' => array(
                         'fields' => array(
-                            'Movement.uid',
-                            'Movement.movement_sets_uid',
-                            'Movement.must_move_all_the_way',
-                            'Movement.spaces'
+                            'MovementSet.uid',
+                            'MovementSet.name'
                         ),
-                        'MovementDirectionSet' => array(
+                        'Movement' => array(
                             'fields' => array(
-                                'MovementDirectionSet.uid',
-                                'MovementDirectionSet.movements_uid',
-                                'MovementDirectionSet.direction_sets_uid'
+                                'Movement.uid',
+                                'Movement.movement_sets_uid',
+                                'Movement.must_move_all_the_way',
+                                'Movement.spaces'
                             ),
-                            'DirectionSet' => array(
+                            'MovementDirectionSet' => array(
                                 'fields' => array(
-                                    'DirectionSet.uid',
-                                    'DirectionSet.name'
+                                    'MovementDirectionSet.uid',
+                                    'MovementDirectionSet.movements_uid',
+                                    'MovementDirectionSet.direction_sets_uid'
                                 ),
-                                'DirectionSetDirection' => array(
+                                'DirectionSet' => array(
                                     'fields' => array(
-                                        'DirectionSetDirection.uid',
-                                        'DirectionSetDirection.direction_sets_uid',
-                                        'DirectionSetDirection.directions_uid'
+                                        'DirectionSet.uid',
+                                        'DirectionSet.name'
                                     ),
-                                    'Direction' => array(
+                                    'DirectionSetDirection' => array(
                                         'fields' => array(
-                                            'Direction.uid',
-                                            'Direction.angle'
+                                            'DirectionSetDirection.uid',
+                                            'DirectionSetDirection.direction_sets_uid',
+                                            'DirectionSetDirection.directions_uid'
+                                        ),
+                                        'Direction' => array(
+                                            'fields' => array(
+                                                'Direction.uid',
+                                                'Direction.angle'
+                                            )
                                         )
                                     )
+                                )
+                            )
+                        )
+                    ),
+                    'UnitArtSet' => array(
+                        'fields' => array(
+                            'UnitArtSet.uid',
+                            'UnitArtSet.name'
+                        ),
+                        'UnitArtSetIcon' => array(
+                            'fields' => array(
+                                'UnitArtSetIcon.uid',
+                                'UnitArtSetIcon.unit_art_sets_uid',
+                                'UnitArtSetIcon.icons_uid'
+                            ),
+                            'Icon' => array(
+                                'fields' => array(
+                                    'Icon.uid',
+                                    'Icon.icon_positions_uid',
+                                    'Icon.image'
                                 )
                             )
                         )
@@ -352,8 +374,7 @@ class Game extends AppModel {
                                                         'UserGame.users_uid'
                                                     )
                                                 )
-                                            ),
-                                            'GameUnit' => $gameUnitArray
+                                            )
                                         ),
                                         'fields' => array(
                                             'Game.turn',
@@ -361,10 +382,20 @@ class Game extends AppModel {
                                         )
                                     ));
 
+            //Grab the game units
+            $gameUnitModelInstance          = ClassRegistry::init( 'GameUnit' );
+            $gameInformation['GameUnit']    = $gameUnitModelInstance->selectUsingArray( $gameUnitArray );
+
             //Loop through the game information and make sure there's at least
             //two players that still have units in the game
             $gameOver 		= true;
             $playerFound    = NULL;
+            foreach( $gameInformation['GameUnit'] as $gameUnitKey => $gameUnit ){
+                unset( $gameInformation['GameUnit'][$gameUnitKey]['GameUnit'] );
+                foreach( $gameUnit['GameUnit'] as $gameAttributeKey => $gameAttribute ){
+                    $gameInformation['GameUnit'][$gameUnitKey][$gameAttributeKey]  = $gameAttribute;
+                }
+            }
             foreach( $gameInformation['GameUnit'] as $gameUnit ){
 
                 if( $gameUnit['users_uid'] != $playerFound and $gameUnit['defense'] > 0 ){
@@ -372,7 +403,6 @@ class Game extends AppModel {
                         $playerFound = $gameUnit['users_uid'];
                     }else{
                         $gameOver = false;
-                        break;
                     }
                 }
 
@@ -624,13 +654,13 @@ class Game extends AppModel {
 		}
 				
 		//Get the new priority for this unit
-		$movePriority 			= $gameUnit['GameUnit']['last_movement_priority'];
+		$movePriority   = $gameUnit['GameUnit']['last_movement_priority'];
 		
 		//Grab the staring positions and last move angle
-		$startX 	= $gameUnit['GameUnit']['x'];
-		$startY 	= $gameUnit['GameUnit']['y'];
-		$lastAngle	= $gameUnit['GameUnit']['last_movement_angle'];
-		$gameUID 	= $gameUnit['Game']['uid'];
+		$startX 	    = $gameUnit['GameUnit']['x'];
+		$startY 	    = $gameUnit['GameUnit']['y'];
+		$lastAngle	    = $gameUnit['GameUnit']['last_movement_angle'];
+		$gameUID 	    = $gameUnit['Game']['uid'];
 		
 		
 		//Grab an array of the possible movements
@@ -641,15 +671,15 @@ class Game extends AppModel {
 		}else{
 
 			//Setup a MovementSet instance to grab this one set
-			$movementSetModelInstance = ClassRegistry::init( 'MovementSet' );
-			$gameUnitMovementSets = array( 
-										array(
-											'MovementSet' => array_merge(
-												array( 'uid' => $gameUnit['GameUnit']['movement_sets_uid'] ),
-												$movementSetModelInstance->findByUIDWithPriority( $gameUnit['GameUnit']['movement_sets_uid'], $movePriority )
-											)
-										)
-								);
+			$movementSetModelInstance   = ClassRegistry::init( 'MovementSet' );
+			$gameUnitMovementSets       = array(
+                                            array(
+                                                'MovementSet' => array_merge(
+                                                    array( 'uid' => $gameUnit['GameUnit']['movement_sets_uid'] ),
+                                                    $movementSetModelInstance->findByUIDWithPriority( $gameUnit['GameUnit']['movement_sets_uid'], $movePriority )
+                                                )
+                                            )
+                                        );
 														
 		}
 				

@@ -9,7 +9,15 @@ class UnitArtSet extends AppModel {
 							'UnitArtSetIcon'	=> array(
 								'className'		=> 'UnitArtSetIcon',
 								'foreignKey'	=> 'unit_art_sets_uid'
-							)
+							),
+                            'GameUnit' => array(
+                                'className'     => 'GameUnit',
+                                'foreignKey'    => 'unit_art_sets_uid'
+                            ),
+                            'UnitType' => array(
+                                'className'     => 'UnitType',
+                                'foreignKey'    => 'unit_art_sets_uid'
+                            )
 						);
 
 		//Override the constructor so that we can set the variables our way

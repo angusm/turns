@@ -145,7 +145,7 @@ var Gameplay = function(){
         });
 
         //Grab the icons
-        var boardIcon       = '';
+        var boardIcon = '';
 
         //If the element doesn't exist then create it
         if( elementExists == false ){
