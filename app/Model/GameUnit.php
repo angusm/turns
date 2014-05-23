@@ -207,8 +207,24 @@ class GameUnit extends AppModel {
 								'conditions' => array(
 									'GameUnit.uid' => $uid
 								),
+                                'fields' => array(
+                                    'GameUnit.uid',
+                                    'GameUnit.game_identifier',
+                                    'GameUnit.games_uid',
+                                    'GameUnit.last_movement_angle',
+                                    'GameUnit.last_movement_priority',
+                                    'GameUnit.movement_sets_uid',
+                                    'GameUnit.turn',
+                                    'GameUnit.users_uid',
+                                    'GameUnit.x',
+                                    'GameUnit.y'
+                                ),
 								'contain' => array(
 									'Game' => array(
+                                        'fields' => array(
+                                            'Game.selected_unit_uid',
+                                            'Game.turn'
+                                        ),
 										'UserGame'
 									)
 								)
@@ -219,11 +235,14 @@ class GameUnit extends AppModel {
 		//return false
 		$otherUnit = $this->find( 'first', array(
 									'conditions' => array(
-										'GameUnit.turn' => $gameUnit['GameUnit']['turn'],
-										'GameUnit.games_uid' => $gameUnit['GameUnit']['games_uid']
+                                        'GameUnit.uid NOT'          => $uid,
+										'GameUnit.turn >'           => $gameUnit['GameUnit']['turn'],
+										'GameUnit.games_uid'        => $gameUnit['GameUnit']['games_uid'],
+                                        'GameUnit.game_identifier'  => $gameUnit['GameUnit']['game_identifier']
 									)
 								));
-		if( isset( $otherUnit['GameUnit.uid'] ) and $otherUnit['GameUnit.uid'] != $uid ){
+		if( isset( $otherUnit['GameUnit.uid'] ) or
+            $gameUnit['GameUnit']['turn'] > $gameUnit['Game']['turn'] ){
 			return false;			
 		}										
 		
@@ -273,10 +292,10 @@ class GameUnit extends AppModel {
 	
 	//PRIVATE FUNCTION: moveGameUnitToNextTurn
 	//Move the game unit to the next turn
-	private function moveGameUnitToNextTurn( $unitToMove ){
+	private function moveGameUnitToNextTurn( $unitToMove, $gameTurn ){
 	
 		//Update the turn
-		$unitToMove['GameUnit']['turn']++;
+		$unitToMove['GameUnit']['turn'] = $gameTurn + 1;
 						
 		//Move the unit up
 		$unitToMoveGameUnit = $unitToMove['GameUnit'];
@@ -313,21 +332,13 @@ class GameUnit extends AppModel {
 								'GameUnit.uid NOT'		=> $gameUnitUID
 							),
 							'contain' => array(
-								'GameUnitStat'
+								'GameUnitStat' => array(
+                                    'fields' => array(
+                                        'GameUnitStat.uid',
+                                        'GameUnitStat.damage'
+                                    )
+                                )
 							),
-                            'fields' => array(
-                                'DISTINCT GameUnit.game_identifier',
-                                'GameUnit.uid',
-                                'GameUnit.damage',
-                                'GameUnit.defense',
-                                'GameUnit.last_movement_angle',
-                                'GameUnit.last_movement_priority',
-                                'GameUnit.movement_sets_uid',
-                                'GameUnit.game_unit_stats_uid',
-                                'GameUnit.users_uid',
-                                'GameUnit.x',
-                                'GameUnit.y'
-                            ),
                             'group' => array(
                                 'GameUnit.game_identifier'
                             ),
@@ -343,7 +354,17 @@ class GameUnit extends AppModel {
 								'GameUnit.uid'			=> $gameUnitUID
 							),
 							'contain' => array(
-								'GameUnitStat'
+                                'GameUnitStat' => array(
+                                    'fields' => array(
+                                        'GameUnitStat.uid',
+                                        'GameUnitStat.damage'
+                                    )
+                                ),
+                                'Game' => array(
+                                    'fields' => array(
+                                        'Game.turn'
+                                    )
+                                )
 							)
                         ));
 			
@@ -416,7 +437,7 @@ class GameUnit extends AppModel {
 					}else{
                         $this->storeOriginalUnit( $unitToMove );
 						$unitToMove['GameUnit']['defense']  = 0;
-                        $this->moveGameUnitToNextTurn( $unitToMove );
+                        $this->moveGameUnitToNextTurn( $unitToMove, $movedUnit['Game']['turn'] );
 					}
 					$this->selectUnit( NULL, $gameUID );
 
@@ -450,7 +471,7 @@ class GameUnit extends AppModel {
                     //Store the original unit and then update the unit
                     $this->storeOriginalUnit( $unitToMove );
 				    $unitToMove['GameUnit']['damage'] = $unitToMove['GameUnitStat']['damage'];
-                    $this->moveGameUnitToNextTurn( $unitToMove );
+                    $this->moveGameUnitToNextTurn( $unitToMove, $movedUnit['Game']['turn'] );
 
                 }else{
                     unset( $unitsToMove[$unitToMoveIndex] );
@@ -459,7 +480,7 @@ class GameUnit extends AppModel {
 		}
 		
 		//Move the unit that moved
-		$this->moveGameUnitToNextTurn( $movedUnit );
+		$this->moveGameUnitToNextTurn( $movedUnit, $movedUnit['Game']['turn'] );
 				
 		
 	}

@@ -645,9 +645,6 @@ class Game extends AppModel {
 		if( $gameUnit['GameUnit']['users_uid'] != $userUID ){
 			return false;
 		}
-		if( $gameUnit['Game']['turn'] != $gameUnit['GameUnit']['turn'] ){
-			return false;	
-		}
 				
 		//Make sure the given user is the active user for the current game
 		$activeUserModelInstance = ClassRegistry::init( 'ActiveUser' );
