@@ -208,8 +208,7 @@ class Game extends AppModel {
             $gameUnitArray = array(
                 'conditions' => array(
                     'GameUnit.games_uid'    => $uid,
-                    'GameUnit.turn <= '     => $currentTurn,
-                    'GameUnit.defense > '   => 0
+                    'GameUnit.turn <= '     => $currentTurn
                 ),
                 'fields' => array(
                     'DISTINCT GameUnit.game_identifier',
@@ -389,16 +388,24 @@ class Game extends AppModel {
             $gameUnitModelInstance          = ClassRegistry::init( 'GameUnit' );
             $gameInformation['GameUnit']    = $gameUnitModelInstance->selectUsingArray( $gameUnitArray );
 
+            //Build the proper matrix of game units
+            foreach( $gameInformation['GameUnit'] as $gameUnitKey => $gameUnit ){
+                if( $gameUnit['GameUnit']['defense'] > 0 ){
+                    unset( $gameInformation['GameUnit'][$gameUnitKey]['GameUnit'] );
+                    foreach( $gameUnit['GameUnit'] as $gameAttributeKey => $gameAttribute ){
+                        $gameInformation['GameUnit'][$gameUnitKey][$gameAttributeKey]  = $gameAttribute;
+                    }
+                }else{
+                    unset( $gameInformation['GameUnit'][$gameUnitKey] );
+                }
+            }
+
+
             //Loop through the game information and make sure there's at least
             //two players that still have units in the game
             $gameOver 		= true;
             $playerFound    = NULL;
-            foreach( $gameInformation['GameUnit'] as $gameUnitKey => $gameUnit ){
-                unset( $gameInformation['GameUnit'][$gameUnitKey]['GameUnit'] );
-                foreach( $gameUnit['GameUnit'] as $gameAttributeKey => $gameAttribute ){
-                    $gameInformation['GameUnit'][$gameUnitKey][$gameAttributeKey]  = $gameAttribute;
-                }
-            }
+
             foreach( $gameInformation['GameUnit'] as $gameUnit ){
 
                 if( $gameUnit['users_uid'] != $playerFound and $gameUnit['defense'] > 0 ){
