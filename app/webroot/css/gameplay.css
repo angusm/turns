@@ -7,18 +7,20 @@
 
 	div.gameBoard > div.gameTile{
         position:   relative;
-		height:     166px;
-		width: 	    192px;
+		height:     15%;
+		width: 	    15%;
 	}
 	
 	div.gameBoard{
 		position: absolute;
+        height: 100%;
+        width: 100%;
 	}
 	
 	div.gameplayUnit{
         position:	absolute;
-        height:     70px;
-        width:      70px;
+        height:     7.5%;
+        width:      7.5%;
 	}
 	
 	div.gameplayUnitDefense{
@@ -47,16 +49,28 @@
 	
 	div.gameTile[light="0"]{
         background-image: url(../img/Sprites/Tiles/dark.png);
+        -moz-background-size:100% 100%;
+        -webkit-background-size:100% 100%;
+        background-size:100% 100%;
 	}
 	
 	div.gameTile[light="1"]{
         background-image: url(../img/Sprites/Tiles/bright.png);
+        -moz-background-size:100% 100%;
+        -webkit-background-size:100% 100%;
+        background-size:100% 100%;
 	}
 	
 	div.gameTile.highlightedForMove[light="0"]{
         background-image: url(../img/Sprites/Tiles/darkHighlighted.png);
+        -moz-background-size:100% 100%;
+        -webkit-background-size:100% 100%;
+        background-size:100% 100%;
     }
 
     div.gameTile.highlightedForMove[light="1"]{
         background-image: url(../img/Sprites/Tiles/brightHighlighted.png);
+        -moz-background-size:100% 100%;
+        -webkit-background-size:100% 100%;
+        background-size:100% 100%;
     }

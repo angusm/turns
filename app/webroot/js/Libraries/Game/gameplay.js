@@ -27,6 +27,7 @@ var Gameplay = function(){
 	//VARIABLES
 	this.cardUnitUID = null;
     this.boardReady  = false;
+    this.unitWidth   = 7.5;
 	
 	//PUBLIC FUNCTION: arrangeUnit
 	//Arrange the unit
@@ -34,28 +35,18 @@ var Gameplay = function(){
 
         var gameplayUnitDOMElement = jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]');
 
-        var unitWidth   = gameplayUnitDOMElement.width();
-        var unitHeight  = gameplayUnitDOMElement.height();
-
         var xPos = unitObject.x;
         var yPos = unitObject.y;
 
-        var nuX     = (xPos * Game_elements.tileWidth  / 2 )
-                    - (yPos * Game_elements.tileWidth  / 2 )
-                    + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth )
-                    + (Game_elements.tileWidth  / 2)
-                    - (unitWidth                / 2);
 
-        var nuY     = (yPos * Game_elements.tileHeight  / 2 )
-                    + (xPos * Game_elements.tileHeight  / 2 )
-                    - ( unitHeight                      - 70 )
-                    + 150;
+        var nuX = (xPos * Game_elements.tileWidth  / 2 ) - (yPos * Game_elements.tileWidth  / 2 ) + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth ) + ( Game_gameplay.unitWidth / 2);
+        var nuY = (yPos * Game_elements.tileHeight / 2 ) + (xPos * Game_elements.tileHeight / 2 );
 
 		jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).animate(
 																{
 																	'position'	: 'absolute',
-																	'left'		: nuX + 'px',
-																	'top'		: nuY + 'px'
+																	'left'		: nuX + '%',
+																	'top'		: nuY + '%'
 																},
 																1000
 															);
@@ -115,24 +106,6 @@ var Gameplay = function(){
 		jQuery( 'highlighted' ).removeClass( 'highlighted' );
 		
 	}
-	
-	//PUBLIC FUNCTION: colorUnits
-	//Color the units according to the player
-	this.colorUnits = function(){
-
-		//Loop through all the units
-		jQuery.each( window.pageData.Game.GameUnit, function( unitPos, unitObject ){
-			
-			//Color the unit according to whose side it's on
-			if( unitObject.users_uid == window.pageData['User']['uid'] ){
-				jQuery('.gameplayUnit[uid="'+unitObject.uid+'"] > img').pixastic("coloradjust", {red:0,green:0,blue:0.2});
-			}else{
-				jQuery('.gameplayUnit[uid="'+unitObject.uid+'"] > img').pixastic("coloradjust", {red:0.2,green:0,blue:0});
-			}
-			
-		});
-	
-	}
 
     //PUBLIC FUNCTION: createUnitDOMElement
     //Create the unit DOM element
@@ -173,15 +146,6 @@ var Gameplay = function(){
 
             //Place the unit on the board
             jQuery( 'div.gameBoard' ).append( gameplayUnitDiv );
-
-            //Color the unit according to whose side it's on
-            jQuery('.gameplayUnit[uid="'+unitObject.uid+'"] > img').load( function(){
-                if( unitObject.users_uid == window.pageData['User']['uid'] ){
-                    jQuery(this).pixastic("coloradjust", {red:0,green:0,blue:0.2});
-                }else{
-                    jQuery(this).pixastic("coloradjust", {red:0.2,green:0,blue:0});
-                }
-            });
 
         }
 
@@ -793,9 +757,6 @@ var Gameplay = function(){
 		//Loop through all of the units
 		jQuery.each( window.pageData.Game.GameUnit,  Game_gameplay.setupUnit );
 
-        //Setup the unit colors
-        Game_gameplay.colorUnits();
-			
 	}
 	
 	//PUBLIC FUNCTION: unhighlightEverything

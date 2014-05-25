@@ -2,14 +2,19 @@
 
 var Game_elements = null;
 
-jQuery(document).ready( function(){
-}); 
+
+// Resize #my_div on browser resize
+jQuery(window).resize(function() {
+
+    Game_elements.resizeBoard();
+
+});
 
 var GameElements = function(){
 
     //Establish the tile width and height
-    this.tileHeight  = 108;
-    this.tileWidth   = 189;
+    this.tileHeight  = 9.9;
+    this.tileWidth   = 14.9;
 
 	//PUBLIC FUNCTION: arrangeElement
 	//Arrange the given element
@@ -19,12 +24,13 @@ var GameElements = function(){
 		var yPos = jQuery( element ).attr( 'y' );
 
         var nuX = (xPos * Game_elements.tileWidth  / 2 ) - (yPos * Game_elements.tileWidth  / 2 ) + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth );
-        var nuY = (yPos * Game_elements.tileHeight / 2 ) + (xPos * Game_elements.tileHeight / 2 ) + 150;
+        var nuY = (yPos * Game_elements.tileHeight / 2 ) + (xPos * Game_elements.tileHeight / 2 );
+
 		
 		jQuery( element ).css({
 			"position"	: "absolute", 
-			"left"		: nuX + "px",
-			"top"		: nuY + "px"
+			"left"		: nuX + "%",
+			"top"		: nuY + "%"
 		});
 		
 	}
@@ -96,6 +102,9 @@ var GameElements = function(){
             }
         }
 
+        //Resize the board
+        Game_elements.resizeBoard();
+
     }
 
     //PUBLIC FUNCTION: getBoard
@@ -128,6 +137,20 @@ var GameElements = function(){
             function(){
             }
         );
+
+    }
+
+    //PUBLIC FUNCTION: resizeBoard
+    //Resize the board to fit the window appropriately
+    this.resizeBoard = function(){
+
+        if( jQuery( window ).height() > jQuery( window ).width() ){
+            jQuery( 'div.gameBoard').height( jQuery( window ).width() );
+            jQuery( 'div.gameBoard').width(  jQuery( window ).width() );
+        }else{
+            jQuery( 'div.gameBoard').height( jQuery( window ).height() );
+            jQuery( 'div.gameBoard').width(  jQuery( window ).height() );
+        }
 
     }
 	
