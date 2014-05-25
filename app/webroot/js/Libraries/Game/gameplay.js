@@ -25,22 +25,26 @@ var Gameplay = function(){
 
 
 	//VARIABLES
-	this.cardUnitUID = null;
-    this.boardReady  = false;
-    this.unitWidth   = 7.5;
-	
+	this.cardUnitUID    = null;
+    this.boardReady     = false;
+    this.unitWidth      = 7.5;
+    this.occupiedSpaces = [];
+
 	//PUBLIC FUNCTION: arrangeUnit
 	//Arrange the unit
 	this.arrangeUnit = function( unitObject ){
 
-        var gameplayUnitDOMElement = jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]');
+        var xPos = parseInt( unitObject.x );
+        var yPos = parseInt( unitObject.y );
+        var occupiedOffset = 0;
 
-        var xPos = unitObject.x;
-        var yPos = unitObject.y;
+        //Check if a unit already occupies the given space
+        if( xPos in Game_gameplay.occupiedSpaces && yPos in Game_gameplay.occupiedSpaces[xPos] ){
+            occupiedOffset = Game_gameplay.unitWidth * Game_gameplay.occupiedSpaces[xPos][yPos] / 10
+        }
 
-
-        var nuX = (xPos * Game_elements.tileWidth  / 2 ) - (yPos * Game_elements.tileWidth  / 2 ) + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth ) + ( Game_gameplay.unitWidth / 2);
-        var nuY = (yPos * Game_elements.tileHeight / 2 ) + (xPos * Game_elements.tileHeight / 2 );
+        var nuX = (xPos * Game_elements.tileWidth  / 2 ) - (yPos * Game_elements.tileWidth  / 2 ) + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth ) + ( Game_gameplay.unitWidth / 2) + occupiedOffset;
+        var nuY = (yPos * Game_elements.tileHeight / 2 ) + (xPos * Game_elements.tileHeight / 2 ) + occupiedOffset;
 
 		jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).animate(
 																{
@@ -50,6 +54,11 @@ var Gameplay = function(){
 																},
 																1000
 															);
+
+        if( typeof Game_gameplay.occupiedSpaces[xPos] == 'undefined' ){
+            Game_gameplay.occupiedSpaces[xPos] = [];
+        }
+        Game_gameplay.occupiedSpaces[xPos][yPos] = 1;
 		
 	}
 	
@@ -118,7 +127,8 @@ var Gameplay = function(){
         });
 
         //Grab the icons
-        var boardIcon = '';
+        var boardIcon       = '';
+        var enemyBoardIcon  = '';
 
         //If the element doesn't exist then create it
         if( elementExists == false ){
@@ -131,9 +141,17 @@ var Gameplay = function(){
                     case "3":
                         boardIcon = unitArtSetIcon.Icon.image;
 
+                    case "14":
+                        enemyBoardIcon = unitArtSetIcon.Icon.image;
+
                 }
 
             });
+
+            if( unitObject.users_uid != window.pageData.User.uid ){
+                boardIcon = enemyBoardIcon;
+            }
+
             var gameplayUnitDiv =   '<div uid="'+unitObject.uid+'" class="gameplayUnit" users_uid="'+unitObject.users_uid+'">' +
                                         '<img src="' + imgLibraryDirectory + boardIcon + '" />' +
                                         '<div class="gameplayUnitAttack">' +
@@ -578,13 +596,15 @@ var Gameplay = function(){
 		//Grab the game update, if we have no previous update then we can just do a direct pass
         if( window.pageData.Game.GameUnit == undefined ){
 
-            window.pageData.Game.GameUnit       = jSONData.gameInformation.GameUnit;
+            window.pageData.Game.GameUnit = jSONData.gameInformation.GameUnit;
 
         //If we already have all the static information we only want to update the dynamic data
         }else{
             jQuery.each( jSONData.gameInformation.GameUnit, function( gameUnitIndex, gameUnitData ){
-                jQuery.each( jSONData.gameInformation.GameUnit[gameUnitIndex], function( newKey, newValue ){
-                   window.pageData.Game.GameUnit[gameUnitIndex][newKey] = newValue;
+                jQuery.each( gameUnitData, function( newKey, newValue ){
+                    if( gameUnitIndex in window.pageData.Game.GameUnit ){
+                        window.pageData.Game.GameUnit[gameUnitIndex][newKey] = newValue;
+                    }
                 });
             });
         }
@@ -753,7 +773,10 @@ var Gameplay = function(){
 	//PUBLIC FUNCTION: setupUnits
 	//Arrange all of the gameplay units
 	this.setupUnits = function(){
-		
+
+        //Reset the occupied spaces
+        Game_gameplay.occupiedSpaces = new Array();
+
 		//Loop through all of the units
 		jQuery.each( window.pageData.Game.GameUnit,  Game_gameplay.setupUnit );
 

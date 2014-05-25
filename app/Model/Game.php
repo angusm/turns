@@ -207,8 +207,7 @@ class Game extends AppModel {
             //Establish the game unit array
             $gameUnitArray = array(
                 'conditions' => array(
-                    'GameUnit.games_uid'    => $uid,
-                    'GameUnit.turn <= '     => $currentTurn
+                    'GameUnit.games_uid'    => $uid
                 ),
                 'fields' => array(
                     'DISTINCT GameUnit.game_identifier',
@@ -388,34 +387,42 @@ class Game extends AppModel {
             $gameUnitModelInstance          = ClassRegistry::init( 'GameUnit' );
             $gameInformation['GameUnit']    = $gameUnitModelInstance->selectUsingArray( $gameUnitArray );
 
-            //Build the proper matrix of game units
-            foreach( $gameInformation['GameUnit'] as $gameUnitKey => $gameUnit ){
-                if( $gameUnit['GameUnit']['defense'] > 0 ){
-                    unset( $gameInformation['GameUnit'][$gameUnitKey]['GameUnit'] );
-                    foreach( $gameUnit['GameUnit'] as $gameAttributeKey => $gameAttribute ){
-                        $gameInformation['GameUnit'][$gameUnitKey][$gameAttributeKey]  = $gameAttribute;
-                    }
-                }else{
-                    unset( $gameInformation['GameUnit'][$gameUnitKey] );
-                }
-            }
-
-
             //Loop through the game information and make sure there's at least
             //two players that still have units in the game
             $gameOver 		= true;
             $playerFound    = NULL;
 
-            foreach( $gameInformation['GameUnit'] as $gameUnit ){
+            //Build the proper matrix of game units
+            foreach( $gameInformation['GameUnit'] as $gameUnitKey => $gameUnit ){
+                if( $gameUnit['GameUnit']['defense'] > 0 ){
 
-                if( $gameUnit['users_uid'] != $playerFound and $gameUnit['defense'] > 0 ){
-                    if( $playerFound == NULL ){
-                        $playerFound = $gameUnit['users_uid'];
-                    }else{
-                        $gameOver = false;
+                    if( $gameUnit['GameUnit']['users_uid'] != $playerFound ){
+                        if( $playerFound == NULL ){
+                            $playerFound = $gameUnit['GameUnit']['users_uid'];
+                        }else{
+                            $gameOver = false;
+                            break;
+                        }
                     }
-                }
 
+                }else{
+                    unset( $gameInformation['GameUnit'][$gameUnitKey] );
+                }
+            }
+
+            //Properly adjust the game units data, also remove anything since the
+            //last known turn
+            foreach( $gameInformation['GameUnit'] as $gameUnitKey => $gameUnit ){
+                if( $gameUnit['GameUnit']['turn'] > $lastKnownTurn ){
+
+                    unset( $gameInformation['GameUnit'][$gameUnitKey]['GameUnit'] );
+                    foreach( $gameUnit['GameUnit'] as $gameAttributeKey => $gameAttribute ){
+                        $gameInformation['GameUnit'][$gameUnitKey][$gameAttributeKey]  = $gameAttribute;
+                    }
+
+                }else{
+                    unset( $gameInformation['GameUnit'][$gameUnitKey] );
+                }
             }
 
             //Now that we know whether or not the game is over, we can store that
