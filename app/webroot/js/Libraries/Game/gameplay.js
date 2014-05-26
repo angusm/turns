@@ -27,7 +27,7 @@ var Gameplay = function(){
 	//VARIABLES
 	this.cardUnitUID    = null;
     this.boardReady     = false;
-    this.unitWidth      = 7.5;
+    this.unitWidth      = 10;
     this.occupiedSpaces = [];
 
 	//PUBLIC FUNCTION: arrangeUnit
@@ -43,8 +43,8 @@ var Gameplay = function(){
             occupiedOffset = Game_gameplay.unitWidth * Game_gameplay.occupiedSpaces[xPos][yPos] / 10
         }
 
-        var nuX = (xPos * Game_elements.tileWidth  / 2 ) - (yPos * Game_elements.tileWidth  / 2 ) + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth ) + ( Game_gameplay.unitWidth / 2) + occupiedOffset;
-        var nuY = (yPos * Game_elements.tileHeight / 2 ) + (xPos * Game_elements.tileHeight / 2 ) + occupiedOffset;
+        var nuX = (xPos * Game_elements.tileWidth  / 2 ) - (yPos * Game_elements.tileWidth  / 2 ) + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth ) + ( Game_gameplay.unitWidth / 4) + occupiedOffset;
+        var nuY = (yPos * Game_elements.tileHeight / 2 ) + (xPos * Game_elements.tileHeight / 2 ) - ( Game_gameplay.unitWidth / 4) + occupiedOffset;
 
 		jQuery( '.gameplayUnit[uid="' + unitObject.uid + '"]' ).animate(
 																{
@@ -61,35 +61,19 @@ var Gameplay = function(){
         Game_gameplay.occupiedSpaces[xPos][yPos] = 1;
 		
 	}
-	
-	//PUBLIC FUNCTION: checkIfSelected
-	//See if the given unit is selected, if it is set the position
-	this.checkIfSelected = function( unitObjectPosition, unitObject ){
-		
-		//Compare the unit object UID with the selected unit UID	
-		if( unitObject.uid == window.pageData.Game.selected_unit_uid ){
-			Game_gameplay.selectedUnit = unitObject;
-		}
-		
-	}
-	
-	//PUBLIC FUNCTION: checkIfUnitShouldBeSelected
-	//Check if the unit should be selected, if it should be
-	//selected then select it.
-	this.checkIfUnitShouldBeSelected = function( unitObjectPosition, unitObject ){
-	
-		if( unitObject.last_movement_priority != "0" ){
-			
-			//If the unti belongs to the current player then process it's selection
-			if( unitObject.users_uid == window.pageData.User.uid ){
-				
-				//Set the selected unit info
-				Game_gameplay.selectedUnit = unitObject;
-				
-			}
-							
-		}
-		
+
+	//PUBLIC FUNCTION: grabSelected
+	//Store the given selected unit
+	this.grabSelected = function(){
+
+
+
+		//Grab the selected unit
+        if( typeof window.pageData.Game.selected_unit_uid !== 'undefined' &&
+            typeof window.pageData.Game.GameUnit[window.pageData.Game.selected_unit_uid] !== 'undefined' ){
+            Game_gameplay.selectedUnit = window.pageData.Game.GameUnit[window.pageData.Game.selected_unit_uid];
+        }
+
 	}
 	
 	//PUBLIC FUNCTION: clearEverything
@@ -119,6 +103,11 @@ var Gameplay = function(){
     //PUBLIC FUNCTION: createUnitDOMElement
     //Create the unit DOM element
     this.createUnitDOMElement = function( unitObject ){
+
+        //Don't do anything for dead units
+        if( unitObject.defense <= 0 ){
+            return;
+        }
 
         //See if we can grab the element
         var elementExists = false;
@@ -706,7 +695,7 @@ var Gameplay = function(){
             Game_gameplay.clearEverything();
 
             //Grab the selected unit
-            jQuery.each( window.pageData.Game.GameUnit, Game_gameplay.checkIfSelected );
+            Game_gameplay.grabSelected();
 
             //If its the player's turn then setup unit selection,
             //otherwise setup a timer to check if it's the user's turn yet
@@ -734,7 +723,7 @@ var Gameplay = function(){
 		
 		//Loop through the player's units and check if there is a unit with
 		//a move already in progress and select that Unit instead.
-		jQuery.each( window.pageData.Game.GameUnit, Game_gameplay.checkIfSelected );
+        Game_gameplay.grabSelected();
 		
 		Game_gameplay.processUnitSelection();
 		

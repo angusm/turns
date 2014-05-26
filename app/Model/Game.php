@@ -236,6 +236,7 @@ class Game extends AppModel {
 
             //If we're on the first turn (that the player knows about) we add to it
             if( $lastKnownTurn == 0 ){
+
                 $gameUnitArray['contain'] = array(
                     'GameUnitStat' => array(
                         'fields' => array(
@@ -394,7 +395,9 @@ class Game extends AppModel {
 
             //Build the proper matrix of game units
             foreach( $gameInformation['GameUnit'] as $gameUnitKey => $gameUnit ){
-                if( $gameUnit['GameUnit']['defense'] > 0 ){
+                if( $gameUnit['GameUnit']['defense'] <= 0 && $gameUnit['GameUnit']['turn'] < $lastKnownTurn ){
+                    unset( $gameInformation['GameUnit'][$gameUnitKey] );
+                }else{
 
                     if( $gameUnit['GameUnit']['users_uid'] != $playerFound ){
                         if( $playerFound == NULL ){
@@ -405,24 +408,27 @@ class Game extends AppModel {
                         }
                     }
 
-                }else{
-                    unset( $gameInformation['GameUnit'][$gameUnitKey] );
                 }
             }
 
-            //Properly adjust the game units data, also remove anything since the
-            //last known turn
+            //Properly adjust the game units data, discarding anything since the last known turn
+            //In re-adjusting we index the game units by their uid
             foreach( $gameInformation['GameUnit'] as $gameUnitKey => $gameUnit ){
                 if( $gameUnit['GameUnit']['turn'] > $lastKnownTurn ){
 
-                    unset( $gameInformation['GameUnit'][$gameUnitKey]['GameUnit'] );
+                    //Reindex
+                    $gameInformation['GameUnit'][$gameUnit['GameUnit']['uid']] =  $gameInformation['GameUnit'][$gameUnitKey];
+
+                    //Adjust the game unit data so it's in the format we would expect from an associated model
+                    unset( $gameInformation['GameUnit'][$gameUnit['GameUnit']['uid']]['GameUnit'] );
                     foreach( $gameUnit['GameUnit'] as $gameAttributeKey => $gameAttribute ){
-                        $gameInformation['GameUnit'][$gameUnitKey][$gameAttributeKey]  = $gameAttribute;
+                        $gameInformation['GameUnit'][$gameUnit['GameUnit']['uid']][$gameAttributeKey]  = $gameAttribute;
                     }
 
-                }else{
-                    unset( $gameInformation['GameUnit'][$gameUnitKey] );
                 }
+
+                //Remove the old indexed data
+                unset( $gameInformation['GameUnit'][$gameUnitKey] );
             }
 
             //Now that we know whether or not the game is over, we can store that
@@ -599,41 +605,61 @@ class Game extends AppModel {
 							$angle, 
 							$movePriority, 
 							$movementSetUID ){
-		
-		//Update the moved unit and then update all of the others
-		$gameUnitModelInstance = ClassRegistry::init( 'GameUnit' );
-		$gameUnitModelInstance->moveGameUnitsToNextTurn( 
-							$gameUID, 
-							$turn, 
-							$gameUnitUID, 
-							$targetX, 
-							$targetY, 
-							$angle, 
-							$movePriority, 
-							$movementSetUID );
-							
-		//Update the active user model to record who was the active user
-		//on the new turn
-		$activeUserModelInstance = ClassRegistry::init( 'ActiveUser' );
-		$activeUserModelInstance->moveToNextTurn( $gameUID );
-		
-		//Find the current game and move its turn up
-		$game = $this->find( 'first', array(
-								'conditions' => array(
-									'Game.uid' => $gameUID
-								)
-							));
-		$nuTurn = $game['Game']['turn'] + 1;
-		
-		//One last step before we update the game is to see if there are still units
-		//alive on both sides.
-		$gameOver = $this->checkForGameOver( $gameUID );
-		
-		//Update the game
-		$this->read( NULL, 		$gameUID );
-		$this->set( 'turn', 	$nuTurn );
-		$this->set( 'active', 	$gameOver );
-		$this->save();
+
+        //Prepare any model instances that we'll be needing
+        $activeUserModelInstance    = ClassRegistry::init( 'ActiveUser' );
+        $gameUnitModelInstance      = ClassRegistry::init( 'GameUnit' );
+
+        //We need to run this update as a transaction so its time to
+        //set that up properly
+        $dataSource = $this->getDataSource();
+
+        try{
+
+            //Start the transaction
+            $dataSource->begin();
+
+            //Update the moved unit and then update all of the others
+            $gameUnitModelInstance->moveGameUnitsToNextTurn(
+                $gameUID,
+                $turn,
+                $gameUnitUID,
+                $targetX,
+                $targetY,
+                $angle,
+                $movePriority,
+                $movementSetUID );
+
+            //Update the active user model to record who was the active user
+            //on the new turn
+            $activeUserModelInstance->moveToNextTurn( $gameUID );
+
+            //Find the current game and move its turn up
+            $game = $this->find( 'first', array(
+                'conditions' => array(
+                    'Game.uid' => $gameUID
+                )
+            ));
+            $nuTurn = $game['Game']['turn'] + 1;
+
+            //One last step before we update the game is to see if there are still units
+            //alive on both sides.
+            $gameOver = $this->checkForGameOver( $gameUID );
+
+            //Update the game
+            $this->read( NULL, 		$gameUID );
+            $this->set( 'turn', 	$nuTurn );
+            $this->set( 'active', 	$gameOver );
+            $this->save();
+
+            $dataSource->commit();
+
+        }catch( Exception $e ){
+
+            $dataSource->rollback();
+            return false;
+
+        }
 		
 	}
 	

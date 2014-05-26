@@ -426,6 +426,7 @@ class GameUnit extends AppModel {
                     $this->storeOriginalUnit( $unitToMove );
 					$unitToMove['GameUnit']['damage'] += $movedUnit['GameUnit']['damage'];
 					$this->selectUnit( $unitToMove['GameUnit']['uid'], $gameUID );
+                    $this->moveGameUnitToNextTurn( $unitToMove, $movedUnit['Game']['turn'] );
                     $preserveDamage = true;
 
 				}else{

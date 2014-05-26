@@ -19,26 +19,28 @@
 	
 	div.gameplayUnit{
         position:	absolute;
-        height:     7.5%;
-        width:      7.5%;
+        height:     10%;
+        width:      10%;
 	}
 	
 	div.gameplayUnitDefense{
 		bottom:         0px;
-		font-size:      18px;
+		font-size:      16px;
 		font-weight:    bold;
-		left:           0px;
+        letter-spacing: -2px;
 		padding:        5px;
 		position:       absolute;
+        right:          0px;
 	}
 	
 	div.gameplayUnitAttack{
 		bottom:         0px;
-		font-size:      18px;
+		font-size:      16px;
 		font-weight:    bold;
+        left:           0px;
+        letter-spacing: -2px;
 		padding:        5px;
 		position:       absolute;
-		right:          0px;
 	}
 	
 	div.gameplayUnit img{
