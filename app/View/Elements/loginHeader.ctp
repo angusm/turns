@@ -1,6 +1,6 @@
 <?php
 
-if( $authUser == null or $authUser['User']['username'] == null ){
+if( $authUser == null or $authUser['username'] == null or $authUser['uid'] == null ){
 
     echo '<div class="loginForm">';
 
@@ -14,7 +14,7 @@ if( $authUser == null or $authUser['User']['username'] == null ){
 
 }else{
 
-    echo '<div class="loggedInUser">'.$authUser['User']['username'].'</div>';
+    echo '<div class="loggedInUser">'.$authUser['username'].'</div>';
 
 }
 

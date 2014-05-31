@@ -116,8 +116,7 @@ var Gameplay = function(){
         });
 
         //Grab the icons
-        var boardIcon       = '';
-        var enemyBoardIcon  = '';
+        var boardIcon = '';
 
         //If the element doesn't exist then create it
         if( elementExists == false ){
@@ -130,18 +129,16 @@ var Gameplay = function(){
                     case "3":
                         boardIcon = unitArtSetIcon.Icon.image;
 
-                    case "14":
-                        enemyBoardIcon = unitArtSetIcon.Icon.image;
-
                 }
 
             });
 
+            var team = 'user';
             if( unitObject.users_uid != window.pageData.User.uid ){
-                boardIcon = enemyBoardIcon;
+                team = 'enemy';
             }
 
-            var gameplayUnitDiv =   '<div uid="'+unitObject.uid+'" class="gameplayUnit" users_uid="'+unitObject.users_uid+'">' +
+            var gameplayUnitDiv =   '<div uid="'+unitObject.uid+'" class="gameplayUnit" team="'+team+'" users_uid="'+unitObject.users_uid+'">' +
                                         '<img src="' + imgLibraryDirectory + boardIcon + '" />' +
                                         '<div class="gameplayUnitAttack">' +
                                             unitObject.damage +

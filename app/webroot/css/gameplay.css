@@ -25,6 +25,7 @@
 	
 	div.gameplayUnitDefense{
 		bottom:         0px;
+        color:          #088A29;
 		font-size:      16px;
 		font-weight:    bold;
         letter-spacing: -2px;
@@ -35,6 +36,7 @@
 	
 	div.gameplayUnitAttack{
 		bottom:         0px;
+        color:          #B45F04;
 		font-size:      16px;
 		font-weight:    bold;
         left:           0px;
@@ -48,6 +50,20 @@
 		height:		100%;
 		width:		100%;
 	}
+
+    div.gameplayUnit[team="user"]{
+        background-image: url(../img/Sprites/Tiles/blueSplash.png);
+        -moz-background-size:100% 100%;
+        -webkit-background-size:100% 100%;
+        background-size:100% 100%;
+    }
+
+    div.gameplayUnit[team="enemy"]{
+        background-image: url(../img/Sprites/Tiles/redSplash.png);
+        -moz-background-size:100% 100%;
+        -webkit-background-size:100% 100%;
+        background-size:100% 100%;
+    }
 	
 	div.gameTile[light="0"]{
         background-image: url(../img/Sprites/Tiles/dark.png);

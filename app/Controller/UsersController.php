@@ -6,7 +6,43 @@ class UsersController extends AppController {
 	//any other action is called
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('register');
+        $this->Auth->allow('register','processLogin');
+    }
+
+    //PUBLIC FUNCTION: test
+    public function processLogin(){
+
+        //Grab the necessary data from the JSON
+        $jsonData = $this->params['url'];
+
+        //Grab the user
+        $user = $this->User->find( 'first', array(
+                        'fields' => array(
+                            'User.uid',
+                            'User.username'
+                        ),
+                        'conditions' => array(
+                            'username'  => $jsonData['username'],
+                            'password' => AuthComponent::password($jsonData['password'])
+                        )
+                    ));
+
+        if( $user != false ){
+            $this->Auth->login( $user['User'] );
+            $success = true;
+        }else{
+            $success = false;
+        }
+
+        $this->set( 'redirectURL',  $this->Auth->redirect()    );
+        $this->set( 'success',      $success                   );
+        $this->set( 'user',         $this->Auth->user()        );
+        $this->set(	'_serialize', array(
+            'redirectURL',
+            'success',
+            'user'
+        ));
+
     }
 
 	//PUBLIC FUNCTION: index
@@ -52,14 +88,7 @@ class UsersController extends AppController {
 	
 	//PUBLIC FUNCTION: login
 	public function login() {
-		//If we're dealing with a posted message
-		if ($this->request->is('post')) {
-			if ($this->Auth->login()) {
-				$this->redirect($this->Auth->redirect());
-			} else {
-				$this->Session->setFlash(__('Invalid username or password, try again'));
-			}
-		}
+
 	}
 	
 }

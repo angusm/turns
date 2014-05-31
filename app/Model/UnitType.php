@@ -185,19 +185,19 @@ class UnitType extends AppModel {
 	//Use the rarity ticket system to select a random unit
 	public function getRandomUnitTypeByTicket(){
 		
-		//Grab all of the Unit Types that still have tickets remaining
-		$eligibleUnits = $this->find( 'list', array(
+		//Grab a random Unit Type that still has tickets remaining
+		$eligibleUnit = $this->find( 'first', array(
 										'conditions' => array(
 											'remaining_rare_tickets >' => '0'
 										),
 										'fields' => array(
 											'uid'
-										)
+										),
+                                        'order' => 'rand()'
 									));
-									
+
 		//Grab the random UID and return it
-		$foundUnitTypeUID = $eligibleUnits[array_rand( $eligibleUnits )];
-		return $foundUnitTypeUID;
+		return $eligibleUnit['UnitType']['uid'];
 		
 	}
 	
@@ -225,12 +225,23 @@ class UnitType extends AppModel {
 		
 		//First off we should make sure that such a Unit Type actually exists
 		$unitTypeRecord = $this->find( 'first', array(
+                                            'fields' => array(
+                                                'UnitType.uid'
+                                            ),
 											'conditions' => array(
 												'UnitType.uid' => $unitTypeUID
 											),
 											'contain' => array(
-												'UnitStat',
-												'UnitArtSet'
+												'UnitStat' => array(
+                                                    'fields' => array(
+                                                        'UnitStat.uid'
+                                                    )
+                                                ),
+												'UnitArtSet' => array(
+                                                    'fields' => array(
+                                                        'UnitArtSet.uid'
+                                                    )
+                                                )
 											)
 										));
 
@@ -245,7 +256,7 @@ class UnitType extends AppModel {
 		}
 		
 		//If we don't have a valid art set, return false
-		if( ! isset( $unitTypeRecord['UnitArtSet'][0]['uid'] ) || ! count( $unitTypeRecord['UnitArtSet'] ) > 0 ){
+		if( ! isset( $unitTypeRecord['UnitArtSet']['uid'] ) || ! count( $unitTypeRecord['UnitArtSet'] ) > 0 ){
 			return false;
 		}		
 		

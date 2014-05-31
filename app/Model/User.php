@@ -54,8 +54,14 @@ class User extends AppModel {
 	//PUBLIC FUNCTION: setupNewUser
 	//Function used to initialize all of the various data we'll need to have a proper
 	//and usable user account. So let's do this.
-	public function setupNewUser( $userUID ){
-	
+	public function setupNewUser( $username, $password ){
+
+        //Create a new user
+        $this->create();
+        $this->set( 'username', $username );
+        $this->set( 'password', $password );
+        $userUID = $this->save();
+
 		//For now we'll settle with just setting up 30 random units for a new user
 		//In order to do this we'll need an instance of a Unit model
 		$unitModelInstance = ClassRegistry::init( 'Unit' );

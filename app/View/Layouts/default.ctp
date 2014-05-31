@@ -34,7 +34,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->css('setupForms');
 		echo $this->Html->css('UI');
 		echo $this->Html->css('turns');
-		echo $this->Html->css('gameplay');
+        echo $this->Html->css('gameplay');
+        echo $this->Html->css('defaultLayout');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -44,6 +45,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div id="container">
 		<div id="header">
+
+            <?php
+                echo $this->element('loginHeader');
+            ?>
+
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>
         <div id="mainMenu">
@@ -62,8 +68,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			?>
 		</div>
 	</div>
-	<?php echo $this->element('javascript'); ?>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php
+        echo $this->element('javascript');
+	    echo $this->element('sql_dump');
+    ?>
     
 </body>
 </html>

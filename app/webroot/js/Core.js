@@ -57,7 +57,8 @@ function addStandardLibraries(){
                 new Array( 'Events',            'EventBus' ),
                 new Array( 'Pixastic',          'pixastic.jquery' ),
                 new Array( 'Pixastic',          'pixastic.core' ),
-                new Array( 'Pixastic/actions',  'coloradjust' )
+                new Array( 'Pixastic/actions',  'coloradjust' ),
+                new Array( 'Authentication',    'authentication')
 			);
 
 	return libraries;

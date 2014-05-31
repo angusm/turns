@@ -42,6 +42,12 @@ class AppController extends Controller {
 
     public function beforeFilter() {
        //$this->Auth->allow();
+        $this->Auth->loginAction = array(
+            'controller' => 'users',
+            'action' => 'register',
+            'plugin' => null
+        );
+        $this->set( 'authUser', $this->Auth->user() );
     }
 	
 	//PUBLIC FUNCTION: add
@@ -87,7 +93,7 @@ class AppController extends Controller {
 	public function getRecordData( ){
 		
 		//Grab the data we were sent
-                $requestedUID = $this->params['url']['uid'];
+        $requestedUID = $this->params['url']['uid'];
                 
 		//Get the model we're dealing with
 		$modelInstance 	= $this->getInstance();
