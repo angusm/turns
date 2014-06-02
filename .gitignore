@@ -9,6 +9,7 @@ vendors
 build
 dist
 tags
+.idea/*
 
 # OS generated files #
 ######################
