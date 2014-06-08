@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de56b574-5151-4d02-aa6b-bd01ddde2417" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Angus.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Controller/BoardsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/TeamUnit.php" afterPath="$PROJECT_DIR$/app/Model/TeamUnit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/css/UI.css" afterPath="$PROJECT_DIR$/app/webroot/css/UI.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/js/Libraries/Game/elements.js" afterPath="$PROJECT_DIR$/app/webroot/js/Libraries/Game/elements.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/logs/error.log" afterPath="$PROJECT_DIR$/app/tmp/logs/error.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js" afterPath="$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Units/manage_units.ctp" afterPath="$PROJECT_DIR$/app/View/Units/manage_units.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_cake_en-us" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_cake_en-us" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_file_map" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_file_map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_method_cache" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_method_cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/models/myapp_cake_model_default_turns_list" afterPath="$PROJECT_DIR$/app/tmp/cache/models/myapp_cake_model_default_turns_list" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Users/register.ctp" afterPath="$PROJECT_DIR$/app/View/Users/register.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="turns.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,7 +36,7 @@
       <file leaf-file-name="manageUnits.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="448" column="19" selection-start="13562" selection-end="13562" vertical-scroll-proportion="0.23292683" vertical-offset="7425" max-vertical-offset="11696">
+            <state line="94" column="27" selection-start="2266" selection-end="2266" vertical-scroll-proportion="0.45731708" vertical-offset="1223" max-vertical-offset="11407">
               <folding />
             </state>
           </provider>
@@ -170,8 +162,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="680" />
-    <option name="width" value="1240" />
+    <option name="x" value="960" />
+    <option name="width" value="960" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -769,7 +761,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="680" y="0" width="1240" height="1040" extended-state="0" />
+    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -777,7 +769,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1985294" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25741526" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -913,7 +905,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="448" column="19" selection-start="13562" selection-end="13562" vertical-scroll-proportion="0.23292683" vertical-offset="7425" max-vertical-offset="11696">
+        <state line="94" column="27" selection-start="2266" selection-end="2266" vertical-scroll-proportion="0.45731708" vertical-offset="1223" max-vertical-offset="11407">
           <folding />
         </state>
       </provider>

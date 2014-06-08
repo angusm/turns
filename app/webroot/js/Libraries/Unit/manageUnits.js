@@ -18,7 +18,6 @@ jQuery(document).ready( function(){
     Unit_manageUnits.handleEverything();
 
     Game_elements = new GameElements();
-    Game_elements.arrangeStaticElements();
 
     Game_gameplay = new Gameplay();
 
@@ -60,42 +59,20 @@ function ManageUnits(){
 		
 	}
 	
-	//PUBLIC FUNCTION: addTeamRowForUnitTypeUID
-	//Add a row to the team table for the given UnitTypeUID
-	this.addTeamRowForUnitTypeUID = function( unitTypeUID ){
-	
-			
-			//Grab the relevant data
-			var unitName 	= jQuery( 'td[fieldName="name"][uid="'+unitTypeUID+'"]' ).html();
-			var teamCost 	= jQuery( 'td[fieldName="teamcost"][uid="'+unitTypeUID+'"]' ).html();
-			var unitRow 	= '<tr modelName="Unit" uid="' + unitTypeUID + '">'
-						    + Unit_manageUnits.getUnitTDCell( unitTypeUID, 'uid', 		unitTypeUID )
-						    + Unit_manageUnits.getUnitTDCell( unitTypeUID, 'name', 	unitName )
-						    + Unit_manageUnits.getUnitTDCell( unitTypeUID, 'quantity', 0 )
-						    + Unit_manageUnits.getUnitTDCell( unitTypeUID, 'teamcost', teamCost )
-						    + '</tr>';
-			
-			//Create the necessary element
-			jQuery( 'div.teamUnits > table > tbody' ).append( unitRow );
-			Unit_manageUnits.handleRemoveFromTeamButton();
-		
-		
-	}
-	
 	//PUBLIC FUNCTION: addUnitToTeam
 	//Add the unit to the selected team
 	this.addUnitToTeam = function( tileElement ){
-		
-		if( jQuery( tileElement ).hasClass('removeFromTeam') ){
+
+        //Grab the x and y of the selected tile
+        tileElement     = jQuery( tileElement ).closest( 'div.gameTile' );
+        var selectedX   = jQuery( tileElement ).attr( 'x' );
+        var selectedY   = jQuery( tileElement ).attr( 'y' );
+
+        //See if there's already a unit positioned on the given tile
+        if( jQuery( 'div.removeFromTeam[x="'+selectedX+'"][y="'+selectedY+'"]' ).length != 0 ){
 			return false;
 		}
-		
-		tileElement = jQuery( tileElement ).closest( 'div.gameTile' );
-	
-		//Grab the x and y of the selected tile
-		var selectedX = jQuery( tileElement ).attr( 'x' );
-		var selectedY = jQuery( tileElement ).attr( 'y' );
-		
+
 		//Grab the Team UID 
 		var teamUID 	= jQuery( '.editableSelect[modelname="Team"]' ).val();
 		
@@ -109,7 +86,7 @@ function ManageUnits(){
 				y:				selectedY
 			},
 			function( jSONData ){
-				Unit_manageUnits.finalizeUnitAdd( jSONData, selectedX, selectedY );
+				Unit_manageUnits.finalizeUnitAdd( jSONData );
 			}
 		).done( 
 			function(){
@@ -245,7 +222,7 @@ function ManageUnits(){
 	
 	//PUBLIC FUNCTION: finalizeUnitAdd
 	//Once we've gotten confirmation from the server we can actually show the add as completed to the user
-	this.finalizeUnitAdd = function( jSONData, x, y ){
+	this.finalizeUnitAdd = function( jSONData ){
 		
 		//If the add was successful then update the display
 		if( jSONData['success'] != false ){
@@ -330,18 +307,24 @@ function ManageUnits(){
 	//The Pepper Potts function, in that it will just handle everything
 	this.handleEverything = function(){
 
-        EventBus.addEventListener("GAME_BOARD_CREATED", function(){
+        if( Unit_manageUnits.boardReady != true ){
 
-            //Get the game data
-            Unit_manageUnits.boardReady = true;
+            EventBus.addEventListener("GAME_BOARD_CREATED", function(){
 
-        }, Game_elements );
+                //Get the game data
+                Unit_manageUnits.boardReady = true;
+                Unit_manageUnits.handlePlaceUnit();
+
+            }, Game_elements );
+
+        }else{
+            Unit_manageUnits.handlePlaceUnit();
+        }
 
 		Unit_manageUnits.handleAddToTeamButton();
 		Unit_manageUnits.handleChangeTeam();
 		Unit_manageUnits.handleChangeTeamName();
 		Unit_manageUnits.handleNewTeamButton();
-		Unit_manageUnits.handlePlaceUnit();
 		Unit_manageUnits.handleRemoveTeam();
 		Unit_manageUnits.loadTeamUnits();
 	}
