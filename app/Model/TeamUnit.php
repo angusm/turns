@@ -235,7 +235,11 @@ class TeamUnit extends AppModel {
 											'Team',
 											'TeamUnitPosition',
 											'UnitType' => array(
-												'UnitArtSet',
+												'UnitArtSet' => array(
+                                                    'UnitArtSetIcon' => array(
+                                                        'Icon'
+                                                    )
+                                                ),
 												'UnitStat' => array(
 													'UnitStatMovementSet'
 												)

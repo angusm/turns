@@ -120,7 +120,7 @@ var GameElements = function(){
             function( jSONData ){
 
                 //Store the board information
-                window.pageData.Game.Board          = jSONData.board;
+                window.pageData.Game.Board = jSONData.board;
                 Game_elements.createBoard();
                 Game_elements.arrangeTiles();
                 EventBus.dispatch( "GAME_BOARD_CREATED", Game_elements );

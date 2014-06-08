@@ -7,10 +7,10 @@
 	div.removeFromTeam{
 		background-color:	#F00;
 		position:			absolute;
-		height:				30px;
-		left:				40px;
-		top:				40px;
-		width:				30px;	
+		height:				30%;
+		left:				35%;
+		top:				70%;
+		width:				30%;
 	}
 
 	input[type="text"].editableSelect{

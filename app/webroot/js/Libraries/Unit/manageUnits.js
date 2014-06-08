@@ -1,11 +1,35 @@
 //PEPPER POTTS FUNCTION: handleEverything
 
-var Unit_manageUnits = new manageUnits();
-Unit_manageUnits.handleEverything();
+
+
+//Setup the dependencies function
+var loadDependenciesFor_Unit_manageUnits = function(){
+
+    libraries.push( new Array( 'Game', 'elements' ) );
+    libraries.push( new Array( 'Game', 'gameplay' ) );
+
+}
+
+//DOCUMENT READY
+//When the document is fully ready, call the main function
+jQuery(document).ready( function(){
+
+    Unit_manageUnits = new ManageUnits();
+    Unit_manageUnits.handleEverything();
+
+    Game_elements = new GameElements();
+    Game_elements.arrangeStaticElements();
+
+    Game_gameplay = new Gameplay();
+
+});
 
 //Setup the object for managing units
-function manageUnits(){
-	
+function ManageUnits(){
+
+    //Track whether or not the board is ready
+    this.boardReady = false;
+
 	//Establish a variable to hold the UID of the currently
 	//selected unit type UID
 	this.selectedUnitTypeUID = false;
@@ -13,16 +37,8 @@ function manageUnits(){
 	//PUBLIC FUNCTION: addNewTeam
 	//Allow the user to add a new team to their account
 	this.addNewTeam = function( triggeringEvent ){
-		
-		//Get the targeted element
-		var element = triggeringEvent.target;	
-		
-		//Get the editableSelect value
-		var editableSelectUID = jQuery( element ).attr( 'editableSelect' );
-		
+
 		//Run the JSON to create the new team
-		
-		//Make the necessary call
 		jQuery.getJSON(
 			homeURL + '/Teams/addNewTeam/', 
 			{
@@ -52,12 +68,12 @@ function manageUnits(){
 			//Grab the relevant data
 			var unitName 	= jQuery( 'td[fieldName="name"][uid="'+unitTypeUID+'"]' ).html();
 			var teamCost 	= jQuery( 'td[fieldName="teamcost"][uid="'+unitTypeUID+'"]' ).html();
-			var unitRow 	=  '<tr modelName="Unit" uid="' + unitTypeUID + '">';
-			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'uid', 		unitTypeUID );
-			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'name', 	unitName );
-			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'quantity', 0 );
-			unitRow			+= Unit_manageUnits.getUnitTDCell( unitTypeUID, 'teamcost', teamCost );
-			unitRow			+= '</tr>';
+			var unitRow 	= '<tr modelName="Unit" uid="' + unitTypeUID + '">'
+						    + Unit_manageUnits.getUnitTDCell( unitTypeUID, 'uid', 		unitTypeUID )
+						    + Unit_manageUnits.getUnitTDCell( unitTypeUID, 'name', 	unitName )
+						    + Unit_manageUnits.getUnitTDCell( unitTypeUID, 'quantity', 0 )
+						    + Unit_manageUnits.getUnitTDCell( unitTypeUID, 'teamcost', teamCost )
+						    + '</tr>';
 			
 			//Create the necessary element
 			jQuery( 'div.teamUnits > table > tbody' ).append( unitRow );
@@ -79,8 +95,6 @@ function manageUnits(){
 		//Grab the x and y of the selected tile
 		var selectedX = jQuery( tileElement ).attr( 'x' );
 		var selectedY = jQuery( tileElement ).attr( 'y' );
-		console.log( selectedX );
-		console.log( selectedY );
 		
 		//Grab the Team UID 
 		var teamUID 	= jQuery( '.editableSelect[modelname="Team"]' ).val();
@@ -112,10 +126,10 @@ function manageUnits(){
 	
 	//PUBLIC FUNCTION: debitUnitPool
 	//Subtract the unit counts of the team list from the player's unit pool
-	this.debitUnitPool = function( jSONData ){
+	this.debitUnitPool = function(){
 		
 		//Loop through the jSONData returned to grab each unit
-		jQuery.each( jSONData['unitsOnTeam'], function( key, unitData ){
+		jQuery.each( window.pageData.TeamUnits, function( key, unitData ){
 			
 			//Grab the relevant data
 			var unitUID		= unitData['UnitType']['uid'];
@@ -130,74 +144,72 @@ function manageUnits(){
 			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitUID+'"]' ).attr( "value", debitedCount );
 			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitUID+'"]' ).html( debitedCount );
 						
-						
 		});
 			
 	}
 	
 	//PUBLIC FUNCTION: displayTeamUnits
 	//Display the starting positions of the units on the team
-	this.displayTeamUnits = function( jSONData ){
-	
-		//Before we display team units we need to clear out any old ones
-		jQuery( '.gameTile' ).html( '' );
-	
-		//Loop through each team unit, grab its image and display it for each
-		//time it has been placed
-		jQuery.each( jSONData['unitsOnTeam'], function( 
-												teamUnitKey,
-												teamUnitData ){
-			
-			//Grab the unit type uid and the board icon
-			var unitTypeUID 	= teamUnitData['TeamUnit']['unit_types_uid'];
-			var unitBoardIcon 	= ''
-			jQuery.each( window.Unit_manageUnits_availableUnitList, function( key, unitData ){
-				
-				//Check for a match
-				if( unitData['UnitType']['uid'] == unitTypeUID ){
-								
-					//If we have a valid unit then grab its icon
-					jQuery.each( unitData['UnitType']['UnitArtSet']['UnitArtSetIcon'], function( iconKey, iconData ){
-						if( iconData['Icon']['icon_positions_uid'] == 3 ){
-							unitBoardIcon = iconData['Icon']['image'];	
-						}						
-						return false;
-					});
-									
-					//Break the loop early	
-					return false;	
-				}
-				
-			});	
-			
-			jQuery.each( teamUnitData['TeamUnitPosition'], function( 
-													teamUnitPositionKey, 
-													teamUnitPositionData ){
+	this.displayTeamUnits = function(){
+
+        //Loop through the jSONData returned to grab each unit
+        jQuery.each( window.pageData.TeamUnits, function( key, unitData ){
+
+            //Grab the unit's attack and defense
+            var unitAttack  = unitData['UnitType']['UnitStat']['damage'];
+            var unitDefense = unitData['UnitType']['UnitStat']['defense'];
+            var unitBoardIcon   = 'CardArt/Default/boardIcon.png';
+
+            //Grab the unit's board icon
+            jQuery.each( unitData['UnitType']['UnitArtSet']['UnitArtSetIcon'], function( iconKey, iconData ){
+                if( iconData['Icon']['icon_positions_uid'] == 3 ){
+                    unitBoardIcon = iconData['Icon']['image'];
+                    return false;
+                }
+            });
+
+            jQuery.each( unitData['TeamUnitPosition'], function( key, teamUnitPositionData ){
+
 				//Grab the x, y and team units UID
 				var x 			= teamUnitPositionData.x;
 				var y 			= teamUnitPositionData.y;
-				
-				Unit_manageUnits.displayUnit( x, y, unitBoardIcon, unitTypeUID );
+                var uid         = teamUnitPositionData.uid;
+
+                //Display the unit
+                jQuery( 'div.gameBoard' ).append(
+                    '<div uid="'+uid+'" class="gameplayUnit" team="user">'
+                        + '<img src="'+ imgURL + unitBoardIcon +'" >'
+                        + '<div class="gameplayUnitAttack">'+unitAttack+'</div>'
+                        + '<div class="gameplayUnitDefense">'+unitDefense+'</div>'
+                        + '<div class="removeFromTeam" uid="'+unitData['UnitType']['uid']+'" x="'+x+'" y="'+y+'">'
+                        + '</div>'
+                );
+
+                Unit_manageUnits.handleRemoveFromTeamButton();
+
+                var xPos = x;
+                var yPos = y;
+                var occupiedOffset = 0;
+
+                var nuX = (xPos * Game_elements.tileWidth  / 2 ) - (yPos * Game_elements.tileWidth  / 2 ) + ((window.pageData.Game.Board.width - 1) / 2 * Game_elements.tileWidth ) + ( Game_gameplay.unitWidth / 4) + occupiedOffset;
+                var nuY = (yPos * Game_elements.tileHeight / 2 ) + (xPos * Game_elements.tileHeight / 2 ) - ( Game_gameplay.unitWidth / 4) + occupiedOffset;
+
+                jQuery( '.gameplayUnit[uid="'+uid+'"]' ).animate(
+                    {
+                        'position'	: 'absolute',
+                        'left'		: nuX + '%',
+                        'top'		: nuY + '%'
+                    },
+                    1000
+                );
 				
 			});
 			
 		});
 		
 	}
-	
-	//PUBLIC FUNCTION: displayUnit
-	//Display the unit with the given information including any necessary 
-	this.displayUnit = function( x, y, image, uid ){
-		
-		
-		jQuery( 'div.gameTile[x="'+x+'"][y="'+y+'"]' ).append( 
-			'<img src="' + imgURL + image + '" class="gameplayUnit" uid="' + uid + '">' +
-			'<div class="removeFromTeam" uid="' + uid + '" x="' + x + '" y="' + y + '">'
-		);
-		Unit_manageUnits.handleRemoveFromTeamButton();
-		
-	}
-	
+
+
 	//PUBLIC FUNCTION: finalizeTeamAdd
 	//Handle the callback function after we've added the team to the database
 	//So that we can show this addition to the user
@@ -237,60 +249,7 @@ function manageUnits(){
 		
 		//If the add was successful then update the display
 		if( jSONData['success'] != false ){
-			
-			//Grab the unit type UID
-			var unitTypeUID = jSONData['unitTypeUID'];
-			
-			//Update the pool count
-			var originalPoolCount = jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
-			var changedPoolCount = parseInt( originalPoolCount ) - 1;
-			
-			//Display the Team Cost
-			var teamCost = jQuery( 'div.TeamCost' ).html();
-			var unitTeamCost = jQuery( 'td[fieldName="teamcost"][uid="'+unitTypeUID+'"]' ).html();
-			teamCost = parseInt( teamCost ) + parseInt( unitTeamCost );
-			jQuery( 'div.TeamCost' ).html( teamCost );
-			
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value", changedPoolCount);
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html(changedPoolCount);
-			
-			//Ensure that a row for this unit exists in the team table
-			if( jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).length == 0 ){
-			
-				//Add the given row
-				Unit_manageUnits.addTeamRowForUnitTypeUID( unitTypeUID );
-			}
-			
-			//Update the team count
-			var originalTeamCount = jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
-			var changedTeamCount = parseInt( originalTeamCount ) + 1;
-			
-			jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value", changedTeamCount);
-			jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html(changedTeamCount);
-			
-			//Display the given unit at the desired position
-			//First we have to find the unit in the available unit team list
-			//Then we can display its image in the unit display box
-			jQuery.each( window.Unit_manageUnits_availableUnitList, function( key, unitData ){
-				
-				//Check for a match
-				if( unitData['UnitType']['uid'] == unitTypeUID ){
-								
-					//If we have a valid unit then display it
-					jQuery.each( unitData['UnitType']['UnitArtSet']['UnitArtSetIcon'], function( iconKey, iconData ){
-						if( iconData['Icon']['icon_positions_uid'] == 3 ){
-							
-							Unit_manageUnits.displayUnit( x, y, iconData['Icon']['image'], unitData['UnitType']['uid'] );
-							return false;
-						}						
-					});
-									
-					//Break the loop early	
-					return false;	
-				}
-				
-			});
-			
+            Unit_manageUnits.loadTeamUnits();
 		}
 		
 	}
@@ -301,39 +260,7 @@ function manageUnits(){
 		
 		//If the remove was successful then update the display
 		if( jSONData['success'] != false ){
-			
-			//Grab the unit type UID
-			var unitTypeUID = jSONData['unitTypeUID'];
-			
-			//Update the pool count
-			var originalPoolCount = jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
-			var changedPoolCount = parseInt( originalPoolCount ) + 1;
-			
-			
-			//Display the Team Cost
-			var teamCost = jQuery( 'div.TeamCost' ).html();
-			var unitTeamCost = jQuery( 'td[fieldName="teamcost"][uid="'+unitTypeUID+'"]' ).html();
-			teamCost = parseInt( teamCost ) - parseInt( unitTeamCost );
-			jQuery( 'div.TeamCost' ).html( teamCost );
-			
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value", changedPoolCount);
-			jQuery( 'div.unitPool > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html(changedPoolCount);
-			
-			//Update the team count
-			var originalTeamCount = jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value");
-			var changedTeamCount = parseInt( originalTeamCount ) - 1;
-			
-			if( changedTeamCount == 0 ){
-				jQuery( 'div.teamUnits > table > tbody > tr[uid="'+unitTypeUID+'"]' ).remove();
-			}else{
-				jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).attr("value", changedTeamCount);
-				jQuery( 'div.teamUnits > table > tbody > tr > td[fieldname="quantity"][uid="'+unitTypeUID+'"]' ).html(changedTeamCount);
-			}
-			
-			var x = jSONData['x'];
-			var y = jSONData['y'];
-			jQuery( 'div.gameTile[x="' + x + '"][y="' + y + '"]' ).html( '' );
-			
+            Unit_manageUnits.loadTeamUnits();
 		}
 		
 	}
@@ -402,6 +329,14 @@ function manageUnits(){
 	//PUBLIC FUNCTION: handleEverything
 	//The Pepper Potts function, in that it will just handle everything
 	this.handleEverything = function(){
+
+        EventBus.addEventListener("GAME_BOARD_CREATED", function(){
+
+            //Get the game data
+            Unit_manageUnits.boardReady = true;
+
+        }, Game_elements );
+
 		Unit_manageUnits.handleAddToTeamButton();
 		Unit_manageUnits.handleChangeTeam();
 		Unit_manageUnits.handleChangeTeamName();
@@ -510,10 +445,26 @@ function manageUnits(){
 				teamUID:teamUID
 			},
 			function( jSONData ){
-				Unit_manageUnits.refundUnitPool();
-				Unit_manageUnits.populateTeamUnits( jSONData );
-				Unit_manageUnits.displayTeamUnits( jSONData );
-				Unit_manageUnits.handleRemoveFromTeamButton();
+
+                window.pageData.TeamUnits = jSONData['unitsOnTeam'];
+
+                if( ! Unit_manageUnits.boardReady ){
+
+                    //Don't setup the game until the board is ready
+                    EventBus.addEventListener("GAME_BOARD_CREATED", function(){
+
+                        Game_gameplay.boardReady = true;
+                        Unit_manageUnits.processTeamLoad();
+
+                    }, Game_elements );
+
+                }else{
+
+                    Unit_manageUnits.processTeamLoad();
+
+                }
+
+
 			}
 		).done( 
 			function(){
@@ -546,13 +497,13 @@ function manageUnits(){
 	
 	//PUBLIC FUNCTION: populateTeamUnits
 	//Build the HTML that will actually display the team units
-	this.populateTeamUnits = function( jSONData ){
+	this.populateTeamUnits = function(){
 		
 		//Team Cost 
 		var teamCost = 0;
 		
 		//Loop through the jSONData returned to grab each unit
-		jQuery.each( jSONData['unitsOnTeam'], function( key, unitData ){
+		jQuery.each( window.pageData.TeamUnits, function( key, unitData ){
 			
 			//Grab the relevant data
 			var unitCount 	= unitData['TeamUnit']['quantity'];
@@ -579,9 +530,18 @@ function manageUnits(){
 		jQuery( 'div.TeamCost' ).html( teamCost );
 		
 		//Debit the unitl pool
-		Unit_manageUnits.debitUnitPool( jSONData );
+		Unit_manageUnits.debitUnitPool();
 		
 	}
+
+    //PUBLIC FUNCTION: processTeamLoad
+    //When we have team data and the board is ready, show it all to the user
+    this.processTeamLoad = function(){
+        Unit_manageUnits.refundUnitPool();
+        Unit_manageUnits.populateTeamUnits();
+        Unit_manageUnits.displayTeamUnits();
+        Unit_manageUnits.handleRemoveFromTeamButton();
+    }
 	
 	//PUBLIC FUNCTION: refundUnitPool
 	//Take all the Unit Types that are in the currently selected team and refund their
@@ -605,8 +565,9 @@ function manageUnits(){
 			
 		});
 		
-		//Now with everything refunded we remove the table rows
+		//Now with everything refunded we remove the table rows and displayed units
 		jQuery( 'div.teamUnits > table > tbody > tr[modelName="Unit"]' ).remove();
+        jQuery( 'div.gameplayUnit').remove();
 		
 	}
 	

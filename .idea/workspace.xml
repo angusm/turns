@@ -5,25 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de56b574-5151-4d02-aa6b-bd01ddde2417" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/webroot/css/defaultLayout.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/View/Elements/loginHeader.ctp" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\turns\app\webroot\img\CardArt\Default\enemyBoardIcon.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/img/CardArt/Default/boardIcon.png" afterPath="$PROJECT_DIR$/app/webroot/img/CardArt/Default/boardIcon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/AppController.php" afterPath="$PROJECT_DIR$/app/Controller/AppController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/js/Core.js" afterPath="$PROJECT_DIR$/app/webroot/js/Core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/UnitType.php" afterPath="$PROJECT_DIR$/app/Model/UnitType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/User.php" afterPath="$PROJECT_DIR$/app/Model/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/UsersController.php" afterPath="$PROJECT_DIR$/app/Controller/UsersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js" afterPath="$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Layouts/default.ctp" afterPath="$PROJECT_DIR$/app/View/Layouts/default.ctp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Angus.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Controller/BoardsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/TeamUnit.php" afterPath="$PROJECT_DIR$/app/Model/TeamUnit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/css/UI.css" afterPath="$PROJECT_DIR$/app/webroot/css/UI.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/js/Libraries/Game/elements.js" afterPath="$PROJECT_DIR$/app/webroot/js/Libraries/Game/elements.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/logs/error.log" afterPath="$PROJECT_DIR$/app/tmp/logs/error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/css/gameplay.css" afterPath="$PROJECT_DIR$/app/webroot/css/gameplay.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/js/Libraries/Game/gameplay.js" afterPath="$PROJECT_DIR$/app/webroot/js/Libraries/Game/gameplay.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Users/login.ctp" afterPath="$PROJECT_DIR$/app/View/Users/login.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js" afterPath="$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Units/manage_units.ctp" afterPath="$PROJECT_DIR$/app/View/Units/manage_units.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_cake_en-us" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_cake_en-us" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_file_map" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_file_map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_method_cache" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_method_cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/models/myapp_cake_model_default_turns_list" afterPath="$PROJECT_DIR$/app/tmp/cache/models/myapp_cake_model_default_turns_list" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Users/register.ctp" afterPath="$PROJECT_DIR$/app/View/Users/register.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="turns.iws" />
@@ -47,19 +41,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GamesController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controller/GamesController.php">
+      <file leaf-file-name="manageUnits.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="33" selection-start="2773" selection-end="2773" vertical-scroll-proportion="-13.076923" vertical-offset="1428" max-vertical-offset="2363">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsersController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="43" selection-start="1009" selection-end="1009" vertical-scroll-proportion="-15.692307" vertical-offset="102" max-vertical-offset="1683">
+            <state line="448" column="19" selection-start="13562" selection-end="13562" vertical-scroll-proportion="0.23292683" vertical-offset="7425" max-vertical-offset="11696">
               <folding />
             </state>
           </provider>
@@ -68,16 +53,16 @@
       <file leaf-file-name="gameplay.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/webroot/css/gameplay.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="32" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="1683">
+            <state line="74" column="28" selection-start="1673" selection-end="1673" vertical-scroll-proportion="-19.92" vertical-offset="760" max-vertical-offset="1683">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="javascript.ctp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/Elements/javascript.ctp">
+      <file leaf-file-name="reset.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/webroot/css/reset.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="391">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
               <folding />
             </state>
           </provider>
@@ -86,34 +71,7 @@
       <file leaf-file-name="gameplay.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Game/gameplay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="77" selection-start="4771" selection-end="4771" vertical-scroll-proportion="-28.88" vertical-offset="1743" max-vertical-offset="14229">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginHeader.ctp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/View/Elements/loginHeader.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="61" selection-start="441" selection-end="441" vertical-scroll-proportion="0.21922626" vertical-offset="0" max-vertical-offset="853">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.ctp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/Layouts/default.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="44" selection-start="1160" selection-end="1173" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="1139">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="turns.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/webroot/css/turns.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="5" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3859">
+            <state line="673" column="36" selection-start="20593" selection-end="20915" vertical-scroll-proportion="-9.56" vertical-offset="11202" max-vertical-offset="14229">
               <folding />
             </state>
           </provider>
@@ -122,7 +80,34 @@
       <file leaf-file-name="defaultLayout.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/webroot/css/defaultLayout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="21" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TeamUnit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/TeamUnit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="241" column="50" selection-start="7429" selection-end="7429" vertical-scroll-proportion="-20.26923" vertical-offset="3570" max-vertical-offset="5168">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TeamUnitsController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Controller/TeamUnitsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="33.346153" vertical-offset="867" max-vertical-offset="2159">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="turns.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/webroot/css/turns.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="23" selection-start="1054" selection-end="1056" vertical-scroll-proportion="-11.08" vertical-offset="930" max-vertical-offset="3859">
               <folding />
             </state>
           </provider>
@@ -131,7 +116,16 @@
       <file leaf-file-name="UI.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/webroot/css/UI.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+            <state line="21" column="5" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage_units.ctp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Units/manage_units.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="39" selection-start="1972" selection-end="1972" vertical-scroll-proportion="-22.846153" vertical-offset="868" max-vertical-offset="1751">
               <folding />
             </state>
           </provider>
@@ -155,13 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/Model/Game.php" />
-        <option value="$PROJECT_DIR$/app/Model/GameUnit.php" />
-        <option value="$PROJECT_DIR$/app/Model/UnitType.php" />
-        <option value="$PROJECT_DIR$/app/Model/User.php" />
-        <option value="$PROJECT_DIR$/app/webroot/js/Core.js" />
-        <option value="$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js" />
-        <option value="$PROJECT_DIR$/app/View/Users/login.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/AppController.php" />
         <option value="$PROJECT_DIR$/app/webroot/css/turns.css" />
         <option value="$PROJECT_DIR$/app/View/Layouts/default.ctp" />
@@ -171,12 +158,20 @@
         <option value="$PROJECT_DIR$/app/View/Elements/loginHeader.ctp" />
         <option value="$PROJECT_DIR$/app/webroot/css/gameplay.css" />
         <option value="$PROJECT_DIR$/app/webroot/js/Libraries/Game/gameplay.js" />
+        <option value="$PROJECT_DIR$/app/View/Users/register.ctp" />
+        <option value="$PROJECT_DIR$/app/Controller/BoardsController.php" />
+        <option value="$PROJECT_DIR$/app/webroot/js/Libraries/Game/elements.js" />
+        <option value="$PROJECT_DIR$/app/Model/TeamUnit.php" />
+        <option value="$PROJECT_DIR$/app/View/Units/manage_units.ctp" />
+        <option value="$PROJECT_DIR$/app/webroot/css/UI.css" />
+        <option value="$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1924" />
+    <option name="x" value="680" />
+    <option name="width" value="1240" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -274,6 +269,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="turns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="turns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webroot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -419,6 +444,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="EditableSelect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="turns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="turns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webroot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Disclosure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -512,6 +567,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="turns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="turns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Units" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -643,6 +720,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\turns\app\webroot\js\Libraries\Game" />
       <recent name="C:\xampp\htdocs\turns\app\webroot\css" />
       <recent name="C:\xampp\htdocs\turns\app\View\Elements" />
       <recent name="C:\xampp\htdocs\turns\app\Model" />
@@ -691,7 +769,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1924" height="1040" extended-state="0" />
+    <frame x="680" y="0" width="1240" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -699,7 +777,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21016772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1985294" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -728,114 +806,114 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js">
+    <entry file="file://$PROJECT_DIR$/app/Model/Game.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="18" selection-start="1532" selection-end="1532" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="1377">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13855">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Elements/script_dump.ctp">
+    <entry file="file://$PROJECT_DIR$/app/Controller/BoardsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="2" selection-start="100" selection-end="100" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="187">
+        <state line="3" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="204">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/User.php">
+    <entry file="file://$PROJECT_DIR$/app/Model/Unit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="76" selection-start="1082" selection-end="1106" vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="1462">
+        <state line="33" column="53" selection-start="890" selection-end="890" vertical-scroll-proportion="-11.769231" vertical-offset="255" max-vertical-offset="2635">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Users/login.ctp">
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Game/elements.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="6" selection-end="533" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="442">
+        <state line="39" column="30" selection-start="981" selection-end="1002" vertical-scroll-proportion="-10.24" vertical-offset="407" max-vertical-offset="2754">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/AppController.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/UnitsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="33" selection-start="1529" selection-end="1529" vertical-scroll-proportion="-10.461538" vertical-offset="561" max-vertical-offset="4420">
+        <state line="33" column="16" selection-start="964" selection-end="964" vertical-scroll-proportion="-21.576923" vertical-offset="0" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Layouts/default.ctp">
+    <entry file="file://$PROJECT_DIR$/app/View/Games/play_game.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="44" selection-start="1160" selection-end="1173" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="1139">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="895">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/css/UI.css">
+    <entry file="file://$PROJECT_DIR$/app/Model/TeamUnit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="879">
+        <state line="241" column="50" selection-start="7429" selection-end="7429" vertical-scroll-proportion="-20.26923" vertical-offset="3570" max-vertical-offset="5168">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/css/turns.css">
+    <entry file="file://$PROJECT_DIR$/app/View/Units/manage_units.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="5" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3859">
+        <state line="86" column="39" selection-start="1972" selection-end="1972" vertical-scroll-proportion="-22.846153" vertical-offset="868" max-vertical-offset="1751">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/css/defaultLayout.css">
+    <entry file="file://$PROJECT_DIR$/app/Controller/TeamUnitsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Cake/Controller/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="35" selection-start="2566" selection-end="2566" vertical-scroll-proportion="0.22391559" vertical-offset="489" max-vertical-offset="20927">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Elements/javascript.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="879">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/GamesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="33" selection-start="2773" selection-end="2773" vertical-scroll-proportion="-13.076923" vertical-offset="1428" max-vertical-offset="2363">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="43" selection-start="1009" selection-end="1009" vertical-scroll-proportion="-15.692307" vertical-offset="102" max-vertical-offset="1683">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="33.346153" vertical-offset="867" max-vertical-offset="2159">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/css/gameplay.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="32" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="1683">
+        <state line="74" column="28" selection-start="1673" selection-end="1673" vertical-scroll-proportion="-19.92" vertical-offset="760" max-vertical-offset="1683">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/css/defaultLayout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="858">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/css/turns.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="23" selection-start="1054" selection-end="1056" vertical-scroll-proportion="-11.08" vertical-offset="930" max-vertical-offset="3859">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/css/UI.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="5" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Game/gameplay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="77" selection-start="4771" selection-end="4771" vertical-scroll-proportion="-28.88" vertical-offset="1743" max-vertical-offset="14229">
+        <state line="673" column="36" selection-start="20593" selection-end="20915" vertical-scroll-proportion="-9.56" vertical-offset="11202" max-vertical-offset="14229">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Elements/loginHeader.ctp">
+    <entry file="file://$PROJECT_DIR$/app/webroot/css/reset.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="61" selection-start="441" selection-end="441" vertical-scroll-proportion="0.21922626" vertical-offset="0" max-vertical-offset="853">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="448" column="19" selection-start="13562" selection-end="13562" vertical-scroll-proportion="0.23292683" vertical-offset="7425" max-vertical-offset="11696">
           <folding />
         </state>
       </provider>

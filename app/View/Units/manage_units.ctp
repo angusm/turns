@@ -67,16 +67,7 @@
 										'Cost'		=> 'teamcost'
 									)
 								);
-								
-	echo $this->Html->tag(
-							'div',
-							$this->GamePlay->renderBoard( array( 'width' => 8, 'height' => 2 ) ) .
-							$this->GamePlay->renderUnits( '', array() ),
-							array(
-								'class' => 'gameBoardContainer'
-							)
-						);
-	
+
 	echo '</div>';
 		
 	echo $this->Html->tag(
@@ -91,10 +82,17 @@
 	echo $this->Html->tag(
 					'script',
 					'window.pageLibraries = new Array(
-											new Array( "Unit", "manageUnits" ),
-											new Array( "Game", "elements" )
+											new Array( "Unit", "manageUnits" )
 										);
-					window.Unit_manageUnits_availableUnitList = '. json_encode( $unitList ).';'
+					window.pageData = {
+					    Game: {
+					        uid: 26,
+					        Board: {
+					            height: 2,
+					            width: 8
+					        }
+					    }
+					};'
 					);
 
 ?>
