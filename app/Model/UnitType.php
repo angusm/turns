@@ -173,7 +173,7 @@ class UnitType extends AppModel {
 									)
 								),
 								'fields' => array(
-									'UnitType.name',
+									'UnitType.name'
 								)
 							));
 

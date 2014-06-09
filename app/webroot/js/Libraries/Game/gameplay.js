@@ -258,7 +258,7 @@ var Gameplay = function(){
 	//PUBLIC FUNCTION: getGameUpdate
 	//Get an update on everything in the game and set things up appropriately
 	this.getGameUpdate = function(){
-	
+
 		//Make a request to the server and update all the variables
 		jQuery.getJSON(
 			homeURL + 'Games/getGameUpdate', 
@@ -267,20 +267,27 @@ var Gameplay = function(){
 				lastKnownTurn:	 window.pageData.Game.currentTurn
 			},
 			function( jSONData ){
-								
-				if( jSONData.gameInformation == false ){
-					Game_gameplay.getGameUpdate()
-				}else{
-					
-					//Process the game update			
-					Game_gameplay.processGameUpdate( jSONData );
 
-					//Check if the game's over
-					if( jSONData.gameInformation.game_over == true ){
-						Game_gameplay.endGame();
-					}
-					
-				}
+                switch( jSONData.gameInformation ){
+
+                    case false:
+                        Game_gameplay.getGameUpdate();
+                        break;
+
+                    case null:
+                        //Do nothing
+                        break;
+
+                    default:
+                        //Process the game update
+                        Game_gameplay.processGameUpdate( jSONData );
+                        //Check if the game's over
+                        if( jSONData.gameInformation.game_over == true ){
+                            Game_gameplay.endGame();
+                        }
+                        break;
+
+                }
 					
 			}
 		).done( 
@@ -330,9 +337,9 @@ var Gameplay = function(){
         //Arrange the board and the pieces
         Game_elements.arrangeStaticElements( window.pageData.Game.uid );
 
-        //Get the game data
+        //Get the game data if we aren't dealing with a demo board
         Game_gameplay.getGameUpdate();
-		
+
 	}
 	
 	//PUBLIC FUNCTION: handleMoveToTile

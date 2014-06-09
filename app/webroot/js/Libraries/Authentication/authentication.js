@@ -34,6 +34,23 @@ var Authentication = function(){
     //Attach the necessary listeners to the login button
     this.setupLoginButton = function(){
 
+        //When ENTER is hit inside the username textbox change focus
+        //to the password prompt
+        jQuery( 'input[type="text"]#loginUsernamePrompt').keydown( function(e){
+           if(e.keyCode == 13){
+               e.preventDefault();
+               jQuery('input[type="password"]#loginPasswordPrompt').focus();
+           }
+        });
+
+        //Handle triggering login button on enter on the password prompt
+        jQuery( 'input[type="password"]#loginPasswordPrompt').keydown( function(e){
+            if(e.keyCode == 13){
+                e.preventDefault();
+                jQuery( 'input[type="button"]#loginButton').click();
+            }
+        })
+
         //Grab the login information
         jQuery( 'input[type="button"]#loginButton' ).click( function(){
 
@@ -51,7 +68,7 @@ var Authentication = function(){
                 function( jSONData ){
 
                     if( jSONData.success == true ){
-                        alert( 'Login successful' );
+                        document.location.href = (homeURL + jSONData['redirectURL']).replace('//', '/');
                     }else{
                         alert( 'Unable to log in' );
                     }

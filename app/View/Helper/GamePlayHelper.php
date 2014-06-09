@@ -90,7 +90,6 @@ class GamePlayHelper extends AppHelper {
 	//Render a card display
 	public function renderGameUnitCard( $gameUnit=array() ){
 		
-		$boardIconContent			= '';
 		$cardArtLayerContent 		= '';
 		$cardContent				= '';
 		$damageBarContent			= '';
@@ -115,17 +114,7 @@ class GamePlayHelper extends AppHelper {
 			if( isset( $gameUnit['UnitArtSet'] ) ){
 				$artArray = $this->getArtArray( $gameUnit['UnitArtSet'] );
 			}
-			
-			//Loop through the icons and grab the board icon
-			if( isset( $artArray['Icon']['3'] ) ){
-				//Grab the board icon
-				$boardIconContent .= $this->Html->image( 
-											$artArray['Icon']['3'], 
-											array( 
-												'alt' => 'Board Icon'
-											)
-										);					
-			}			
+
 			//Loop through all the art and add it to the card art layer content
 			foreach( $artArray['CardArtLayer'] as $position => $cardArtLayer ){
 				//Add the card art layer
@@ -422,15 +411,6 @@ class GamePlayHelper extends AppHelper {
 
 		//Add all the content to their divs
 		
-		//Add the board icon to its div
-		$boardIconDiv		= $this->Html->tag(
-									  	'div',
-									  	$boardIconContent,
-										array(
-											'class' => 'boardIcon'
-									  	)
-								  	);
-		
 		//Add the card art layers to their div
 		$cardArtLayerDiv 	= $this->Html->tag(
 									  	'div',
@@ -439,11 +419,24 @@ class GamePlayHelper extends AppHelper {
 											'class' => 'cardArtLayers'
 									  	)
 								  	);
+
+        //Add the damage icon to its div
+        $damageIconDiv		= $this->Html->tag(
+            'div',
+            $damageIconContent,
+            array(
+                'class' => array(
+                    'damageIcon',
+                    'attributeIcon'
+                )
+            )
+        );
 		
 		//Add the damage bar content to its div
 		$damageBarDiv 		= $this->Html->tag(
 										'div',
-										$damageBarContent,
+										$damageBarContent .
+                                        $damageIconDiv,
 										array(
 											'class' => array(
 												'damageBar',
@@ -451,23 +444,24 @@ class GamePlayHelper extends AppHelper {
 											)
 										)
 									);
-									
-		//Add the damage icon to its div
-		$damageIconDiv		= $this->Html->tag(
-										'div',
-										$damageIconContent,
-										array(
-											'class' => array(
-												'damageIcon',
-												'attributeIcon'
-											)
-										)
-									);
+
+        //Add the defense icon to its div
+        $defenseIconDiv		= $this->Html->tag(
+            'div',
+            $defenseIconContent,
+            array(
+                'class' => array(
+                    'defenseIcon',
+                    'attributeIcon'
+                )
+            )
+        );
 		
 		//Add the defense bar content to its div
 		$defenseBarDiv 		= $this->Html->tag(
 										'div',
-										$defenseBarContent,
+										$defenseBarContent .
+                                        $defenseIconDiv,
 										array(
 											'class' => array(
 												'defenseBar',
@@ -475,39 +469,28 @@ class GamePlayHelper extends AppHelper {
 											)
 										)
 									);
-									
-		//Add the defense icon to its div
-		$defenseIconDiv		= $this->Html->tag(
-										'div',
-										$defenseIconContent,
-										array(
-											'class' => array(
-												'defenseIcon',
-												'attributeIcon'
-											)
-										)
-									);
+
+        //Add the teamcost icon to its div
+        $teamcostIconDiv		= $this->Html->tag(
+            'div',
+            $teamcostIconContent,
+            array(
+                'class' => array(
+                    'teamcostIcon',
+                    'attributeIcon'
+                )
+            )
+        );
 		
 		//Add the teamcost bar content to its div
 		$teamcostBarDiv 		= $this->Html->tag(
 										'div',
-										$teamcostBarContent,
+										$teamcostBarContent .
+                                        $teamcostIconDiv,
 										array(
 											'class' => array(
 												'teamcostBar',
 												'attributeBar'
-											)
-										)
-									);
-									
-		//Add the teamcost icon to its div
-		$teamcostIconDiv		= $this->Html->tag(
-										'div',
-										$teamcostIconContent,
-										array(
-											'class' => array(
-												'teamcostIcon',
-												'attributeIcon'
 											)
 										)
 									);
@@ -521,7 +504,10 @@ class GamePlayHelper extends AppHelper {
 											array(
 												'class' => 'unitTypeName'
 											)
-										),
+										).
+                                        $damageBarDiv   .
+                                        $defenseBarDiv  .
+                                        $teamcostBarDiv,
 										array(
 											'class' => 'unitStatBox'
 										)
@@ -547,13 +533,6 @@ class GamePlayHelper extends AppHelper {
     
 		//Add all of the card content    
 		$cardContent .= $cardArtLayerDiv;
-		$cardContent .= $boardIconDiv;
-		$cardContent .= $damageBarDiv;
-		$cardContent .= $damageIconDiv;
-		$cardContent .= $defenseBarDiv;
-		$cardContent .= $defenseIconDiv;
-		$cardContent .= $teamcostBarDiv;
-		$cardContent .= $teamcostIconDiv;
 		$cardContent .= $unitStatBoxDiv;
 		$cardContent .= $movementClassesDiv;
 		$cardContent .= $movementSelectorsDiv;

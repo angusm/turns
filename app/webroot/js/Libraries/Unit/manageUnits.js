@@ -7,6 +7,7 @@ var loadDependenciesFor_Unit_manageUnits = function(){
 
     libraries.push( new Array( 'Game', 'elements' ) );
     libraries.push( new Array( 'Game', 'gameplay' ) );
+    libraries.push( new Array( 'Card', 'CardManager') );
 
 }
 
@@ -14,12 +15,17 @@ var loadDependenciesFor_Unit_manageUnits = function(){
 //When the document is fully ready, call the main function
 jQuery(document).ready( function(){
 
+
+    //Initialize the game elements and gameplay
+    Game_elements = new GameElements();
+    Game_gameplay = new Gameplay();
+
+    //Setup the card manager
+    Card_CardManager = new CardManager();
+
+    //Setup the unit manager
     Unit_manageUnits = new ManageUnits();
     Unit_manageUnits.handleEverything();
-
-    Game_elements = new GameElements();
-
-    Game_gameplay = new Gameplay();
 
 });
 
@@ -154,15 +160,13 @@ function ManageUnits(){
 
                 //Display the unit
                 jQuery( 'div.gameBoard' ).append(
-                    '<div uid="'+uid+'" class="gameplayUnit" team="user">'
+                    '<div uid="'+uid+'" class="gameplayUnit" team="user" unitTypeUID="'+unitData['UnitType']['uid']+'">'
                         + '<img src="'+ imgURL + unitBoardIcon +'" >'
                         + '<div class="gameplayUnitAttack">'+unitAttack+'</div>'
                         + '<div class="gameplayUnitDefense">'+unitDefense+'</div>'
                         + '<div class="removeFromTeam" uid="'+unitData['UnitType']['uid']+'" x="'+x+'" y="'+y+'">'
                         + '</div>'
                 );
-
-                Unit_manageUnits.handleRemoveFromTeamButton();
 
                 var xPos = x;
                 var yPos = y;
@@ -183,8 +187,20 @@ function ManageUnits(){
 			});
 			
 		});
+
+        Unit_manageUnits.handleRemoveFromTeamButton();
+        Unit_manageUnits.handleMouseoverUnit();
 		
 	}
+
+    //PUBLIC FUNCTION: displayUnitCard
+    //Handle the display of a unit
+    this.displayUnitCard = function( gameplayUnitElement ){
+
+        var unitTypeUID = jQuery( gameplayUnitElement).attr('unitTypeUID');
+        Card_CardManager.showCardByUnitType( unitTypeUID );
+
+    }
 
 
 	//PUBLIC FUNCTION: finalizeTeamAdd
@@ -307,6 +323,10 @@ function ManageUnits(){
 	//The Pepper Potts function, in that it will just handle everything
 	this.handleEverything = function(){
 
+        //Load the card data
+        Unit_manageUnits.loadCardData();
+
+        //Place the units
         if( Unit_manageUnits.boardReady != true ){
 
             EventBus.addEventListener("GAME_BOARD_CREATED", function(){
@@ -327,18 +347,36 @@ function ManageUnits(){
 		Unit_manageUnits.handleNewTeamButton();
 		Unit_manageUnits.handleRemoveTeam();
 		Unit_manageUnits.loadTeamUnits();
+
 	}
+
+    //PUBLIC FUNCTION: handleMouseoverUnit
+    //Handle displaying unit information in a card during a mouseover
+    this.handleMouseoverUnit = function(){
+
+        //Remove previous handlers so we're starting fresh
+        jQuery('div.gameplayUnit').each( function(){
+
+            if( ! jQuery(this).isBound( 'mouseover', Unit_manageUnits.displayUnitCard ) ){
+                jQuery(this).mouseover( function(){
+                    Unit_manageUnits.displayUnitCard( this );
+                });
+            }
+
+        });
+
+    }
 	
 	//PUBLIC FUNCTION: handleNewTeamButton
 	//Handle the button that allows the user to create a new team
 	this.handleNewTeamButton = function(){
-		
-		//Remove the default handler
-		jQuery( 'input[modelName="Team"][type="button"].editableSelectNew' ).unbind( 'click' );
-		
+
 		//Add our sick new handler
 		jQuery( 'input[modelName="Team"][type="button"].editableSelectNew' ).each( function(){
-			
+
+            //Remove the default handler
+            jQuery( this ).unbind( 'click' );
+
 			if( ! jQuery(this).isBound( 'click', Unit_manageUnits.addNewTeam ) ){
 				jQuery(this).click(
 					Unit_manageUnits.addNewTeam
@@ -412,6 +450,16 @@ function ManageUnits(){
 		jQuery( '[modelName="Unit"][uid="' + Unit_manageUnits.selectedUnitTypeUID + '"]' ).addClass( 'Unit_manageUnits_selectedUnit' );
 		
 	}
+
+    //PUBLIC FUNCTION: loadCardData
+    //Load all the card data for the units the player has available
+    this.loadCardData = function(){
+
+        jQuery( 'div.unitPool').find('tr[modelname="Unit"][uid]').each( function(){
+            Card_CardManager.loadCardData( jQuery(this).attr('uid') );
+        });
+
+    }
 	
 	//PUBLIC FUNCTION: loadTeamUnits
 	//Load all the units on a team into the display box on the page
@@ -523,7 +571,6 @@ function ManageUnits(){
         Unit_manageUnits.refundUnitPool();
         Unit_manageUnits.populateTeamUnits();
         Unit_manageUnits.displayTeamUnits();
-        Unit_manageUnits.handleRemoveFromTeamButton();
     }
 	
 	//PUBLIC FUNCTION: refundUnitPool

@@ -34,7 +34,7 @@ class UsersController extends AppController {
             $success = false;
         }
 
-        $this->set( 'redirectURL',  $this->Auth->redirect()    );
+        $this->set( 'redirectURL',  $this->Auth->redirectUrl()    );
         $this->set( 'success',      $success                   );
         $this->set( 'user',         $this->Auth->user()        );
         $this->set(	'_serialize', array(
