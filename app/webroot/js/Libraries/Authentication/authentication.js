@@ -5,9 +5,6 @@
 var Authentication_authentication = null;
 
 var loadDependenciesFor_Authentication_authentication = function(){
-
-    libraries.push( new Array( 'Game', 'elements' ) );
-
 }
 
 //DOCUMENT READY
