@@ -13,22 +13,24 @@ function manage(){
 	//appropriate dropdown select box.
 	this.addRecordToDropdownSelect = function( modelName, uid, name ){
 		
-		//Add the new record to the relevant drop downs
-		jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).append(
-			'<option value="' + uid + '" modelName="' + modelName + '" uid="' + uid + '" name="' + name + '">' +
-			name + 
-			'</option>'
-		);
-		
-		//Set the new record as the selected record
-		jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).val(
-			uid
-		);
-		
-		//Load the record data into the fields
 		jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).each( function(){
-			TurnForm_manage.loadRecordData( this );
-		});
+
+            //Add the new record to the relevant drop downs
+            jQuery(this).append(
+                '<option value="' + uid + '" modelName="' + modelName + '" uid="' + uid + '" name="' + name + '">' +
+                    name +
+                    '</option>'
+            );
+		
+            //Set the new record as the selected record
+            jQuery(this).val(
+                uid
+            );
+
+            //Load the record data into the fields
+            TurnForm_manage.loadRecordData( this );
+
+        });
 		
 	};
 	

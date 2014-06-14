@@ -6,43 +6,7 @@ class UsersController extends AppController {
 	//any other action is called
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('register','processLogin');
-    }
-
-    //PUBLIC FUNCTION: test
-    public function processLogin(){
-
-        //Grab the necessary data from the JSON
-        $jsonData = $this->params['url'];
-
-        //Grab the user
-        $user = $this->User->find( 'first', array(
-                        'fields' => array(
-                            'User.uid',
-                            'User.username'
-                        ),
-                        'conditions' => array(
-                            'username'  => $jsonData['username'],
-                            'password' => AuthComponent::password($jsonData['password'])
-                        )
-                    ));
-
-        if( $user != false ){
-            $this->Auth->login( $user['User'] );
-            $success = true;
-        }else{
-            $success = false;
-        }
-
-        $this->set( 'redirectURL',  $this->Auth->redirectUrl()    );
-        $this->set( 'success',      $success                   );
-        $this->set( 'user',         $this->Auth->user()        );
-        $this->set(	'_serialize', array(
-            'redirectURL',
-            'success',
-            'user'
-        ));
-
+        $this->Auth->allow( 'processLogin', 'register' );
     }
 
 	//PUBLIC FUNCTION: index
@@ -54,41 +18,82 @@ class UsersController extends AppController {
 		
     }
 	
-	//PUBLIC FUNCTION: register
-	//Sets up the page where a user can register 
-    public function register() {
-		
-		//If we're dealing with a posted message
-        if ($this->request->is('post')) {
-			
-			//Create the user
-            $this->User->create();
-			
-			//See if we can save the user using the given data...
-			$successfulSave = $this->User->save($this->request->data);
-			
-			$userUID = $this->User->id;
-			if ( $successfulSave ) {
-				
-				//If we saved the user we better be damn sure to initialize
-				//them
-				$this->User->setupNewUser( $userUID );
-				
-				//If the user has been saved, indicate as much and do a
-				//redirect.
-				$this->Session->setFlash(__('Thank you for registering.'));
-				//$this->redirect(array('action' => 'index'));
-				
-			} else {
-				//If the user couldn't be saved then indicate as much.
-				$this->Session->setFlash(__('We were unable to register your account. Plase, try again.'));
-			}
-        }
-    }
-	
 	//PUBLIC FUNCTION: login
 	public function login() {
-
+		//If we're dealing with a posted message
+		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				$this->redirect($this->Auth->redirect());
+			} else {
+				$this->Session->setFlash(__('Invalid username or password, try again'));
+			}
+		}
 	}
+
+
+    //PUBLIC FUNCTION: processLogin
+    //Designed to handle a login request generated through the javascript attached
+    //to the user bar at the top of any page
+    public function processLogin(){
+
+        //Grab the necessary data from the JSON
+        $jsonData = $this->params['url'];
+
+        //Grab the user
+        $user = $this->User->find( 'first', array(
+            'fields' => array(
+                'User.uid',
+                'User.username'
+            ),
+            'conditions' => array(
+                'username'  => $jsonData['username'],
+                'password' => Security::hash($jsonData['password'])
+            )
+        ));
+
+        if( $user != false ){
+            $this->Auth->login( $user['User'] );
+            $success = true;
+        }else{
+            $success = false;
+        }
+
+        $this->set( 'redirectURL',  $this->Auth->redirect()    );
+        $this->set( 'success',      $success                   );
+        $this->set( 'user',         $this->Auth->user()        );
+        $this->set(	'_serialize', array(
+            'redirectURL',
+            'success',
+            'user'
+        ));
+
+    }
+
+    //PUBLIC FUNCTION: register
+    //Sets up the page where a user can register
+    public function register() {
+
+        //If we're dealing with a posted message
+        if ($this->request->is('post')) {
+
+            //Create the user
+            $this->User->create();
+
+            //See if we can save the user using the given data...
+            $successfulSave = $this->User->save($this->request->data);
+
+            if ( $successfulSave ) {
+
+                //If the user has been saved, indicate as much and do a
+                //redirect.
+                $this->Session->setFlash(__('Thank you for registering.'));
+                //$this->redirect(array('action' => 'index'));
+
+            } else {
+                //If the user couldn't be saved then indicate as much.
+                $this->Session->setFlash(__('We were unable to register your account. Plase, try again.'));
+            }
+        }
+    }
 	
 }

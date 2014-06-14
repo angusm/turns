@@ -28,14 +28,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
-		echo $this->Html->meta('icon');
+        echo $this->element('css');
+        echo $this->element('javascript');
 
-		echo $this->Html->css('reset');
-		echo $this->Html->css('setupForms');
-		echo $this->Html->css('UI');
-		echo $this->Html->css('turns');
-        echo $this->Html->css('gameplay');
-        echo $this->Html->css('defaultLayout');
+		echo $this->Html->meta('icon');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -44,34 +40,30 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 </head>
 <body>
 	<div id="container">
-		<div id="header">
+        <div id="headerGhost" class="layoutHeader"></div>
+        <div id="mainMenu">
+            <?php echo $this->element('main_menu'); ?>
+        </div>
+        <div id="mainPage">
+            <div id="contentHeader">
+                <?php echo $this->element('content_header'); ?>
+            </div>
+            <div id="content">
+                <?php echo $this->fetch('content'); ?>
+            </div>
+            <div id="footer">
+                <?php echo $this->fetch('footer'); ?>
+            </div>
 
             <?php
-                echo $this->element('loginHeader');
+                echo $this->element('sql_dump');
             ?>
 
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-        <div id="mainMenu">
-		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
-			<?php echo $this->fetch('content'); ?>
-
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
+        </div>
+        <div id="header" class="layoutHeader shadow">
+            <div id="logo"></div>
+            <?php echo $this->element('user_bar'); ?>
+        </div>
 	</div>
-	<?php
-        echo $this->element('javascript');
-	    echo $this->element('sql_dump');
-    ?>
-    
 </body>
 </html>

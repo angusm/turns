@@ -47,17 +47,132 @@ class AppModel extends Model {
 	public $primaryKey = 'uid';
 
 	//Set up some standard validation messages.	
-	public static $alphaNumericMessage 	= 'This isn\'t a game for 14 year old girls on MSN messenger. Use real characters, letters and numbers.';
-	public static $booleanMessage 		= 'Do or do not, there is no try. TRUE or FALSE.';
-	public static $decimalMessage 		= 'Decimals only, bitch.';
-	public static $numericMessage 		= 'Numbers only, bitch.';
+	public static $alphaNumericMessage 	= 'Letters and numbers only please.';
+	public static $booleanMessage 		= 'TRUE or FALSE only please.';
+	public static $decimalMessage 		= 'Decimals only please.';
+	public static $numericMessage 		= 'Numbers only please.';
 	
 	//Set up some standard regular expression rules
 	public static $alphaNumericWithSpacesValidationRule	= array('custom',  '/^[a-z0-9 ]*$/i');
-		
-	
+
 	//Handy universal functions
-	
+
+    //PUBLIC FUNCTION: afterSave
+    //This is a CakePHP callback that runs after data is saved to the model
+    //We're using it here to create an effective date record when necessary for new records
+    public function afterSave( $created, $options = Array() ){
+
+        //Call the parent function, always a good idea, respect your parents
+        parent::afterSave( $created, $options );
+
+        //Grab the datasource in case this construction fails and we need to roll
+        //back whatever transaction this call may be a part of
+        $dataSource = $this->getDataSource();
+
+        //Grab the class name because we'll be using it a lot
+        $className = get_class($this);
+
+        //Get the model name for the effective date class that refers to the
+        //current model
+        $effectiveDateModelName = $className.'EffectiveDate';
+
+        //Grab the saved original model
+        $savedModel = $this->data;
+
+        //Check to see that this class is associated with an effective dating scheme and that
+        //we have a proper key in the options
+        if( array_key_exists( $effectiveDateModelName, $this->hasMany ) &&
+            array_key_exists( $className, $savedModel  ) &&
+            array_key_exists( 'uid', $savedModel[$className] ) ){
+
+            //Initialize the related model
+            $effectiveDateModel = ClassRegistry::init($effectiveDateModelName);
+
+            /*Establish the conditions to see if the effective date model already has an
+            entry for the UID of the new record*/
+            $conditions = array(
+                $effectiveDateModelName.'.'.Inflector::tableize( $className ).'_uid' => $savedModel[$className]['uid']
+            );
+
+            //If no such effective date record exists then we create one
+            if( ! $effectiveDateModel->hasAny($conditions) ){
+
+                $effectiveDateModel->create();
+                $effectiveDateModelData = array(
+                    $effectiveDateModelName => array(
+                        Inflector::tableize( $className ).'_uid' => $savedModel[$className]['uid'],
+                        'start_date' => date('Y-m-d H:i:s')
+                    )
+                );
+                $saveResult = $effectiveDateModel->save($effectiveDateModelData);
+
+                //Do a rollback if there was a problem with the save
+                if( ! array_key_exists( $effectiveDateModelName, $saveResult ) ||
+                    ! array_key_exists( 'uid', $saveResult[$effectiveDateModelName]) ){
+                    $dataSource->rollback();
+                }
+
+            }
+
+        }
+
+        return true;
+
+    }
+
+    //PUBLIC FUNCTION: beforeFind
+    //This function is triggered by CakePHP before any data is returned
+    //We use it hear to incorporate it with effective dating for models where necessary
+    public function beforeFind( $query ){
+
+        //Call the parent function, always a good idea, respect your parents
+        parent::beforeFind( $query );
+
+        //Get the model name for the effective date class that refers to the
+        //current model
+        $effectiveDateModelName = get_class($this).'EffectiveDate';
+
+        //Add the effective dating conditions to the query if necessary
+        //To do this we check the structure for an effective dating model relationship
+        //We then grab all of the UIDs of any current effective dates and then
+        //filter the results of the find based on these UIDs
+        if( array_key_exists( $effectiveDateModelName, $this->hasMany ) ){
+
+            //Grab the UIDs from the related model
+            $effectiveDateModel = ClassRegistry::init($effectiveDateModelName);
+            $modelUIDs = $effectiveDateModel->find( 'list', array(
+                'conditions' => array(
+                    $effectiveDateModelName.'.start_date <=' => date('Y-m-d H:i:s'),
+                    'OR' => array(
+                        $effectiveDateModelName.'.end_date >=' => date('Y-m-d H:i:s'),
+                        $effectiveDateModelName.'.end_date' => null
+                    )
+                ),
+                'fields' => array(
+                    $effectiveDateModelName.'.'.Inflector::tableize( get_class($this) ).'_uid'
+                )
+            ));
+
+            //Make sure we have conditions
+            if( ! ( array_key_exists('conditions', $query) && is_array( $query['conditions'] ) ) ){
+                $query['conditions'] = array();
+            }
+
+            //New we merge the condition on these UIDs into the main query
+            $query['conditions'] = array_merge(
+                $query['conditions'],
+                array(
+                    get_class($this).'.uid' => $modelUIDs
+                )
+            );
+
+        }
+
+        //Return the possibly modified query
+        return $query;
+
+    }
+
 	//PUBLIC FUNCTION: createNewRecord
 	//Create a new record in the database for this model
 	//Chances are this will need to be overridden in the child model
@@ -85,7 +200,7 @@ class AppModel extends Model {
 		$modelData = array(
 			$modelName => $modelFields
 		);
-		
+
 		//Create the record
 		$this->create();
 		$this->save( $modelData );
@@ -173,7 +288,7 @@ class AppModel extends Model {
 		//Initialize the array
 		$belongsToFields = array();
 		
-		//Loop t hrough and create the 
+		//Loop through and create the
 		foreach( $this->belongsTo as $associatedModelName => $innerArray ){
 			
 			$belongsToFields[$innerArray['foreignKey']] = $associatedModelName;
@@ -257,7 +372,7 @@ class AppModel extends Model {
 			
 		//Get the initial model's details
 		$currentModelInstance 	= ClassRegistry::init( $modelName );
-		$currentModel 			= $currentModelInstance->find( );
+		$currentModel 			= $currentModelInstance->find('first');
 		
 		//On the off chance we're dealing with a model that doesn't have
 		//any entries in the database for it, then we simply are going to
@@ -304,43 +419,43 @@ class AppModel extends Model {
 												);
 				
 			}
-			
+
 			//The following section has been removed due to loop complications. Was only ever
-			//intended as a way to manage the many to many relationships, so instead at some 
+			//intended as a way to manage the many to many relationships, so instead at some
 			//point in the future a way of managing those will be introduced as well as a way
 			//to flag the Models based off junction tables as such so that they and they alone are
 			//included.
-			
-			//Perhaps there will be a way to include these other associations as links to their 
+
+			//Perhaps there will be a way to include these other associations as links to their
 			//models management pages.
-			
+
 			/*/Setup the hasMany list so that we're getting away
 			//from all of the extra fields and values we don't need
 			foreach( $hasMany as $associatedModelName => $associatedModelArray ){
-				
+
 				//Get the structure data for the given associaton
-				$hasManyArray = $this->mergeAssociatedStructure( 
+				$hasManyArray = $this->mergeAssociatedStructure(
 												$hasManyArray,
-												$associatedModelName, 
-												$associatedModelArray, 
-												$parentClass, 
-												$modelName 
+												$associatedModelName,
+												$associatedModelArray,
+												$parentClass,
+												$modelName
 												);
-				
+
 			}*/
-			
+
 			/*/Go again with the hasOne relationships like we did for hasMany
 			foreach( $hasOne as $associatedModelName => $associatedModelArray ){
-				
+
 				//Get the structure data for the given association
-				$hasOneArray = $this->mergeAssociatedStructure( 
+				$hasOneArray = $this->mergeAssociatedStructure(
 												$hasOneArray,
-												$associatedModelName, 
-												$associatedModelArray, 
-												$parentClass, 
-												$modelName 
+												$associatedModelName,
+												$associatedModelArray,
+												$parentClass,
+												$modelName
 												);
-			
+
 			}*/
 			
 			//Now that we've got all our data it's time to setup and return the final array
@@ -428,46 +543,6 @@ class AppModel extends Model {
 				
 			}
 		
-	}
-	
-	//PUBLIC FUNCTION: setupUIDRelation
-	//Setup a foreign key relation between a group of models
-	public function setupUIDRelation( $modelArray = array() ){
-			
-			//Not working properly 
-			//September 29th, 2013
-			
-			/*/If the validate array doesn't exist, set it up
-			if( isset( $this->validate ) ){
-				
-			}else{
-				$this->validate = array();	
-			}
-			
-			//Loop through every model we need to add
-			foreach( $modelArray as $model1Name ){
-				
-				//Setup the models, we'll need a list of direction set IDs as well
-				//as a list of movement IDs
-				$model1	= ClassRegistry::init( $model1Name );
-				
-				//Now get the lists
-				$model1UIDs	= $model1->getUIDList();
-			
-				//Add the current model to the validate array
-				$this->validate = array_merge( 
-											array(
-													Inflector::underscore($model1Name) . 's_uid' => array(
-															'default' => 1,
-															'rule'    => array('inList', $model1UIDs),
-															'message' => 'Must be a valid ' . $model1Name . ' key',
-															'required' 	=>	true
-													)
-											),
-											$this->validate
-									);
-			}*/
-			
 	}
 	
 }

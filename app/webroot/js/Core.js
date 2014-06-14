@@ -3,8 +3,8 @@
 /// ----------------------------- VARIABLES ------------------------------------
 
 //LIBRARIES
-libraries = new Array();
-var loadedLibraries = new Array();
+var libraries = [];
+var loadedLibraries = [];
 
 //PATHS
 
@@ -32,19 +32,6 @@ jQuery(document).ready( function(){
 
 });
 
-//CORE MAIN
-function coreMain(){
-
-	//Handle progressive disclosure divs
-	handleDisclosure();
-
-	//Get down to business
-	if( typeof( main ) == 'function' ){
-		main();
-	}
-
-}
-
 /// ----------------------------- LIBRARIES ------------------------------------
 
 //FUNCTION: addStandardLibraries
@@ -52,14 +39,14 @@ function coreMain(){
 //This will generally be UI type libraries
 function addStandardLibraries(){
 	libraries.push(
-				new Array( 'Disclosure',		'handleDisclosure' ),
-				new Array( 'EditableSelect',	'editableSelect' ),
-                new Array( 'Events',            'EventBus' ),
-                new Array( 'Pixastic',          'pixastic.jquery' ),
-                new Array( 'Pixastic',          'pixastic.core' ),
-                new Array( 'Pixastic/actions',  'coloradjust' ),
-                new Array( 'Authentication',    'authentication')
-			);
+        ['Events',          'EventBus'],
+        ['Disclosure',		'handleDisclosure'],
+        ['MenuItem',        'menuItem'],
+        ['SlideShow',       'slideshow'],
+        ['Layout',          'default'],
+        ['Authentication',  'authentication'],
+        ['EditableSelect',  'editableSelect']
+	);
 
 	return libraries;
 }
@@ -121,10 +108,6 @@ function loadLibraries(){
 			loadLibraries();
 		}
 
-	}else{
-
-		//Call standard functions
-		coreMain();
 	}
 
 }
@@ -134,8 +117,8 @@ function loadLibraries(){
 //FUNCTION: extend
 //Extends classes, OOP YAY!
 function extend(ChildClass, ParentClass) {
-    ChildClass.prototype = new ParentClass();
-    ChildClass.prototype.constructor = ChildClass;
+    ChildClass.prototype                = new ParentClass();
+    ChildClass.prototype.constructor    = ChildClass;
 }
 
 /// ----------------------------- UTILITY FUNCTIONS ------------------------------------

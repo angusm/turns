@@ -40,14 +40,25 @@ class AppController extends Controller {
         'Session'
     );
 
+    //Before anything else happens, the beforeFilter happens
     public function beforeFilter() {
        //$this->Auth->allow();
         $this->Auth->loginAction = array(
-            'controller' => 'users',
-            'action' => 'register',
-            'plugin' => null
+            'controller'    => 'users',
+            'action'        => 'register',
+            'plugin'        => null,
+            '?'             => $this->params->query
         );
         $this->set( 'authUser', $this->Auth->user() );
+
+        //Check to see if we should be using the default layout or the none layout
+        if(
+            isset($this->params->query['requestType']) &&
+            $this->params->query['requestType'] == 'content'
+        ){
+            $this->layout = 'none';
+        }
+
     }
 	
 	//PUBLIC FUNCTION: add
@@ -90,7 +101,7 @@ class AppController extends Controller {
 	//PUBLIC FUNCTION:getRecordData
 	//Return all the relevant information about a record as a response to a JSON
 	//request
-	public function getRecordData( ){
+	public function getRecordData(){
 		
 		//Grab the data we were sent
         $requestedUID = $this->params['url']['uid'];
@@ -144,12 +155,8 @@ class AppController extends Controller {
 		//Get the model we're dealing with
 		$modelInstance 	= $this->getInstance();
 		
-		//Get the model name
-		$modelName 		= Inflector::classify( $this->request->controller );
-		
 		//Pass forward the structure, management list and model name
-		$this->set( 'structure', 		$modelInstance->getStructure() 		);
-		$this->set( 'modelName',		$modelName							);
+		$this->set( 'structure', $modelInstance->getStructure() );
 		
 		//Render the view
 		$this->render('../App/manage');
@@ -244,8 +251,44 @@ class AppController extends Controller {
 	//PUBLIC FUNCTION: view
 	//Used to handle GET requests that specify a UID
 	public function view( $uid ){
-		
+		//Not yet implemented
 	}
+
+    //PUBLIC FUNCTION: viewManagementList
+    //Used to create a nice table view of all of the records contained in
+    //the model. Management functions and editing opportunities should
+    //appear also
+    public function viewManagementList(){
+
+        //To create the management list we need to setup the parameters
+        //for the display. Then the view will have to contain the javascript
+        //to make the queries for extra data. We can't fit something like
+        //the history of ordered items into a list without dynamic loading,
+        //the server would die
+
+        //Start by grabbing the model name and instance
+
+        //Get the model name
+        $modelName = Inflector::classify( $this->request->controller );
+
+        //Get an instance of the model name we can work with
+        $modelInstance	= ClassRegistry::init( $modelName );
+
+        //Also, while we're at it, we get a friendly list of model names if possible
+        $friendlyColumnNameModelInstance = ClassRegistry::init( 'FriendlyColumnName' );
+
+        //Now we grab the schema for the model and we look for a friendly column name for
+        //each column
+        $schema = $modelInstance->schema();
+        $friendlyColumnNameModelInstance->makeSchemaFriendly( $schema, $modelName );
+
+        //To establish
+        $this->set( 'schema', $schema );
+
+        //Render the default view
+        $this->render('../App/view_management_list');
+
+    }
 	
 }
 

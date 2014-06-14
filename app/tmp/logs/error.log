@@ -38842,3 +38842,768 @@ Request URL: /turns/js/jquery.min.map
 Stack Trace:
 #0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-06-14 05:20:57 Warning: Warning (2): session_regenerate_id(): Session object destruction failed in [C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\CakeSession.php, line 672]
+Trace:
+session_regenerate_id - [internal], line ??
+CakeSession::renew() - CORE\Cake\Model\Datasource\CakeSession.php, line 672
+SessionComponent::renew() - CORE\Cake\Controller\Component\SessionComponent.php, line 139
+AuthComponent::login() - CORE\Cake\Controller\Component\AuthComponent.php, line 550
+UsersController::processLogin() - APP\Controller\UsersController.php, line 31
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 486
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2014-06-14 05:26:33 Error: [MissingControllerException] Controller class UnitStatMovementSetsController could not be found.
+Exception Attributes: array (
+  'class' => 'UnitStatMovementSetsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/UnitStatMovementSets/manage
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 05:48:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 05:57:37 Error: [MissingControllerException] Controller class HeaderSlidesController could not be found.
+Exception Attributes: array (
+  'class' => 'HeaderSlidesController',
+  'plugin' => NULL,
+)
+Request URL: /turns/HeaderSlides/getRecordData
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 05:57:37 Error: [MissingControllerException] Controller class MenuItemsController could not be found.
+Exception Attributes: array (
+  'class' => 'MenuItemsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 05:57:38 Error: [MissingControllerException] Controller class HeaderSlidesController could not be found.
+Exception Attributes: array (
+  'class' => 'HeaderSlidesController',
+  'plugin' => NULL,
+)
+Request URL: /turns/HeaderSlides/getAvailableSlideUIDs
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 05:57:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 06:01:07 Error: [MissingTableException] Table header_slides for model HeaderSlide was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'header_slides',
+  'class' => 'HeaderSlide',
+  'ds' => 'default',
+)
+Request URL: /turns/HeaderSlides/getRecordData
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('header_slides')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Controller\AppController.php(120): Model->find('first', Array)
+#3 [internal function]: AppController->getRecordData()
+#4 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(HeaderSlidesController), Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(HeaderSlidesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2014-06-14 06:01:07 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 06:01:11 Error: [MissingTableException] Table menu_items for model MenuItem was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_items',
+  'class' => 'MenuItem',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_items')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): Model->__call('getAvailableMen...', Array)
+#3 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): AppModel->getAvailableMenuItems(NULL)
+#4 [internal function]: MenuItemsController->getAvailableMenuItems()
+#5 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#6 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-06-14 06:01:13 Error: [MissingTableException] Table header_slides for model HeaderSlide was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'header_slides',
+  'class' => 'HeaderSlide',
+  'ds' => 'default',
+)
+Request URL: /turns/HeaderSlides/getAvailableSlideUIDs
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('header_slides')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Controller\HeaderSlidesController.php(25): Model->__call('getAvailableSli...', Array)
+#3 C:\xampp\htdocs\turns\app\Controller\HeaderSlidesController.php(25): AppModel->getAvailableSlideUIDs()
+#4 [internal function]: HeaderSlidesController->getAvailableSlideUIDs()
+#5 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(HeaderSlidesController), Array)
+#6 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(HeaderSlidesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-06-14 06:08:55 Error: [MissingTableException] Table header_slide_effective_dates for model HeaderSlideEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'header_slide_effective_dates',
+  'class' => 'HeaderSlideEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/HeaderSlides/getRecordData
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('header_slide_ef...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('first', Array)
+#7 C:\xampp\htdocs\turns\app\Controller\AppController.php(120): Model->find('first', Array)
+#8 [internal function]: AppController->getRecordData()
+#9 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(HeaderSlidesController), Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(HeaderSlidesController), Object(CakeRequest), Object(CakeResponse))
+#12 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-06-14 06:08:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 06:08:58 Error: [MissingTableException] Table menu_items for model MenuItem was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_items',
+  'class' => 'MenuItem',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_items')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3132): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(314): Model->escapeField('lft')
+#3 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#6 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#7 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#8 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#9 [internal function]: MenuItemsController->getAvailableMenuItems()
+#10 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#11 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#13 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-06-14 06:09:01 Error: [MissingTableException] Table header_slide_effective_dates for model HeaderSlideEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'header_slide_effective_dates',
+  'class' => 'HeaderSlideEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/HeaderSlides/getAvailableSlideUIDs
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('header_slide_ef...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('list', Array)
+#7 C:\xampp\htdocs\turns\app\Model\HeaderSlide.php(57): Model->find('list', Array)
+#8 C:\xampp\htdocs\turns\app\Controller\HeaderSlidesController.php(25): HeaderSlide->getAvailableSlideUIDs()
+#9 [internal function]: HeaderSlidesController->getAvailableSlideUIDs()
+#10 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(HeaderSlidesController), Array)
+#11 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(HeaderSlidesController), Object(CakeRequest), Object(CakeResponse))
+#13 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-06-14 06:33:30 Error: [MissingTableException] Table header_slide_effective_dates for model HeaderSlideEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'header_slide_effective_dates',
+  'class' => 'HeaderSlideEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/HeaderSlides/getRecordData
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('header_slide_ef...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('first', Array)
+#7 C:\xampp\htdocs\turns\app\Controller\AppController.php(120): Model->find('first', Array)
+#8 [internal function]: AppController->getRecordData()
+#9 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(HeaderSlidesController), Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(HeaderSlidesController), Object(CakeRequest), Object(CakeResponse))
+#12 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-06-14 06:33:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 06:33:35 Error: [MissingTableException] Table menu_items for model MenuItem was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_items',
+  'class' => 'MenuItem',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_items')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3132): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(314): Model->escapeField('lft')
+#3 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#6 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#7 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#8 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#9 [internal function]: MenuItemsController->getAvailableMenuItems()
+#10 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#11 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#13 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-06-14 06:33:36 Error: [MissingTableException] Table header_slide_effective_dates for model HeaderSlideEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'header_slide_effective_dates',
+  'class' => 'HeaderSlideEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/HeaderSlides/getAvailableSlideUIDs
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('header_slide_ef...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('list', Array)
+#7 C:\xampp\htdocs\turns\app\Model\HeaderSlide.php(53): Model->find('list', Array)
+#8 C:\xampp\htdocs\turns\app\Controller\HeaderSlidesController.php(25): HeaderSlide->getAvailableSlideUIDs()
+#9 [internal function]: HeaderSlidesController->getAvailableSlideUIDs()
+#10 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(HeaderSlidesController), Array)
+#11 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#12 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(HeaderSlidesController), Object(CakeRequest), Object(CakeResponse))
+#13 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-06-14 10:17:13 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:17:15 Error: [MissingTableException] Table menu_item_effective_dates for model MenuItemEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_item_effective_dates',
+  'class' => 'MenuItemEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_item_effec...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('all', Array)
+#7 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(338): Model->find('all', Array)
+#8 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#11 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#12 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#13 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#14 [internal function]: MenuItemsController->getAvailableMenuItems()
+#15 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#17 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#18 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2014-06-14 10:17:49 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:17:51 Error: [MissingTableException] Table menu_item_effective_dates for model MenuItemEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_item_effective_dates',
+  'class' => 'MenuItemEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_item_effec...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('all', Array)
+#7 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(338): Model->find('all', Array)
+#8 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#11 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#12 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#13 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#14 [internal function]: MenuItemsController->getAvailableMenuItems()
+#15 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#17 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#18 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2014-06-14 10:22:46 Error: [MissingTableException] Table menu_item_effective_dates for model MenuItemEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_item_effective_dates',
+  'class' => 'MenuItemEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_item_effec...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('all', Array)
+#7 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(338): Model->find('all', Array)
+#8 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#11 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#12 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#13 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#14 [internal function]: MenuItemsController->getAvailableMenuItems()
+#15 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#17 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#18 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2014-06-14 10:26:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:26:05 Error: [MissingTableException] Table menu_item_effective_dates for model MenuItemEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_item_effective_dates',
+  'class' => 'MenuItemEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_item_effec...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('all', Array)
+#7 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(338): Model->find('all', Array)
+#8 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#11 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#12 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#13 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#14 [internal function]: MenuItemsController->getAvailableMenuItems()
+#15 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#17 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#18 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2014-06-14 10:26:10 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:26:12 Error: [MissingTableException] Table menu_item_effective_dates for model MenuItemEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_item_effective_dates',
+  'class' => 'MenuItemEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_item_effec...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('all', Array)
+#7 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(338): Model->find('all', Array)
+#8 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#11 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#12 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#13 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#14 [internal function]: MenuItemsController->getAvailableMenuItems()
+#15 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#17 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#18 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2014-06-14 10:26:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:26:44 Error: [MissingTableException] Table menu_item_effective_dates for model MenuItemEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_item_effective_dates',
+  'class' => 'MenuItemEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_item_effec...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('all', Array)
+#7 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(338): Model->find('all', Array)
+#8 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#11 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#12 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#13 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#14 [internal function]: MenuItemsController->getAvailableMenuItems()
+#15 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#17 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#18 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2014-06-14 10:27:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:27:43 Error: [MissingTableException] Table menu_item_effective_dates for model MenuItemEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_item_effective_dates',
+  'class' => 'MenuItemEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_item_effec...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('all', Array)
+#7 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(338): Model->find('all', Array)
+#8 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#11 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#12 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#13 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#14 [internal function]: MenuItemsController->getAvailableMenuItems()
+#15 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#17 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#18 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2014-06-14 10:28:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:28:39 Error: [MissingTableException] Table menu_item_effective_dates for model MenuItemEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_item_effective_dates',
+  'class' => 'MenuItemEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_item_effec...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('all', Array)
+#7 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(338): Model->find('all', Array)
+#8 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#11 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#12 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#13 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#14 [internal function]: MenuItemsController->getAvailableMenuItems()
+#15 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#17 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#18 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2014-06-14 10:30:02 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:30:05 Error: [MissingTableException] Table menu_item_effective_dates for model MenuItemEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_item_effective_dates',
+  'class' => 'MenuItemEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_item_effec...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('all', Array)
+#7 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(338): Model->find('all', Array)
+#8 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#11 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#12 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#13 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#14 [internal function]: MenuItemsController->getAvailableMenuItems()
+#15 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#17 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#18 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2014-06-14 10:30:32 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:30:35 Error: [MissingTableException] Table menu_item_effective_dates for model MenuItemEffectiveDate was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'menu_item_effective_dates',
+  'class' => 'MenuItemEffectiveDate',
+  'ds' => 'default',
+)
+Request URL: /turns/MenuItems/getAvailableMenuItems?openMenuItems%5B0%5D=
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(3243): Model->setSource('menu_item_effec...')
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#2 C:\xampp\htdocs\turns\app\Model\AppModel.php(154): Model->find('list', Array)
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Event\CakeEventManager.php(246): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2749): CakeEventManager->dispatch(Object(CakeEvent))
+#6 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(2691): Model->buildQuery('all', Array)
+#7 C:\xampp\htdocs\turns\lib\Cake\Model\Behavior\TreeBehavior.php(338): Model->find('all', Array)
+#8 [internal function]: TreeBehavior->children(Object(MenuItem), Array)
+#9 C:\xampp\htdocs\turns\lib\Cake\Model\BehaviorCollection.php(244): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(795): BehaviorCollection->dispatchMethod(Object(MenuItem), 'children', Array)
+#11 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): Model->__call('children', Array)
+#12 C:\xampp\htdocs\turns\app\Model\MenuItem.php(78): MenuItem->children(Array)
+#13 C:\xampp\htdocs\turns\app\Controller\MenuItemsController.php(17): MenuItem->getAvailableMenuItems(NULL)
+#14 [internal function]: MenuItemsController->getAvailableMenuItems()
+#15 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(MenuItemsController), Array)
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#17 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(MenuItemsController), Object(CakeRequest), Object(CakeResponse))
+#18 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2014-06-14 10:31:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:31:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:33:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:34:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:34:41 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /turns/img/Layout/logo.gif
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:35:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:35:25 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /turns/img/Layout/logo.gif
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:37:05 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /turns/img/Layout/logo.gif
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:37:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:37:33 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'setupUIDRelation' at line 1
+Request URL: /turns/
+Stack Trace:
+#0 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('setupUIDRelatio...', Array)
+#2 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('setupUIDRelatio...', Array, Array)
+#3 C:\xampp\htdocs\turns\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('setupUIDRelatio...', Array, Array)
+#4 C:\xampp\htdocs\turns\lib\Cake\Model\Model.php(799): DboSource->query('setupUIDRelatio...', Array, Object(Team))
+#5 C:\xampp\htdocs\turns\app\Model\Team.php(20): Model->__call('setupUIDRelatio...', Array)
+#6 C:\xampp\htdocs\turns\app\Model\Team.php(20): AppModel->setupUIDRelation(Array)
+#7 [internal function]: Team->__construct(Array)
+#8 C:\xampp\htdocs\turns\lib\Cake\Utility\ClassRegistry.php(168): ReflectionClass->newInstance(Array)
+#9 C:\xampp\htdocs\turns\app\View\Helper\TurnMenuHelper.php(152): ClassRegistry::init('Team')
+#10 C:\xampp\htdocs\turns\app\View\Users\index.ctp(5): TurnMenuHelper->queueButton()
+#11 C:\xampp\htdocs\turns\lib\Cake\View\View.php(945): include('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\turns\lib\Cake\View\View.php(907): View->_evaluate('C:\xampp\htdocs...', Array)
+#13 C:\xampp\htdocs\turns\lib\Cake\View\View.php(471): View->_render('C:\xampp\htdocs...')
+#14 C:\xampp\htdocs\turns\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#15 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#16 C:\xampp\htdocs\turns\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#17 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#18 {main}
+2014-06-14 10:37:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /turns/js/jquery.min.map
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-06-14 10:37:35 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /turns/img/Layout/logo.gif
+Stack Trace:
+#0 C:\xampp\htdocs\turns\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

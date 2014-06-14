@@ -1,8 +1,187 @@
 @charset "utf-8";
 
+a[name]{
+    padding-top:    5rem;
+    margin-top:     -5rem;
+}
+
+body{
+    font-family:    'trebuchet MS', sans-serif;
+}
+
+div{
+    margin:  0;
+    padding: 0;
+}
+
+div#container{
+    height:         100%;
+    width:          auto;
+    min-width:      320px;
+    z-index:        100;
+}
+
+div#content{
+    height:     100%;
+    overflow:   hidden;
+    padding:    20px;
+    /*width:      80%;*/
+}
+
+div#contentHeader{
+    background-color: #FA2;
+    position:       relative;
+}
+
+div#footer{
+    height:     50px;
+}
+
 div#header{
-    width: 100%;
-    position: fixed;
-    top: 0px;
+    position:   fixed;
+    top:        0;
+}
+
+div.layoutHeader{
+    background-color: #FFF;
+    height:     5rem;
+    width:      100%;
+}
+
+div.loginButton{
+    float: right;
+    height: 100px;
+}
+
+div#logo{
+    background-size:        contain;
+    background-repeat:      no-repeat;
+    background-image:       url('../img/Layout/logo.gif');
+    background-position:    center;
+    float:                  left;
+    height:                 100%;
+    max-width:              200px;
+    min-width:              100px;
+    width:                  20%;
+}
+
+div#mainPage{
+    width:      auto;
+    min-width:  150px;
+}
+
+div#mainMenu{
+    background-color: #9C4;
+    float:          left;
+    height:         100%;
+    max-width:      200px;
+    min-width:      100px;
+    padding-top:    10px;
+    position:       fixed;
+    width:          20%;
+}
+
+div.menuItem{
+    border-bottom-color:    #FFF;
+    border-bottom-style:    solid;
+    border-bottom-width:    1px;
+    cursor:                 hand;
+    cursor:                 pointer;
+    font-size:              0.7rem;
+    margin-left:            10%;
+    margin-right:           10%;
+    max-width:              160px;
+    padding-bottom:         3px;
+    padding-top:            3px;
+    text-align:             right;
+    width:                  80%;
+}
+
+div.menuItemChildren{
+    margin-bottom: 10px;
+}
+
+div.menuItemChildren > div.menuItem{
+    border:         none;
+    font-size:      0.6rem;
+    font-style:     oblique;
+    margin-right:   15%;
+    width:          75%;
+}
+
+div.menuItem:hover{
+    background-color: #FA2;
+}
+
+div#pageHeader{
+    color:          #FFF;
+    font-size:      1.6rem;
+    font-weight:    bold;
+    padding:        1%;
+    width:          auto;
+}
+
+div.slideContent{
+    background-image:   url('../img/Pixels/005588-0.8.png');
+    color:              #fff;
+    padding:            1%;
+    width:              98%;
+}
+
+div.slideHeader{
+    color:              #9C4;
+    font-size:          0.8rem;
+}
+
+div#slideshow{
+    background-color:   #BBB;
+    height:             300px;
+    overflow:           hidden;
+    width:              100%;
+}
+
+div#slides{
+    height:         100%;
+    overflow:       hidden;
+    margin-left:    auto;
+    margin-right:   auto;
+    position:       relative;
+    width:          auto;
+}
+
+div#slides > div{
+    left:       0;
+    height:     100%;
+    position:   absolute;
+    top:        0;
+    width:      auto;
+}
+
+div#slides > div.slideContentContainer{
+    bottom:         0;
+    left:           0;
+    position:       absolute;
+    width:          100%;
+}
+
+div#slides > div.slideContentContainer > div{
+    bottom:         0;
+    position:       absolute;
+    width:          100%;
+}
+
+div#slides > div > img{
+    height: 100%;
+    width:  auto;
+}
+
+div#userBar{
+    position:   fixed;
     text-align: right;
+    top:        0;
+    width:      100%;
+}
+
+html{
+    font-size: 20px;
 }

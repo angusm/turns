@@ -1,5 +1,17 @@
 <?php
 class User extends AppModel {
+
+    //Establish the relations
+    public $hasMany = array(
+        'UserEffectiveDate' => array(
+            'className'     => 'UserEffectiveDate',
+            'foreignKey'    => 'users_uid'
+        )
+
+    );
+
+
+
     public $validate = array(
         'username' => array(
             'alphaNumeric' => array(
@@ -29,8 +41,9 @@ class User extends AppModel {
 	//PUBLIC FUNCTION: beforeSave
 	//Handle anything that we need to do before saving a user to the database for the first time
 	public function beforeSave($options = array()) {
+        parent::beforeSave();
 		if (isset($this->data[$this->alias]['password'])) {
-			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+			$this->data[$this->alias]['password'] = Security::hash($this->data[$this->alias]['password']);
 		}
 		return true;
 	}
