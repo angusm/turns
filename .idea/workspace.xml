@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/app/Controller/GamesController.php" line="102" />
+    <bookmark url="file://$PROJECT_DIR$/app/Controller/GamesController.php" line="108" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de56b574-5151-4d02-aa6b-bd01ddde2417" name="Default" comment="">
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Controller/UnitStatMovementSetsController.php" />
       <change type="DELETED" beforePath="C:\xampp\htdocs\turns\.metadata\.lock" afterPath="" />
       <change type="DELETED" beforePath="C:\xampp\htdocs\turns\.metadata\.log" afterPath="" />
@@ -91,6 +92,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_file_map" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_file_map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_method_cache" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_method_cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/models/myapp_cake_model_default_turns_list" afterPath="$PROJECT_DIR$/app/tmp/cache/models/myapp_cake_model_default_turns_list" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js" afterPath="$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js" />
+>>>>>>> origin/master
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="turns.iws" />
@@ -117,7 +121,11 @@
       <file leaf-file-name="core.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Config/core.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="55" column="23" selection-start="2052" selection-end="2052" vertical-scroll-proportion="-23.538462" vertical-offset="0" max-vertical-offset="5695">
+=======
+            <state line="86" column="9" selection-start="2346" selection-end="2346" vertical-scroll-proportion="0.0" vertical-offset="1462" max-vertical-offset="2465">
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -126,16 +134,27 @@
       <file leaf-file-name="HeaderSlide.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/HeaderSlide.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="56" column="0" selection-start="1694" selection-end="1694" vertical-scroll-proportion="-36.615383" vertical-offset="0" max-vertical-offset="1377">
+=======
+            <state line="298" column="0" selection-start="9308" selection-end="9308" vertical-scroll-proportion="0.0" vertical-offset="5066" max-vertical-offset="12206">
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="MenuItem.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/MenuItem.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="32" column="9" selection-start="1142" selection-end="1142" vertical-scroll-proportion="-9.230769" vertical-offset="304" max-vertical-offset="1785">
+=======
+      <file leaf-file-name="authentication.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="0" selection-start="368" selection-end="368" vertical-scroll-proportion="0.23421355" vertical-offset="0" max-vertical-offset="1615">
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -144,7 +163,11 @@
       <file leaf-file-name="Parameter.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/Parameter.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="374">
+=======
+            <state line="487" column="57" selection-start="14475" selection-end="14475" vertical-scroll-proportion="0.0" vertical-offset="8279" max-vertical-offset="12444">
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -153,7 +176,11 @@
       <file leaf-file-name="ParameterSet.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/ParameterSet.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="476">
+=======
+            <state line="131" column="41" selection-start="5673" selection-end="5673" vertical-scroll-proportion="0.0" vertical-offset="1288" max-vertical-offset="3757">
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -162,7 +189,11 @@
       <file leaf-file-name="UsersController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="73" column="32" selection-start="2054" selection-end="2054" vertical-scroll-proportion="0.39355582" vertical-offset="899" max-vertical-offset="1768">
+=======
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1751">
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -171,16 +202,27 @@
       <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/User.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="54" column="28" selection-start="1563" selection-end="1563" vertical-scroll-proportion="-35.307693" vertical-offset="0" max-vertical-offset="1683">
+=======
+            <state line="292" column="16" selection-start="8659" selection-end="8659" vertical-scroll-proportion="0.0" vertical-offset="4964" max-vertical-offset="14348">
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="SiteLink.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/SiteLink.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="40" column="0" selection-start="1183" selection-end="1183" vertical-scroll-proportion="-26.153847" vertical-offset="0" max-vertical-offset="816">
+=======
+      <file leaf-file-name="turns.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/webroot/css/turns.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="111" column="9" selection-start="2245" selection-end="2245" vertical-scroll-proportion="0.0" vertical-offset="1887" max-vertical-offset="3740">
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -198,7 +240,11 @@
       <file leaf-file-name="Core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/webroot/js/Core.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="14" column="4" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0" vertical-offset="2216" max-vertical-offset="3111">
+=======
+            <state line="35" column="31" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="6018">
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -226,18 +272,26 @@
         <option value="$PROJECT_DIR$/app/webroot/js/Libraries/UnitType/showCard.js" />
         <option value="$PROJECT_DIR$/app/Controller/UnitTypesController.php" />
         <option value="$PROJECT_DIR$/app/Model/UnitType.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js" />
+=======
+        <option value="$PROJECT_DIR$/app/Config/core.php" />
+>>>>>>> origin/master
         <option value="$PROJECT_DIR$/app/Controller/GamesController.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/Libraries/Game/gameplay.js" />
         <option value="$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js" />
         <option value="$PROJECT_DIR$/app/View/Helper/GamePlayHelper.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/Libraries/Card/CardManager.js" />
         <option value="$PROJECT_DIR$/app/webroot/css/turns.css" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/Controller/UnitStatMovementSetsController.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/Core.js" />
         <option value="$PROJECT_DIR$/app/Config/core.php" />
         <option value="$PROJECT_DIR$/app/Model/HeaderSlide.php" />
         <option value="$PROJECT_DIR$/app/Model/User.php" />
+=======
+        <option value="$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js" />
+>>>>>>> origin/master
       </list>
     </option>
   </component>
@@ -245,8 +299,13 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
+<<<<<<< HEAD
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+=======
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
+>>>>>>> origin/master
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -274,6 +333,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -862,7 +922,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -873,17 +932,6 @@
     <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
-  </component>
-  <component name="PublishConfig" serverName="turns" serverId="35600b6e-5e91-4923-acde-dc4353201639">
-    <servers>
-      <server id="35600b6e-5e91-4923-acde-dc4353201639">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -936,7 +984,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+=======
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+>>>>>>> origin/master
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -944,7 +996,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24010417" sideWeight="0.6718232" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18620269" sideWeight="0.6718232" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> origin/master
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -952,12 +1008,18 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281768" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281768" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -973,6 +1035,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/View/UnitTypes/card_view.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="10" selection-start="466" selection-end="466" vertical-scroll-proportion="0.33211234" vertical-offset="0" max-vertical-offset="3672" />
@@ -981,104 +1044,233 @@
     <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Game/gameplay.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="286" column="25" selection-start="8587" selection-end="8587" vertical-scroll-proportion="0.0" vertical-offset="4504" max-vertical-offset="14348">
+=======
+    <entry file="file://$PROJECT_DIR$/app/Controller/GamesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="9" selection-start="2233" selection-end="2233" vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="2363">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Unit/manageUnits.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="378" column="0" selection-start="12681" selection-end="12681" vertical-scroll-proportion="0.0" vertical-offset="6426" max-vertical-offset="12359">
+>>>>>>> origin/master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/View/Helper/GamePlayHelper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="508" column="57" selection-start="15029" selection-end="15029" vertical-scroll-proportion="0.0" vertical-offset="8253" max-vertical-offset="12444">
+=======
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="31" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1377">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Card/CardManager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="131" column="41" selection-start="5673" selection-end="5673" vertical-scroll-proportion="0.0" vertical-offset="1288" max-vertical-offset="3757">
+=======
+    <entry file="file://$PROJECT_DIR$/app/View/Helper/GamePlayHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="508" column="57" selection-start="14849" selection-end="14849" vertical-scroll-proportion="0.0" vertical-offset="8636" max-vertical-offset="12801">
+>>>>>>> origin/master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/webroot/css/turns.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="142" column="24" selection-start="3180" selection-end="3180" vertical-scroll-proportion="0.0" vertical-offset="2091" max-vertical-offset="3740">
+=======
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Card/CardManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="41" selection-start="5673" selection-end="5673" vertical-scroll-proportion="0.0" vertical-offset="1288" max-vertical-offset="3757">
+>>>>>>> origin/master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/Controller/UnitStatMovementSetsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="2" selection-start="243" selection-end="243" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="306">
+=======
+    <entry file="file://$PROJECT_DIR$/app/View/Units/manage_units.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Game/gameplay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="286" column="23" selection-start="8328" selection-end="8328" vertical-scroll-proportion="0.0" vertical-offset="4862" max-vertical-offset="14229">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/css/turns.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="24" selection-start="3180" selection-end="3180" vertical-scroll-proportion="0.0" vertical-offset="2091" max-vertical-offset="3740">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/UnitStatMovementSetsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="2" selection-start="243" selection-end="243" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="306">
+        <state line="118" column="22" selection-start="1744" selection-end="1744" vertical-scroll-proportion="0.0" vertical-offset="2006" max-vertical-offset="3859">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/UnitStatMovementSet.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="895">
+=======
+        <state line="35" column="31" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="6018">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/webroot/js/Core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="4" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0" vertical-offset="2216" max-vertical-offset="3111">
+=======
+    <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="29" selection-start="1088" selection-end="1088" vertical-scroll-proportion="-21.576923" vertical-offset="0" max-vertical-offset="1683" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/UnitTypes/get_card_view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="895" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/UnitTypesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="36" selection-start="1508" selection-end="1508" vertical-scroll-proportion="-25.576923" vertical-offset="185" max-vertical-offset="1156" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Elements/javascript.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="895" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/css/UI.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="5" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/UnitType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="28" selection-start="3136" selection-end="3136" vertical-scroll-proportion="-18.961538" vertical-offset="1377" max-vertical-offset="4675" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Config/core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="31" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="6018">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Config/core.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="55" column="23" selection-start="2052" selection-end="2052" vertical-scroll-proportion="-23.538462" vertical-offset="0" max-vertical-offset="5695">
+=======
+        <state line="86" column="9" selection-start="2346" selection-end="2346" vertical-scroll-proportion="0.0" vertical-offset="1462" max-vertical-offset="2465">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/HeaderSlide.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="56" column="0" selection-start="1694" selection-end="1694" vertical-scroll-proportion="-36.615383" vertical-offset="0" max-vertical-offset="1377">
+=======
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1751">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/MenuItem.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="32" column="9" selection-start="1142" selection-end="1142" vertical-scroll-proportion="-9.230769" vertical-offset="304" max-vertical-offset="1785">
+=======
+        <state line="298" column="0" selection-start="9308" selection-end="9308" vertical-scroll-proportion="0.0" vertical-offset="5066" max-vertical-offset="12206">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/SiteLink.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="40" column="0" selection-start="1183" selection-end="1183" vertical-scroll-proportion="-26.153847" vertical-offset="0" max-vertical-offset="816">
           <folding />
         </state>
+=======
+        <state line="16" column="10" selection-start="466" selection-end="466" vertical-scroll-proportion="0.33211234" vertical-offset="0" max-vertical-offset="3672" />
+>>>>>>> origin/master
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/Parameter.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="895">
+=======
+        <state line="292" column="16" selection-start="8659" selection-end="8659" vertical-scroll-proportion="0.0" vertical-offset="4964" max-vertical-offset="14348">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/ParameterSet.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="895">
+=======
+        <state line="487" column="57" selection-start="14475" selection-end="14475" vertical-scroll-proportion="0.0" vertical-offset="8279" max-vertical-offset="12444">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/User.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="54" column="28" selection-start="1563" selection-end="1563" vertical-scroll-proportion="-35.307693" vertical-offset="0" max-vertical-offset="1683">
+=======
+        <state line="131" column="41" selection-start="5673" selection-end="5673" vertical-scroll-proportion="0.0" vertical-offset="1288" max-vertical-offset="3757">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="73" column="32" selection-start="2054" selection-end="2054" vertical-scroll-proportion="0.39355582" vertical-offset="899" max-vertical-offset="1768">
+=======
+        <state line="111" column="9" selection-start="2245" selection-end="2245" vertical-scroll-proportion="0.0" vertical-offset="1887" max-vertical-offset="3740">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/Authentication/authentication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="368" selection-end="368" vertical-scroll-proportion="0.23421355" vertical-offset="0" max-vertical-offset="1615">
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>

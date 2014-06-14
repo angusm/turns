@@ -1,5 +1,15 @@
 // JavaScript Document
 
+<<<<<<< HEAD
+=======
+//PEPPER POTTS FUNCTION: handleEverything
+//Why? Because Pepper Potts is a badass bitch who just takes care of it all
+var Authentication_authentication = null;
+
+var loadDependenciesFor_Authentication_authentication = function(){
+}
+
+>>>>>>> origin/master
 //DOCUMENT READY
 //When the document is fully ready, call the main function
 jQuery(document).ready( function(){
