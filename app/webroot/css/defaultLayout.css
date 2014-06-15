@@ -54,6 +54,10 @@ div.layoutHeader{
     width:              100%;
 }
 
+div.loadingDiv{
+    display:    inline-block;
+}
+
 div.loginButton{
     float: right;
     height: 100%;

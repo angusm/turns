@@ -10,6 +10,11 @@ build
 dist
 tags
 .idea/*
+app/tmp/cache/models/myapp_cake_model_default_turns_list
+app/tmp/cache/*
+/app/tmp/cache/*
+.idea/workspace.xml
+app\tmp\*
 
 # OS generated files #
 ######################
@@ -21,7 +26,3 @@ tags
 Icon?
 ehthumbs.db
 Thumbs.db
-app/tmp/cache/models/myapp_cake_model_default_turns_list
-app/tmp/cache/*
-/app/tmp/cache/*
-.idea/workspace.xml

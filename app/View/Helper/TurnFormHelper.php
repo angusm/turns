@@ -313,6 +313,33 @@ class TurnFormHelper extends AppHelper {
 		return $returnString;
 		
 	}
+
+    //PUBLIC FUNCTION: loadingDiv
+    //A div that can be displayed (is hidden by default) when requests to the server
+    //are in progress
+    public function loadingDiv($modelName, $extraAttributes=array() ){
+
+        //Get the internal name, i.e. strip out the spaces
+        $internalModelName 	= str_replace(' ', '', $modelName);
+        $controllerName		= Inflector::pluralize( $internalModelName );
+
+        //Add the attributes
+        $attributes = array(
+            'class'			    => 	'loadingDiv hidden',
+            'controllerName'	=> 	$controllerName,
+            'modelName'		    =>	$internalModelName,
+        );
+
+        //Add any extra requeseted attributes
+        $attributes = array_merge( $attributes, $extraAttributes );
+
+        //Return the properly formatted tag
+        return $this->Html->tag(
+            'div',
+            'Loading...',
+            $attributes
+        );
+    }
 		
 	//PUBLIC FUNCTION: modelSelect
 	//Creates a select box that contains all the data of the immediate
@@ -613,10 +640,11 @@ class TurnFormHelper extends AppHelper {
 		$belongsToFields = $modelInstance->getBelongsToFieldsArray();
 										
 		//Add the select and save / new buttons to the display
-		$tableContents .=  $this->modelSelect( $modelName );
-		$tableContents .=  $this->newRecordButton( $modelName );
-        $tableContents .=  $this->saveRecordButton( $modelName );
-        $tableContents .=  $this->removeRecordButton( $modelName );
+		$tableContents .=   $this->modelSelect( $modelName );
+		$tableContents .=   $this->newRecordButton( $modelName );
+        $tableContents .=   $this->saveRecordButton( $modelName );
+        $tableContents .=   $this->removeRecordButton( $modelName );
+        $tableContents .=   $this->loadingDiv( $modelName );
 		
 		//List the fields for the initial model
 		foreach( $structure as $fieldName ){

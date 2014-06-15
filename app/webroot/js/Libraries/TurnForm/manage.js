@@ -64,19 +64,25 @@ function manage(){
 	//the event listener to all the new record buttons that'll run the
 	//REST call to get the JSON needed to update the page
 	this.handleNewRecordButton = function(){
-		
+
+        var _this = this;
+
 		//Throw on the listener
 		jQuery( '.addNewRecord' ).click( function(){
-				
+
 				//Get the controller name so that we're creating the right type 
 				//of new record
 				var controller = jQuery( this ).attr( 'controllerName' );
-				
+
+                //Make sure the loading for this model is setup
+                _this.showLoadingForController( controller, true );
+
 				//Make the necessary call
 				jQuery.getJSON(
 					homeURL + '/' + controller + '/newRecord', 
 					function( data ){
 						TurnForm_manage.newRecordButtonCallback(data);
+                        _this.showLoadingForController( controller, false );
 					}
 				);
 				
@@ -126,7 +132,11 @@ function manage(){
 		
 		//Get the UID we're working with
 		var uid 		= jQuery(element).val();
-		
+
+        //Set the loading
+        this.showLoadingForController( controller, true );
+		var _this = this;
+
 		//Make a JSON request to get all the appropriate data
 		jQuery.getJSON(
             homeURL + controller + '/getRecordData',
@@ -135,6 +145,7 @@ function manage(){
             },
             function( data ){
                 TurnForm_manage.populateRecordData(data);
+                _this.showLoadingForController( controller, false );
             }
         );
 		
@@ -203,6 +214,9 @@ function manage(){
 		jQuery( '.associatedModelSelect[modelName="' + modelName + '"]' ).each( function(){
 			saveParameters = TurnForm_manage.getFieldDataInArray( saveParameters, this );
 		});
+
+        this.showLoadingForController( controller, true );
+        var _this = this;
                 
 		//Make a JSON request to get all the appropriate data
 		jQuery.getJSON(
@@ -214,10 +228,27 @@ function manage(){
                 jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).each( function(){
                     TurnForm_manage.loadRecordData( this );
                 });
+                _this.showLoadingForController( controller, false );
 
             }
         );
 		
 	};
+
+    //PUBLIC FUNCTION: showLoadingForController
+    //Show the loading div for the given controller's model
+    this.showLoadingForController = function( controllerName, status ){
+
+        if( status != true && status != false ){
+            status = true;
+        }
+
+        if( status ){
+            jQuery('div.loadingDiv[controllerName="'+controllerName+'"]').removeClass('hidden');
+        }else{
+            jQuery('div.loadingDiv[controllerName="'+controllerName+'"]').addClass('hidden');
+        }
+
+    }
 	
 };

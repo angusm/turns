@@ -19,6 +19,7 @@ class DirectionSet extends AppModel {
 			//for our direction sets.
 			$this->validate = array(
 				'name' => array(
+                    'default'   =>  'Undefined',
 					'rule'		=> 	'alphaNumeric',
 					'required' 	=>	true,
 					'message' 	=> 	parent::$alphaNumericMessage

@@ -41,5 +41,24 @@ class DirectionSetsController extends AppController {
 			}
         }
     }
+
+    //PUBLIC FUNCTION: manage
+    //Setup a screen to manage the data
+    public function manage(){
+
+        //Pass forward the structure, management list and model name
+        $this->set(
+            'structure',
+            $this->DirectionSet->getStructure(
+                [],
+                [],
+                ['GameUnitType', 'GameUnit', 'Unit', 'GameUnitStat', 'UnitType']
+            )
+        );
+
+        //Render the view
+        $this->render('../App/manage');
+
+    }
 	
 }
