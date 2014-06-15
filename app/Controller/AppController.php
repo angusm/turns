@@ -42,7 +42,7 @@ class AppController extends Controller {
 
     //Before anything else happens, the beforeFilter happens
     public function beforeFilter() {
-       //$this->Auth->allow();
+
         $this->Auth->loginAction = array(
             'controller'    => 'users',
             'action'        => 'register',
@@ -50,6 +50,9 @@ class AppController extends Controller {
             '?'             => $this->params->query
         );
         $this->set( 'authUser', $this->Auth->user() );
+
+        //Handle restrictions
+        //$this->Auth->allow();
 
         //Check to see if we should be using the default layout or the none layout
         if(
@@ -157,7 +160,7 @@ class AppController extends Controller {
 		
 		//Pass forward the structure, management list and model name
 		$this->set( 'structure', $modelInstance->getStructure() );
-		
+
 		//Render the view
 		$this->render('../App/manage');
 		

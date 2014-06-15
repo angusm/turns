@@ -2,9 +2,7 @@
 function MenuItem(){
 
 	//VARIABLES
-	this.openedItems        = { 0:null };
     this.menuItems          = [];
-    this.menuItemContainer  = 'div#mainMenu'
 
 }
 
@@ -17,13 +15,13 @@ MenuItem.prototype = {
         var _this = this;
 
         //Empty main menu div
-        jQuery('div#mainMenu').html('');
+        jQuery('div#mainMenu').html(
+            '<div id="mainMenuToggle"></div>'
+        );
 
 		jQuery.getJSON(
 			homeURL + 'MenuItems/getAvailableMenuItems',
-			{
-				openMenuItems: this.openedItems
-			},
+			{},
 			function( jSONData ){
 				//Grab the menu items and set them up
                 _this.menuItems = jSONData.menuItems;
@@ -35,7 +33,8 @@ MenuItem.prototype = {
     setupMenu:function(){
 
         var parameterSetsAttribute  = '';
-        var _this = this;
+        var _this                   = this;
+        var menuItemContainer       = '';
 
         //Loop through each menu item and create the appropriate DIVs
         jQuery.each( this.menuItems, function( menuItemIndex, menuItem ){

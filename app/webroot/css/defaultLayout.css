@@ -21,6 +21,12 @@ div#container{
     z-index:        100;
 }
 
+div#container > div.noWidth{
+    max-width:  0;
+    min-width:  0;
+    width:      0;
+}
+
 div#content{
     height:     100%;
     overflow:   hidden;
@@ -29,7 +35,6 @@ div#content{
 }
 
 div#contentHeader{
-    background-color: #FA2;
     position:       relative;
 }
 
@@ -38,19 +43,20 @@ div#footer{
 }
 
 div#header{
+    height:     1.5rem;
     position:   fixed;
     top:        0;
 }
 
 div.layoutHeader{
-    background-color: #FFF;
-    height:     5rem;
-    width:      100%;
+    background-color:   #FFF;
+    height:             1.5rem;
+    width:              100%;
 }
 
 div.loginButton{
     float: right;
-    height: 100px;
+    height: 100%;
 }
 
 div#logo{
@@ -71,30 +77,36 @@ div#mainPage{
 }
 
 div#mainMenu{
-    background-color: #9C4;
-    float:          left;
-    height:         100%;
-    max-width:      200px;
-    min-width:      100px;
-    padding-top:    10px;
-    position:       fixed;
-    width:          20%;
+    background-color:   #169;
+    height:             100%;
+    left:               0;
+    max-width:          200px;
+    min-width:          100px;
+    padding-top:        10px;
+    position:           fixed;
+    top:                1.5rem;
+    width:              20%;
+}
+
+div#mainMenuToggle{
+    background-image:   url('../img/Layout/leftArrow.png');
+    height:             100%;
+    position:           absolute;
+    right:              0;
+    top:                0;
+    width:              25px;
 }
 
 div.menuItem{
-    border-bottom-color:    #FFF;
-    border-bottom-style:    solid;
-    border-bottom-width:    1px;
     cursor:                 hand;
     cursor:                 pointer;
     font-size:              0.7rem;
-    margin-left:            10%;
-    margin-right:           10%;
-    max-width:              160px;
+    margin-left:            20px;
+    margin-right:           20px;
+    max-width:              200px;
     padding-bottom:         3px;
     padding-top:            3px;
-    text-align:             right;
-    width:                  80%;
+    text-align:             center;
 }
 
 div.menuItemChildren{
@@ -110,7 +122,10 @@ div.menuItemChildren > div.menuItem{
 }
 
 div.menuItem:hover{
-    background-color: #FA2;
+    background-color:   #000;
+    color:              #FFF;
+    margin-left:        0;
+    margin-right:       0;
 }
 
 div#pageHeader{
@@ -124,7 +139,10 @@ div#pageHeader{
 div.slideContent{
     background-image:   url('../img/Pixels/005588-0.8.png');
     color:              #fff;
-    padding:            1%;
+    padding-bottom:     0.25%;
+    padding-left:       1%;
+    padding-right:      1%;
+    padding-top:        0.25%;
     width:              98%;
 }
 
@@ -135,7 +153,7 @@ div.slideHeader{
 
 div#slideshow{
     background-color:   #BBB;
-    height:             300px;
+    height:             5rem;
     overflow:           hidden;
     width:              100%;
 }
@@ -170,16 +188,24 @@ div#slides > div.slideContentContainer > div{
     width:          100%;
 }
 
-div#slides > div > img{
-    height: 100%;
-    width:  auto;
+div#slides > div.slideImageContainer{
+    background-color: #FFF;
+    min-width:  100%;
+}
+
+div#slides > div.slideImageContainer > img{
+    min-height: 100%;
+    min-width:  100%;
 }
 
 div#userBar{
-    position:   fixed;
     text-align: right;
     top:        0;
     width:      100%;
+}
+
+div#userBar > div > div{
+    display: inline-block;
 }
 
 html{

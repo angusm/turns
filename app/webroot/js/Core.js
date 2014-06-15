@@ -87,7 +87,7 @@ function loadLibraries(){
 
             //We don't allow the '.'s in the names as it will cause the eval to treat anything after
             //the period as a function or property of an undefined value, same with slashes
-            var loadDependenciesFunction = 'loadDependenciesFor_'+libraries[0][0]+'_'+libraries[0][1]
+            var loadDependenciesFunction = 'loadDependenciesFor_'+libraries[0][0]+'_'+libraries[0][1];
             loadDependenciesFunction = loadDependenciesFunction.replace('.', '_');
             loadDependenciesFunction = loadDependenciesFunction.replace('/', '_');
 

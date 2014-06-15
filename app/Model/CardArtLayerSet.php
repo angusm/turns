@@ -15,9 +15,6 @@ class CardArtLayerSet extends AppModel {
 
 		//Call the parent constructor
 		parent::__construct();
-		
-		//
-		parent::setupUIDRelation( array( 'CardArtLayer', 'UnitArtSet' ) );
 			
 		$this->validate = array_merge( 
 					array(

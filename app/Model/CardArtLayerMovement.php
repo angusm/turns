@@ -7,9 +7,6 @@ class CardArtLayerMovement extends AppModel {
 	
 		//Call the parent constructor
 		parent::__construct();
-
-		//Call the parent function to setup the key validation for the relation	
-		parent::setupUIDRelation( array( 'CardArtLayer' ) );
 			
 		$this->validate = array_merge( 
 					array(

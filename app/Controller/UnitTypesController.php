@@ -58,6 +58,25 @@ class UnitTypesController extends AppController {
         ));
 
     }
+
+    //PUBLIC FUNCTION: manage
+    //Setup a screen to manage the data
+    public function manage(){
+
+        //Pass forward the structure, management list and model name
+        $this->set(
+            'structure',
+            $this->UnitType->getStructure(
+                [],
+                [],
+                ['GameUnitType', 'GameUnit', 'Unit']
+            )
+        );
+
+        //Render the view
+        $this->render('../App/manage');
+
+    }
 	
 	
 }

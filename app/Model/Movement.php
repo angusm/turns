@@ -20,10 +20,7 @@ class Movement extends AppModel {
 	public function __construct() { 
 	
 		//Call the parent constructor
-		parent::__construct(); 
-
-		//Call the parent function to setup the key validation for the relation			
-		parent::setupUIDRelation( array( 'MovementSet' ) );
+		parent::__construct();
 		
 		$this->validate = array_merge( 
 					array(

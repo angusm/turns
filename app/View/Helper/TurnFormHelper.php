@@ -8,68 +8,7 @@ class TurnFormHelper extends AppHelper {
 	
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
   	var $helpers = array('Html');
-	
-	
-	//PUBLIC FUNCTION: associationPicker
-	//Creates a scrollable div with buttons that can be used to
-	//toggle associations with a given model
-	public function associationPicker( $modelName ){
-	
-		//Initialize the return strings
-		$returnString 	= '';
-		$divContents	= '';
-		
-		//Initialize the appropriate model
-		$usableModel = ClassRegistry::init( $modelName );
-		
-		//Get the management list for the model
-		$managementList = $usableModel->getManagementList();
-		
-		//Loop through the management list and for each one
-		foreach( $managementList as $associatedModel ){
-			
-			//Check to see if the model has a name
-			//If it doesn't then set the display name to its UID
-			if( isset( $associatedModel[$modelName]['name'] ) ){
-				$displayName = $associatedModel[$modelName]['name'];
-			}else{
-				$displayName = $associatedModel[$modelName]['uid'];
-			}
-			
-			//Create a button to allow associations to be
-			//toggled
-			$divContents .= $this->Html->tag(
-											'input',
-											'',
-											array(
-												'class'				=> 'toggleAssociation disclosureDiv',
-												'disclosureName'	=> $modelName . 'AssociationPicker',
-												'modelName'			=> $modelName,
-												'state'				=> 'unselected',
-												'type'				=> 'button',
-												'uid'				=> $associatedModel[$modelName]['uid'],
-												'value'				=> $displayName						
-											)
-										);
-			
-		}
-		
-		//Throw all those buttons inside of the picker and then
-		//add the picker to the return string
-		$returnString .= $this->Html->tag(
-										'div',
-										$divContents,
-										array(
-											'class'		=> 'associationPicker',
-											'modelName'	=> $modelName
-										)
-									);
-									
-		//If there was ever something to do with a returnString it would
-		//be to return it, so return it
-		return $returnString;
-		
-	}
+
 	
 	//PUBLIC FUNCTION: editableModelSelect
 	//OPTIONAL PARAMETERS:
@@ -277,12 +216,11 @@ class TurnFormHelper extends AppHelper {
 		$returnString .=  $this->modelSelect( $modelName );
 		$returnString .=  $this->newRecordButton( $modelName );
 		$returnString .=  $this->saveRecordButton( $modelName );
+        $returnString .=  $this->removeRecordButton( $modelName );
 				
 		//List the fields for the initial model
 		foreach( $structure as $fieldName ){
-			
 			$returnString .= $this->fieldInput( $modelName, $fieldName ) . '<BR>';
-			
 		}
 		
 		//Return the return string
@@ -296,7 +234,6 @@ class TurnFormHelper extends AppHelper {
 	public function fullModelSetupForm( $structure, $extraContent='' ){
 	
 		//Initialize the return string
-		$recordSelectors		= '';
 		$returnString 			= '';
 		$returnStringContent	= '';
 		$clearDiv 				= $this->Html->tag(
@@ -330,7 +267,7 @@ class TurnFormHelper extends AppHelper {
 	 
 													
 			//Get the fields for this model and throw it on
-			$returnStringContent .= $this->tableFieldsFromModelStructure( $modelName, $structure[ $modelName ][ 'Fields' ] );
+			$returnStringContent .= $this->tableFieldsFromModelStructure( $modelName, $structure[ $modelName ][ 'fields' ] );
 			
 			//Now that we've gotten our main model we loop through and start grabbing all
 			//the form goodies for our inner models
@@ -338,39 +275,30 @@ class TurnFormHelper extends AppHelper {
 			//We start with the hasOne relationship because it's the simplest,
 			//we just do a recursive call to this same function
 			foreach( $structure[ $modelName ]['hasOne']	as $associatedModelName => $associatedStructure ){
-			
 				$returnStringContent .= $this->fullModelSetupForm( array( $associatedModelName => $associatedStructure ) );
-				
 			}
 			
 			//The belongsTo relationship is similarly easy
 			foreach( $structure[ $modelName ]['belongsTo'] 	as $associatedModelName => $associatedStructure ){
-				
-				//$associationPicker 	  = $this->associationPicker( $associatedModelName );
 				$returnStringContent .= $this->fullModelSetupForm( array( $associatedModelName => $associatedStructure ) );
-				//, $associationPicker );
-					
 			}
 			
 			//Now we move onto the hasMany relationships
 			foreach( $structure[ $modelName ]['hasMany']	as $associatedModelName => $associatedStructure ){
-			
-				$associationPicker 		= $this->associationPicker( $associatedModelName );
-				$returnStringContent   .= $this->fullModelSetupForm( array( $associatedModelName => $associatedStructure ), $associationPicker );
-				
+				$returnStringContent .= $this->fullModelSetupForm( array( $associatedModelName => $associatedStructure ) );
 			}
+
+            //Throw all this lovely content inside of a disclosure div so that it displays nicely
+            $returnString .= $this->Html->tag(
+                'div',
+                $extraContent . $returnStringContent . $clearDiv,
+                array(
+                    'class'				=> 'disclosureDiv',
+                    'disclosureName'	=> $modelName . 'SetupForm'
+                )
+            );
 			
 		}
-		
-		//Throw all this lovely content inside of a disclosure div so that it displays nicely
-		$returnString .= $this->Html->tag(
-										'div',
-										$extraContent . $returnStringContent . $clearDiv,
-										array(
-											'class'				=> 'disclosureDiv',
-											'disclosureName'	=> $modelName . 'SetupForm'
-										)
-									);
 		
 		//We want to be able to indent included associations, so for this purpose we add a nice little padding spacer
 		$returnString = $this->Html->tag(
@@ -687,7 +615,8 @@ class TurnFormHelper extends AppHelper {
 		//Add the select and save / new buttons to the display
 		$tableContents .=  $this->modelSelect( $modelName );
 		$tableContents .=  $this->newRecordButton( $modelName );
-		$tableContents .=  $this->saveRecordButton( $modelName );
+        $tableContents .=  $this->saveRecordButton( $modelName );
+        $tableContents .=  $this->removeRecordButton( $modelName );
 		
 		//List the fields for the initial model
 		foreach( $structure as $fieldName ){

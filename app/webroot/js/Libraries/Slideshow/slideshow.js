@@ -42,9 +42,9 @@ Slideshow.prototype = {
                 nuX = 0;
             }
 
-            jQuery(this).css({
+            /*jQuery(this).css({
                 left : nuX
-            });
+            });*/
 
         });
 
@@ -159,10 +159,8 @@ Slideshow.prototype = {
                 callbackFunction();
 
             }
-        )
-            .done(function(){})
-            .fail(function(){})
-            .always(function(){});
+        );
+
     },
 
     //FUNCTION: loadSlide

@@ -248,7 +248,7 @@ class AppModel extends Model {
 	//array, such as the foreign key and class name.
 	public function getAssociationArray( $modelName, $modelArray ){
 			
-		//Get the classname 
+		//Get the classname
 		if( isset( $modelArray['className'] ) ){
 			$className = $modelArray['className'];
 		}else{
@@ -361,119 +361,123 @@ class AppModel extends Model {
 	//				...
 	//			)
 	//		)
-	//	)	
-	public function getStructure( $modelName=null, $parentClass=null ){ 
-		
-		
+	//	)
+	public function getStructure(
+        $structureSoFar = [],
+        $currentPath    = [],
+        $ignoreList     = [],
+        $recursion      = 15
+    ){
+
 		//Setup the model name if none was given
-		if( $modelName == null ){
-			$modelName = get_class( $this );
-		}
+        $modelName = get_class( $this );
+
+        //Continually loop through and see if the model we're adding is in there somewhere already
+        if(
+            $this->keyInMultiDimensionalArray( $structureSoFar, $modelName )    ||
+            $recursion      <= 0                                                ||
+            in_array( $modelName, $ignoreList )
+        ){
+            return $structureSoFar;
+        }
 			
 		//Get the initial model's details
 		$currentModelInstance 	= ClassRegistry::init( $modelName );
-		$currentModel 			= $currentModelInstance->find('first');
-		
-		//On the off chance we're dealing with a model that doesn't have
-		//any entries in the database for it, then we simply are going to
-		//skip down and return an empty array
-		if( count( $currentModel ) > 0 ){
-			
-			//Now that we have a find from the initial model we need
-			//to tidy it up
-			$currentModelFieldsArray = array();
-			
-			//Loop through what we found on the find('first') and throw these
-			//fields onto the fields array
-			foreach( $currentModel[ $modelName ] as $fieldName => $fieldValue ){
-			
-				//Tack on the field name
-				$currentModelFieldsArray[] = $fieldName;	
-				
-			}
-							
-			//Now get all of the Associations of each type
-			$belongsTo 	= $currentModelInstance->getBelongsTo();
-			$hasMany	= $currentModelInstance->getHasMany();
-			$hasOne		= $currentModelInstance->getHasOne();
-			
-			
-			//There's a chance that doing this infinite loop checking might mean we
-			//don't grab an association for anything so we just toss these up here
-			//so that they're initialized
-			$belongsToArray = array();
-			$hasManyArray = array();
-			$hasOneArray = array();
-			
-			//We'll start of with the belongsTo list since it comes
-			//first alphabetically
-			foreach( $belongsTo as $associatedModelName => $associatedModelArray ){
-					
-				//Get the structure for the belongsTo association
-				$belongsToArray = $this->mergeAssociatedStructure( 
-												$belongsToArray, 
-												$associatedModelName, 
-												$associatedModelArray, 
-												$parentClass, 
-												$modelName 
-												);
-				
-			}
+		$schema 			    = $currentModelInstance->schema();
 
-			//The following section has been removed due to loop complications. Was only ever
-			//intended as a way to manage the many to many relationships, so instead at some
-			//point in the future a way of managing those will be introduced as well as a way
-			//to flag the Models based off junction tables as such so that they and they alone are
-			//included.
+        //Establish the structure for this model
+        $modelStructure = array(
+            'fields' 	=> [],
+            'belongsTo'	=> [],
+            'hasMany'	=> [],
+            'hasOne'	=> []
+        );
 
-			//Perhaps there will be a way to include these other associations as links to their
-			//models management pages.
+        //Loop through what we found on the find('first') and throw these
+        //fields onto the fields array
+        foreach( $schema as $fieldName => $fieldValue ){
+            //Tack on the field name
+            $modelStructure['fields'][] = $fieldName;
+        }
 
-			/*/Setup the hasMany list so that we're getting away
-			//from all of the extra fields and values we don't need
-			foreach( $hasMany as $associatedModelName => $associatedModelArray ){
+        //Add to the structure so far
+        $currentPath[]  = $modelName;
+        $structureSoFar = $this->placeInArrayByPath(
+            $modelStructure,
+            $structureSoFar,
+            $currentPath
+        );
 
-				//Get the structure data for the given associaton
-				$hasManyArray = $this->mergeAssociatedStructure(
-												$hasManyArray,
-												$associatedModelName,
-												$associatedModelArray,
-												$parentClass,
-												$modelName
-												);
+        //Now get all of the Associations of each type
+        $belongsTo 	= $currentModelInstance->getBelongsTo();
+        $hasMany	= $currentModelInstance->getHasMany();
+        $hasOne		= $currentModelInstance->getHasOne();
 
-			}*/
+        //Establish the association paths
+        $belongsToPath  = $currentPath;
+        $hasManyPath    = $currentPath;
+        $hasOnePath     = $currentPath;
+        $belongsToPath[]    = 'belongsTo';
+        $hasManyPath[]      = 'hasMany';
+        $hasOnePath[]       = 'hasOne';
 
-			/*/Go again with the hasOne relationships like we did for hasMany
-			foreach( $hasOne as $associatedModelName => $associatedModelArray ){
+        //We'll start of with the belongsTo list since it comes first alphabetically
+        foreach( $belongsTo as $associatedModelName => $associatedModelArray ){
 
-				//Get the structure data for the given association
-				$hasOneArray = $this->mergeAssociatedStructure(
-												$hasOneArray,
-												$associatedModelName,
-												$associatedModelArray,
-												$parentClass,
-												$modelName
-												);
+            //Setup the array, grab the relationship data, initialize the class and
+            //then call this function to get its structure.
+            $relationshipData = $this->getAssociationArray( $associatedModelName, $associatedModelArray );
 
-			}*/
-			
-			//Now that we've got all our data it's time to setup and return the final array
-			$finalStructure = array(
-								$modelName => array(
-									'Fields' 	=> $currentModelFieldsArray,
-									'belongsTo'	=> $belongsToArray,
-									'hasMany'	=> $hasManyArray,
-									'hasOne'	=> $hasOneArray
-								)
-							);
-							
-		}else{
-			$finalStructure = array();
-		}
-			
+            //Make sure we're not bouncing backwards
+            $associatedModelInstance	= ClassRegistry::init( $relationshipData['className'] );
+            $structureSoFar	            = $associatedModelInstance->getStructure(
+                $structureSoFar,
+                $belongsToPath,
+                $ignoreList,
+                $recursion-1
+            );
+
+        }
+
+        //Setup the hasMany list so that we're getting away
+        //from all of the extra fields and values we don't need
+        foreach( $hasMany as $associatedModelName => $associatedModelArray ){
+
+            //Setup the array, grab the relationship data, initialize the class and
+            //then call this function to get its structure.
+            $relationshipData = $this->getAssociationArray( $associatedModelName, $associatedModelArray );
+
+            //Make sure we're not bouncing backwards
+            $associatedModelInstance	= ClassRegistry::init( $relationshipData['className'] );
+            $structureSoFar	            = $associatedModelInstance->getStructure(
+                $structureSoFar,
+                $hasManyPath,
+                $ignoreList,
+                $recursion-1
+            );
+
+        }
+
+        //Go again with the hasOne relationships like we did for hasMany
+        foreach( $hasOne as $associatedModelName => $associatedModelArray ){
+
+            //Setup the array, grab the relationship data, initialize the class and
+            //then call this function to get its structure.
+            $relationshipData = $this->getAssociationArray( $associatedModelName, $associatedModelArray );
+
+            //Make sure we're not bouncing backwards
+            $associatedModelInstance	= ClassRegistry::init( $relationshipData['className'] );
+            $structureSoFar	            = $associatedModelInstance->getStructure(
+                $structureSoFar,
+                $hasOnePath,
+                $ignoreList,
+                $recursion-1
+            );
+
+        }
+
 		//Phew, we're done, return this mess			
-		return $finalStructure;
+		return $structureSoFar;
 									
 		
 	}
@@ -488,32 +492,53 @@ class AppModel extends Model {
 						));
 		
 	}
-	
-	//PUBLIC FUNCTION: mergeAssociatedStructure
-	//Get the structure for a given associated model and merge
-	//it into the given array
-	public function mergeAssociatedStructure( $array, $modelName, $modelArray, $grandParentClass, $parentClass ){
-			
-		//Setup the array, grab the relationship data, initialize the class and 
-		//then call this function to get its structure.
-		$relationshipData = $this->getAssociationArray( $modelName, $modelArray );
-				
-		//Make sure we're not bouncing backwards
-		if( $relationshipData['className'] != $grandParentClass and $relationshipData['className'] != $parentClass ){		
-		
-			$associatedModelInstance	= ClassRegistry::init( $relationshipData['className'] );
-			$associatedModelStructure	= $associatedModelInstance->getStructure( $modelName, $parentClass );
-					
-			//Add this structure to our hasMany array
-			return array_merge_recursive( $array, $associatedModelStructure );
-		
-		//If we would've been bouncing backwards, just return the given array
-		}else{
-			return $array;
-		}
-	
-	}
-	
+
+    //PUBLIC FUNCTION: keyInMultiDimensionalArray
+    //Returns TRUE or FALSE if a key is in the given array
+    function keyInMultiDimensionalArray( Array $array, $key ) {
+
+        if (array_key_exists($key, $array)) {
+            return true;
+        }
+        foreach ($array as $k=>$v) {
+            if (!is_array($v)) {
+                continue;
+            }else{
+                if( $this->keyInMultiDimensionalArray( $v, $key ) ){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    //PUBLIC FUNCTION: placeInArrayByPath
+    //Place a value in a given array using the path specified in the path array
+    public function placeInArrayByPath( $value=null, $array=[], $path=[] ){
+
+        //If there's no more steps on the path just return the value
+        if( count($path) == 0 ){
+            return $value;
+        }else{
+
+            //Get the sub array and remove the top index from the path stack
+            $subArrayIndex  = array_shift($path);
+
+            //Make a recursive call
+            if( array_key_exists($subArrayIndex,$array) ){
+                $subArray = $this->placeInArrayByPath( $value, $array[$subArrayIndex], $path );
+            }else{
+                $subArray = $value;
+            }
+
+            //Replace the value
+            $array[$subArrayIndex] = $subArray;
+            return $array;
+
+        }
+
+    }
+
 	//PUBLIC FUNCTION: remove
 	//Remove the record with the given UID
 	public function remove( $uid, $cascade=true ){

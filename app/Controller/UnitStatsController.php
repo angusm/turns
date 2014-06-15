@@ -8,4 +8,23 @@ class UnitStatsController extends AppController {
         parent::beforeFilter();
     }
 
+    //PUBLIC FUNCTION: manage
+    //Setup a screen to manage the data
+    public function manage(){
+
+        //Pass forward the structure, management list and model name
+        $this->set(
+            'structure',
+            $this->UnitStat->getStructure(
+                [],
+                [],
+                ['GameUnitType', 'GameUnit', 'Unit', 'GameUnitStat', 'UnitType']
+            )
+        );
+
+        //Render the view
+        $this->render('../App/manage');
+
+    }
+
 }

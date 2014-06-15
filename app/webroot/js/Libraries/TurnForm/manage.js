@@ -78,15 +78,6 @@ function manage(){
 					function( data ){
 						TurnForm_manage.newRecordButtonCallback(data);
 					}
-				).done( 
-					function(){
-					}
-				).fail( 
-					function(data){
-					}
-				).always(
-					function(){
-					}
 				);
 				
 		});
@@ -138,23 +129,14 @@ function manage(){
 		
 		//Make a JSON request to get all the appropriate data
 		jQuery.getJSON(
-					homeURL + controller + '/getRecordData', 
-					{
-						uid:uid
-					},
-					function( data ){
-						TurnForm_manage.populateRecordData(data);
-					}
-				).done( 
-					function(){
-					}
-				).fail( 
-					function(data){
-					}
-				).always(
-					function(){
-					}
-				);
+            homeURL + controller + '/getRecordData',
+            {
+                uid:uid
+            },
+            function( data ){
+                TurnForm_manage.populateRecordData(data);
+            }
+        );
 		
 		
 		
@@ -224,26 +206,17 @@ function manage(){
                 
 		//Make a JSON request to get all the appropriate data
 		jQuery.getJSON(
-					homeURL + controller + '/saveFormData', 
-					saveParameters,
-					function( data ){
-		
-                                            //Load the record data into the fields
-                                            jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).each( function(){
-                                                    TurnForm_manage.loadRecordData( this );
-                                            });
-                                            
-					}
-				).done( 
-					function(){
-					}
-				).fail( 
-					function(data){
-					}
-				).always(
-					function(){
-					}
-				);
+            homeURL + controller + '/saveFormData',
+            saveParameters,
+            function( data ){
+
+                //Load the record data into the fields
+                jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).each( function(){
+                    TurnForm_manage.loadRecordData( this );
+                });
+
+            }
+        );
 		
 	};
 	

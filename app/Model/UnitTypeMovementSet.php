@@ -10,16 +10,7 @@ class UnitStatMovementSet extends AppModel {
 								'className'		=> 'UnitStat',
 								'foreignKey'	=> 'unit_stats_uid'
 							)
-						);			
-	
-		/*public function __construct() { 
-            parent::__construct(); 
-
-			//Call the parent function to setup the key validation for the
-			//relation			
-			parent::setupUIDRelation( array( 'MovementSet', 'UnitStat' ) );
-
-		}*/
+						);
 	
 }
 
