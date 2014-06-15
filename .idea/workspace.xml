@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e25b5aac-8ecb-4131-81ca-e3b13f7917d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/DirectionSet.php" afterPath="$PROJECT_DIR$/app/Model/DirectionSet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/DirectionSetsController.php" afterPath="$PROJECT_DIR$/app/Controller/DirectionSetsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Helper/TurnFormHelper.php" afterPath="$PROJECT_DIR$/app/View/Helper/TurnFormHelper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/css/defaultLayout.css" afterPath="$PROJECT_DIR$/app/webroot/css/defaultLayout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/css/effects.css" afterPath="$PROJECT_DIR$/app/webroot/css/effects.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/logs/error.log" afterPath="$PROJECT_DIR$/app/tmp/logs/error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/js/Libraries/TurnForm/manage.js" afterPath="$PROJECT_DIR$/app/webroot/js/Libraries/TurnForm/manage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_cake_en-us" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_cake_en-us" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_file_map" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_file_map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_method_cache" afterPath="$PROJECT_DIR$/app/tmp/cache/persistent/myapp_cake_core_method_cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tmp/cache/models/myapp_cake_model_default_turns_list" afterPath="$PROJECT_DIR$/app/tmp/cache/models/myapp_cake_model_default_turns_list" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/css/setupForms.css" afterPath="$PROJECT_DIR$/app/webroot/css/setupForms.css" />
-    </list>
+    <list default="true" id="e25b5aac-8ecb-4131-81ca-e3b13f7917d5" name="Default" comment="" />
     <ignored path="turns.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,7 +53,7 @@
       <file leaf-file-name="manage.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/TurnForm/manage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="144" column="14" selection-start="4312" selection-end="4312" vertical-scroll-proportion="0.41149426" vertical-offset="2090" max-vertical-offset="4403">
+            <state line="168" column="66" selection-start="4916" selection-end="4916" vertical-scroll-proportion="0.99770117" vertical-offset="1988" max-vertical-offset="4403">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -797,7 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/js/Libraries/TurnForm/manage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="14" selection-start="4312" selection-end="4312" vertical-scroll-proportion="0.41149426" vertical-offset="2090" max-vertical-offset="4403">
+        <state line="168" column="66" selection-start="4916" selection-end="4916" vertical-scroll-proportion="0.99770117" vertical-offset="1988" max-vertical-offset="4403">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
