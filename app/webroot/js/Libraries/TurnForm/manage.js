@@ -156,7 +156,7 @@ function manage(){
 	//PUBLIC FUNCTION: loadSelections
 	//Load the starting selections into the input fields
 	this.loadSelections = function( data ){
-	
+
 		//Load all the record data into all the input fields
 		jQuery( '.modelRecordSelect' ).each( function(){
 			TurnForm_manage.loadRecordData( this );
@@ -182,13 +182,15 @@ function manage(){
 		//Get the model name
 		var modelName = json['modelName'];
 		
-		//Toss all the data into the closest appropriate receptical
+		//Toss all the data into the closest appropriate receptacle
 		//Loop through every piece of the data
 		jQuery.each( json, function( key, value ){
-			jQuery( 'input.setupFormInputBox[modelName="' + modelName + '"][fieldName="' + key + '"]' ).val(
+			jQuery('input.setupFormInputBox[modelName="'+modelName+'"][fieldName="'+key+'"]').val(
 				value
 			);
-						
+            jQuery('select[modelName="'+modelName+'"][fieldName="'+key+'"]').val(
+                value
+            );
 		});
 		
 	};

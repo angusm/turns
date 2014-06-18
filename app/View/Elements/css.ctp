@@ -6,5 +6,7 @@
 
     echo $this->Html->css('setupForms');
     echo $this->Html->css('UI');
+    echo $this->Html->css('turns');
+    echo $this->Html->css('gameplay');
 
 ?>

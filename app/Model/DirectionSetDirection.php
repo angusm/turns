@@ -36,10 +36,12 @@ class DirectionSetDirection extends AppModel {
 		
 		$this->validate = array(
 			 'directions_uid' => array(
+                 'default' => '1',
 				 'rule'    => array('inList', $directionUIDs),
 				 'message' => 'Must be a valid direction'
 			 ),
 			 'direction_sets_uid' => array(
+                 'default' => '1',
 				 'rule'    => array('inList', $directionSetUIDs),
 				 'message' => 'Must be a valid direction set'
 			 )
