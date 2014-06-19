@@ -136,7 +136,14 @@ class AppModel extends Model {
         //To do this we check the structure for an effective dating model relationship
         //We then grab all of the UIDs of any current effective dates and then
         //filter the results of the find based on these UIDs
-        if( array_key_exists( $effectiveDateModelName, $this->hasMany ) ){
+        if(
+            array_key_exists( $effectiveDateModelName, $this->hasMany ) &&
+            (
+                ! array_key_exists( 'conditions', $query ) ||
+                ! is_array( $query['conditions'] ) ||
+                ! array_key_exists( get_class($this).'.uid',  $query['conditions'])
+            )
+        ){
 
             //Grab the UIDs from the related model
             $effectiveDateModel = ClassRegistry::init($effectiveDateModelName);
@@ -273,6 +280,17 @@ class AppModel extends Model {
 				);
 	
 	}
+
+    //PUBLIC FUNCTION: getAuthUser
+    //Returns the currently authenticated user data
+    public function getAuthUser(){
+
+        App::uses('CakeSession', 'Model/Datasource');
+        $Session = new CakeSession();
+
+        return $Session->read('Auth.User');
+
+    }
 	
 	//PUBLIC FUNCTION: getBelongsTo
 	//Return the belongsTo array

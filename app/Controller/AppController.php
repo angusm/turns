@@ -63,36 +63,13 @@ class AppController extends Controller {
         }
 
     }
-	
-	//PUBLIC FUNCTION: add
-	//Default route of a POST REST request
-	//We don't want add to do anything by default so in this appModel we're
-	//leaving it empty
-	public function add(){		
-	}
-	
-	//PUBLIC FUNCTION: delete
-	//Default route of a DELETE REST request
-	//Leaving this the hell alone as it'd be hella dangerous to have behaviour
-	//defined in the AppModel
-	public function delete( $uid ){
-		
-	}
-	
-	//PUBLIC FUNCTION: edit
-	//Default route of a PUT/POST REST request
-	//We leave that shit the hell alone in this default REST model
-	public function edit( $uid ){
-		
-	}
-	
-	//PROTECTED FUNCTION: getInstance
-	//Return an instance of whatever model this is the controller for
+
+    //PROTECTED FUNCTION: getInstance
+    //Return an instance of whatever model this is the controller for
 	protected function getInstance(){
 	
 		//Get the model name from the built in CakePHP function
 		$modelName 		= Inflector::classify( $this->request->controller );
-		
 		//Create an instance of said model
 		$modelInstance 	= ClassRegistry::init( $modelName );
 		
@@ -250,12 +227,6 @@ class AppController extends Controller {
 		$this->render('../App/default');
             
     }
-        
-	//PUBLIC FUNCTION: view
-	//Used to handle GET requests that specify a UID
-	public function view( $uid ){
-		//Not yet implemented
-	}
 
     //PUBLIC FUNCTION: viewManagementList
     //Used to create a nice table view of all of the records contained in
