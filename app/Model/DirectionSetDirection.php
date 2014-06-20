@@ -44,7 +44,13 @@ class DirectionSetDirection extends AppModel {
                  'default' => '1',
 				 'rule'    => array('inList', $directionSetUIDs),
 				 'message' => 'Must be a valid direction set'
-			 )
+			 ),
+            'name' => array(
+                'default'   =>  'Undefined',
+                'rule'		=> 	array('maxLength',32),
+                'required' 	=>	true,
+                'message' 	=> 	parent::$alphaNumericMessage
+            )
 		);
 
 	}

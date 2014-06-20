@@ -19,8 +19,9 @@ class MovementSet extends AppModel {
 		//for our direction sets.
 		$this->validate = array(
 			'name' => array(
-				'rule'		=> 	'alphaNumeric',
-				'required' 	=>	true,
+                'default'   => 'default',
+                'required' 	=>	true,
+                'rule'		=> 	'alphaNumeric',
 				'message' 	=> 	parent::$alphaNumericMessage
 			)
 		);

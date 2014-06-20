@@ -24,12 +24,24 @@ class Movement extends AppModel {
 		
 		$this->validate = array_merge( 
 					array(
+                        'movement_sets_uid' => array(
+                            'default'   => 1,
+                            'rule'      => 'numeric',
+                            'required'  => true
+                        ),
+                        'must_move_all_the_way' => array(
+                            'default'   => true,
+                            'rule'      => 'boolean',
+                            'required'  => true
+                        ),
+                        'priority' => array(
+                            'default'   => -1,
+                            'rule'      => 'numeric',
+                            'required' 	=>	true
+                        ),
 						'spaces' => array(
-							'rule'    => 'numeric',
-							'required' 	=>	true
-						 ),
-						'priority' => array(
-							'rule'    => 'numeric',
+                            'default'   => 1,
+							'rule'      => 'numeric',
 							'required' 	=>	true
 						 )
 					),

@@ -20,9 +20,9 @@ class DirectionSet extends AppModel {
 			$this->validate = array(
 				'name' => array(
                     'default'   =>  'Undefined',
-					'rule'		=> 	'alphaNumeric',
+                    'message' 	=> 	parent::$alphaNumericMessage,
 					'required' 	=>	true,
-					'message' 	=> 	parent::$alphaNumericMessage
+                    'rule'		=> 	parent::$alphaNumericWithSpacesValidationRule
 				)
 			);
 
