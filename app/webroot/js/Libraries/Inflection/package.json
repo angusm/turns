@@ -1,0 +1,30 @@
+{
+    "name": "inflection",
+    "description": "A port the Rails/ActiveSupport inflector to JavaScript",
+    "keywords": ["utility", "inflection"],
+    "maintainers": [
+        {
+            "name": "George Moschovitis",
+            "email": "george.moschovitis@gmail.com",
+            "web": "http://www.gmosx.com"
+        }
+    ],
+    "contributors": [
+        {
+            "name": "George Moschovitis",
+            "email": "george.moschovitis@gmail.com",
+            "web": "http://www.gmosx.com"
+        },
+        {
+            "name": "Brian McKenna",
+            "web": "http://brianmckenna.org"
+        }
+    ],
+    "lib": "lib",
+    "lean": {
+        "include": [
+            "lib/**/*",
+            "package.json"
+        ]
+    }    
+}

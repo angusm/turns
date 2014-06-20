@@ -39,6 +39,7 @@ jQuery(document).ready( function(){
 //This will generally be UI type libraries
 function addStandardLibraries(){
 	libraries.push(
+        ['Inflection',      'inflection'],
         ['Events',          'EventBus'],
         ['Disclosure',		'handleDisclosure'],
         ['MenuItem',        'menuItem'],
@@ -176,3 +177,8 @@ function makeURLSafe( dangerousWord ){
         .replace(/[^\w-]+/g,'')
         ;
 }
+
+//FUNCTION: modelToTableName
+
+//FUNCTION: modelToControllerName
+

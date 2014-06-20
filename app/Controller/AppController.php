@@ -88,36 +88,22 @@ class AppController extends Controller {
                 
 		//Get the model we're dealing with
 		$modelInstance 	= $this->getInstance();
-		
-		//Get the model name
-		$modelName 		= Inflector::classify( $this->request->controller );
-		
+
 		//Grab the requested record
 		$requestedRecord = $modelInstance->find( 'first', array(
 								'conditions' => array(
 									'uid' => $requestedUID
 								)
 							));
-		
-		//Setup an array of the values we'll want to serialize for JSON
-		$serializableVariables = array();
-		
-		//Loop through all the information returned from the requested record
-		//And throw it into the view and serializable variables
-		foreach( $requestedRecord[$modelName] as $fieldName => $value ){
-		
-			$this->set( $fieldName, $value );
-			$serializableVariables[] = $fieldName;
-			
-		}
-		
-		//Finally we have to let the calling function know what model name 
-		//we're dealing with so make sure we set that up too
-		$this->set( 'modelName',	$modelName );
-		$serializableVariables[] = 'modelName';
-		
-		//Now serialize everything
-		$this->set( '_serialize', $serializableVariables );
+
+        //Get the model name
+        $modelName 		= key($requestedRecord);
+
+        //Return the given record
+		$this->set( $modelName, $requestedRecord[$modelName] );
+		$this->set( '_serialize', array(
+            $modelName
+        ));
 		
 		
 	}
@@ -205,22 +191,19 @@ class AppController extends Controller {
 		//Grab the JSON values
 		$jsonValues = $this->params['url'];
 	
-		//Get the model name
-		$modelName = Inflector::classify( $this->request->controller );
-	
 		//Get an instance of the model name we can work with
-		$modelInstance	= ClassRegistry::init( $modelName );
+		$modelInstance	= $this->getInstance();
 		
 		//Call the JSON array
-		$success = $modelInstance->saveWithJSONFormData( $jsonValues );
-		
-		$this->set( 'success', $success );
-		$this->set( 'jsonValues', $jsonValues );
-		$this->set( 
+		$success    = $modelInstance->saveWithJSONFormData( $jsonValues );
+        reset($success);
+		$modelName  = key($success);
+
+		$this->set( $modelName, $success[$modelName] );
+		$this->set(
 			'_serialize', 
 			array( 
-				'success',
-				'jsonValues'
+				$modelName
 			) 
 		);
 		

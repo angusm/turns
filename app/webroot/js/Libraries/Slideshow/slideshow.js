@@ -1,6 +1,6 @@
 
 //Handles the display of the various slideshow images
-function Slideshow(){
+var SlideshowClass = function(){
 
     //Set a variable to track the current slide
     this.currentSlideIndex  = 0;
@@ -24,7 +24,7 @@ function Slideshow(){
 
 }
 
-Slideshow.prototype = {
+SlideshowClass.prototype = {
 
     //FUNCTION: centerImages
     //Ensure the image stays centered when the window is resized
@@ -42,9 +42,9 @@ Slideshow.prototype = {
                 nuX = 0;
             }
 
-            /*jQuery(this).css({
+            jQuery(this).css({
                 left : nuX
-            });*/
+            });
 
         });
 
@@ -159,8 +159,10 @@ Slideshow.prototype = {
                 callbackFunction();
 
             }
-        );
-
+        )
+            .done(function(){})
+            .fail(function(){})
+            .always(function(){});
     },
 
     //FUNCTION: loadSlide
@@ -184,7 +186,7 @@ Slideshow.prototype = {
                 },
                 function( jSONData ){
 
-                    slideshow.slides[uid] = jSONData;
+                    slideshow.slides[uid] = jSONData['HeaderSlide'];
                     if( typeof callback !== 'undefined'){
                         callback();
                     }
@@ -226,5 +228,7 @@ Slideshow.prototype = {
 
 }
 
-var Slideshow = new Slideshow();
-Slideshow.startCycle();
+jQuery( document).ready( function(){
+    var Slideshow = new SlideshowClass();
+    Slideshow.startCycle();
+});

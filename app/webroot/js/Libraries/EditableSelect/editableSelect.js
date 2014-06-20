@@ -1,17 +1,14 @@
 
-
-//PEPPER POTTS FUNCTION: handleEverything
-//Why? Because Pepper Potts is a badass chick who just takes care of it all
-
-var EditableSelect_editableSelect = new editableSelect();
-EditableSelect_editableSelect.handleEverything();
-
 //Setup the object for handling this jurry rigged editable select box
-function editableSelect(){
-	
+var EditableSelect = function(){
+
+}
+
+EditableSelect.prototype = {
+
 	//PUBLIC FUNCTION: addNewOption
 	//Add a new option
-	this.addNewOption = function( triggeringEvent ){
+	addNewOption:function( triggeringEvent ){
 	
 		//Get the targeted element
 		var element = triggeringEvent.target;	
@@ -21,23 +18,27 @@ function editableSelect(){
 		
 		//Create a value to assign to the new option
 		var newOptionValue = 'newOption_' + jQuery.now();
-		
-		//Create the new option
-		jQuery( 'select[editableSelect="' + editableSelectUID + '"].editableSelect' ).append(
-			'<option value="' + newOptionValue + '">New Option</option>'
-		);
-		
-		//Select the new option
-		jQuery( 'select[editableSelect="' + editableSelectUID + '"].editableSelect' ).val( newOptionValue );
+
+		jQuery( 'select[editableSelect="' + editableSelectUID + '"].editableSelect' ).each( function(){
+
+            //Create the new option
+            jQuery(this).append(
+                '<option value="' + newOptionValue + '">New Option</option>'
+            );
+
+            //Select the new option
+            jQuery(this).val( newOptionValue );
+
+        });
 		
 		//Adjust the text box
-		EditableSelect_editableSelect.adjustTextBoxToSelect( triggeringEvent );
+		this.adjustTextBoxToSelect( triggeringEvent );
 		
-	}
+	},
 	
 	//PUBLIC FUNCTION: adjustSelectToTextBox
 	//Change the option's text to match what has been typed in the select box
-	this.adjustSelectToTextBox = function( triggeringEvent ){
+	adjustSelectToTextBox:function( triggeringEvent ){
 				
 		//Get the targeted element
 		var element = triggeringEvent.target;
@@ -54,12 +55,12 @@ function editableSelect(){
 		//Now that we have the text that's selected we can just slam it into the corresponding text input and we're golden
 		jQuery( 'select[editableSelect="' + editableSelectUID + '"].editableSelect > option:selected' ).html( typedText );
 		
-	}
+	},
 	
 	//PUBLIC FUNCTION: adjustTextBoxToSelect
 	//Change the contents of the given Text Box to reflect the contents of
 	//the selected option in its paired select box.
-	this.adjustTextBoxToSelect = function( triggeringEvent ){
+	adjustTextBoxToSelect:function( triggeringEvent ){
 		
 		//Get the targeted element
 		var element = triggeringEvent.target;
@@ -77,91 +78,91 @@ function editableSelect(){
 		//Now that we have the text that's selected we can just slam it into the corresponding text input and we're golden
 		jQuery( 'input[type="text"][editableSelect="' + editableSelectUID + '"].editableSelect' ).val( selectedText );
 		
-	}
+	},
 	
 	//PUBLIC FUNCTION: handleEverything
 	//The Pepper Potts function, in that it will just handle everything
-	this.handleEverything = function(){
-		EditableSelect_editableSelect.handleNewButton();
-		EditableSelect_editableSelect.handleRemoveButton();
-		EditableSelect_editableSelect.handleSaveButton();
-		EditableSelect_editableSelect.handleSelectChange();
-	}
+	handleEverything:function(){
+		this.handleNewButton();
+        this.handleRemoveButton();
+        this.handleSaveButton();
+        this.handleSelectChange();
+	},
 	
 	//PUBLIC FUNCTION: handleNewButton
 	//Setup the handlers for when the user wants to add a new record to the select
-	this.handleNewButton = function(){
-		
+	handleNewButton:function(){
+
+        var _this = this;
+
 		//Add the handler
-		jQuery( 'input[type="button"].editableSelectNew' ).each( function(){
-			
-			if( ! jQuery(this).isBound( 'click', EditableSelect_editableSelect.addNewOption ) ){
-				jQuery(this).click(
-					EditableSelect_editableSelect.addNewOption
-				);
-			}
-			
-		});
+		jQuery( document ).on(
+            'click',
+            'input[type="button"].editableSelectNew',
+            function(){
+                _this.addNewOption();
+            }
+		);
 		
-	}
+	},
 	
 	//PUBLIC FUNCTION: handleRemoveButton
 	//If the user wants to delete an option they'll click a button and we better be prepared for that
-	this.handleRemoveButton = function(){
+	handleRemoveButton:function(){
+
+        var _this = this;
+
+        //Add the handler
+        jQuery( document ).on(
+            'click',
+            'input[type="button"].editableSelectRemove',
+            function(){
+                _this.removeOption();
+            }
+        );
 		
-		//Add the handler
-		jQuery( 'input[type="button"].editableSelectRemove' ).each( function(){
-			
-			if( ! jQuery(this).isBound( 'click', EditableSelect_editableSelect.removeOption ) ){
-				jQuery(this).click(
-					EditableSelect_editableSelect.removeOption
-				);
-			}
-			
-		});
-		
-	}
+	},
 	
 	//PUBLIC FUCNTION: handleSaveButton
 	//Handle the save button that'll change what is stored in the select
-	this.handleSaveButton = function(){
-		
-		//Add a handler to the <input>s
-		jQuery( 'input[type="button"].editableSelectSave' ).each( function(){
-			
-			if( ! jQuery(this).isBound( 'click', EditableSelect_editableSelect.adjustSelectToTextBox ) ){
-				jQuery(this).click(
-						EditableSelect_editableSelect.adjustSelectToTextBox
-				);
-			}
-			
-		});
+	handleSaveButton:function(){
+
+        var _this = this;
+
+        //Add the handler
+        jQuery( document ).on(
+            'click',
+            'input[type="button"].editableSelectSave',
+            function(){
+                _this.adjustSelectToTextBox();
+            }
+        );
 				
-	}
+	},
 	
 	//PUBLIC FUNCTION: handleSelectChange
 	//Handle changing what displays in the textbox when the select is changed
-	this.handleSelectChange = function(){
+	handleSelectChange:function(){
+
+        var _this = this;
+
+        //Add the handler
+        jQuery( document ).on(
+            'change',
+            'select.editableSelect',
+            function(){
+                _this.adjustTextBoxToSelect();
+            }
+        );
+
+        //Run an initial populate
+        jQuery('select.editableSelect').trigger('change');
 		
-		//Add a handler to each editableSelect <select> that hasn't already been bound
-		//Also do an initial populate
-		jQuery( 'select.editableSelect' ).each( function(){
-			
-			if( ! jQuery(this).isBound( 'change', EditableSelect_editableSelect.adjustTextBoxToSelect ) ){
-				jQuery(this).change(
-					EditableSelect_editableSelect.adjustTextBoxToSelect
-				);
-				jQuery( this ).trigger( 'change' );
-			}
-			
-			
-		});
-		
-	}
+	},
 	
 	//PUBLIC FUNCTION: removeOption
 	//Remove the currently selected option and then move to another option
-	this.removeOption = function( triggeringEvent ){
+	removeOption:function( triggeringEvent ){
 	
 		//Get the targeted element
 		var element = triggeringEvent.target;	
@@ -173,8 +174,13 @@ function editableSelect(){
 		jQuery( 'select[editableSelect="' + editableSelectUID + '"].editableSelect > option:selected' ).remove();
 		
 		//Adjust the text box
-		EditableSelect_editableSelect.adjustTextBoxToSelect( triggeringEvent );
+		this.adjustTextBoxToSelect( triggeringEvent );
 		
 	}
 	
 }
+
+jQuery( document).ready( function(){
+    var EditableSelect_editableSelect = new EditableSelect();
+    EditableSelect_editableSelect.handleEverything();
+})

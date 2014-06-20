@@ -582,7 +582,9 @@ class AppModel extends Model {
 				
 			}else{
 				
-				return 'noUIDSet';
+				return array(
+                    'false' => false
+                );
 				
 			}
 		

@@ -375,7 +375,6 @@ class TurnFormHelper extends AppHelper {
 		
 		//Setup whatever containers we'll be needing.
 		$attributes		= array();
-		$optionsArray 	= array();
 		$optionsString 	= '';
 	
 		
@@ -579,36 +578,40 @@ class TurnFormHelper extends AppHelper {
 	//All kinds of tables up in this bitch
 	public function tableFieldInput( $modelName, $fieldName ){
 			
-		//Initialize the return string
-		$returnString = '';
-		
-		//Give it a label
-		$labelString = $this->fieldInputLabel( $modelName, $fieldName );
-		
-		//Give it an input
-		$inputString = $this->fieldInputTextbox( $modelName, $fieldName );
-		
-		//Create a table row containing the two strings.
-		$labelString = $this->Html->tag(
-										'td',
-										$labelString,
-										array(
-											'class' => 'setupFormLabel'
-										)
-									);
-		$inputString = $this->Html->tag(
-										'td',
-										$inputString,
-										array(
-											'class' => 'setupFormInput'
-										)
-									);
-									
-		$returnString = $this->Html->tag(
-										'tr',
-										$labelString . $inputString,
-										array()
-									);
+		if(
+            $fieldName != 'created' &&
+            $fieldName != 'modified'
+        ){
+            //Give it a label
+            $labelString = $this->fieldInputLabel( $modelName, $fieldName );
+
+            //Give it an input
+            $inputString = $this->fieldInputTextbox( $modelName, $fieldName );
+
+            //Create a table row containing the two strings.
+            $labelString = $this->Html->tag(
+                                            'td',
+                                            $labelString,
+                                            array(
+                                                'class' => 'setupFormLabel'
+                                            )
+                                        );
+            $inputString = $this->Html->tag(
+                                            'td',
+                                            $inputString,
+                                            array(
+                                                'class' => 'setupFormInput'
+                                            )
+                                        );
+
+            $returnString = $this->Html->tag(
+                                            'tr',
+                                            $labelString . $inputString,
+                                            array()
+                                        );
+        }else{
+            $returnString = '';
+        }
 
 									
 									
