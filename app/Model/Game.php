@@ -2,27 +2,27 @@
 class Game extends AppModel {
 
 	//Setup the associations for this model
-	public $belongsTo 	= array(
-							'Board' => array(
+	public $belongsTo 	= [
+							'Board' => [
 								'className'		=> 'Board',
 								'foreignKey'	=> 'boards_uid'
-							)
-						);
+							]
+						];
 						
-	public $hasMany 	= array(
-							'ActiveUser' => array(
+	public $hasMany 	= [
+							'ActiveUser' => [
 								'className' 	=> 'ActiveUser',
 								'foreignKey'	=> 'games_uid'
-							),
-							'GameUnit' => array(
+							],
+							'GameUnit' => [
 								'className'		=> 'GameUnit',
 								'foreignKey'	=> 'games_uid'
-							),
-							'UserGame' => array(
+							],
+							'UserGame' => [
 								'className' 	=> 'UserGame',
 								'foreignKey'	=> 'games_uid'
-							)
-						);
+							]
+						];
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -42,19 +42,24 @@ class Game extends AppModel {
 	public function checkForGameOver( $uid ){
 	
 		//Grab the game's information
-		$game = $this->find( 'first', array(
-										'conditions' => array(
-											'Game.uid' => $uid
-										)
-									));
+		$game = $this->find(
+            'first', [
+                'conditions' => [
+                    'Game.uid' => $uid
+                ]
+            ]
+        );
 									
 		//Grab the players for this game
 		$userGameModelInstance = ClassRegistry::init( 'UserGame' );
-		$userGames	= $userGameModelInstance->find('all', array(
-														'conditions' => array(
-															'UserGame.games_uid' => $uid
-														)
-													));
+		$userGames	= $userGameModelInstance->find(
+            'all',
+            [
+                'conditions' => [
+                    'UserGame.games_uid' => $uid
+                ]
+            ]
+        );
 													
 		//Loop through all of the user games and check if the users have at least one
 		//unit still in the game left alive.
@@ -79,7 +84,8 @@ class Game extends AppModel {
     //Grab the game board
     public function getBoard( $uid ){
 
-        $gameBoard = $this->find( 'first', array(
+        $gameBoard = $this->find(
+            'first', array(
                                     'conditions' => array(
                                        'Game.uid' => $uid
                                     ),

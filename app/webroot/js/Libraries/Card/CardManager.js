@@ -1,5 +1,5 @@
 
-function CardManager(){
+function CardManager() {
 
     //Setup a holder for the units queued to load in various elements
     this.queuedUnits = new Array();
@@ -12,10 +12,10 @@ function CardManager(){
 
         //Don't load a unit we're already loading, that'd be wasteful
         //Also if nothing was provided then don't load anything
-        if(
+        if (
             typeof unitTypeUID !== 'undefined' &&
             window.pageData.CardData[unitTypeUID] != 'loading'
-        ){
+        ) {
 
             //Set the unit's loading stance
             window.pageData.CardData[unitTypeUID] = 'loading';

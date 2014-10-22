@@ -1,5 +1,3 @@
-
-
 /// ----------------------------- VARIABLES ------------------------------------
 
 //LIBRARIES
@@ -172,10 +170,22 @@ function isInt( something ){
 //Takes a given bit of text and makes it safe to pass to a URL, in this case we convert
 //spaces to underscores and remove anything else we can't handle
 function makeURLSafe( dangerousWord ){
-    return dangerousWord
-        .replace(/ /g,'_')
-        .replace(/[^\w-]+/g,'')
-        ;
+    dangerousWord = dangerousWord.replace(/ /g,'_');
+    dangerousWord = dangerousWord.replace(/[^\w-]+/g,'');
+    return dangerousWord;
+}
+
+/**
+ * Used to assign a default value to a parameter in a readable way
+ * @param parameter
+ * @param defaultValue
+ * @returns {*}
+ */
+function defaultValue( parameter, defaultValue ){
+    if( typeof parameter === 'undefined' ){
+        return defaultValue;
+    }
+    return parameter;
 }
 
 //FUNCTION: modelToTableName
