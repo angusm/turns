@@ -5,17 +5,18 @@ var libraries = [];
 var loadedLibraries = [];
 
 //PATHS
-
+//Pull the path out from the URL
 var pathname = window.location.pathname;
-pathname = pathname.split('/').slice( 0,2 ).join('/');
+pathname = pathname.split('/');
+pathname = pathname.slice( 0,2 );
+pathname = pathname.join('/');
 
 var jsLibraryDirectory  = pathname + '/js/Libraries/';
-var imgLibraryDirectory = pathname + '/img/'
+var imgLibraryDirectory = pathname + '/img/';
 
 //DOCUMENT READY
 //When the document is fully ready, call the main function
 jQuery(document).ready( function(){
-
 
 	//Add anything we always want to load
 	libraries = addStandardLibraries( libraries );
@@ -115,9 +116,9 @@ function loadLibraries(){
 
 //FUNCTION: extend
 //Extends classes, OOP YAY!
-function extend(ChildClass, ParentClass) {
-    ChildClass.prototype                = new ParentClass();
-    ChildClass.prototype.constructor    = ChildClass;
+function extend( childClass, parentClass) {
+    childClass.prototype                = new parentClass();
+    childClass.prototype.constructor    = childClass;
 }
 
 /// ----------------------------- UTILITY FUNCTIONS ------------------------------------
@@ -145,7 +146,7 @@ jQuery.fn.isBound = function(eventType, callBackFunction) {
 
 	//We now know there is functions bound the the given event, it's our job
 	//to loop through them and see if any of them are the one we're looking for
-    if( eventData[eventType].length != 0 ){
+    if( eventData[eventType].length !== 0 ){
         jQuery.each( eventData[eventType], function( indexKey, value ){
 
             if( value['handler'] == callBackFunction ){
@@ -163,7 +164,8 @@ jQuery.fn.isBound = function(eventType, callBackFunction) {
 //FUNCTION: isInt
 //Sometimes you just want to know if a number is an integer
 function isInt( something ){
-	return !isNaN(parseInt(something)) && isFinite(something);
+    var parseIntResult = parseInt(something);
+	return !isNaN(parseIntResult) && isFinite(something);
 }
 
 //FUNCTION: makeURLSafe
@@ -182,10 +184,11 @@ function makeURLSafe( dangerousWord ){
  * @returns {*}
  */
 function defaultValue( parameter, defaultValue ){
+    var result = parameter;
     if( typeof parameter === 'undefined' ){
-        return defaultValue;
+        result = defaultValue;
     }
-    return parameter;
+    return result;
 }
 
 //FUNCTION: modelToTableName

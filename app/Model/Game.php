@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class Game
+ */
 class Game extends AppModel {
 
 	//Setup the associations for this model
@@ -24,8 +28,10 @@ class Game extends AppModel {
 							]
 						];
 
-	//Override the constructor so that we can set the variables our way
-	//and not some punk ass way we don't much like.
+    /**
+     * Override the constructor so that we can set the variables our way
+     * and not some punk ass way we don't much like.
+     */
 	public function __construct() { 
 
 		//Call the parent constructor
@@ -36,9 +42,12 @@ class Game extends AppModel {
 				);		
 
 	}
-	
-	//PUBLIC FUNCTION: checkForGameOver
-	//Check if the game still has living units on both sides, if it doesn't then shut it down
+
+    /**
+     * Check if the game still has living units on both sides, if it doesn't then shut it down
+     * @param $uid
+     * @return bool
+     */
 	public function checkForGameOver( $uid ){
 	
 		//Grab the game's information
@@ -80,105 +89,118 @@ class Game extends AppModel {
 		
 	}
 
-    //PUBLIC FUNCTION: getBoard
-    //Grab the game board
+    /**
+     * Grab the game board
+     * @param $uid
+     * @return mixed
+     */
     public function getBoard( $uid ){
 
         $gameBoard = $this->find(
-            'first', array(
-                                    'conditions' => array(
-                                       'Game.uid' => $uid
-                                    ),
-                                    'contain' => array(
-                                        'Board' => array(
-                                            'fields' => array(
-                                                'Board.width',
-                                                'Board.height'
-                                            )
-                                        )
-                                    )
-                                ));
+            'first',
+            [
+                'conditions' => [
+                   'Game.uid' => $uid
+                ],
+                'contain' => [
+                    'Board' => [
+                        'fields' => [
+                            'Board.width',
+                            'Board.height'
+                        ]
+                    ]
+                ]
+            ]
+        );
 
         return $gameBoard['Board'];
 
     }
 
-	//PUBLIC FUNCTION: getInfoForPlay
-	//There's a bunch of information that's going to be necessary to 
-	//actually play the game, so let's go ahead and get it all.
-	//YEAH, TAKE IT!
+    /**
+     * There's a bunch of information that's going to be necessary to
+     * actually play the game so let's go ahead and get it all
+     * @param $uid
+     * @return array
+     */
 	public function getInfoForPlay( $uid ){
 		
 		//Grab the game so that we can get the current turn
-		$currentGame 		= $this->find( 'first', array(
-										'conditions' => array(
-											'Game.uid' => $uid
-										)
-									));
+		$currentGame = $this->find(
+            'first',
+            [
+                'conditions' => [
+                    'Game.uid' => $uid
+                ]
+            ]
+        );
 									
 		//Grab the turn
-		$currentTurn 		= $currentGame['Game']['turn'];
+		$currentTurn = $currentGame['Game']['turn'];
 											
 		//Time to run a fairly extensive find to grab all the information
 		//about the game
-		$gameInformation 	= $this->find( 'first', array(
-									'conditions' => array(
-										'Game.uid' => $uid
-									),
-									'contain' => array(
-										'ActiveUser' => array(
-											'conditions' => array(
-												'ActiveUser.turn' => $currentTurn
-											),
-											'UserGame'
-										),
-										'Board' => array(
-											'fields' => array(
-												'height',
-												'width'
-											)
-										),
-										'GameUnit' => array(
-											'conditions' => array(
-												'GameUnit.turn' => $currentTurn
-											),
-											'GameUnitStat' => array(
-												'fields' => array(
-													'damage',
-													'name'
-												),
-												'GameUnitStatMovementSet' => array(
-													'MovementSet' => array(
-														'Movement' => array(
-															'MovementDirectionSet' => array(
-																'DirectionSet' => array(
-																	'DirectionSetDirection' => array(
-																		'Direction'
-																	)
-																)
-															)
-														)
-													)
-												)
-											),
-											'MovementSet',
-											'UnitArtSet' => array(
-												'UnitArtSetIcon' => array(
-													'Icon' => array(
-														'conditions' => array(
-															'icon_positions_uid' => 3
-														)
-													)
-												)
-											)
-										),
-										'UserGame' => array(
-											'User' => array(
-												'fields' => 'username'
-											)
-										)
-									)
-								));
+		$gameInformation = $this->find(
+            'first',
+            [
+                'conditions' => [
+                    'Game.uid' => $uid
+                ],
+                'contain' => [
+                    'ActiveUser' => [
+                        'conditions' => [
+                            'ActiveUser.turn' => $currentTurn
+                        ],
+                        'UserGame'
+                    ],
+                    'Board' => [
+                        'fields' => [
+                            'height',
+                            'width'
+                        ]
+                    ],
+                    'GameUnit' => [
+                        'conditions' => [
+                            'GameUnit.turn' => $currentTurn
+                        ],
+                        'GameUnitStat' => [
+                            'fields' => [
+                                'damage',
+                                'name'
+                            ],
+                            'GameUnitStatMovementSet' => [
+                                'MovementSet' => [
+                                    'Movement' => [
+                                        'MovementDirectionSet' => [
+                                            'DirectionSet' => [
+                                                'DirectionSetDirection' => [
+                                                    'Direction'
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ],
+                        'MovementSet',
+                        'UnitArtSet' => [
+                            'UnitArtSetIcon' => [
+                                'Icon' => [
+                                    'conditions' => [
+                                        'icon_positions_uid' => 3
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'UserGame' => [
+                        'User' => [
+                            'fields' => 'username'
+                        ]
+                    ]
+                ]
+            ]
+        );
 
 		//Alright now that we've pretty much downloaded the internet with
 		//that fucking bloated find, let's return that mess so that we can
@@ -187,22 +209,29 @@ class Game extends AppModel {
 		
 	}
 	
-	//PUBLIC FUNCTION: getUpdateInfo
-	//Much like getInfoForPlay but grabs as little information as possible
+    /**
+     * Much like getInfoForPlay but grabs as little information as possible
+     * @param $uid
+     * @param $lastKnownTurn
+     * @return array
+     */
 	public function getUpdateInfo( $uid, $lastKnownTurn ){
 		
 		//Grab the game so that we can get the current turn
-		$currentGame 		= $this->find( 'first', array(
-										'conditions' => array(
-											'Game.uid' => $uid
-										),
-										'fields' => array(
-											'turn'
-										)
-									));
+		$currentGame = $this->find(
+            'first',
+            [
+                'conditions' => [
+                    'Game.uid' => $uid
+                ],
+                'fields' => [
+                    'turn'
+                ]
+            ]
+        );
 									
 		//Grab the turn
-		$currentTurn 		= $currentGame['Game']['turn'];
+		$currentTurn = $currentGame['Game']['turn'];
 									
 		//If there hasn't been a change in the turn for the game then we
 		//just return FALSE
@@ -211,11 +240,11 @@ class Game extends AppModel {
 		}else{
 
             //Establish the game unit array
-            $gameUnitArray = array(
-                'conditions' => array(
+            $gameUnitArray = [
+                'conditions' => [
                     'GameUnit.games_uid'    => $uid
-                ),
-                'fields' => array(
+                ],
+                'fields' => [
                     'DISTINCT GameUnit.game_identifier',
                     'GameUnit.uid',
                     'GameUnit.damage',
@@ -229,166 +258,169 @@ class Game extends AppModel {
                     'GameUnit.users_uid',
                     'GameUnit.x',
                     'GameUnit.y'
-                ),
-                'order' => array(
+                ],
+                'order' => [
                     'GameUnit.turn DESC'
-                ),
-                'contain' => array(
-                ),
-                'group' => array(
+                ],
+                'contain' => [
+                ],
+                'group' => [
                     'GameUnit.game_identifier'
-                )
-            );
+                ]
+            ];
 
             //If we're on the first turn (that the player knows about) we add to it
-            if( $lastKnownTurn == 0 ){
+            if( $lastKnownTurn === 0 ){
 
-                $gameUnitArray['contain'] = array(
-                    'GameUnitStat' => array(
-                        'fields' => array(
+                $gameUnitArray['contain'] = [
+                    'GameUnitStat' => [
+                        'fields' => [
                             'GameUnitStat.uid',
                             'GameUnitStat.damage',
                             'GameUnitStat.defense',
                             'GameUnitStat.name'
-                        ),
-                        'GameUnitStatMovementSet' => array(
-                            'fields' => array(
+                        ],
+                        'GameUnitStatMovementSet' => [
+                            'fields' => [
                                 'GameUnitStatMovementSet.uid',
                                 'GameUnitStatMovementSet.movement_sets_uid',
                                 'GameUnitStatMovementSet.game_unit_stats_uid'
-                            ),
-                            'MovementSet' => array(
-                                'fields' => array(
+                            ],
+                            'MovementSet' => [
+                                'fields' => [
                                     'MovementSet.uid',
                                     'MovementSet.name'
-                                ),
-                                'Movement' => array(
-                                    'fields' => array(
+                                ],
+                                'Movement' => [
+                                    'fields' => [
                                         'Movement.uid',
                                         'Movement.movement_sets_uid',
                                         'Movement.must_move_all_the_way',
                                         'Movement.spaces'
-                                    ),
-                                    'MovementDirectionSet' => array(
-                                        'fields' => array(
+                                    ],
+                                    'MovementDirectionSet' => [
+                                        'fields' => [
                                             'MovementDirectionSet.uid',
                                             'MovementDirectionSet.movements_uid',
                                             'MovementDirectionSet.direction_sets_uid'
-                                        ),
-                                        'DirectionSet' => array(
-                                            'fields' => array(
+                                        ],
+                                        'DirectionSet' => [
+                                            'fields' => [
                                                 'DirectionSet.uid'
-                                            ),
-                                            'DirectionSetDirection' => array(
-                                                'fields' => array(
+                                            ],
+                                            'DirectionSetDirection' => [
+                                                'fields' => [
                                                     'DirectionSetDirection.uid',
                                                     'DirectionSetDirection.direction_sets_uid',
                                                     'DirectionSetDirection.directions_uid'
-                                                ),
-                                                'Direction' => array(
-                                                    'fields' => array(
+                                                ],
+                                                'Direction' => [
+                                                    'fields' => [
                                                         'Direction.uid',
                                                         'Direction.angle'
-                                                    )
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    ),
-                    'MovementSet' => array(
-                        'fields' => array(
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'MovementSet' => [
+                        'fields' => [
                             'MovementSet.uid',
                             'MovementSet.name'
-                        ),
-                        'Movement' => array(
-                            'fields' => array(
+                        ],
+                        'Movement' => [
+                            'fields' => [
                                 'Movement.uid',
                                 'Movement.movement_sets_uid',
                                 'Movement.must_move_all_the_way',
                                 'Movement.spaces'
-                            ),
-                            'MovementDirectionSet' => array(
-                                'fields' => array(
+                            ],
+                            'MovementDirectionSet' => [
+                                'fields' => [
                                     'MovementDirectionSet.uid',
                                     'MovementDirectionSet.movements_uid',
                                     'MovementDirectionSet.direction_sets_uid'
-                                ),
-                                'DirectionSet' => array(
-                                    'fields' => array(
+                                ],
+                                'DirectionSet' => [
+                                    'fields' => [
                                         'DirectionSet.uid',
                                         'DirectionSet.name'
-                                    ),
-                                    'DirectionSetDirection' => array(
-                                        'fields' => array(
+                                    ],
+                                    'DirectionSetDirection' => [
+                                        'fields' => [
                                             'DirectionSetDirection.uid',
                                             'DirectionSetDirection.direction_sets_uid',
                                             'DirectionSetDirection.directions_uid'
-                                        ),
-                                        'Direction' => array(
-                                            'fields' => array(
+                                        ],
+                                        'Direction' => [
+                                            'fields' => [
                                                 'Direction.uid',
                                                 'Direction.angle'
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    ),
-                    'UnitArtSet' => array(
-                        'fields' => array(
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'UnitArtSet' => [
+                        'fields' => [
                             'UnitArtSet.uid',
                             'UnitArtSet.name'
-                        ),
-                        'UnitArtSetIcon' => array(
-                            'fields' => array(
+                        ],
+                        'UnitArtSetIcon' => [
+                            'fields' => [
                                 'UnitArtSetIcon.uid',
                                 'UnitArtSetIcon.unit_art_sets_uid',
                                 'UnitArtSetIcon.icons_uid'
-                            ),
-                            'Icon' => array(
-                                'fields' => array(
+                            ],
+                            'Icon' => [
+                                'fields' => [
                                     'Icon.uid',
                                     'Icon.icon_positions_uid',
                                     'Icon.image'
-                                )
-                            )
-                        )
-                    )
-                );
+                                ]
+                            ]
+                        ]
+                    ]
+                ];
             }
 
             //Grab the minimal information
-            $gameInformation 	= $this->find( 'first', array(
-                                        'conditions' => array(
-                                            'Game.uid' => $uid
-                                        ),
-                                        'contain' => array(
-                                            'ActiveUser' => array(
-                                                'conditions' => array(
-                                                    'ActiveUser.turn' => $currentTurn
-                                                ),
-                                                'fields' => array(
-                                                    'ActiveUser.uid',
-                                                    'ActiveUser.games_uid',
-                                                    'ActiveUser.user_games_uid'
-                                                ),
-                                                'UserGame' => array(
-                                                    'fields' => array(
-                                                        'UserGame.uid',
-                                                        'UserGame.users_uid'
-                                                    )
-                                                )
-                                            )
-                                        ),
-                                        'fields' => array(
-                                            'Game.turn',
-                                            'Game.selected_unit_uid'
-                                        )
-                                    ));
+            $gameInformation = $this->find(
+                'first', 
+                [
+                    'conditions' => [
+                        'Game.uid' => $uid
+                    ],
+                    'contain' => [
+                        'ActiveUser' => [
+                            'conditions' => [
+                                'ActiveUser.turn' => $currentTurn
+                            ],
+                            'fields' => [
+                                'ActiveUser.uid',
+                                'ActiveUser.games_uid',
+                                'ActiveUser.user_games_uid'
+                            ],
+                            'UserGame' => [
+                                'fields' => [
+                                    'UserGame.uid',
+                                    'UserGame.users_uid'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'fields' => [
+                        'Game.turn',
+                        'Game.selected_unit_uid'
+                    ]
+                ]
+            );
 
             //Grab the game units
             $gameUnitModelInstance          = ClassRegistry::init( 'GameUnit' );
@@ -449,20 +481,26 @@ class Game extends AppModel {
         }
 		
 	}
-	
-	//PUBLIC FUNCTION: isAUnitSelected
-	//Return true or false depending on whether or not a unit is selected
+
+	/**
+	 * Return true or false depending on whether or not a unit is selected
+	 * @param $gameUID
+	 * @return bool
+	 */
 	public function isAUnitSelected( $gameUID ){
 		
 		//Grab the relevant game
-		$game = $this->find( 'first', array(
-								'conditions' => array(
-									'Game.uid'	=> $gameUID,
-									'NOT'		=> array(
-										'Game.selected_unit_uid' => null
-									)
-								)
-							));
+		$game = $this->find( 
+			'first', 
+			[
+				'conditions' => [
+					'Game.uid'	=> $gameUID,
+					'NOT'		=> [
+						'Game.selected_unit_uid' => null
+					]
+				]
+			]
+		);
 							
 		//See if the unit is selected and return accordingly
 		if( $game == false ){
@@ -472,15 +510,22 @@ class Game extends AppModel {
 		}
 		
 	}
-	
-	//PUBLIC FUNCTION: newGame
-	//Create a new game, y'know, so players can play.
-	//And of course, so haters can hate. Cause haters gonna hate.
+
+	/**
+	 * Create a new game, y'know, so players can play
+	 * And of course so haters can hate. Cause haters gonna hate.
+	 * @param $defenderUserUID
+	 * @param $defenderTeamUID
+	 * @param $challengerUserUID
+	 * @param $challengerTeamUID
+	 * @return bool|mixed
+	 */
 	public function newGame(
         $defenderUserUID,
         $defenderTeamUID,
         $challengerUserUID,
-        $challengerTeamUID ){
+        $challengerTeamUID
+	){
 
         //Setup the model instances
         $activeUserModelInstance    = ClassRegistry::init('ActiveUser');
@@ -491,18 +536,18 @@ class Game extends AppModel {
 
         //Gather the teams
         $teamUnitTypes = $teamUnitModelInstance->getAllUnits(
-                                                        array(
-                                                            $defenderTeamUID,
-                                                            $challengerTeamUID
-                                                        )
-                                                    );
+            [
+                $defenderTeamUID,
+                $challengerTeamUID
+            ]
+        );
 
         //Setup the new game data
-        $newGameData = array(
-                            'active' 		=> 1,
-							'boards_uid'	=> 1,
-							'turn' 			=> 1
-						);
+        $newGameData = [
+            'active' 		=> 1,
+			'boards_uid'	=> 1,
+			'turn' 			=> 1
+		];
         //Grab the data source so we can do this as a transaction
         $dataSource = $this->getDataSource();
 
@@ -516,28 +561,28 @@ class Game extends AppModel {
             $gameObject = $this->save( $newGameData );
 
             //Create the user games
-            $defenderUserGameData = array(
-                                        'users_uid' => $defenderUserUID,
-                                        'games_uid' => $gameObject['Game']['uid'],
-                                        'priority'  => 2
-                                    );
-            $challengerUserGameData = array(
-                                        'users_uid' => $challengerUserUID,
-                                        'games_uid' => $gameObject['Game']['uid'],
-                                        'priority'  => 1
-                                    );
+            $defenderUserGameData = [
+                'users_uid' => $defenderUserUID,
+                'games_uid' => $gameObject['Game']['uid'],
+                'priority'  => 2
+            ];
+            $challengerUserGameData = [
+                'users_uid' => $challengerUserUID,
+                'games_uid' => $gameObject['Game']['uid'],
+                'priority'  => 1
+            ];
 
             $userGameModelInstance->create();
-            $challengerUserGameUID  = $userGameModelInstance->save( $challengerUserGameData );
+            $challengerUserGameUID = $userGameModelInstance->save( $challengerUserGameData );
             $userGameModelInstance->create();
             $userGameModelInstance->save( $defenderUserGameData );
 
             //Set the active user
-            $activeUserData = array(
+            $activeUserData = [
                 'games_uid'         => $gameObject['Game']['uid'],
                 'user_games_uid'    => $challengerUserGameUID['UserGame']['uid'],
                 'turn'              => 1
-            );
+            ];
             $activeUserModelInstance->create();
             $activeUserModelInstance->save( $activeUserData );
 
@@ -603,14 +648,15 @@ class Game extends AppModel {
 	//PUBLIC FUNCTION: updateGame
 	//Update the game with the given move
 	public function updateGame( 
-							$gameUID, 
-							$turn, 
-							$gameUnitUID, 
-							$targetX, 
-							$targetY, 
-							$angle, 
-							$movePriority, 
-							$movementSetUID ){
+        $gameUID,
+        $turn,
+        $gameUnitUID,
+        $targetX,
+        $targetY,
+        $angle,
+        $movePriority,
+        $movementSetUID
+    ){
 
         //Prepare any model instances that we'll be needing
         $activeUserModelInstance    = ClassRegistry::init( 'ActiveUser' );
@@ -674,8 +720,14 @@ class Game extends AppModel {
 	//a targeted X and Y. 
 	//Then make sure that this move was possible. 
 	//If it was we need to move the game up to the next turn.
+    /**
+     * @param $gameUnitUID
+     * @param $targetX
+     * @param $targetY
+     * @param $userUID
+     */
 	public function validateMove( $gameUnitUID, $targetX, $targetY, $userUID ){
-				
+
 		//Grab the gameUnit 
 		$gameUnitModelInstance 	= ClassRegistry::init( 'GameUnit' );
 		$gameUnit 				= $gameUnitModelInstance->findForMoveValidation( $gameUnitUID );
@@ -718,14 +770,14 @@ class Game extends AppModel {
 
 			//Setup a MovementSet instance to grab this one set
 			$movementSetModelInstance   = ClassRegistry::init( 'MovementSet' );
-			$gameUnitMovementSets       = array(
-                                            array(
-                                                'MovementSet' => array_merge(
-                                                    array( 'uid' => $gameUnit['GameUnit']['movement_sets_uid'] ),
-                                                    $movementSetModelInstance->findByUIDWithPriority( $gameUnit['GameUnit']['movement_sets_uid'], $movePriority )
-                                                )
-                                            )
-                                        );
+			$gameUnitMovementSets       = [
+                [
+                    'MovementSet' => array_merge(
+                        [ 'uid' => $gameUnit['GameUnit']['movement_sets_uid'] ],
+                        $movementSetModelInstance->findByUIDWithPriority( $gameUnit['GameUnit']['movement_sets_uid'], $movePriority )
+                    )
+                ]
+            ];
 														
 		}
 				
@@ -808,7 +860,7 @@ class Game extends AppModel {
 				}					
 			}
 		}
-		
+
 	}
 	
 }
