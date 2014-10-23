@@ -3,23 +3,21 @@
 class StaticContentsContentRestriction extends AppModel{
 
     //Setup the relation
-    public $belongsTo = array(
-        'StaticContent' => array(
+    public $belongsTo = [
+        'StaticContent' => [
             'class'         => 'StaticContent',
             'foreignKey'    => 'static_contents_uid'
-        ),
-        'ContentRestriction' => array(
+        ],
+        'ContentRestriction' => [
             'class'         => 'ContentRestriction',
             'foreignKey'    => 'content_restrictions_uid'
-        )
-    );
-    public $hasMany = array(
-        'StaticContentsContentRestrictionEffectiveDate' => array(
+        ]
+    ];
+    public $hasMany = [
+        'StaticContentsContentRestrictionEffectiveDate' => [
             'class'         => 'StaticContentsContentRestrictionEffectiveDate',
             'foreignKey'    => 'static_contents_content_restrictions_uid'
-        )
-    );
+        ]
+    ];
 
 }
-
-?>

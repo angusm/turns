@@ -2,28 +2,28 @@
 class UnitType extends AppModel {
 	
 	//Setup the associations for UnitType
-	public $hasMany = array(
-						'Unit' => array(
+	public $hasMany = [
+						'Unit' => [
 							'className' 	=> 'Unit',
 							'foreignKey'	=> 'unit_types_uid'
-						)						
-					);
+						]
+					];
 	
 	//NOTE: Problem with belongs to not fetching its has many associations in a
 	//containable array. So a finderQuery is needed.
-	public $belongsTo = array(
-						'UnitArtSet'	=> array(
+	public $belongsTo = [
+						'UnitArtSet'	=> [
 							'className'		=> 'UnitArtSet',
 							'foreignKey'	=> 'unit_art_sets_uid',
 							'finderQuery'	=> 'SELECT UnitArtSet.* FROM unit_types, unit_art_sets AS UnitArtSet WHERE unit_types.uid={$__cakeID__$} AND unit_types.unit_art_sets_uid=UnitArtSet.uid'
-						),
-						'UnitStat' => array(
+						],
+						'UnitStat' => [
 							'className'		=> 'UnitStat',
 							'foreignKey'	=> 'unit_stats_uid',
 							'finderQuery'	=> 'SELECT UnitStat.* FROM unit_types, unit_stats AS UnitStat WHERE unit_types.uid={$__cakeID__$} AND unit_types.unit_stats_uid=UnitStat.uid'
 
-						),
-					);
+						],
+					];
 
 
 	//Override the constructor so that we can set the variables our way
@@ -32,27 +32,27 @@ class UnitType extends AppModel {
 			parent::__construct(); 
 			
 		//Setup rules that apply to all attributes
-		$this->attributeRules = array(
+		$this->attributeRules = [
 			'rule'		=> 'numeric',
 			'required'	=> true,
 			'message'	=> 'Attributes must be INT, we\'re not making a math game here'
-		);
+		];
 
 		//Setup the validation
-		$this->validate = array(
-			'name' => array(
+		$this->validate = [
+			'name' => [
 				'default'	=> 	'Default',
 				'message' 	=> 	parent::$alphaNumericMessage,
 				'required' 	=>	true,
 				'rule'		=> 	'alphaNumeric'
-			),
-			'unit_stats_uid' => array(
+			],
+			'unit_stats_uid' => [
 				'default'	=> '1',
 				'message'	=> 'Need a Unit Stats UID',
 				'required'	=> true,
 				'rule'		=> 'numeric'
-			)
-		);
+			]
+		];
 
 	}
 	
@@ -61,11 +61,11 @@ class UnitType extends AppModel {
 	public function decrementTicket( $unitTypeUID ){
 		
 		//Grab the u nit type we'll be decrementing
-		$unitToDecrement = $this->find( 'first', array(
-								'conditions' => array(
+		$unitToDecrement = $this->find( 'first', [
+								'conditions' => [
 									'UnitType.uid' => $unitTypeUID
-								)
-							));
+								]
+							]);
 	
 		//Decrement it
 		if( $unitToDecrement != false ){
@@ -83,11 +83,11 @@ class UnitType extends AppModel {
 	public function findByUID( $uid ){
 	
 		//Run the find and return it
-		return $this->find( 'first', array(
-								'conditions' => array(
+		return $this->find( 'first', [
+								'conditions' => [
 									'uid' => $uid
-								)								
-							));
+								]
+							]);
 		
 	}
 	
@@ -95,87 +95,87 @@ class UnitType extends AppModel {
 	//Get all the information necessary to display a card view
 	public function getCardViewData( $uid ){
 		
-		$cardViewData = $this->find( 'first', array(
-								'conditions' => array(
+		$cardViewData = $this->find( 'first', [
+								'conditions' => [
 									'UnitType.uid'	=> $uid
-								),
+								],
 								
-								'contain' => array(
-									'UnitStat'	=> array(
+								'contain' => [
+									'UnitStat'	=> [
 									
-										'fields' => array(
+										'fields' => [
 											'UnitStat.uid',
 											'UnitStat.name',
 											'UnitStat.damage',
 											'UnitStat.defense',
 											'UnitStat.teamcost'
-										),
+										],
 										
-										'UnitStatMovementSet.MovementSet' => array(
+										'UnitStatMovementSet.MovementSet' => [
 	
-											  'fields' => array(
+											  'fields' => [
 												  'MovementSet.name',
 												  'MovementSet.uid'
-											  ),
+											  ],
   
-											  'Movement' => array(
+											  'Movement' => [
   
-												  'fields' => array(
+												  'fields' => [
 													  'Movement.spaces',
 													  'Movement.priority'
-												  ),
+												  ],
   
 												  'MovementDirectionSet.DirectionSet.'.
-												  'DirectionSetDirection.Direction' => array(
-													  'fields' => array(
+												  'DirectionSetDirection.Direction' => [
+													  'fields' => [
 														  'Direction.x',
 														  'Direction.y',
 														  'Direction.name'
-													  )
-												  )
-											  )
+													  ]
+												  ]
+											  ]
 											  
-										)
+										]
 										
-									),
-									'UnitArtSet' => array(
+									],
+									'UnitArtSet' => [
 										
-										'fields' => array(
+										'fields' => [
 											'UnitArtSet.name',
-										),
+										],
 										
-										'CardArtLayerSet' => array(
+										'CardArtLayerSet' => [
 											
-											'fields' => array(
+											'fields' => [
 												'CardArtLayerSet.position'
-											),
+											],
 											
-											'order'  => array(
+											'order'  => [
 												'CardArtLayerSet.position'
-											),
+											],
 											
-											'CardArtLayer' => array(
+											'CardArtLayer' => [
 											
-												'fields' => array(
+												'fields' => [
 													'CardArtLayer.image'
-												)
-											)
-										),
+												]
+											]
+										],
 										
-										'UnitArtSetIcon.Icon' => array(
+										'UnitArtSetIcon.Icon' => [
 												
-											'fields' => array(
+											'fields' => [
 												'Icon.image',
 												'Icon.icon_positions_uid'
-											)
-										)
+											]
+										]
 										
-									)
-								),
-								'fields' => array(
+									]
+								],
+								'fields' => [
 									'UnitType.name'
-								)
-							));
+								]
+							]);
 
 			return $cardViewData;
 		
@@ -186,15 +186,15 @@ class UnitType extends AppModel {
 	public function getRandomUnitTypeByTicket(){
 		
 		//Grab a random Unit Type that still has tickets remaining
-		$eligibleUnit = $this->find( 'first', array(
-										'conditions' => array(
+		$eligibleUnit = $this->find( 'first', [
+										'conditions' => [
 											'remaining_rare_tickets >' => '0'
-										),
-										'fields' => array(
+										],
+										'fields' => [
 											'uid'
-										),
+										],
                                         'order' => 'rand()'
-									));
+									]);
 
 		//Grab the random UID and return it
 		return $eligibleUnit['UnitType']['uid'];
@@ -205,9 +205,9 @@ class UnitType extends AppModel {
 	//Return a list of all the UIDs
 	public function getUIDs(){
 	
-		return $this->find( 'list', array(
+		return $this->find( 'list', [
 				'fields' =>  'UnitType.uid'		
-			));	
+			]);
 		
 	}
 	
@@ -224,26 +224,26 @@ class UnitType extends AppModel {
 		$unitTypeIsValid = true;
 		
 		//First off we should make sure that such a Unit Type actually exists
-		$unitTypeRecord = $this->find( 'first', array(
-                                            'fields' => array(
+		$unitTypeRecord = $this->find( 'first', [
+                                            'fields' => [
                                                 'UnitType.uid'
-                                            ),
-											'conditions' => array(
+                                            ],
+											'conditions' => [
 												'UnitType.uid' => $unitTypeUID
-											),
-											'contain' => array(
-												'UnitStat' => array(
-                                                    'fields' => array(
+											],
+											'contain' => [
+												'UnitStat' => [
+                                                    'fields' => [
                                                         'UnitStat.uid'
-                                                    )
-                                                ),
-												'UnitArtSet' => array(
-                                                    'fields' => array(
+                                                    ]
+                                                ],
+												'UnitArtSet' => [
+                                                    'fields' => [
                                                         'UnitArtSet.uid'
-                                                    )
-                                                )
-											)
-										));
+                                                    ]
+                                                ]
+											]
+										]);
 
 		//If the given UID was invalid we return false
 		if( $unitTypeRecord == false ){

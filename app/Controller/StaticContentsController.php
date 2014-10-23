@@ -14,11 +14,11 @@ class StaticContentsController extends AppController{
 
         if( isset($this->params->query['uid']) ){
             $uid                    = $this->params->query['uid'];
-            $staticContentRecord    = $this->StaticContent->find('first', array(
-                'conditions' => array(
+            $staticContentRecord    = $this->StaticContent->find('first', [
+                'conditions' => [
                     'StaticContent.uid' => $uid
-                )
-            ));
+                ]
+            ]);
             if( $staticContentRecord != false ){
                 $staticContent = $staticContentRecord['StaticContent']['html'];
             }
@@ -27,21 +27,21 @@ class StaticContentsController extends AppController{
 
         $this->set( 'uid',              $uid );
         $this->set( 'staticContent',    $staticContent );
-        $this->set( '_serialize',       array(
+        $this->set( '_serialize',       [
             'uid',
             'staticContent'
-        ));
+        ]);
 
     }
 
     //PUBLIC FUNCTION: editList
     //Display a list of content to edit
     public function editList(){
-        $UIDs = $this->StaticContent->find('all',array(
-            'fields'    => array(
+        $UIDs = $this->StaticContent->find('all',[
+            'fields'    => [
                 'uid'
-            )
-        ));
+            ]
+        ]);
 
         $this->set('UIDs',$UIDs);
     }
@@ -66,9 +66,9 @@ class StaticContentsController extends AppController{
         //If we have a valid UID and HTML run the change
         if( $html != null && $uid != null ){
             $this->StaticContent->read( null, $uid );
-            $this->StaticContent->set( array(
+            $this->StaticContent->set( [
                 'html' => $html
-            ));
+            ]);
             $this->StaticContent->save();
 
             $this->set( 'success', true );
@@ -76,9 +76,9 @@ class StaticContentsController extends AppController{
             $this->set( 'success', false );
         }
 
-        $this->set( '_serialize', array(
+        $this->set( '_serialize', [
             'success'
-        ));
+        ]);
 
     }
 
@@ -91,11 +91,11 @@ class StaticContentsController extends AppController{
 
         //Grab content if possible
         if( isset($this->params->query['uid']) ){
-            $staticContentRecord = $this->StaticContent->find('first', array(
-                'conditions' => array(
+            $staticContentRecord = $this->StaticContent->find('first', [
+                'conditions' => [
                     'StaticContent.uid' => $this->params->query['uid']
-                )
-            ));
+                ]
+            ]);
 
             if( $staticContentRecord != false ){
                 $staticContent = $staticContentRecord['StaticContent']['html'];
@@ -104,12 +104,10 @@ class StaticContentsController extends AppController{
         }
 
         $this->set( 'staticContent', $staticContent );
-        $this->set( '_serialize', array(
+        $this->set( '_serialize', [
             'staticContent'
-        ));
+        ]);
 
     }
 
 }
-
-?>

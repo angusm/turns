@@ -2,12 +2,12 @@
 class MatchmakingQueue extends AppModel {
 
 	//Setup the associations for this model
-	public $belongsTo = array(
-						'User' => array(
+	public $belongsTo = [
+						'User' => [
 							'className' 	=> 'User',
 							'foreignKey'	=> 'users_uid'
-						)
-					);
+						]
+					];
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -29,19 +29,19 @@ class MatchmakingQueue extends AppModel {
 	public function checkQueue( $userUID, $teamUID ){
 		
 		//Look for available players to play against
-		$availablePlayers = $this->find( 'first', array(
-											'conditions' => array(
+		$availablePlayers = $this->find( 'first', [
+											'conditions' => [
 												'MatchmakingQueue.users_uid NOT' => $userUID
-											),
-                                            'fields' => array(
+											],
+                                            'fields' => [
                                                 'MatchmakingQueue.uid',
                                                 'MatchmakingQueue.teams_uid',
                                                 'MatchmakingQueue.users_uid'
-                                            ),
-											'order' => array(
+                                            ],
+											'order' => [
 												'MatchmakingQueue.created'
-											)
-										));
+											]
+										]);
 		
 				
 		//If we didn't find any available spots then we create a new record
@@ -64,11 +64,11 @@ class MatchmakingQueue extends AppModel {
 	public function getPendingGamesByUserUID( $userUID ){
 		
 		//Grab them all
-		$pendingGames = $this->find( 'all', array(
-							'conditions' => array(
+		$pendingGames = $this->find( 'all', [
+							'conditions' => [
 								'MatchmakingQueue.users_uid' => $userUID
-							)
-						));
+							]
+						]);
 						
 		//And returning them
 		return $pendingGames;
@@ -80,10 +80,10 @@ class MatchmakingQueue extends AppModel {
 	public function placeInQueue( $userUID, $teamUID ){
 		
 		//Establish data to save
-		$queueData = array( 
+		$queueData = [
 						'users_uid' => $userUID,
 						'teams_uid' => $teamUID
-						);
+						];
 		
 		//Create a record
 		$this->create();

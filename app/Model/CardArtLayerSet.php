@@ -1,12 +1,12 @@
 <?php
 class CardArtLayerSet extends AppModel {
 
-	public $belongsTo = array(
-							'CardArtLayer' => array(
+	public $belongsTo = [
+							'CardArtLayer' => [
 								'className'		=> 'CardArtLayer',
 								'foreignKey'	=> 'unit_art_sets_uid'
-							)
-						);
+							]
+						];
 
 
 	//Override the constructor so that we can set the variables our way
@@ -17,13 +17,13 @@ class CardArtLayerSet extends AppModel {
 		parent::__construct();
 			
 		$this->validate = array_merge( 
-					array(
-						'position' => array(
+					[
+						'position' => [
 							'rule'    	=> 'numeric',
 							'required' 	=>	true,
 							'message' 	=> 	parent::$numericMessage
-						 )
-					),
+						 ]
+					],
 					$this->validate
 				);
 

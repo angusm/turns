@@ -3,5 +3,3 @@
 class StaticContentEffectiveDatesController extends AppController{
     
 }
-
-?>

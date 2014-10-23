@@ -11,54 +11,54 @@ class MenuItem extends AppModel{
     //It does include a field for the parent in addition to the left and right fields
     //for the sake of making some functions and the management of the tree a lot
     //easier for us to work with.
-    public $actsAs = array(
-        'tree' => array(
+    public $actsAs = [
+        'tree' => [
             'parent_id' => 'parent_uid'
-        )
-    );
+        ]
+    ];
 
     //Set the models relationships
-    public $belongsTo = array(
-        'MenuItem' => array(
+    public $belongsTo = [
+        'MenuItem' => [
             'className'     => 'MenuItem',
             'foreignKey'    => 'parent_uid'
-        ),
-        'ParameterSet' => array(
+        ],
+        'ParameterSet' => [
             'className'     => 'ParameterSet',
             'foreignKey'    => 'parameter_sets_uid'
-        ),
-        'SiteLink' => array(
+        ],
+        'SiteLink' => [
             'className'     => 'SiteLink',
             'foreignKey'    => 'site_links_uid'
-        )
-    );
+        ]
+    ];
 
-    public $hasMany = array(
-        'MenuItemEffectiveDate' => array(
+    public $hasMany = [
+        'MenuItemEffectiveDate' => [
             'className'     => 'MenuItemEffectiveDate',
             'foreignKey'    => 'menu_items_uid'
-        )
-    );
+        ]
+    ];
 
     //CONSTRUCTOR
     public function __construct() {
         parent::__construct();
 
         //Setup validation
-        $this->validate = array(
-            'name' => array(
+        $this->validate = [
+            'name' => [
                 'default'   => 'New Menu Item',
-                'rule'		=> array( 'maxLength', 64 ),
+                'rule'		=> [ 'maxLength', 64 ],
                 'required' 	=> true,
                 'message' 	=> 'A menu needs a name, 64 characters or less.'
-            ),
-            'site_links_uid' => array(
+            ],
+            'site_links_uid' => [
                 'default'   => '1',
                 'rule'      => 'numeric',
                 'required'  => true,
                 'message'   => 'Must be a valid site link record UID'
-            )
-        );
+            ]
+        ];
 
     }
 
@@ -71,11 +71,11 @@ class MenuItem extends AppModel{
 
         //We start with the top level menu items and then recursively
         //grab each of the child menu items
-        $availableMenuItems = $this->children( array(
-            'contain' => array(
+        $availableMenuItems = $this->children( [
+            'contain' => [
                 'SiteLink'
-            )
-        ));
+            ]
+        ]);
 
         return $availableMenuItems;
 

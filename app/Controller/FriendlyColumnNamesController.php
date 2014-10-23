@@ -21,9 +21,9 @@ class FriendlyColumnNamesController extends AppController{
         $friendlyName = $this->FriendlyName->getFriendlyName( $modelName, $columnName );
 
         $this->set( 'friendlyName', $friendlyName );
-        $this->set('_serialize', array(
+        $this->set('_serialize', [
             'friendlyName'
-        ));
+        ]);
 
     }
 

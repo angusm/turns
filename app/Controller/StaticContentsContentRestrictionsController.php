@@ -3,5 +3,3 @@
 class StaticContentsContentRestrictionsController extends AppController{
     
 }
-
-?>

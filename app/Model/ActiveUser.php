@@ -3,30 +3,30 @@ class ActiveUser extends AppModel {
 
 	public $primaryKey = 'uid';
 	
-	public $belongsTo 	= array(
-							'Game' => array(
+	public $belongsTo 	= [
+							'Game' => [
 								'className'		=> 'Game',
 								'foreignKey'	=> 'games_uid'
-							),
-							'UserGame' => array(
+							],
+							'UserGame' => [
 								'className'		=> 'UserGame',
 								'foreignKey'	=> 'user_games_uid'
-							)
-						);
+							]
+						];
 	
 	//PUBLIC FUNCTION: findActiveUser
 	//Find the active user for the given game on the given turn
 	public function findActiveUser( $gameUID, $turn ){
 		
-		return $this->find( 'first', array(
-								'conditions' => array(
+		return $this->find( 'first', [
+								'conditions' => [
 									'ActiveUser.games_uid' 		=> $gameUID,
 									'ActiveUser.turn'			=> $turn
-								),
-								'contain' => array(
+								],
+								'contain' => [
 									'UserGame'
-								)
-							));
+								]
+							]);
 		
 	}	
 	
@@ -35,14 +35,14 @@ class ActiveUser extends AppModel {
 	public function moveToNextTurn( $gameUID ){
 	
 		//Find the data for the latest turn
-		$latestTurn = $this->find( 'first', array(
-										'conditions' => array(
+		$latestTurn = $this->find( 'first', [
+										'conditions' => [
 											'ActiveUser.games_uid' => $gameUID
-										),
-										'order' => array(
+										],
+										'order' => [
 											'ActiveUser.turn DESC'
-										)										
-									));
+										]
+									]);
 	
 		//Grab the data and setup the next turn and then check and see if we
 		//need to move to the next active user
@@ -62,32 +62,32 @@ class ActiveUser extends AppModel {
 			//If no user game with a higher priority can be found then we need to
 			//move to the user game with 1 priority.
 			$userGameModelInstance = ClassRegistry::init( 'UserGame' );
-			$currentActiveUserGame = $userGameModelInstance->find( 'first', array(
-																		'conditions' => array(
+			$currentActiveUserGame = $userGameModelInstance->find( 'first', [
+																		'conditions' => [
 																			'UserGame.uid' => $latestTurn['ActiveUser']['user_games_uid']
-																		)
-																	));
+																		]
+																	]);
 										
 			//Find the next highest priority
-			$nextActiveUserGame = $userGameModelInstance->find( 'first', array(
-																	'conditions' => array(
+			$nextActiveUserGame = $userGameModelInstance->find( 'first', [
+																	'conditions' => [
 																		'UserGame.games_uid' 	=> $gameUID,
 																		'UserGame.priority >' 	=> $currentActiveUserGame['UserGame']['priority']
-																	),
-																	'order' => array(
+																	],
+																	'order' => [
 																		'UserGame.priority'
-																	)
-																));
+																	]
+																]);
 																
 			//If no next highest priority can be found then grab the one with 1 priority
 			if( $nextActiveUserGame == false ){
 			
-				$nextActiveUserGame = $userGameModelInstance->	find( 'first', array(
-																	'conditions' => array(
+				$nextActiveUserGame = $userGameModelInstance->	find( 'first', [
+																	'conditions' => [
 																		'UserGame.games_uid' 	=> $gameUID,
 																		'UserGame.priority' 	=> 1
-																	)
-																));
+																	]
+																]);
 			
 			}
 			

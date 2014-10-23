@@ -2,31 +2,31 @@
 class Icon extends AppModel {
 	
 	//Setup associations
-	public $belongsTo = array(
-							'IconPosition' => array(
+	public $belongsTo = [
+							'IconPosition' => [
 								'className'		=> 'IconPosition',
 								'foreignKey'	=> 'icon_positions_uid'
-							)
-						);
+							]
+						];
 
     //VALIDATION
-    public $validate = array(
-        'icon_positions_uid' => array(
+    public $validate = [
+        'icon_positions_uid' => [
             'default'   => 3,
             'required'  => true,
             'rule'      => 'numeric'
-        ),
-        'image' => array(
+        ],
+        'image' => [
             'default'   => 'CardArt/Default/boardIcon.png',
             'required' 	=> true,
-            'rule'      => array( 'maxLength', 64 )
-        ),
-        'name' => array(
+            'rule'      => [ 'maxLength', 64 ]
+        ],
+        'name' => [
             'default'   => 'Undefined',
             'required'  => true,
-            'rule'      => array( 'maxLength', 64 )
-        )
-    );
+            'rule'      => [ 'maxLength', 64 ]
+        ]
+    ];
 	
 }
 

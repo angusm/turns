@@ -1,19 +1,19 @@
 <?php
 class Movement extends AppModel {
 
-	public $hasMany = array(
-							'MovementDirectionSet' => array(
+	public $hasMany = [
+							'MovementDirectionSet' => [
 								'className'		=> 'MovementDirectionSet',
 								'foreignKey'	=> 'movements_uid'
-							)
-						);
+							]
+						];
 						
-	public $belongsTo = array( 
-							'MovementSet' => array(
+	public $belongsTo = [
+							'MovementSet' => [
 								'className'		=> 'MovementSet',
 								'foreignKey'	=> 'movement_sets_uid'
-							)
-						);
+							]
+						];
 
 	//PUBLIC FUNCTION: __construct
 	//Override the constructor to setup some fun stuff
@@ -23,28 +23,28 @@ class Movement extends AppModel {
 		parent::__construct();
 		
 		$this->validate = array_merge( 
-					array(
-                        'movement_sets_uid' => array(
+					[
+                        'movement_sets_uid' => [
                             'default'   => 1,
                             'rule'      => 'numeric',
                             'required'  => true
-                        ),
-                        'must_move_all_the_way' => array(
+                        ],
+                        'must_move_all_the_way' => [
                             'default'   => true,
                             'rule'      => 'boolean',
                             'required'  => true
-                        ),
-                        'priority' => array(
+                        ],
+                        'priority' => [
                             'default'   => -1,
                             'rule'      => 'numeric',
                             'required' 	=>	true
-                        ),
-						'spaces' => array(
+                        ],
+						'spaces' => [
                             'default'   => 1,
 							'rule'      => 'numeric',
 							'required' 	=>	true
-						 )
-					),
+						 ]
+					],
 					$this->validate
 				);
 

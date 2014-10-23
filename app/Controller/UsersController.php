@@ -40,16 +40,16 @@ class UsersController extends AppController {
         $jsonData = $this->params['url'];
 
         //Grab the user
-        $user = $this->User->find( 'first', array(
-            'fields' => array(
+        $user = $this->User->find( 'first', [
+            'fields' => [
                 'User.uid',
                 'User.username'
-            ),
-            'conditions' => array(
+            ],
+            'conditions' => [
                 'username'  => $jsonData['username'],
                 'password' => Security::hash($jsonData['password'])
-            )
-        ));
+            ]
+        ]);
 
         if( $user != false ){
             $this->Auth->login( $user['User'] );
@@ -61,11 +61,11 @@ class UsersController extends AppController {
         $this->set( 'redirectURL',  $this->Auth->redirect()    );
         $this->set( 'success',      $success                   );
         $this->set( 'user',         $this->Auth->user()        );
-        $this->set(	'_serialize', array(
+        $this->set(	'_serialize', [
             'redirectURL',
             'success',
             'user'
-        ));
+        ]);
 
     }
 

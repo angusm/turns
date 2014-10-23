@@ -4,6 +4,3 @@ class DirectionsController extends AppController{
 
 
 }
-
-
-?>

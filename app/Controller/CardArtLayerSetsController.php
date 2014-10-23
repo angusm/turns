@@ -31,7 +31,7 @@ class CardArtLayerSetsController extends AppController {
 				//If the user has been saved, indicate as much and do a
 				//redirect.
 				$this->Session->setFlash(__('Card Art Layer Set Saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(['action' => 'index']);
 			} else {
 				//If the user couldn't be saved then indicate as much.
 				$this->Session->setFlash(__('Couldn\'t save the art set, maybe the art sucks too hard?'));

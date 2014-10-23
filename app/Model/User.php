@@ -2,45 +2,45 @@
 class User extends AppModel {
 
     //Establish the relations
-    public $hasMany = array(
-        'UserEffectiveDate' => array(
+    public $hasMany = [
+        'UserEffectiveDate' => [
             'className'     => 'UserEffectiveDate',
             'foreignKey'    => 'users_uid'
-        )
+        ]
 
-    );
+    ];
 
 
 
-    public $validate = array(
-        'username' => array(
-            'alphaNumeric' => array(
+    public $validate = [
+        'username' => [
+            'alphaNumeric' => [
                 'rule'     => 'alphaNumeric',
                 'required' => true,
                 'message'  => 'Letters and numbers only'
-            ),
-            'between' => array(
-                'rule'    => array('between', 5, 15),
+            ],
+            'between' => [
+                'rule'    => ['between', 5, 15],
                 'message' => 'Between 5 to 15 characters'
-            )
-        ),
-        'password' => array(
-            'alphaNumeric' => array(
+            ]
+        ],
+        'password' => [
+            'alphaNumeric' => [
                 'rule'     => 'alphaNumeric',
                 'required' => true,
                 'message'  => 'Letters and numbers only'
-            ),
-			'minimimum' => array(
-				'rule'    => array('minLength', '8'),
+            ],
+			'minimimum' => [
+				'rule'    => ['minLength', '8'],
 				'message' => 'Minimum 8 characters long'
-			)
-        )
-	);
+			]
+        ]
+	];
 	
 	
 	//PUBLIC FUNCTION: beforeSave
 	//Handle anything that we need to do before saving a user to the database for the first time
-	public function beforeSave($options = array()) {
+	public function beforeSave($options = []) {
         parent::beforeSave();
 		if (isset($this->data[$this->alias]['password'])) {
 			$this->data[$this->alias]['password'] = Security::hash($this->data[$this->alias]['password']);
@@ -53,11 +53,11 @@ class User extends AppModel {
 	public function getGamesByUserUID( $userUID ){
 		
 		//Find all the games
-		$allGames = $this->find( 'all', array(
-						'conditions' => array(
+		$allGames = $this->find( 'all', [
+						'conditions' => [
 							'users_uid' => $userUID
-						)
-					));
+						]
+					]);
 					
 		//Return the games 
 		return $allGames;

@@ -3,5 +3,3 @@
 class StaticContentsContentRestrictionEffectiveDatesController extends AppController{
     
 }
-
-?>

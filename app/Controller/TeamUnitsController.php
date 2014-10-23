@@ -46,10 +46,10 @@ class TeamUnitsController extends AppController {
 		$this->set( 'unitTypeUID', 	$unitTypeUID 	);
 		$this->set(
 				'_serialize',
-				array(
+				[
 					'success',
 					'unitTypeUID'
-				)
+				]
 			);
 			
 	}
@@ -71,9 +71,9 @@ class TeamUnitsController extends AppController {
 		$this->set( 'unitsOnTeam', $unitsOnTeam );
 		$this->set(
 			'_serialize',
-			array(
+			[
 				'unitsOnTeam'
-			)
+			]
 		);
 		
 	}
@@ -109,12 +109,12 @@ class TeamUnitsController extends AppController {
 		$this->set( 'y',			$y				);
 		$this->set(
 				'_serialize',
-				array(
+				[
 					'success',
 					'unitTypeUID',
 					'x',
 					'y'
-				)
+				]
 			);
 		
 	}

@@ -10,13 +10,13 @@ class IconPosition extends AppModel {
 
 		//Setup validation, let's not have any stupid names
 		//for our direction sets.
-		$this->validate = array(
-			'name' => array(
+		$this->validate = [
+			'name' => [
 				'rule'		=> 	'alphaNumeric',
 				'required' 	=>	true,
 				'message' 	=> 	parent::$alphaNumericMessage
-			)
-		);
+			]
+		];
 
 	}
 	

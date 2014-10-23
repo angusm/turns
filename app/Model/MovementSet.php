@@ -1,30 +1,30 @@
 <?php
 class MovementSet extends AppModel {
 
-	public $hasMany = array(
-							'Movement' => array(
+	public $hasMany = [
+							'Movement' => [
 								'className'		=> 'Movement',
 								'foreignKey'	=> 'movement_sets_uid'
-							),
-                            'GameUnit' => array(
+							],
+                            'GameUnit' => [
                                 'className'     => 'GameUnit',
                                 'foreignKey'    => 'movement_sets_uid'
-                            )
-						);	
+                            ]
+						];
 	
 	public function __construct() { 
 		parent::__construct(); 
 
 		//Setup validation, let's not have any stupid names
 		//for our direction sets.
-		$this->validate = array(
-			'name' => array(
+		$this->validate = [
+			'name' => [
                 'default'   => 'default',
                 'required' 	=>	true,
                 'rule'		=> 	'alphaNumeric',
 				'message' 	=> 	parent::$alphaNumericMessage
-			)
-		);
+			]
+		];
 
 	}
 	
@@ -33,22 +33,22 @@ class MovementSet extends AppModel {
 	public function findByUID( $uid ){
 	
 		//Find the UID
-		return $this->find( 'first', array(
-							'conditions' => array(
+		return $this->find( 'first', [
+							'conditions' => [
 								'uid' => $uid
-							),
-							'contain' => array(
-								'Movement' => array(
-									'MovementDirectionSet' => array(
-										'DirectionSet' => array(
-											'DirectionSetDirection' => array(
+							],
+							'contain' => [
+								'Movement' => [
+									'MovementDirectionSet' => [
+										'DirectionSet' => [
+											'DirectionSetDirection' => [
 												'Direction'
-											)
-										)
-									)
-								)
-							)
-						));
+											]
+										]
+									]
+								]
+							]
+						]);
 		
 	}
 	//PUBLIC FUNCTION: findByUIDWithPriority
@@ -56,25 +56,25 @@ class MovementSet extends AppModel {
 	public function findByUIDWithPriority( $uid, $priority ){
 	
 		//Find the UID
-		return $this->find( 'first', array(
-							'conditions' => array(
+		return $this->find( 'first', [
+							'conditions' => [
 								'uid' => $uid
-							),
-							'contain' => array(
-								'Movement' => array(
-									'conditions' => array(
+							],
+							'contain' => [
+								'Movement' => [
+									'conditions' => [
 										'Movement.priority' => $priority
-									),
-									'MovementDirectionSet' => array(
-										'DirectionSet' => array(
-											'DirectionSetDirection' => array(
+									],
+									'MovementDirectionSet' => [
+										'DirectionSet' => [
+											'DirectionSetDirection' => [
 												'Direction'
-											)
-										)
-									)
-								)
-							)
-						));
+											]
+										]
+									]
+								]
+							]
+						]);
 		
 	}
 	

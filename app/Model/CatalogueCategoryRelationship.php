@@ -6,15 +6,15 @@
 class CatalogueCategoryRelationship extends AppModel {
 
 	//ASSOCIATIONS:
-	public $belongsTo = array(
-			'CatalogueCategory' => array(
+	public $belongsTo = [
+			'CatalogueCategory' => [
 				'className' => 'CatalogueCategory'
-			)
-		);
+			]
+		];
 			
 	//Make this model containable
 	//This way we don't always have to get all the associated data
-	public $actsAs = array('Containable');
+	public $actsAs = ['Containable'];
 		
 	public $relationshipColumnName = '';
 	
@@ -27,15 +27,15 @@ class CatalogueCategoryRelationship extends AppModel {
 	
 		//First make sure we don't have a relationship for this
 		//already
-		$exists = $this->find( 'first', array(
-			'conditions' => array(
+		$exists = $this->find( 'first', [
+			'conditions' => [
 				get_class($this).'.catalogue_category_id' => $categoryID,
 				get_class($this).'.'.$this->relationshipColumnName => $nuRelationship
-			),
-			'fields' => array(
+			],
+			'fields' => [
 				get_class($this).'.id'
-			)
-		));
+			]
+		]);
 		
 		//If no such relationship already exists then
 		//we create a new relationship and return its ID
@@ -59,18 +59,18 @@ class CatalogueCategoryRelationship extends AppModel {
 			
 	//FUNCTION: getListForManagement
 	//Returns a list of the various records associated with a given category
-	public function getListForManagement( $categoryID, $fields = array() ){
+	public function getListForManagement( $categoryID, $fields = [] ){
 	
 		//In addition to any other fields, get the ID
 		$fields[] = get_class($this).'.id';
 	
-		$managementList = $this->find( 'all', array(
-				'conditions' => array(
+		$managementList = $this->find( 'all', [
+				'conditions' => [
 					get_class($this).'.catalogue_category_id' => $categoryID
-				),
+				],
 				'fields' => $fields,
 				'recursive' => 1
-			));
+			]);
 		
 		return $managementList;
 	}
@@ -84,5 +84,3 @@ class CatalogueCategoryRelationship extends AppModel {
 	}
 
 }
-
-?>

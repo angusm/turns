@@ -24,9 +24,9 @@ class GameUnitsController extends AppController {
 		//And everything else will be handled by the View and Javascript
 		//Scary huh?
 		$this->set( 'unitInfo', 	$unitInfo );
-		$this->set( '_serialize', array(
+		$this->set( '_serialize', [
 						'unitInfo'
-						)
+						]
 					);
 		
 	}

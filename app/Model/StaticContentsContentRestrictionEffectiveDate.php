@@ -3,13 +3,11 @@
 class StaticContentsContentRestrictionEffectiveDate extends AppModel{
 
     //Setup the relation
-    public $belongsTo = array(
-        'StaticContentsContentRestriction' => array(
+    public $belongsTo = [
+        'StaticContentsContentRestriction' => [
             'class'         => 'StaticContentsContentRestriction',
             'foreignKey'    => 'static_contents_content_restrictions_uid'
-        )
-    );
+        ]
+    ];
 
 }
-
-?>

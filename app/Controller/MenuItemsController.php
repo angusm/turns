@@ -17,13 +17,10 @@ class MenuItemsController extends AppController{
         $menuItems = $this->MenuItem->getAvailableMenuItems( $this->Auth->user['uid'] );
 
         $this->set( 'menuItems', $menuItems );
-        $this->set( '_serialize', array(
+        $this->set( '_serialize', [
             'menuItems'
-        ));
+        ]);
 
     }
 
 }
-
-
-?>

@@ -25,9 +25,9 @@ class HeaderSlidesController extends AppController{
         $slideUIDs = $this->HeaderSlide->getAvailableSlideUIDs();
 
         $this->set( 'slideUIDs', $slideUIDs );
-        $this->set( '_serialize', array(
+        $this->set( '_serialize', [
             'slideUIDs'
-        ));
+        ]);
 
     }
 
@@ -51,13 +51,11 @@ class HeaderSlidesController extends AppController{
 
         //Set the variables we'll be returning
         $this->set( 'slideData', $slideData );
-        $this->set( '_serialize', array(
+        $this->set( '_serialize', [
             'slideData'
-        ));
+        ]);
 
 
     }
 
 }
-
-?>

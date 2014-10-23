@@ -198,7 +198,7 @@ table td.actions a {
 .paging a {
 	text-decoration: none;
 	padding: 5px 8px;
-	display: inline-block
+	display: inline-block;
 }
 .paging > span {
 	display: inline-block;

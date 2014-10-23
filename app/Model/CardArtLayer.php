@@ -9,13 +9,13 @@ class CardArtLayer extends AppModel {
 			parent::__construct();
 			
 			$this->validate = array_merge( 
-						array(
-							'name' => array(
+						[
+							'name' => [
 								'rule'    => 'alphaNumeric',
 								'required' 	=>	true,
 								'message' 	=> 	parent::$alphaNumericMessage
-							 )
-						),
+							 ]
+						],
 						$this->validate
 					);
 

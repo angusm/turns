@@ -2,32 +2,32 @@
 class GameUnit extends AppModel {
 
 	//Setup the associations for this model
-	public $belongsTo = array(
-						'Game' => array(
+	public $belongsTo = [
+						'Game' => [
 							'className'		=> 'Game',
 							'foreignKey'	=> 'games_uid'
-						),
-						'GameUnitStat' => array(
+						],
+						'GameUnitStat' => [
 							'className'		=> 'GameUnitStat',
 							'foreignKey'	=> 'game_unit_stats_uid'
-						),
-						'MovementSet' => array(
+						],
+						'MovementSet' => [
 							'className'		=> 'MovementSet',
 							'foreignKey'	=> 'movement_sets_uid'
-						),
-						'UnitArtSet' => array(
+						],
+						'UnitArtSet' => [
 							'className'		=> 'UnitArtSet',
 							'foreignKey'	=> 'unit_art_sets_uid'
-						),
-						'UnitType' => array(
+						],
+						'UnitType' => [
 							'className'		=> 'UnitType',
 							'foreignKey'	=> 'unit_types_uid'
-						),
-						'User' => array(
+						],
+						'User' => [
 							'className' 	=> 'User',
 							'foreignKey'	=> 'users_uid'
-						)
-					);
+						]
+					];
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -80,8 +80,8 @@ class GameUnit extends AppModel {
 				$gameUnitStatUID = $gameUnitStatModelInstance->getUIDForUnitStat( $teamUnitType['UnitType']['UnitStat'] );
 				
 				//Setup the data
-				$gameUnitData = array(
-									'GameUnit' => array(
+				$gameUnitData = [
+									'GameUnit' => [
 										'defense'					=> $teamUnitType['UnitType']['UnitStat']['defense'],
 										'damage'					=> $teamUnitType['UnitType']['UnitStat']['damage'],
 										'last_movement_angle'		=>  0,
@@ -95,8 +95,8 @@ class GameUnit extends AppModel {
 										'unit_art_sets_uid'			=> $teamUnitType['UnitType']['unit_art_sets_uid'],
 										'unit_types_uid'			=> $teamUnitType['UnitType']['uid'],
 										'users_uid'					=> $teamUnitType['Team']['users_uid']
-									)
-								  );
+									]
+								  ];
 									
 				//Create a new record for the unit and save it
 				$this->create();
@@ -116,13 +116,13 @@ class GameUnit extends AppModel {
 		//Grab any unit that doesn't have a unit move priority of 0 for the
 		//given game on the given turn. If such a unit can be grabbed then
 		//return false, otherwise return true
-		$lastMovedUnit = $this->find( 'first', array(
-									'conditions' => array(
+		$lastMovedUnit = $this->find( 'first', [
+									'conditions' => [
 										'GameUnit.games_uid' 					=> $gameUID,
 										'GameUnit.turn'							=> $turn,
 										'GameUnit.last_movement_priority NOT' 	=> 0
-									)
-								));	
+									]
+								]);
 								
 		if( $lastMovedUnit == false ){
 			return true;
@@ -137,22 +137,22 @@ class GameUnit extends AppModel {
 	public function findAllMovementSets( $uid ){
 	
 		//Grab all the movement sets 
-		$gameUnit = $this->find( 'first', array(
-									'conditions' => array(
+		$gameUnit = $this->find( 'first', [
+									'conditions' => [
 										'uid' => $uid
-									),
-									'contain' => array(
-										'Unit' => array(
-											'UnitType' => array(
-												'UnitStat' => array(
-													'UnitStatMovementSet' => array(
+									],
+									'contain' => [
+										'Unit' => [
+											'UnitType' => [
+												'UnitStat' => [
+													'UnitStatMovementSet' => [
 														'MovementSet'
-													)
-												)
-											)
-										)
-									)
-								));
+													]
+												]
+											]
+										]
+									]
+								]);
 									
 		//Return the movement sets
 		return $gameUnit['Unit']['UnitType']['UnitStat']['UnitStatMovementSet'];
@@ -165,33 +165,33 @@ class GameUnit extends AppModel {
 	public function findAllMovementSetsWithPriority( $uid, $priority ){
 	
 		//Grab all the movement sets 
-		$gameUnit = $this->find( 'first', array(
-									'conditions' => array(
+		$gameUnit = $this->find( 'first', [
+									'conditions' => [
 										'GameUnit.uid' => $uid
-									),
-									'contain' => array(
-										'UnitType' => array(
-											'UnitStat' => array(
-												'UnitStatMovementSet' => array(
-													'MovementSet' => array(
-														'Movement' => array(
-															'conditions' => array(
+									],
+									'contain' => [
+										'UnitType' => [
+											'UnitStat' => [
+												'UnitStatMovementSet' => [
+													'MovementSet' => [
+														'Movement' => [
+															'conditions' => [
 																'priority' => $priority
-															),
-															'MovementDirectionSet' => array(
-																'DirectionSet' => array(
-																	'DirectionSetDirection' => array(
+															],
+															'MovementDirectionSet' => [
+																'DirectionSet' => [
+																	'DirectionSetDirection' => [
 																		'Direction'
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									)
-								));
+																	]
+																]
+															]
+														]
+													]
+												]
+											]
+										]
+									]
+								]);
 									
 		//Return the movement sets
 		return $gameUnit['UnitType']['UnitStat']['UnitStatMovementSet'];
@@ -203,11 +203,11 @@ class GameUnit extends AppModel {
 	public function findForMoveValidation( $uid ){
 	
 		//Return the GameUnit record
-		$gameUnit =  $this->find( 'first', array(
-								'conditions' => array(
+		$gameUnit =  $this->find( 'first', [
+								'conditions' => [
 									'GameUnit.uid' => $uid
-								),
-                                'fields' => array(
+								],
+                                'fields' => [
                                     'GameUnit.uid',
                                     'GameUnit.game_identifier',
                                     'GameUnit.games_uid',
@@ -218,29 +218,29 @@ class GameUnit extends AppModel {
                                     'GameUnit.users_uid',
                                     'GameUnit.x',
                                     'GameUnit.y'
-                                ),
-								'contain' => array(
-									'Game' => array(
-                                        'fields' => array(
+                                ],
+								'contain' => [
+									'Game' => [
+                                        'fields' => [
                                             'Game.selected_unit_uid',
                                             'Game.turn'
-                                        ),
+                                        ],
 										'UserGame'
-									)
-								)
-							));
+									]
+								]
+							]);
 	
 		//Check to see if there's a unit in the same game
 		//on the same turn that's already selected, if there is then
 		//return false
-		$otherUnit = $this->find( 'first', array(
-									'conditions' => array(
+		$otherUnit = $this->find( 'first', [
+									'conditions' => [
                                         'GameUnit.uid NOT'          => $uid,
 										'GameUnit.turn >'           => $gameUnit['GameUnit']['turn'],
 										'GameUnit.games_uid'        => $gameUnit['GameUnit']['games_uid'],
                                         'GameUnit.game_identifier'  => $gameUnit['GameUnit']['game_identifier']
-									)
-								));
+									]
+								]);
 		if( isset( $otherUnit['GameUnit.uid'] ) or
             $gameUnit['GameUnit']['turn'] > $gameUnit['Game']['turn'] ){
 			return false;			
@@ -255,36 +255,36 @@ class GameUnit extends AppModel {
 	//with javascript
 	public function getInfoForCard( $uid ){
 		
-		$cardInfo = $this->find( 'first', array( 
-									'conditions' => array(
+		$cardInfo = $this->find( 'first', [
+									'conditions' => [
 										'GameUnit.uid' => $uid
-									),
-									'contain'	=> array(
-										'GameUnitStat' => array(
-											'GameUnitStatMovementSet' => array(
-												'MovementSet' => array(
-													'Movement' => array(
-														'MovementDirectionSet' => array(
-															'DirectionSet' => array(
-																'DirectionSetDirection' => array(
+									],
+									'contain'	=> [
+										'GameUnitStat' => [
+											'GameUnitStatMovementSet' => [
+												'MovementSet' => [
+													'Movement' => [
+														'MovementDirectionSet' => [
+															'DirectionSet' => [
+																'DirectionSetDirection' => [
 																	'Direction'
-																)
-															)
-														)
-													)
-												)
-											)
-										),
-										'UnitArtSet' => array(
-											'UnitArtSetIcon' => array(
+																]
+															]
+														]
+													]
+												]
+											]
+										],
+										'UnitArtSet' => [
+											'UnitArtSetIcon' => [
 												'Icon'
-											),
-											'CardArtLayerSet' => array(
+											],
+											'CardArtLayerSet' => [
 												'CardArtLayer'
-											)
-										)									
-									)
-								));
+											]
+										]
+									]
+								]);
 								
 		return $cardInfo;
 		
@@ -299,9 +299,9 @@ class GameUnit extends AppModel {
 						
 		//Move the unit up
 		$unitToMoveGameUnit = $unitToMove['GameUnit'];
-		$unitToMove = array(
+		$unitToMove = [
 						'GameUnit' => $unitToMoveGameUnit
-					);
+					];
 			
 		$this->read( NULL, $unitToMove['GameUnit']['uid'] );
 		$this->save( $unitToMove );
@@ -324,49 +324,49 @@ class GameUnit extends AppModel {
 		//them forward a turn, with the exception of the moved unit. 
 		
 		//Grab the relevant units
-		$unitsToMove = $this->find( 'all', array(
-							'conditions' => array(
+		$unitsToMove = $this->find( 'all', [
+							'conditions' => [
                                 'GameUnit.defense >'    => 0,
                                 'GameUnit.games_uid'	=> $gameUID,
                                 'GameUnit.turn <=' 		=> $turn,
 								'GameUnit.uid NOT'		=> $gameUnitUID
-							),
-							'contain' => array(
-								'GameUnitStat' => array(
-                                    'fields' => array(
+							],
+							'contain' => [
+								'GameUnitStat' => [
+                                    'fields' => [
                                         'GameUnitStat.uid',
                                         'GameUnitStat.damage'
-                                    )
-                                )
-							),
-                            'group' => array(
+                                    ]
+                                ]
+							],
+                            'group' => [
                                 'GameUnit.game_identifier'
-                            ),
-                            'order' => array(
+                            ],
+                            'order' => [
                                 'GameUnit.turn DESC'
-                            )
-						));
+                            ]
+						]);
 
-		$movedUnit 	= $this->find( 'first', array(
-							'conditions' => array(
+		$movedUnit 	= $this->find( 'first', [
+							'conditions' => [
 								'GameUnit.games_uid'	=> $gameUID,
 								'GameUnit.turn <=' 		=> $turn,
 								'GameUnit.uid'			=> $gameUnitUID
-							),
-							'contain' => array(
-                                'GameUnitStat' => array(
-                                    'fields' => array(
+							],
+							'contain' => [
+                                'GameUnitStat' => [
+                                    'fields' => [
                                         'GameUnitStat.uid',
                                         'GameUnitStat.damage'
-                                    )
-                                ),
-                                'Game' => array(
-                                    'fields' => array(
+                                    ]
+                                ],
+                                'Game' => [
+                                    'fields' => [
                                         'Game.turn'
-                                    )
-                                )
-							)
-                        ));
+                                    ]
+                                ]
+							]
+                        ]);
 			
 		//Store the original unit so we can record a record of it.
 		$this->storeOriginalUnit( $movedUnit );
@@ -384,15 +384,15 @@ class GameUnit extends AppModel {
 		//To do this we need to find a movement tied to the given movement set
 		//with the new priority
 		$movementModelInstance = ClassRegistry::init( 'Movement' );
-		$validNextMove = $movementModelInstance->find( 'first', array(
-                                                            'fields' => array(
+		$validNextMove = $movementModelInstance->find( 'first', [
+                                                            'fields' => [
                                                                 'Movement.uid'
-                                                            ),
-															'conditions' => array(
+                                                            ],
+															'conditions' => [
 																'movement_sets_uid' => $movementSetUID,
 																'priority'			=> $movedUnit['GameUnit']['last_movement_priority']
-															)
-														));
+															]
+														]);
 
 		//If the unit has a valid next move set it as the selected unit, otherwise clear its
 		//movement stats
@@ -491,14 +491,14 @@ class GameUnit extends AppModel {
 	//still has active living units in the game
 	public function playerHasActiveUnit( $userUID, $gameUID, $turn ){
 		
-		$exists = $this->find( 'first', array(
-									'conditions' => array(
+		$exists = $this->find( 'first', [
+									'conditions' => [
 										'GameUnit.users_uid'	=> $userUID,
 										'GameUnit.games_uid' 	=> $gameUID,
 										'GameUnit.defense >'	=> 0,
 										'GameUnit.turn'			=> $turn
-									)
-								));
+									]
+								]);
 								
 		if( $exists != false ){
 			return true;
@@ -537,9 +537,9 @@ class GameUnit extends AppModel {
 		
 			$originalGameUnit = $newUnit['GameUnit'];
 			unset( $originalGameUnit['uid'] );
-			$originalGameUnit = array(
+			$originalGameUnit = [
 									'GameUnit' => $originalGameUnit
-								);
+								];
 								
 			//Create a new record and save the original game unit
 			//This is how we'll preserve the integrity of every turn

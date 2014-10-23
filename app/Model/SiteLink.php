@@ -3,16 +3,16 @@
 class SiteLink extends AppModel{
 
     //Setup the site link's relations
-    public $hasMany = array(
-        'MenuItem' => array(
+    public $hasMany = [
+        'MenuItem' => [
             'class'         => 'MenuItem',
             'foreign_key'   => 'site_links_uid'
-        ),
-        'SiteLinkContentRestriction' => array(
+        ],
+        'SiteLinkContentRestriction' => [
             'class'         => 'SiteLinkContentRestriction',
             'foreign_key'   => 'site_links_uid'
-        )
-    );
+        ]
+    ];
 
     //CONSTRUCTOR
     public function __construct() {
@@ -20,24 +20,21 @@ class SiteLink extends AppModel{
 
         //Setup validation, let's not have any stupid names
         //for our direction sets
-        $this->validate = array(
-            'action' => array(
+        $this->validate = [
+            'action' => [
                 'default'   => '',
-                'rule'		=> array( 'maxLength', 128 ),
+                'rule'		=> [ 'maxLength', 128 ],
                 'required' 	=> true,
                 'message' 	=> 'An action is the name of a function inside the controller'
-            ),
-            'controller' => array(
+            ],
+            'controller' => [
                 'default'   => '',
-                'rule'      => array( 'maxLength', 128 ),
+                'rule'      => [ 'maxLength', 128 ],
                 'required'  => true,
                 'message'   => 'A controller must be a defined class in the controllers folder'
-            )
-        );
+            ]
+        ];
 
     }
 
 }
-
-
-?>

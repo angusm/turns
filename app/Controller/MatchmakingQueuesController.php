@@ -25,9 +25,9 @@ class MatchmakingQueuesController extends AppController {
 		$success = $this->MatchmakingQueue->checkQueue( $userUID, $teamUID );
 		
 		$this->set( 'success',		$success );
-		$this->set( '_serialize', 	array(
+		$this->set( '_serialize', 	[
 						'success'
-					) );		
+					] );
 		
 	}
 	

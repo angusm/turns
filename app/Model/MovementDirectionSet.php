@@ -1,33 +1,33 @@
 <?php
 class MovementDirectionSet extends AppModel {
 
-	public $belongsTo = array(
-        'DirectionSet' 	=> array(
+	public $belongsTo = [
+        'DirectionSet' 	=> [
             'className'		=> 'DirectionSet',
             'foreignKey'	=> 'direction_sets_uid'
-        ),
-        'Movement'		=> array(
+        ],
+        'Movement'		=> [
             'className'		=> 'Movement',
             'foreignKey'	=> 'movements_uid'
-        )
-    );
+        ]
+    ];
 
-    public $validate = array(
-        'direction_sets_uid' => array(
+    public $validate = [
+        'direction_sets_uid' => [
             'default'   => 1,
             'required'  => true,
             'rule'      => 'numeric'
-        ),
-        'movements_uid' => array(
+        ],
+        'movements_uid' => [
             'default'   => 1,
             'required'  => true,
             'rule'      => 'numeric'
-        ),
-        'name' => array(
+        ],
+        'name' => [
             'default'   => 'Undefined',
-            'rule'      => array( 'maxLength', 32 )
-        )
-    );
+            'rule'      => [ 'maxLength', 32 ]
+        ]
+    ];
 	
 }
 

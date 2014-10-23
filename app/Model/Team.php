@@ -2,12 +2,12 @@
 class Team extends AppModel {
 	
 	//Setup the association for this class
-	public $belongsTo = array(
-							'User' => array(
+	public $belongsTo = [
+							'User' => [
 								'className' 	=> 'User',
 								'foreignKey'	=> 'users_uid'
-							)
-						);
+							]
+						];
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -17,13 +17,13 @@ class Team extends AppModel {
 		parent::__construct();
 		
 		$this->validate = array_merge( 
-					array(
-						'name' => array(
+					[
+						'name' => [
 							'rule'		=> 'alphaNumeric',
 							'required' 	=>	true,
 							'message'	=> 	parent::$alphaNumericMessage
-						 )
-					),
+						 ]
+					],
 					$this->validate
 				);
 
@@ -44,11 +44,11 @@ class Team extends AppModel {
 	public function getTeamsByUserUID( $userUID ){
 	
 		//Run the find
-		$teams = $this->find( 'all', array(
-						'conditions'	=> array(
+		$teams = $this->find( 'all', [
+						'conditions'	=> [
 							'Team.users_uid' => $userUID,
-						)
-					));
+						]
+					]);
 					
 		//Return the teams
 		return $teams;

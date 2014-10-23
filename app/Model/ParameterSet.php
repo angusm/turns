@@ -6,18 +6,15 @@
 class ParameterSet extends AppModel{
 
     //Setup its relations with other models
-    public $hasMany = array(
-        'Parameter' => array(
+    public $hasMany = [
+        'Parameter' => [
             'class'         => 'Parameter',
             'foreign_key'   => 'parameter_sets_uid'
-        ),
-        'MenuItem' => array(
+        ],
+        'MenuItem' => [
             'class'         => 'MenuItem',
             'foreign_key'   => 'parameter_sets_uid'
-        )
+        ]
 
-    );
+    ];
 }
-
-
-?>

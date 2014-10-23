@@ -6,7 +6,7 @@ App::uses('AppHelper', 'View/Helper');
 class TurnMenuHelper extends AppHelper {
 	
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
-  	var $helpers = array('Html','TurnForm');
+  	var $helpers = ['Html','TurnForm'];
 	
 	//PUBLIC FUNCTION: availableGameList
 	//Return a list of all of the games the user is currently involved in
@@ -45,9 +45,9 @@ class TurnMenuHelper extends AppHelper {
 		$returnString = $this->Html->tag(
 										'div',
 										$returnString,
-										array(
+										[
 											'class' => 'availableGames'
-										)
+										]
 									);
 									
 		//Add in the libraries that are needed to make this part run
@@ -77,10 +77,10 @@ class TurnMenuHelper extends AppHelper {
 		
 		return $this->Html->link( 
 							'Manage Units',
-						    array(
+						    [
 						        'controller' => 'Units',
 						        'action' => 'manageUnits'
-						    )
+						    ]
 						);
 		
 	}
@@ -99,9 +99,9 @@ class TurnMenuHelper extends AppHelper {
 		$returnString = $this->Html->tag(
 										'div',
 										$returnString,
-										array(
+										[
 											'class' => 'pendingMatchBlurb'
-										)
+										]
 									);
 									
 		return $returnString;
@@ -118,22 +118,22 @@ class TurnMenuHelper extends AppHelper {
 		//For now just return a link		
 		$returnString .= $this->Html->link( 
 							'Play Game '.$gameUID,
-						    array(
+						    [
 						        'controller' 	=> 'Games',
 						        'action' 		=> 'playGame',
-								'?'				=> array(
+								'?'				=> [
 									'gameUID'		=> $gameUID
-								)
-						    )
+								]
+						    ]
 						);
 						
 		//Wrap it all in a div and toss it back
 		$returnString = $this->Html->tag(
 										'div',
 										$returnString,
-										array(
+										[
 											'class' => 'playGameButton'
-										)
+										]
 									);
 		return $returnString;
 		
@@ -159,38 +159,38 @@ class TurnMenuHelper extends AppHelper {
 		$returnString .= $this->TurnForm->modelSelect( 
 										$teams,
 										'name',
-										array(
+										[
 											'class' => 'queueTeamSelect'
-										)
+										]
 									);
 									
 		//Add the actual button
 		$returnString .= $this->Html->tag(
 										'input',
 										'',
-										array(
+										[
 											'class' => 'joinQueueButton',
 											'type'	=> 'button',
 											'value'	=> 'Play Now'
-										)
+										]
 									);
 									
 		//Add a div to contain the time waited so far
 		$returnString .= $this->Html->tag(
 										'div',
 										'',
-										array(
+										[
 											'class' => 'matchmakingTimeWaited'
-										)
+										]
 									);
 		
 		//Wrap everything in a matchmakingButton div
 		$returnString = $this->Html->tag(
 										'div',
 										$returnString,
-										array(
+										[
 											'class' => 'matchmakingButton'
-										)
+										]
 									);	
 									
 		//Add in the libraries that are needed to make this part run
@@ -217,5 +217,3 @@ class TurnMenuHelper extends AppHelper {
 
 	
 }
-
-?>

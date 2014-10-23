@@ -2,17 +2,17 @@
 class GameUnitStat extends AppModel {
 	
 	//Setup the associations for GameUnitStat
-	public $hasMany = array(
-						'GameUnit'	=> array(
+	public $hasMany = [
+						'GameUnit'	=> [
 							'className'		=> 'GameUnit',
 							'foreignKey'	=> 'game_unit_stats_uid'
-						),
-						'GameUnitStatMovementSet'	=> array(
+						],
+						'GameUnitStatMovementSet'	=> [
 							'className'		=> 'GameUnitStatMovementSet',
 							'foreignKey'	=> 'game_unit_stats_uid'
-						)
+						]
 							
-					);
+					];
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -20,26 +20,26 @@ class GameUnitStat extends AppModel {
 			parent::__construct(); 
 			
 		//Setup rules that apply to all attributes
-		$this->attributeRules = array(
+		$this->attributeRules = [
 			'default'	=> '1',
 			'message'	=> 'Attributes must be small integers! We\'re not making a math game here',
 			'required'	=> true,
 			'rule'		=> 'numeric'
-		);
+		];
 
 		//Setup the validation
-		$this->validate = array(
-			'name' => array(
+		$this->validate = [
+			'name' => [
 				'default'	=> 	'Default',
 				'message' 	=> 	parent::$alphaNumericMessage,
 				'required' 	=>	true,
 				'rule'		=> 	'alphaNumeric'
-			),
+			],
 			'damage' 	=> $this->attributeRules,
 			'defense' 	=> $this->attributeRules,
 			'teamcost' 	=> $this->attributeRules,
 			'playcost'  => $this->attributeRules
-		);
+		];
 
 	}
 	
@@ -50,15 +50,15 @@ class GameUnitStat extends AppModel {
 	public function getUIDForUnitStat( $unitStatArray ){
 	
 		//Find a game unit stat that matches the given unit stat
-		$exists = $this->find( 'first', array(
-									'conditions' => array(
+		$exists = $this->find( 'first', [
+									'conditions' => [
 										'name' 		=> $unitStatArray['name'],
 										'damage' 	=> $unitStatArray['damage'],
 										'defense' 	=> $unitStatArray['defense'],
 										'teamcost' 	=> $unitStatArray['teamcost'],
 										'playcost'	=> $unitStatArray['playcost']
-									)
-								));
+									]
+								]);
 	
 		//If no such game unit stat exists, then create it.
 		if( $exists == false ){
@@ -92,9 +92,9 @@ class GameUnitStat extends AppModel {
 	//Return a list of all the UIDs
 	public function getUIDs(){
 	
-		return $this->find( 'list', array(
+		return $this->find( 'list', [
 				'fields' =>  'UnitType.uid'
-			));	
+			]);
 		
 	}
 	

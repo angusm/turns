@@ -7,14 +7,14 @@ App::uses('AppHelper', 'View/Helper');
 class ModelUIHelper extends AppHelper {
 	
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
-  	var $helpers = array('Html');
+  	var $helpers = ['Html'];
 	
 	//PUBLIC FUNCTION: tableFromFind
 	//Create an html table with the data retrieved laid out
 	public function tableFromFind( 
 									$findData,
 									$fields,
-									$extraContent = array() ){
+									$extraContent = [] ){
 		
 		//Grab the model name we're dealing with here
 		$findDataKeys 	= array_keys( $findData[0] );
@@ -29,10 +29,10 @@ class ModelUIHelper extends AppHelper {
 				$tableString .= $this->Html->tag(
 											'th',
 											$displayValue,
-											array(
+											[
 												'modelName' => $modelName,
 												'fieldName'	=> $fieldName
-											)
+											]
 										);
 										
 		}
@@ -65,19 +65,19 @@ class ModelUIHelper extends AppHelper {
 														$extraContent[$displayValue]['content'],
 														array_merge(
 															$extraContent[$displayValue]['attributes'],
-															array(
+															[
 																'modelName' => $modelName,
 																'uid' 		=> $modelData[$modelName]['uid']														
-															)
+															]
 														)
 													);
 					
 					$rowString .= $this->Html->tag( 
 													'td',
 													$extraContentContent,
-													array(
+													[
 														'modelName' => $modelName,
-													)
+													]
 												);
 					
 				//If we're not showing extra content show some real content
@@ -86,12 +86,12 @@ class ModelUIHelper extends AppHelper {
 					$rowString .= $this->Html->tag(
 													'td',
 													$modelData[$modelName][$fieldName],
-													array(
+													[
 														'modelName' => $modelName,
 														'fieldName' => $fieldName,
 														'uid' 		=> $modelData[$modelName]['uid'],
 														'value'		=> $modelData[$modelName][$fieldName]
-													)
+													]
 												);
 
 				}
@@ -102,10 +102,10 @@ class ModelUIHelper extends AppHelper {
 			$rowString = $this->Html->tag(
 											'tr',
 											$rowString,
-											array(
+											[
 												'modelName' => $modelName,
 												'uid'		=> $modelData[$modelName]['uid']
-											)
+											]
 										);
 										
 			//Slam the row string onto the end of the table string
@@ -124,5 +124,3 @@ class ModelUIHelper extends AppHelper {
 	}
 	
 }
-
-?>

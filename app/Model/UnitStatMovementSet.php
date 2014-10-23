@@ -1,31 +1,31 @@
 <?php
 class UnitStatMovementSet extends AppModel {
 
-    public $belongsTo = array(
-                        'MovementSet' => array(
+    public $belongsTo = [
+                        'MovementSet' => [
                             'className'		=> 'MovementSet',
                             'foreignKey'	=> 'movement_sets_uid'
-                        ),
-                        'UnitStat'	  => array(
+                        ],
+                        'UnitStat'	  => [
                             'className'		=> 'UnitStat',
                             'foreignKey'	=> 'unit_stats_uid'
-                        )
-                    );
+                        ]
+                    ];
 
     //VALIDATION
-    public $validate = array(
-        'movement_sets_uid' => array(
+    public $validate = [
+        'movement_sets_uid' => [
             'default'   => 1,
             'required'  => true,
             'rule'      => 'numeric'
-        ),
-        'unit_stats_uid' => array(
+        ],
+        'unit_stats_uid' => [
             'default'   => 1,
             'required'  => true,
             'rule'      => 'numeric'
-        )
+        ]
 
-    );
+    ];
 	
 	
 }

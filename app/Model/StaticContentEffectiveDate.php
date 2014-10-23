@@ -2,13 +2,11 @@
 
 class StaticContentEffectiveDate extends  AppModel{
 
-    public $belongsTo = array(
-        'StaticContent' => array(
+    public $belongsTo = [
+        'StaticContent' => [
             'class'         => 'StaticContent',
             'foreignKey'    => 'static_contents_uid'
-        )
-    );
+        ]
+    ];
 
 }
-
-?>

@@ -1,16 +1,16 @@
 <?php
 class DirectionSetDirection extends AppModel {
 
-	public $belongsTo = array(
-							'Direction' => array(
+	public $belongsTo = [
+							'Direction' => [
 								'className'		=> 'Direction',
 								'foreignKey'	=> 'directions_uid'
-							),
-							'DirectionSet' => array(
+							],
+							'DirectionSet' => [
 								'className'		=> 'DirectionSet',
 								'foreignKey'	=> 'direction_sets_uid'
-							)
-						);	
+							]
+						];
   
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -34,24 +34,24 @@ class DirectionSetDirection extends AppModel {
 		$directionUIDs		= $directionModel->getUIDList();
 		$directionSetUIDs	= $directionSetModel->getUIDList();
 		
-		$this->validate = array(
-			 'directions_uid' => array(
+		$this->validate = [
+			 'directions_uid' => [
                  'default' => '1',
-				 'rule'    => array('inList', $directionUIDs),
+				 'rule'    => ['inList', $directionUIDs],
 				 'message' => 'Must be a valid direction'
-			 ),
-			 'direction_sets_uid' => array(
+			 ],
+			 'direction_sets_uid' => [
                  'default' => '1',
-				 'rule'    => array('inList', $directionSetUIDs),
+				 'rule'    => ['inList', $directionSetUIDs],
 				 'message' => 'Must be a valid direction set'
-			 ),
-            'name' => array(
+			 ],
+            'name' => [
                 'default'   =>  'Undefined',
-                'rule'		=> 	array('maxLength',32),
+                'rule'		=> 	['maxLength',32],
                 'required' 	=>	true,
                 'message' 	=> 	parent::$alphaNumericMessage
-            )
-		);
+            ]
+		];
 
 	}
 	

@@ -2,12 +2,12 @@
 class Board extends AppModel {
 
 	//Setup the associations for this model
-	public $belongsTo = array(
-						'Board' => array(
+	public $belongsTo = [
+						'Board' => [
 							'className' 	=> 'Board',
 							'foreignKey'	=> 'games_uid'
-						)
-					);
+						]
+					];
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -27,10 +27,10 @@ class Board extends AppModel {
 	public function newBoardForGame(){
 		
 		//Setup the default data for a new Game
-		$newBoardData = array(
+		$newBoardData = [
 							'height' 	=> 8,
 							'width' 	=> 1		
-						);
+						];
 		
 		//Create a new record
 		$this->create();

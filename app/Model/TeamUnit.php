@@ -1,23 +1,23 @@
 <?php
 class TeamUnit extends AppModel {
 
-		public $belongsTo = array(
-							'UnitType' => array(
+		public $belongsTo = [
+							'UnitType' => [
 								'className' 	=> 'UnitType',
 								'foreignKey'	=> 'unit_types_uid'
-							),
-							'Team'	=> array(
+							],
+							'Team'	=> [
 								'className'		=> 'Team',
 								'foreignKey'	=> 'teams_uid'
-							)
-						);
+							]
+						];
 						
-		public $hasMany	= array(
-							'TeamUnitPosition' => array(
+		public $hasMany	= [
+							'TeamUnitPosition' => [
 								'className'		=> 'TeamUnitPosition',
 								'foreignKey'	=> 'team_units_uid'
-							)
-						);
+							]
+						];
 
 		//Override the constructor so that we can set the variables our way
 		//and not some punk ass way we don't much like.
@@ -36,12 +36,12 @@ class TeamUnit extends AppModel {
 			//To do this we'll need a team model instance
 			$teamModelInstance = ClassRegistry::init( 'Team' );
 			//Run the find to check if the team with the given uid and user uid exists
-			$userOwnsTeam = $teamModelInstance->find( 'first', array(
-														'conditions' => array(
+			$userOwnsTeam = $teamModelInstance->find( 'first', [
+														'conditions' => [
 															'Team.uid' => $teamUID,
 															'Team.users_uid' => $userUID
-														)
-													));
+														]
+													]);
 													
 			//Jump out if the user doesn't own the team
 			if( $userOwnsTeam == false ){
@@ -54,16 +54,16 @@ class TeamUnit extends AppModel {
 			$maxTeamCost	= $gameConstant['GameConstant']['max_team_cost'];
 			
 			//Grab the current team cost
-			$teamUnits = $this->find( 'all', array(
-											  'conditions' => array(
+			$teamUnits = $this->find( 'all', [
+											  'conditions' => [
 												  'TeamUnit.teams_uid' => $teamUID
-											  ),
-											  'contain' => array(
-												  'UnitType' => array(
+											  ],
+											  'contain' => [
+												  'UnitType' => [
 													  'UnitStat'
-												  )
-											  )
-										  ));
+												  ]
+											  ]
+										  ]);
 			$teamCost = 0;
 			foreach( $teamUnits as $teamUnit ){
 				$teamCost += intval( $teamUnit['UnitType']['UnitStat']['teamcost'] ) * intval( $teamUnit['TeamUnit']['quantity'] );	
@@ -71,14 +71,14 @@ class TeamUnit extends AppModel {
 			
 			//Check if there's enough room in the team cost budget for the added unit
 			$unitTypeModelInstance = ClassRegistry::init( 'UnitType' );
-			$unitTypeRecord = $unitTypeModelInstance->find( 'first', array(
-																'conditions' => array(
+			$unitTypeRecord = $unitTypeModelInstance->find( 'first', [
+																'conditions' => [
 																	'UnitType.uid' => $unitTypeUID
-																),
-																'contain' => array(
+																],
+																'contain' => [
 																	'UnitStat'
-																)
-															));
+																]
+															]);
 
 			$newTeamCost = intval( $teamCost ) + intval( $unitTypeRecord['UnitStat']['teamcost'] );	
 				
@@ -88,12 +88,12 @@ class TeamUnit extends AppModel {
 		
 			//Check if there's a team unit record with the appropriate unit type and
 			//team uid
-			$appropriateRecord = $this->find( 'first', array(
-												'conditions' => array(
+			$appropriateRecord = $this->find( 'first', [
+												'conditions' => [
 													'TeamUnit.unit_types_uid'   => $unitTypeUID,
 													'TeamUnit.teams_uid'		=> $teamUID
-												)
-											));
+												]
+											]);
 		
 			//If we don't have an appropriate record then create one and grab it
 			if( $appropriateRecord == false ){
@@ -105,12 +105,12 @@ class TeamUnit extends AppModel {
 				$this->save();
 				
 				//Grab it back
-				$appropriateRecord = $this->find( 'first', array(
-													'conditions' => array(
+				$appropriateRecord = $this->find( 'first', [
+													'conditions' => [
 														'TeamUnit.unit_types_uid'   => $unitTypeUID,
 														'TeamUnit.teams_uid'		=> $teamUID
-													)
-												));
+													]
+												]);
 												
 			}
 			
@@ -121,12 +121,12 @@ class TeamUnit extends AppModel {
 			$unitModelInstance = ClassRegistry::init( 'Unit' );
 					
 			//Grab the number of units of the given type the user has
-			$availableUnits 	= $unitModelInstance->find( 'first', array(
-											'conditions' => array(
+			$availableUnits 	= $unitModelInstance->find( 'first', [
+											'conditions' => [
 												'Unit.unit_types_uid'  	=> $unitTypeUID,
 												'Unit.users_uid'		=> $userUID
-											)
-										));
+											]
+										]);
 
 			//Now that we have the number of units that are already on the team and the number
 			//that the player owns we can check if we still have one available to add
@@ -154,11 +154,11 @@ class TeamUnit extends AppModel {
 		public function decrementQuantityByUID( $teamUnitUID ){
 		
 			//Grab the given record
-			$givenRecord = $this->find( 'first', array(
-											'conditions' => array(
+			$givenRecord = $this->find( 'first', [
+											'conditions' => [
 												'TeamUnit.uid'   => $teamUnitUID
-											)
-										));
+											]
+										]);
 		
 			//If we don't have an appropriate record then jump out and return false
 			//After all we can't remove what doesn't exist
@@ -210,11 +210,11 @@ class TeamUnit extends AppModel {
 		public function getTeamsForUnitType( $unitTypeUID ){
 			
 			//Do the find...
-			$teamsForUnit = $this->find( 'all', array(
-											'conditions' => array(
+			$teamsForUnit = $this->find( 'all', [
+											'conditions' => [
 												'unit_types_uid' => $unitTypeUID
-											)
-										));
+											]
+										]);
 										
 			return $teamsForUnit;
 		
@@ -225,27 +225,27 @@ class TeamUnit extends AppModel {
 		public function getUnitsOnTeam( $teamUIDs ){
 		
 			//Do the find...
-			$unitsOnTeam = $this->find( 'all', array(
-										'conditions' => array(
-                                            'OR' => array(
+			$unitsOnTeam = $this->find( 'all', [
+										'conditions' => [
+                                            'OR' => [
 											    'teams_uid' => $teamUIDs
-                                            )
-										),
-										'contain' => array(
+                                            ]
+										],
+										'contain' => [
 											'Team',
 											'TeamUnitPosition',
-											'UnitType' => array(
-												'UnitArtSet' => array(
-                                                    'UnitArtSetIcon' => array(
+											'UnitType' => [
+												'UnitArtSet' => [
+                                                    'UnitArtSetIcon' => [
                                                         'Icon'
-                                                    )
-                                                ),
-												'UnitStat' => array(
+                                                    ]
+                                                ],
+												'UnitStat' => [
 													'UnitStatMovementSet'
-												)
-											)
-										)
-									));
+												]
+											]
+										]
+									]);
 									
 			return $unitsOnTeam;
 			
@@ -259,12 +259,12 @@ class TeamUnit extends AppModel {
 			//To do this we'll need a team model instance
 			$teamModelInstance = ClassRegistry::init( 'Team' );
 			//Run the find to check if the team with the given uid and user uid exists
-			$userOwnsTeam = $teamModelInstance->find( 'first', array(
-														'conditions' => array(
+			$userOwnsTeam = $teamModelInstance->find( 'first', [
+														'conditions' => [
 															'Team.uid' => $teamUID,
 															'Team.users_uid' => $userUID
-														)
-													));
+														]
+													]);
 													
 			//Jump out if the user doesn't own the team
 			if( $userOwnsTeam == false ){
@@ -273,12 +273,12 @@ class TeamUnit extends AppModel {
 		
 			//Check if there's a team unit record with the appropriate unit type and
 			//team uid
-			$appropriateRecord = $this->find( 'first', array(
-												'conditions' => array(
+			$appropriateRecord = $this->find( 'first', [
+												'conditions' => [
 													'TeamUnit.unit_types_uid'   => $unitTypeUID,
 													'TeamUnit.teams_uid'		=> $teamUID
-												)
-											));
+												]
+											]);
 		
 			//If we don't have an appropriate record then jump out and return false
 			//After all we can't remove what doesn't exist

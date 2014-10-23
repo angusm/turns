@@ -3,11 +3,11 @@
 class MenuItemEffectiveDate extends AppModel{
 
     //Setup the relation
-    public $belongsTo = array(
-        'MenuItem' => array(
+    public $belongsTo = [
+        'MenuItem' => [
             'class'         => 'MenuItem',
             'foreignKey'    => 'menu_items_uid'
-        )
-    );
+        ]
+    ];
 
 }

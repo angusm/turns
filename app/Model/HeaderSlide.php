@@ -7,14 +7,14 @@ class HeaderSlide extends AppModel{
 
     //VARIABLES
     //Setup the relations to other models
-    public $belongsTo   = array(
-    );
-    public $hasMany     = array(
-        'HeaderSlideEffectiveDate'  => array(
+    public $belongsTo   = [
+    ];
+    public $hasMany     = [
+        'HeaderSlideEffectiveDate'  => [
             'class'         => 'HeaderSlideEffectiveDate',
             'foreignKey'    => 'header_slides_uid'
-        )
-    );
+        ]
+    ];
 
     //CONSTRUCTOR
     //Setup the validation, this is used by the TurnForm helper to
@@ -23,18 +23,18 @@ class HeaderSlide extends AppModel{
         parent::__construct();
 
         //Setup the validation
-        $this->validate = array(
-            'image' => array(
+        $this->validate = [
+            'image' => [
                 'default'   => '',
-                'rule'      => array('maxLength',128),
+                'rule'      => ['maxLength',128],
                 'message'   => 'Image directory and filename must be under 128 characters.'
-            ),
-            'name'  => array(
+            ],
+            'name'  => [
                 'default'   => '',
-                'rule'      => array('maxLength', 128),
+                'rule'      => ['maxLength', 128],
                 'message'   => 'Slide names must be under 128 characters.'
-            )
-        );
+            ]
+        ];
 
     }
 
@@ -45,12 +45,12 @@ class HeaderSlide extends AppModel{
     //applicable content restrictions
     public function getAvailableSlideUIDs(){
 
-        $slideUIDs = $this->find( 'list', array(
-            'fields' => array(
+        $slideUIDs = $this->find( 'list', [
+            'fields' => [
                 'HeaderSlide.uid',
                 'HeaderSlide.uid'
-            )
-        ));
+            ]
+        ]);
 
         //Return the slide UIDs in a a sequentially indexed array
         return array_values( $slideUIDs );
@@ -61,16 +61,14 @@ class HeaderSlide extends AppModel{
     //Return the model information for a given slide
     public function getSlideData( $uid ){
 
-        $slide = $this->find( 'first', array(
-           'conditions' => array(
+        $slide = $this->find( 'first', [
+           'conditions' => [
                'HeaderSlide.uid' => $uid
-           )
-        ));
+           ]
+        ]);
 
         return $slide;
 
     }
 
 }
-
-?>

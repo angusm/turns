@@ -2,12 +2,12 @@
 class TeamUnitPosition extends AppModel {
 	
 	//Setup the associations for UnitType
-	public $belongsTo = array(
-						'TeamUnit'	=> array(
+	public $belongsTo = [
+						'TeamUnit'	=> [
 							'className'		=> 'TeamUnit',
 							'foreignKey'	=> 'team_units_uid'
-						)						
-					);
+						]
+					];
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -15,20 +15,20 @@ class TeamUnitPosition extends AppModel {
 			parent::__construct(); 
 			
 		//Setup the validation
-		$this->validate = array(
-			'x' => array(
+		$this->validate = [
+			'x' => [
 				'default'	=> 	'-1',
 				'message' 	=> 	parent::$numericMessage,
 				'required' 	=>	true,
 				'rule'		=> 	'numeric'
-			),
-			'y' => array(
+			],
+			'y' => [
 				'default'	=> 	'-1',
 				'message' 	=> 	parent::$numericMessage,
 				'required' 	=>	true,
 				'rule'		=> 	'numeric'
-			)
-		);
+			]
+		];
 
 	}
 	
@@ -52,32 +52,32 @@ class TeamUnitPosition extends AppModel {
 		//We'll need to grab the record for the given teamUnitsUID
 		//To do this we'll need a team unit model 
 		$teamUnitModelInstance = ClassRegistry::init( 'TeamUnit' );
-		$passedTeamUnit = $teamUnitModelInstance->find( 'first', array(
-													'conditions' => array(
+		$passedTeamUnit = $teamUnitModelInstance->find( 'first', [
+													'conditions' => [
 														'TeamUnit.uid' => $teamUnitsUID
-													)
-												));
+													]
+												]);
 												
 		//Next we'll find a list of valid UIDs
 		$teamUID = $passedTeamUnit['TeamUnit']['teams_uid'];
-		$validTeamUnitUIDs = $teamUnitModelInstance->find( 'list', array(
-        								'fields' => array(
+		$validTeamUnitUIDs = $teamUnitModelInstance->find( 'list', [
+        								'fields' => [
 											'TeamUnit.uid', 
 											'TeamUnit.uid'
-										),
-										'conditions' => array(
+										],
+										'conditions' => [
 											'TeamUnit.teams_uid' => $teamUID
-										)
-									));
+										]
+									]);
 		
 		//Check and see if we have a unit that's already in the position
-		$inPlaceUnits = $this->find( 'all', array(
-						'conditions' => array(
+		$inPlaceUnits = $this->find( 'all', [
+						'conditions' => [
 							'TeamUnitPosition.team_units_uid' 	=> $validTeamUnitUIDs,
 							'TeamUnitPosition.x' 				=> $x,
 							'TeamUnitPosition.y' 				=> $y
-						)
-					));
+						]
+					]);
 
 		//If there's already unit(s) in that position then remove them, both from
 		//the position and from the team
@@ -114,9 +114,9 @@ class TeamUnitPosition extends AppModel {
 	//Return a list of all the UIDs
 	public function getUIDs(){
 	
-		return $this->find( 'list', array(
+		return $this->find( 'list', [
 				'fields' =>  'UnitType.uid'		
-			));	
+			]);
 		
 	}
 	
@@ -126,21 +126,21 @@ class TeamUnitPosition extends AppModel {
 	
 		//Grab the team unit
 		$teamUnitModelInstance = ClassRegistry::init( 'TeamUnit' );
-		$teamUnit = $teamUnitModelInstance->find( 'first', array(
-									'conditions' => array(
+		$teamUnit = $teamUnitModelInstance->find( 'first', [
+									'conditions' => [
 										'teams_uid'	 		=> $teamUID,
 										'unit_types_uid'	=> $unitTypeUID
-									)
-								));
+									]
+								]);
 								
 		//Grab the team unit position
-		$teamUnitPosition = $this->find( 'first', array(
-									'conditions' => array(
+		$teamUnitPosition = $this->find( 'first', [
+									'conditions' => [
 										'team_units_uid'	=> $teamUnit['TeamUnit']['uid'],
 										'x'					=> $x,
 										'y'					=> $y
-									)
-								));
+									]
+								]);
 								
 		//Delete the record
 		$this->read( null, $teamUnitPosition['TeamUnitPosition']['uid'] );

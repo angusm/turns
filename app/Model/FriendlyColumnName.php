@@ -11,22 +11,22 @@ class FriendlyColumnName extends AppModel{
         parent::__construct();
 
         //Setup an array we'll use for the validation of model_name, column_name and friendly_column_name
-        $nameValidationArray = array(
-            'alphaNumeric'  => array(
+        $nameValidationArray = [
+            'alphaNumeric'  => [
                 'required'  => true,
                 'rule'      => 'alphanumeric'
-            ),
-            'length'    => array(
-                'rule'      => array( 'maxLength', 64 )
-            )
-        );
+            ],
+            'length'    => [
+                'rule'      => [ 'maxLength', 64 ]
+            ]
+        ];
 
         //Setup the validation for the model
-        $this->validate = array(
+        $this->validate = [
             'model_name'            => $nameValidationArray,
             'column_name'           => $nameValidationArray,
             'friendly_column_name'  => $nameValidationArray
-        );
+        ];
 
     }
 
@@ -37,15 +37,15 @@ class FriendlyColumnName extends AppModel{
     public function getFriendlyName( $modelName=null, $columnName=null ){
 
         //Run the find
-        $friendlyName = $this->find( 'first', array(
-            'conditions' => array(
+        $friendlyName = $this->find( 'first', [
+            'conditions' => [
                 'FriendlyColumnName.model_name'     => $modelName,
                 'FriendlyColumnName.column_name'    => $columnName
-            ),
-            'fields'    => array(
+            ],
+            'fields'    => [
                 'FriendlyColumnName.friendly_column_name'
-            )
-        ));
+            ]
+        ]);
 
         //Return the friendly name
         return $friendlyName;
@@ -54,32 +54,32 @@ class FriendlyColumnName extends AppModel{
 
     //PUBLIC FUNCTION: makeSchemaFriendly
     //Take in the schema from a given model and find friendly names for its columns if possible
-    public function makeSchemaFriendly( $schema=array(), $modelName=null ){
+    public function makeSchemaFriendly( $schema=[], $modelName=null ){
 
         //Start looping through the keys in the schema and grabbing the column names and establishing
         //the condition we'll use to grab all of the friendly names for the model at once.
         //Provided the query optimizer is working properly, doing this as one query will be much
         //faster than running each element in the schema individually.
-        $columnConditions = array();
+        $columnConditions = [];
         foreach( $schema as $columnName => $schemaValues ){
 
-            $columnConditions[] = array(
+            $columnConditions[] = [
                 'FriendlyColumnName.column_name' => $columnName
-            );
+            ];
 
         }
 
         //Now we run a search for records with the model name and any of the possible column names
-        $friendlyNames = $this->find( 'all', array(
-            'conditions' => array(
+        $friendlyNames = $this->find( 'all', [
+            'conditions' => [
                 'FriendlyColumnName.model_name'    => $modelName,
                 'OR'            => $columnConditions
-            ),
-            'fields' => array(
+            ],
+            'fields' => [
                 'FriendlyColumnName.column_name',
                 'FriendlyColumnName.friendly_column_name'
-            )
-        ));
+            ]
+        ]);
 
         //Now we take our friendly names and plop them into their appropriate places in the schema and
         //return the result
@@ -91,6 +91,3 @@ class FriendlyColumnName extends AppModel{
     }
 
 }
-
-
-?>

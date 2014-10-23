@@ -3,24 +3,24 @@
 class StaticContent extends AppModel{
 
     //Setup the relations
-    public $hasMany = array(
-        'StaticContentEffectiveDate' => array(
+    public $hasMany = [
+        'StaticContentEffectiveDate' => [
             'class'         => 'StaticContentEffectiveDate',
             'foreignKey'    => 'static_contents_uid'
-        ),
-        'StaticContentsContentRestriction' => array(
+        ],
+        'StaticContentsContentRestriction' => [
             'class'         => 'StaticContentsContentRestriction',
             'foreignKey'    => 'static_contents_uid'
-        )
-    );
+        ]
+    ];
 
     //VALIDATION
-    public $validate = array(
-        'name' => array(
+    public $validate = [
+        'name' => [
             'default'   => 'Content',
-            'rule'      => array('maxLength',64)
-        )
-    );
+            'rule'      => ['maxLength',64]
+        ]
+    ];
 
     //FUNCTIONS
 
@@ -44,5 +44,3 @@ class StaticContent extends AppModel{
 
 
 }
-
-?>

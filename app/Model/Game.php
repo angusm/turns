@@ -608,8 +608,8 @@ class Game extends AppModel {
                     $gameUnitStatUID = $gameUnitStatModelInstance->getUIDForUnitStat( $teamUnitType['UnitType']['UnitStat'] );
 
                     //Setup the data
-                    $gameUnitData = array(
-                        'GameUnit' => array(
+                    $gameUnitData = [
+                        'GameUnit' => [
                             'defense'					=> $teamUnitType['UnitType']['UnitStat']['defense'],
                             'damage'					=> $teamUnitType['UnitType']['UnitStat']['damage'],
                             'last_movement_angle'		=>  0,
@@ -624,8 +624,8 @@ class Game extends AppModel {
                             'unit_art_sets_uid'			=> $teamUnitType['UnitType']['unit_art_sets_uid'],
                             'unit_types_uid'			=> $teamUnitType['UnitType']['uid'],
                             'users_uid'					=> $teamUnitType['Team']['users_uid']
-                        )
-                    );
+                        ]
+                    ];
 
                     $gameUnitModelInstance->create();
                     $gameUnitModelInstance->save( $gameUnitData );
@@ -644,9 +644,19 @@ class Game extends AppModel {
         }
 		
 	}
-	
-	//PUBLIC FUNCTION: updateGame
-	//Update the game with the given move
+
+	/**
+	 * Update the game with the given move
+	 * @param $gameUID
+	 * @param $turn
+	 * @param $gameUnitUID
+	 * @param $targetX
+	 * @param $targetY
+	 * @param $angle
+	 * @param $movePriority
+	 * @param $movementSetUID
+	 * @return bool
+	 */
 	public function updateGame( 
         $gameUID,
         $turn,
@@ -687,11 +697,11 @@ class Game extends AppModel {
             $activeUserModelInstance->moveToNextTurn( $gameUID );
 
             //Find the current game and move its turn up
-            $game = $this->find( 'first', array(
-                'conditions' => array(
+            $game = $this->find( 'first', [
+                'conditions' => [
                     'Game.uid' => $gameUID
-                )
-            ));
+                ]
+            ]);
             $nuTurn = $game['Game']['turn'] + 1;
 
             //One last step before we update the game is to see if there are still units
@@ -705,6 +715,9 @@ class Game extends AppModel {
             $this->save();
 
             $dataSource->commit();
+
+	        //Let the caller know that everything is awesome
+	        return true;
 
         }catch( Exception $e ){
 
@@ -815,14 +828,15 @@ class Game extends AppModel {
 							if( $xToCheck == $targetX and $yToCheck == $targetY ){
 							
 								$this->updateGame( 
-										$gameUID, 
-										$gameUnit['GameUnit']['turn'], 
-										$gameUnitUID, 
-										$targetX, 
-										$targetY, 
-										$angleToCheck,
-										$movePriority,
-										$movementSets['MovementSet']['uid'] );
+									$gameUID,
+									$gameUnit['GameUnit']['turn'],
+									$gameUnitUID,
+									$targetX,
+									$targetY,
+									$angleToCheck,
+									$movePriority,
+									$movementSets['MovementSet']['uid']
+								);
 								return true;
 								
 							}
@@ -846,7 +860,8 @@ class Game extends AppModel {
 										$targetY,
                                         $angleToCheck,
 										$movePriority,
-										$movementSets['MovementSet']['uid'] );
+										$movementSets['MovementSet']['uid']
+									);
 									return true;
 									
 								}
@@ -860,6 +875,9 @@ class Game extends AppModel {
 				}					
 			}
 		}
+
+		//If we found no match we return false because we couldn't validate the move
+		return false;
 
 	}
 	

@@ -3,5 +3,3 @@
 class BoardsController extends AppController{
 
 }
-
-?>

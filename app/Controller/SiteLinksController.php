@@ -17,25 +17,25 @@ class SiteLinksController extends AppController{
     public function getContent(){
 
         //Initialize the parameters array
-        $parameters = Array();
+        $parameters = [];
 
         //Initialize the parameter set model
         $parameterSetModel  = ClassRegistry::init('ParameterSet');
 
         //Grab the site link by the passed UID
-        $siteLink = $this->SiteLink->find( 'first', array(
-            'conditions' => array(
+        $siteLink = $this->SiteLink->find( 'first', [
+            'conditions' => [
                 'SiteLink.uid' => $this->params->query['site_links_uid']
-            )
-        ));
+            ]
+        ]);
 
         //Grab any parameters from a passed parameter_sets_uid, if applicable
         if( isset($this->params->query['parameter_sets_uid']) ){
-            $parameterRecords    = $parameterSetModel->find( 'all', array(
-                'conditions' => array(
+            $parameterRecords    = $parameterSetModel->find( 'all', [
+                'conditions' => [
                     'ParameterSet.uid' => $this->params->query['parameter_sets_uid']
-                )
-            ));
+                ]
+            ]);
 
 
             //Setup the parameters for the url
@@ -57,11 +57,11 @@ class SiteLinksController extends AppController{
         }
 
 
-        $redirectURL = array(
+        $redirectURL = [
             'controller'    => $siteLink['SiteLink']['controller'],
             'action'        => $siteLink['SiteLink']['action'],
             '?'             => $parameters
-        );
+        ];
 
         if( $redirectURL['controller'] == '' ){
             $redirectURL = '/';

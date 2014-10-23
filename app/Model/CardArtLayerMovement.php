@@ -9,16 +9,16 @@ class CardArtLayerMovement extends AppModel {
 		parent::__construct();
 			
 		$this->validate = array_merge( 
-					array(
-						'x_movement' => array(
+					[
+						'x_movement' => [
 							'rule'    	=> 'decimal',
 							'message' 	=> 	parent::$decimalMessage
-						 ),
-						'y_movement' => array(
+						 ],
+						'y_movement' => [
 							'rule'    	=> 'decimal',
 							'message' 	=> 	parent::$decimalMessage
-						 )
-					),
+						 ]
+					],
 					$this->validate
 				);
 

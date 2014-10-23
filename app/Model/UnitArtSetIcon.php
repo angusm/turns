@@ -1,34 +1,34 @@
 <?php
 class UnitArtSetIcon extends AppModel {
 
-	public $belongsTo = array(
-							'Icon' => array(
+	public $belongsTo = [
+							'Icon' => [
 								'className'		=> 'Icon',
 								'foreignKey'	=> 'icons_uid'
-							),
-                            'UnitArtSet' => array(
+							],
+                            'UnitArtSet' => [
                                 'className'     => 'UnitArtSet',
                                 'foreignKey'    => 'unit_art_sets_uid'
-                            )
-						);
+                            ]
+						];
 
-    public $validate = array(
-        'icons_uid' => array(
+    public $validate = [
+        'icons_uid' => [
             'default'   => 1,
             'required'  => true,
             'rule'      => 'numeric'
-        ),
-        'name' => array(
+        ],
+        'name' => [
             'default'   => 'Undefined',
             'required'  => true,
-            'rule'      => array( 'maxLength', 64 )
-        ),
-        'unit_art_sets_uid' => array(
+            'rule'      => [ 'maxLength', 64 ]
+        ],
+        'unit_art_sets_uid' => [
             'default'   => 1,
             'required'  => true,
             'rule'      => 'numeric'
-        )
-    );
+        ]
+    ];
 
 }
 

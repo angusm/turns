@@ -9,5 +9,3 @@ class UnitStatMovementSetsController extends AppController{
     }
 
 }
-
-?>

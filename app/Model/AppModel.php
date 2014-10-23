@@ -36,7 +36,7 @@ class AppModel extends Model {
 
 	//We want all our data to be containable so that we're only
 	//ever using what we need to 
-	public $actsAs = array('Containable');
+	public $actsAs = ['Containable'];
 	
 	//In the same spirit of containable we adjust the recursive value
 	public $recursive = -1;
@@ -53,14 +53,14 @@ class AppModel extends Model {
 	public static $numericMessage 		= 'Numbers only please.';
 	
 	//Set up some standard regular expression rules
-	public static $alphaNumericWithSpacesValidationRule	= array('custom',  '/^[a-z0-9 ]*$/i');
+	public static $alphaNumericWithSpacesValidationRule	= ['custom',  '/^[a-z0-9 ]*$/i'];
 
 	//Handy universal functions
 
     //PUBLIC FUNCTION: afterSave
     //This is a CakePHP callback that runs after data is saved to the model
     //We're using it here to create an effective date record when necessary for new records
-    public function afterSave( $created, $options = Array() ){
+    public function afterSave( $created, $options = [] ){
 
         //Call the parent function, always a good idea, respect your parents
         parent::afterSave( $created, $options );
@@ -90,20 +90,20 @@ class AppModel extends Model {
 
             /*Establish the conditions to see if the effective date model already has an
             entry for the UID of the new record*/
-            $conditions = array(
+            $conditions = [
                 $effectiveDateModelName.'.'.Inflector::tableize( $className ).'_uid' => $savedModel[$className]['uid']
-            );
+            ];
 
             //If no such effective date record exists then we create one
             if( ! $effectiveDateModel->hasAny($conditions) ){
 
                 $effectiveDateModel->create();
-                $effectiveDateModelData = array(
-                    $effectiveDateModelName => array(
+                $effectiveDateModelData = [
+                    $effectiveDateModelName => [
                         Inflector::tableize( $className ).'_uid' => $savedModel[$className]['uid'],
                         'start_date' => date('Y-m-d H:i:s')
-                    )
-                );
+                    ]
+                ];
                 $saveResult = $effectiveDateModel->save($effectiveDateModelData);
 
                 //Do a rollback if there was a problem with the save
@@ -147,30 +147,30 @@ class AppModel extends Model {
 
             //Grab the UIDs from the related model
             $effectiveDateModel = ClassRegistry::init($effectiveDateModelName);
-            $modelUIDs = $effectiveDateModel->find( 'list', array(
-                'conditions' => array(
+            $modelUIDs = $effectiveDateModel->find( 'list', [
+                'conditions' => [
                     $effectiveDateModelName.'.start_date <=' => date('Y-m-d H:i:s'),
-                    'OR' => array(
+                    'OR' => [
                         $effectiveDateModelName.'.end_date >=' => date('Y-m-d H:i:s'),
                         $effectiveDateModelName.'.end_date' => null
-                    )
-                ),
-                'fields' => array(
+                    ]
+                ],
+                'fields' => [
                     $effectiveDateModelName.'.'.Inflector::tableize( get_class($this) ).'_uid'
-                )
-            ));
+                ]
+            ]);
 
             //Make sure we have conditions
             if( ! ( array_key_exists('conditions', $query) && is_array( $query['conditions'] ) ) ){
-                $query['conditions'] = array();
+                $query['conditions'] = [];
             }
 
             //New we merge the condition on these UIDs into the main query
             $query['conditions'] = array_merge(
                 $query['conditions'],
-                array(
+                [
                     get_class($this).'.uid' => $modelUIDs
-                )
+                ]
             );
 
         }
@@ -188,7 +188,7 @@ class AppModel extends Model {
 
 		$modelName = get_class( $this );
 
-		$modelFields = array();
+		$modelFields = [];
 
 		//Loop through the model's validation (if such validation exists)
 		//Make sure we get the lil kid all set up to pass 
@@ -204,9 +204,9 @@ class AppModel extends Model {
 		}
 		
 		//Finalize the model data
-		$modelData = array(
+		$modelData = [
 			$modelName => $modelFields
-		);
+		];
 
 		//Create the record
 		$this->create();
@@ -274,10 +274,10 @@ class AppModel extends Model {
 			$foreignKey = Inflector::underscore($className) . '_id';
 		}
 		
-		return array( 
+		return [
 				'foreignKey' 	=> $foreignKey,
 				'className'		=> $className
-				);
+				];
 	
 	}
 
@@ -304,7 +304,7 @@ class AppModel extends Model {
 	public function getBelongsToFieldsArray(){
 		
 		//Initialize the array
-		$belongsToFields = array();
+		$belongsToFields = [];
 		
 		//Loop through and create the
 		foreach( $this->belongsTo as $associatedModelName => $innerArray ){
@@ -404,12 +404,12 @@ class AppModel extends Model {
 		$schema 			    = $currentModelInstance->schema();
 
         //Establish the structure for this model
-        $modelStructure = array(
+        $modelStructure = [
             'fields' 	=> [],
             'belongsTo'	=> [],
             'hasMany'	=> [],
             'hasOne'	=> []
-        );
+        ];
 
         //Loop through what we found on the find('first') and throw these
         //fields onto the fields array
@@ -505,9 +505,9 @@ class AppModel extends Model {
 	//uid values for a given model
 	public function getUIDList(){
 		
-		return $this->find( 'list', array(
+		return $this->find( 'list', [
 							'fields' => get_class($this) . '.uid'		
-						));
+						]);
 		
 	}
 
@@ -567,7 +567,7 @@ class AppModel extends Model {
         
 	//PUBLIC FUNCTION: saveWithJSONFormData
 	//Save to the database using JSON values
-	public function saveWithJSONFormData( $jsonValues = array() ){
+	public function saveWithJSONFormData( $jsonValues = [] ){
 
 			//Before we actually save anything we want to fix any potentially
 			//erroneous boolean values.
@@ -582,9 +582,9 @@ class AppModel extends Model {
 				
 			}else{
 				
-				return array(
+				return [
                     'false' => false
-                );
+                ];
 				
 			}
 		

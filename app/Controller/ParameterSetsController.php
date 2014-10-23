@@ -3,5 +3,3 @@
 class ParameterSetsController extends AppController{
 
 }
-
-?>

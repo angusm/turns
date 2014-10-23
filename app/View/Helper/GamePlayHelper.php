@@ -7,16 +7,16 @@ App::uses('AppHelper', 'View/Helper');
 class GamePlayHelper extends AppHelper {
 	
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
-  	var $helpers = array('Html');
+  	var $helpers = ['Html'];
 	
 	//PUBLIC FUNCTION: getArtArray
 	//Grab the art array
-	public function getArtArray( $unitArtSet=array() ){
+	public function getArtArray( $unitArtSet=[] ){
 		
 		//Setup the art array to return
-		$artArray = array();
-		$artArray['Icon'] 			= array();
-		$artArray['CardArtLayer']	= array();
+		$artArray = [];
+		$artArray['Icon'] 			= [];
+		$artArray['CardArtLayer']	= [];
 		
 		//Add all the icons
 		if( isset( $unitArtSet['UnitArtSetIcon'] ) ){
@@ -79,16 +79,16 @@ class GamePlayHelper extends AppHelper {
 		return $this->Html->tag(
 								'div',
 								$tilesString,
-								array(
+								[
 									'class' => 'gameBoard'
-								)
+								]
 							);
 		
 	}
 	
 	//PUBLIC FUNCTION: renderGameUnitCard
 	//Render a card display
-	public function renderGameUnitCard( $gameUnit=array() ){
+	public function renderGameUnitCard( $gameUnit=[] ){
 		
 		$cardArtLayerContent 		= '';
 		$cardContent				= '';
@@ -120,12 +120,12 @@ class GamePlayHelper extends AppHelper {
 				//Add the card art layer
 				$cardArtLayerContent .= $this->Html->image( 
 											$cardArtLayer, 
-											array(
+											[
 												'alt' => 
 													'Card Art Layer',
 												'cardArtLayerPosition' => 
 													$position
-											)
+											]
 										);	
 			}
 			
@@ -140,22 +140,22 @@ class GamePlayHelper extends AppHelper {
 					for( $damageCounter = 0; $damageCounter < $damageValue; $damageCounter++ ){
 						$damageBarContent .= $this->Html->image( 
 														$artArray['Icon']['6'], 
-														array(
+														[
 															'alt' 	=> 'Damage Point',
 															'class'	=> 'attributePoint'
-														)
+														]
 													);	
 					}
 				}
 				$damageBarContent .= $this->Html->tag(
 													'div',
 													$damageValue,
-													array(
-														'class' => array(
+													[
+														'class' => [
 															'damageValue',
 															'attributeValue'
-														)
-													)
+														]
+													]
 												);
 			}
 			//Establish the damage icon content
@@ -164,9 +164,9 @@ class GamePlayHelper extends AppHelper {
 				//Grab the board icon
 				$damageIconContent .= $this->Html->image( 
 											$artArray['Icon']['4'], 
-											array( 
+											[
 												'alt' => 'Damage Icon'
-											)
+											]
 										);					
 			}
 			
@@ -181,22 +181,22 @@ class GamePlayHelper extends AppHelper {
 					for( $defenseCounter = 0; $defenseCounter < $defenseValue; $defenseCounter++ ){
 						$defenseBarContent .= $this->Html->image( 
 														$artArray['Icon']['7'], 
-														array(
+														[
 															'alt' 	=> 'Defense Point',
 															'class'	=> 'attributePoint'
-														)
+														]
 													);	
 					}
 				}
 				$defenseBarContent .= $this->Html->tag(
 													'div',
 													$defenseValue,
-													array(
-														'class' => array(
+													[
+														'class' => [
 															'defenseValue',
 															'attributeValue'
-														)
-													)
+														]
+													]
 												);
 			}
 			//Establish the damage icon content
@@ -205,9 +205,9 @@ class GamePlayHelper extends AppHelper {
 				//Grab the board icon
 				$defenseIconContent .= $this->Html->image( 
 											$artArray['Icon']['5'], 
-											array( 
+											[
 												'alt' => 'Defense Icon'
-											)
+											]
 										);					
 			}
 			
@@ -222,22 +222,22 @@ class GamePlayHelper extends AppHelper {
 					for( $teamcostCounter = 0; $teamcostCounter < $teamcostValue; $teamcostCounter++ ){
 						$teamcostBarContent .= $this->Html->image( 
 														$artArray['Icon']['9'], 
-														array(
+														[
 															'alt' 	=> 'Team Cost Point',
 															'class'	=> 'attributePoint'
-														)
+														]
 													);	
 					}
 				}
 				$teamcostBarContent .= $this->Html->tag(
 													'div',
 													$teamcostValue,
-													array(
-														'class' => array(
+													[
+														'class' => [
 															'teamcostValue',
 															'attributeValue'
-														)
-													)
+														]
+													]
 												);
 			}
 			//Establish the damage icon content
@@ -246,9 +246,9 @@ class GamePlayHelper extends AppHelper {
 				//Grab the board icon
 				$teamcostIconContent .= $this->Html->image( 
 											$artArray['Icon']['12'], 
-											array( 
+											[
 												'alt' => 'Team Cost Icon'
-											)
+											]
 										);					
 			}
 			
@@ -274,9 +274,9 @@ class GamePlayHelper extends AppHelper {
 					$movementSetContent .= $this->Html->tag(
 													'div',
 													$movementSetName,
-													array(
+													[
 														'class' => 'movementSetName'
-													)
+													]
 												);
 												
 					//Add the actual movements
@@ -293,10 +293,10 @@ class GamePlayHelper extends AppHelper {
 									//Display the movement set background icon
 									$movementContent .= $this->Html->image( 
 																	$artArray['Icon']['8'], 
-																	array(
+																	[
 																		'alt' 		=> 	'Movement Box',
 																		'class'		=>	'movementBox'
-																	)
+																	]
 																);
 								}
 							
@@ -305,9 +305,9 @@ class GamePlayHelper extends AppHelper {
 									$movementContent .= $this->Html->tag(
 																	'div',
 																	$movement['spaces'],
-																	array(
+																	[
 																		'class' => 'movementSpaces'
-																	)
+																	]
 																);
 								}
 																
@@ -332,13 +332,13 @@ class GamePlayHelper extends AppHelper {
 														//Toss up the image, storing its gameplay information in the
 														//HTML
 														echo $this->Html->image( $artArray['Icon']['11'], 
-																				array(
+																				[
 																					'alt' 		=> 	$direction['name'] . ' Movement Arrow',
 																					'x'			=>  $direction['x'],
 																					'y'			=> 	$direction['y'],
 																					'class'		=> 	'movementArrow' . $direction['name'],
 																					'direction'	=>	$direction['name']
-																				));
+																				]);
 													
 													}
 													
@@ -352,18 +352,18 @@ class GamePlayHelper extends AppHelper {
 								$movementContent .= $this->Html->tag(
 																'div',
 																$movementArrowsContent,
-																array(
+																[
 																	'class' => 'movmentArrows'
-																)
+																]
 															);
 					
 								$movementSetContent .= $this->Html->tag(
 																	'div',
 																	$movementContent,
-																	array(
+																	[
 																		'class'		=> 'movement',
 																		'priority'  => $movement['priority']
-																	)
+																	]
 																);
 							}
 						}
@@ -373,10 +373,10 @@ class GamePlayHelper extends AppHelper {
 					$movementClassesContent .= $this->Html->tag(
 														'div',
 														$movementSetContent,
-														array(
+														[
 															'class' 			=> 'movementSet',
 															'movementSetUID'	=> $movementSet['uid']
-														)
+														]
 													);
 													
 				}
@@ -394,14 +394,14 @@ class GamePlayHelper extends AppHelper {
 																'div',
 																$this->Html->image(
 																				$artArray['Icon']['11'],
-																				array(
+																				[
 																					'alt'	=> 'Movement Set Selector Icon',
 																					'class'	=>  'movementSetSelector'
-																				)
+																				]
 																			),
-																array(
+																[
 																	'class' => 'movementSetSelector'
-																)
+																]
 															);
 					}
 				}
@@ -415,21 +415,21 @@ class GamePlayHelper extends AppHelper {
 		$cardArtLayerDiv 	= $this->Html->tag(
 									  	'div',
 									  	$cardArtLayerContent,
-										array(
+										[
 											'class' => 'cardArtLayers'
-									  	)
+									  	]
 								  	);
 
         //Add the damage icon to its div
         $damageIconDiv		= $this->Html->tag(
             'div',
             $damageIconContent,
-            array(
-                'class' => array(
+            [
+                'class' => [
                     'damageIcon',
                     'attributeIcon'
-                )
-            )
+                ]
+            ]
         );
 		
 		//Add the damage bar content to its div
@@ -437,24 +437,24 @@ class GamePlayHelper extends AppHelper {
 										'div',
 										$damageBarContent .
                                         $damageIconDiv,
-										array(
-											'class' => array(
+										[
+											'class' => [
 												'damageBar',
 												'attributeBar'
-											)
-										)
+											]
+										]
 									);
 
         //Add the defense icon to its div
         $defenseIconDiv		= $this->Html->tag(
             'div',
             $defenseIconContent,
-            array(
-                'class' => array(
+            [
+                'class' => [
                     'defenseIcon',
                     'attributeIcon'
-                )
-            )
+                ]
+            ]
         );
 		
 		//Add the defense bar content to its div
@@ -462,24 +462,24 @@ class GamePlayHelper extends AppHelper {
 										'div',
 										$defenseBarContent .
                                         $defenseIconDiv,
-										array(
-											'class' => array(
+										[
+											'class' => [
 												'defenseBar',
 												'attributeBar'
-											)
-										)
+											]
+										]
 									);
 
         //Add the teamcost icon to its div
         $teamcostIconDiv		= $this->Html->tag(
             'div',
             $teamcostIconContent,
-            array(
-                'class' => array(
+            [
+                'class' => [
                     'teamcostIcon',
                     'attributeIcon'
-                )
-            )
+                ]
+            ]
         );
 		
 		//Add the teamcost bar content to its div
@@ -487,12 +487,12 @@ class GamePlayHelper extends AppHelper {
 										'div',
 										$teamcostBarContent .
                                         $teamcostIconDiv,
-										array(
-											'class' => array(
+										[
+											'class' => [
 												'teamcostBar',
 												'attributeBar'
-											)
-										)
+											]
+										]
 									);
 									
 		//Unit stat box
@@ -501,34 +501,34 @@ class GamePlayHelper extends AppHelper {
 										$this->Html->tag(
 											'div',
 											$unitTypeName,
-											array(
+											[
 												'class' => 'unitTypeName'
-											)
+											]
 										).
                                         $damageBarDiv   .
                                         $defenseBarDiv  .
                                         $teamcostBarDiv,
-										array(
+										[
 											'class' => 'unitStatBox'
-										)
+										]
 									);
 									
 		//Setup the movement classes div
 		$movementClassesDiv		= $this->Html->tag(
 										'div',
 										$movementClassesContent,
-										array(
+										[
 											'class' => 'movementClasses'
-										)
+										]
 									);
 									
 		//Setup the movement selectors div
 		$movementSelectorsDiv	= $this->Html->tag(
 										'div',
 										$movementSelectorsContent,
-										array(
+										[
 											'class' => 'movementSelectors'
-										)
+										]
 									);
     
 		//Add all of the card content    
@@ -541,9 +541,9 @@ class GamePlayHelper extends AppHelper {
 		$cardString 		= $this->Html->tag(
 									'div',
 									$cardContent,
-									array(
+									[
 										'class' => 'unitCard'
-									)
+									]
 								);
 		
 		return $cardString;
@@ -564,9 +564,9 @@ class GamePlayHelper extends AppHelper {
 		
 		//Render the units
 		$returnString .= $this->renderUnits( 
-											array(
+											[
 												'userUID' => $userUID
-											),
+											],
 											$gameInformation 
 										);
 				
@@ -587,12 +587,12 @@ class GamePlayHelper extends AppHelper {
 		$tilesWhite = ( $x + $y ) % 2;
 	
 		//Establish some basic attributes that we can slam X's and Y's into
-		$attributes = array(
+		$attributes = [
 						'class' => 'gameTile',
 						'light' => $tilesWhite,
 						'x'		=> $x,
 						'y' 	=> $y
-					);
+					];
 					
 		//Now create the HTML and return it
 		return $this->Html->tag( 
@@ -622,18 +622,18 @@ class GamePlayHelper extends AppHelper {
 		$defenseDiv = $this->Html->tag(
 									'div',
 									$defense,
-									array(
+									[
 										'class' => 'gameplayUnitDefense'
-									)
+									]
 								);
 		
 		//Create the div that'll contain the unit's attack
 		$attackDiv = $this->Html->tag(
 									'div',
 									$damage,
-									array(
+									[
 										'class' => 'gameplayUnitAttack'
-									)
+									]
 								);
 
 		//Link together the final contents
@@ -646,11 +646,11 @@ class GamePlayHelper extends AppHelper {
 		$returnString	= $this->Html->tag(
 								'div',
 								$finalContents,
-								array(
+								[
 									'users_uid'	=> $userUID,
 									'class' 	=> 'gameplayUnit',
 									'uid'		=> $uid
-								)
+								]
 							);
 								
 		return $returnString;
@@ -686,7 +686,7 @@ class GamePlayHelper extends AppHelper {
 									'var gameUnits 			= ' . json_encode( $gameInformation['GameUnit'] ) 			. ';'.
 									'var playersTurn		= ' . $playersTurn											. ';'.
 									'var userUID   			= ' . $parameters['userUID'] 								. ';',
-									array()
+									[]
 								);
 				
 			//Loop through the game units
@@ -715,13 +715,11 @@ class GamePlayHelper extends AppHelper {
 		return $this->Html->tag( 
 								'div',
 								$unitsString,
-								array(
+								[
 									'class' => 'gameplayUnits'
-								)
+								]
 							);
 	
 	}
 	
 }
-
-?>

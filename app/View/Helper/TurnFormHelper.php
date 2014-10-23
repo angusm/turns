@@ -7,7 +7,7 @@ App::uses('AppHelper', 'View/Helper');
 class TurnFormHelper extends AppHelper {
 	
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
-  	var $helpers = array('Html');
+  	var $helpers = ['Html'];
 
 	
 	//PUBLIC FUNCTION: editableModelSelect
@@ -16,12 +16,12 @@ class TurnFormHelper extends AppHelper {
 	//	extraAttributes =>		Array of extra attributes to be attached to the select
 	//	includeSaveButton =>	Boolean indicating whether or not a save button should be shown
 	//Create a standard model select with an overlayed textbox input so that it can be edited
-	public function editableModelSelect( $modelArray, $optionalParameters=array() ){
+	public function editableModelSelect( $modelArray, $optionalParameters=[] ){
 	
 	
 		//Assign and then, if necessary replace default optionals
 		$displayField			= 'name';
-		$extraAttributes 		= array();
+		$extraAttributes 		= [];
 		$includeSaveButton		= false;
 		$includeRemoveButton	= false;
 		$includeNewButton		= false;
@@ -68,10 +68,10 @@ class TurnFormHelper extends AppHelper {
 		$dateTimeInstance = new DateTime();
 		
 		//We set the class to an editableModelSelect and add an editableModelSelect attribute
-		$baseAttributes = array(
+		$baseAttributes = [
 							'class' 			=> 'editableSelect',
 							'editableSelect'	=> $dateTimeInstance->getTimeStamp()
-						);
+						];
 						
 		
 		//Merge in any extra attributes we have to work with
@@ -94,9 +94,9 @@ class TurnFormHelper extends AppHelper {
 													  $modelName, 
 													  array_merge(
 														  $baseAttributes,
-														  array(
+														  [
 															'class' => 'editableSelectSave'
-														  )
+														  ]
 													  )
 												  );	
 			
@@ -109,9 +109,9 @@ class TurnFormHelper extends AppHelper {
 													  $modelName, 
 													  array_merge(
 														  $baseAttributes,
-														  array(
+														  [
 															'class' => 'editableSelectRemove'
-														  )
+														  ]
 													  )
 												  );	
 
@@ -124,9 +124,9 @@ class TurnFormHelper extends AppHelper {
 													$modelName,
 													array_merge(
 														$baseAttributes,
-														array(
+														[
 															'class' => 'editableSelectNew'
-														)
+														]
 													)
 												);
 												
@@ -167,32 +167,32 @@ class TurnFormHelper extends AppHelper {
 		return $this->Html->tag( 
 								'label',
 								$humanFieldName,
-								array(
+								[
 									'for' 	=> $modelName . $fieldName,
 									'class'		=> 'setupFormLabel',
 									'modelName'	=> $modelName,
 									'fieldName'	=> $fieldName	
-								)
+								]
 							);
 		
 	}
 	
 	//PUBLIC FUNCTION: fieldInputTextbox
 	//Return a nice label for the field
-	public function fieldInputTextbox( $modelName, $fieldName, $extraAttributes=array() ){
+	public function fieldInputTextbox( $modelName, $fieldName, $extraAttributes=[] ){
 		
 		//Get some nice human type names for things	
 		$humanFieldName = Inflector::humanize( $fieldName );
 		$humanModelName = Inflector::humanize( $modelName );
 		
 		//Setup the attributes array
-		$attributes = array(
+		$attributes = [
 							'type'		=> 'text',
 							'class'		=> 'setupFormInputBox',
 							'name'		=> $humanModelName . ' . ' . $humanFieldName,
 							'modelName'	=> $modelName,
 							'fieldName'	=> $fieldName
-						);
+						];
 		
 		//Merge in any extra attributes we have to work with
 		$attributes = array_merge( $attributes, $extraAttributes );
@@ -239,9 +239,9 @@ class TurnFormHelper extends AppHelper {
 		$clearDiv 				= $this->Html->tag(
 												'div',
 												'',
-												array(
+												[
 													'class' => 'clearDiv'
-												)
+												]
 											);
 		
 		//Loop through each model name in the structure, this
@@ -259,10 +259,10 @@ class TurnFormHelper extends AppHelper {
 			$returnString .= $this->Html->tag( 
 											'h3',
 											$humanModelName,
-											array(
+											[
 												'class'				=> 'modelSetupHeader disclosureToggle',
 												'disclosureName'	=> $modelName . 'SetupForm'
-											)
+											]
 										);
 	 
 													
@@ -275,27 +275,27 @@ class TurnFormHelper extends AppHelper {
 			//We start with the hasOne relationship because it's the simplest,
 			//we just do a recursive call to this same function
 			foreach( $structure[ $modelName ]['hasOne']	as $associatedModelName => $associatedStructure ){
-				$returnStringContent .= $this->fullModelSetupForm( array( $associatedModelName => $associatedStructure ) );
+				$returnStringContent .= $this->fullModelSetupForm( [ $associatedModelName => $associatedStructure ] );
 			}
 			
 			//The belongsTo relationship is similarly easy
 			foreach( $structure[ $modelName ]['belongsTo'] 	as $associatedModelName => $associatedStructure ){
-				$returnStringContent .= $this->fullModelSetupForm( array( $associatedModelName => $associatedStructure ) );
+				$returnStringContent .= $this->fullModelSetupForm( [ $associatedModelName => $associatedStructure ] );
 			}
 			
 			//Now we move onto the hasMany relationships
 			foreach( $structure[ $modelName ]['hasMany']	as $associatedModelName => $associatedStructure ){
-				$returnStringContent .= $this->fullModelSetupForm( array( $associatedModelName => $associatedStructure ) );
+				$returnStringContent .= $this->fullModelSetupForm( [ $associatedModelName => $associatedStructure ] );
 			}
 
             //Throw all this lovely content inside of a disclosure div so that it displays nicely
             $returnString .= $this->Html->tag(
                 'div',
                 $extraContent . $returnStringContent . $clearDiv,
-                array(
+                [
                     'class'				=> 'disclosureDiv',
                     'disclosureName'	=> $modelName . 'SetupForm'
-                )
+                ]
             );
 			
 		}
@@ -304,9 +304,9 @@ class TurnFormHelper extends AppHelper {
 		$returnString = $this->Html->tag(
 										'div',
 										$returnString,
-										array(
+										[
 											'class'	=> 'modelSetupFormSpacerDiv'
-										)
+										]
 									);
 		
 		//Eventually we have to return the return string
@@ -317,18 +317,18 @@ class TurnFormHelper extends AppHelper {
     //PUBLIC FUNCTION: loadingDiv
     //A div that can be displayed (is hidden by default) when requests to the server
     //are in progress
-    public function loadingDiv($modelName, $extraAttributes=array() ){
+    public function loadingDiv($modelName, $extraAttributes=[] ){
 
         //Get the internal name, i.e. strip out the spaces
         $internalModelName 	= str_replace(' ', '', $modelName);
         $controllerName		= Inflector::pluralize( $internalModelName );
 
         //Add the attributes
-        $attributes = array(
+        $attributes = [
             'class'			    => 	'loadingDiv hidden',
             'controllerName'	=> 	$controllerName,
             'modelName'		    =>	$internalModelName,
-        );
+        ];
 
         //Add any extra requeseted attributes
         $attributes = array_merge( $attributes, $extraAttributes );
@@ -344,7 +344,7 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: modelSelect
 	//Creates a select box that contains all the data of the immediate
 	//model abstracted into the nice little metadata of the select boxes
-	public function modelSelect( $modelArray, $displayField='name', $extraAttributes=array() ){
+	public function modelSelect( $modelArray, $displayField='name', $extraAttributes=[] ){
 	
 		//First things first, we check to see if the modelArray
 		//we were given is in fact an array. If not we assume that
@@ -374,7 +374,7 @@ class TurnFormHelper extends AppHelper {
 		$controllerName 	= Inflector::pluralize( $modelName );
 		
 		//Setup whatever containers we'll be needing.
-		$attributes		= array();
+		$attributes		= [];
 		$optionsString 	= '';
 	
 		
@@ -434,19 +434,19 @@ class TurnFormHelper extends AppHelper {
 	//The model name can be provided with spaces, so that if for
 	//instance we were to create a newRecord button for UnitType
 	//We could safely provide the model name as "Unit Type"
-	public function newRecordButton( $modelName, $extraAttributes=array() ){
+	public function newRecordButton( $modelName, $extraAttributes=[] ){
 	
 		//Get the internal name, i.e. strip out the spaces
 		$internalModelName 	= str_replace(' ', '', $modelName);
 		$controllerName		= Inflector::pluralize( $internalModelName );
 	
-		$baseAttributes = array(
+		$baseAttributes = [
 								'type'				=> 	'button',
 								'class'				=> 	'addNewRecord',
 								'controllerName'	=>	$controllerName,
 								'modelName'			=>	$internalModelName,
 								'value'				=> 	'New '.$modelName
-							);
+							];
 	
 		//Return the properly formatted tag
 		return $this->Html->tag(	
@@ -463,20 +463,20 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: removeRecordButton
 	//A button designed for removing records, just feed it
 	//a model name same as you would for a newRecordButton
-	public function removeRecordButton( $modelName, $extraAttributes=array() ){
+	public function removeRecordButton( $modelName, $extraAttributes=[] ){
 	
 		//Get the internal name, i.e. strip out the spaces
 		$internalModelName 	= str_replace(' ', '', $modelName);
 		$controllerName		= Inflector::pluralize( $internalModelName );
 	
 		//Add the attributes
-		$attributes = array(
+		$attributes = [
 							'type'				=> 	'button',
 							'class'				=> 	'removeRecord',
 							'controllerName'	=> 	$controllerName,
 							'modelName'			=>	$internalModelName,
 							'value'				=> 	'Delete '.$modelName
-						);
+						];
 							
 		//Add any extra requeseted attributes
 		$attributes = array_merge( $attributes, $extraAttributes );
@@ -493,20 +493,20 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: saveRecordButton
 	//A button designed for saving records, just feed it
 	//a model name same as you would for a newRecordButton
-	public function saveRecordButton( $modelName, $extraAttributes=array() ){
+	public function saveRecordButton( $modelName, $extraAttributes=[] ){
 	
 		//Get the internal name, i.e. strip out the spaces
 		$internalModelName 	= str_replace(' ', '', $modelName);
 		$controllerName		= Inflector::pluralize( $internalModelName );
 	
 		//Add the attributes
-		$attributes = array(
+		$attributes = [
 							'type'			=> 	'button',
 							'class'			=> 	'saveRecord',
 							'controllerName'	=> 	$controllerName,
 							'modelName'		=>	$internalModelName,
 							'value'			=> 	'Save '.$modelName
-						);
+						];
 							
 		//Add any extra requeseted attributes
 		$attributes = array_merge( $attributes, $extraAttributes );
@@ -536,33 +536,33 @@ class TurnFormHelper extends AppHelper {
 		$inputString = $this->modelSelect( 
 										$modelName, 
 										'name', 
-										array( 
+										[
 											'class' 	=> 'associatedModelSelect',
 											'fieldName'	=> $fieldName,
 											'modelName' => $parentModelName
-										)
+										]
 									);
 		
 		//Create a table row containing the two strings.
 		$labelString = $this->Html->tag(
 										'td',
 										$labelString,
-										array(
+										[
 											'class' => 'setupFormLabel'
-										)
+										]
 									);
 		$inputString = $this->Html->tag(
 										'td',
 										$inputString,
-										array(
+										[
 											'class' => 'setupFormInput'
-										)
+										]
 									);
 									
 		$returnString = $this->Html->tag(
 										'tr',
 										$labelString . $inputString,
-										array()
+										[]
 									);
 
 									
@@ -592,22 +592,22 @@ class TurnFormHelper extends AppHelper {
             $labelString = $this->Html->tag(
                                             'td',
                                             $labelString,
-                                            array(
+                                            [
                                                 'class' => 'setupFormLabel'
-                                            )
+                                            ]
                                         );
             $inputString = $this->Html->tag(
                                             'td',
                                             $inputString,
-                                            array(
+                                            [
                                                 'class' => 'setupFormInput'
-                                            )
+                                            ]
                                         );
 
             $returnString = $this->Html->tag(
                                             'tr',
                                             $labelString . $inputString,
-                                            array()
+                                            []
                                         );
         }else{
             $returnString = '';
@@ -669,9 +669,9 @@ class TurnFormHelper extends AppHelper {
 		$returnString = $this->Html->tag(
 										'table',
 										$tableContents,
-										array(
+										[
 											'class' => 'modelFields'
-										)
+										]
 									);
 									
 		//Return the table inside of a div so that it will display
@@ -679,9 +679,9 @@ class TurnFormHelper extends AppHelper {
 		$returnString = $this->Html->tag(
 										'div',
 										$returnString,
-										array(
+										[
 											'class' => 'modelFieldsDiv'
-										)
+										]
 									);
 		
 		//Return the return string
@@ -690,5 +690,3 @@ class TurnFormHelper extends AppHelper {
 	}
 	
 }
-
-?>

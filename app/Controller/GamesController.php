@@ -51,9 +51,9 @@ class GamesController extends AppController {
 
         //Set it
         $this->set( 'board', $gameBoard );
-        $this->set( '_serialize', array(
+        $this->set( '_serialize', [
                         'board'
-                        )
+                        ]
                     );
 
     }
@@ -84,9 +84,9 @@ class GamesController extends AppController {
         //And everything else will be handled by the View and Javascript
         //Scary huh?
         $this->set( 'gameInformation', 	$gameInformation );
-        $this->set( '_serialize', array(
+        $this->set( '_serialize', [
                         'gameInformation'
-                        )
+                        ]
                     );
 
 	}
@@ -131,9 +131,9 @@ class GamesController extends AppController {
 											$userUID );
 		
 		$this->set( 'success', $validMove );
-		$this->set(	'_serialize', array(
+		$this->set(	'_serialize', [
 						'success'
-					));
+					]);
 		
 	}
 	

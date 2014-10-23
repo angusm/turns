@@ -7,5 +7,3 @@ App::uses('AppHelper', 'View/Helper');
 class TurnUnitManagementHelper extends AppHelper {
 	
 }
-
-?>

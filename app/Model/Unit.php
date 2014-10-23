@@ -2,16 +2,16 @@
 class Unit extends AppModel {
 
 	//Setup the belongsTo
-	public $belongsTo = array(
-							'UnitType' => array(
+	public $belongsTo = [
+							'UnitType' => [
 								'className'		=> 'UnitType',
 								'foreignKey'	=> 'unit_types_uid'
-							),
-							'User' => array(
+							],
+							'User' => [
 								'className'		=> 'User',
 								'foreignKey'	=> 'users_uid'
-							)
-						);
+							]
+						];
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
@@ -21,19 +21,19 @@ class Unit extends AppModel {
 		parent::__construct(); 
 		
 		//Add custom validation rules
-		$this->validate = array();array_merge(
-					array(
-						'unit_types_uid'	=> array(
+		$this->validate = [];array_merge(
+					[
+						'unit_types_uid'	=> [
 							'default'	=> 	'1',
 							'message'	=>	'Must be valid Unit Type UID',
 							'rule'		=>	'numeric'
-						),
-						'users_uid'	=> array(
+						],
+						'users_uid'	=> [
 							'default'	=> 	'1',
 							'message'	=>	'Must be valid User UID',
 							'rule'		=>	'numeric'
-						)
-					),
+						]
+					],
 					$this->validate
 				);
 
@@ -45,24 +45,24 @@ class Unit extends AppModel {
 	public function getUnitListForUserByUID( $userUID ){
 	
 		//Do the find and return the results
-		$unitList = $this->find( 'all', array(
-									'conditions' => array(
+		$unitList = $this->find( 'all', [
+									'conditions' => [
 										'users_uid' => $userUID
-									),
-									'contain' => array(
-										'UnitType' => array(
-											'UnitArtSet' => array(
-												'CardArtLayerSet' => array(
+									],
+									'contain' => [
+										'UnitType' => [
+											'UnitArtSet' => [
+												'CardArtLayerSet' => [
 													'CardArtLayer'
-												),
-												'UnitArtSetIcon' => array(
+												],
+												'UnitArtSetIcon' => [
 													'Icon'
-												)
-											),
+												]
+											],
 											'UnitStat'
-										)								
-									)
-								));
+										]
+									]
+								]);
 							
 		//Go through each result and move the count to the model field	
 		foreach( $unitList as $unitIndex => $unitData ){
@@ -80,11 +80,11 @@ class Unit extends AppModel {
 	public function getUnitsForUserByUID( $userUID ){
 	
 		//Do the find..
-		$unitsForUser = $this->find( 'all', array(
-							'conditions' => array(
+		$unitsForUser = $this->find( 'all', [
+							'conditions' => [
 								'users_uid' => $userUID
-							)
-						));
+							]
+						]);
 
 		//Return all of the units that a user has found
 		return $unitsForUser;						
@@ -116,12 +116,12 @@ class Unit extends AppModel {
 	
 		//Now we need to check if the user already has a Unit entry for this unit type.
 		//If they do then we update the quantity, if they don't we create one
-		$existingRecord = $this->find( 'first', array(
-						'conditions' => array(
+		$existingRecord = $this->find( 'first', [
+						'conditions' => [
 							'Unit.unit_types_uid' 	=> $randomUnitTypeUID,
 							'Unit.users_uid' 		=> $userUID
-						)
-					));
+						]
+					]);
 					
 		if( $existingRecord != false ){
 

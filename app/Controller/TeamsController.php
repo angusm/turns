@@ -31,7 +31,7 @@ class TeamsController extends AppController {
 				//If the user has been saved, indicate as much and do a
 				//redirect.
 				$this->Session->setFlash(__('Team Saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(['action' => 'index']);
 			} else {
 				//If the user couldn't be saved then indicate as much.
 				$this->Session->setFlash(__('Couldn\'t save that team, they\'re all dead now and it\'s all your fault.'));
@@ -53,9 +53,9 @@ class TeamsController extends AppController {
 		$this->set( 'teamData',		$teamData );
 		$this->set( 
 			'_serialize', 
-			array( 
+			[
 				'teamData'
-			) 
+			]
 		);
 		
 	}
@@ -73,9 +73,9 @@ class TeamsController extends AppController {
 					
 		//Set it on
 		$this->set( 'success', $success );
-		$this->set( '_serialize', array(
+		$this->set( '_serialize', [
 						'success'
-					));
+					]);
 						
 	}
 	
@@ -94,9 +94,9 @@ class TeamsController extends AppController {
 		$this->set( 'teams', $teams );
 		$this->set( 
 			'_serialize', 
-			array( 
+			[
 				'teams'
-			) 
+			]
 		);
 		
 	}

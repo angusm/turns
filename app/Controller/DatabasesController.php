@@ -35,13 +35,11 @@ class DatabasesController extends AppController{
 
         //Pass the database list to the view and serialize it
         $this->set( 'databaseList', $databaseList );
-        $this->set( '_serialize', array(
+        $this->set( '_serialize', [
             'databaseList'
-        ));
+        ]);
 
 
     }
 
 }
-
-?>

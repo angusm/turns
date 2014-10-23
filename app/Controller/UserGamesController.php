@@ -33,10 +33,10 @@ class UserGamesController extends AppController {
 		//And toss it all back
 		$this->set( 'games', 			$games );
 		$this->set( 'pendingMatches', 	$pendingMatches );
-		$this->set( '_serialize', array(
+		$this->set( '_serialize', [
 						'games',
 						'pendingMatches'
-					));
+					]);
 		
 	}
 	
@@ -61,9 +61,9 @@ class UserGamesController extends AppController {
 		
 		//Set the games to the view
 		$this->set( 'games', $games );
-		$this->set( '_serialize', array(
+		$this->set( '_serialize', [
 						'games'
-					));
+					]);
 		
 	}
 	

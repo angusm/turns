@@ -33,22 +33,22 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
-	public $helpers = array( 'TurnForm', 'Html' );
-    public $components = array(
+	public $helpers = [ 'TurnForm', 'Html' ];
+    public $components = [
         'Auth',
 		'RequestHandler',
         'Session'
-    );
+    ];
 
     //Before anything else happens, the beforeFilter happens
     public function beforeFilter() {
 
-        $this->Auth->loginAction = array(
+        $this->Auth->loginAction = [
             'controller'    => 'users',
             'action'        => 'register',
             'plugin'        => null,
             '?'             => $this->params->query
-        );
+        ];
         $this->set( 'authUser', $this->Auth->user() );
 
         //Handle restrictions
@@ -90,20 +90,20 @@ class AppController extends Controller {
 		$modelInstance 	= $this->getInstance();
 
 		//Grab the requested record
-		$requestedRecord = $modelInstance->find( 'first', array(
-								'conditions' => array(
+		$requestedRecord = $modelInstance->find( 'first', [
+								'conditions' => [
 									'uid' => $requestedUID
-								)
-							));
+								]
+							]);
 
         //Get the model name
         $modelName 		= key($requestedRecord);
 
         //Return the given record
 		$this->set( $modelName, $requestedRecord[$modelName] );
-		$this->set( '_serialize', array(
+		$this->set( '_serialize', [
             $modelName
-        ));
+        ]);
 		
 		
 	}
@@ -148,11 +148,11 @@ class AppController extends Controller {
 		$this->set( 'uid', 			$nuUID );
 		$this->set( 
 			'_serialize', 
-			array( 
+			[
 				'modelName',
 				'name',
 				'uid'
-			) 
+			]
 		);
 		
          //Render the view
@@ -178,9 +178,9 @@ class AppController extends Controller {
 		$success = $modelInstance->remove( $uid, true );
 		
 		$this->set( 'success', $success );
-		$this->set( '_serialize', array(
+		$this->set( '_serialize', [
 						'success'
-					));
+					]);
 		
 	}
         
@@ -202,9 +202,9 @@ class AppController extends Controller {
 		$this->set( $modelName, $success[$modelName] );
 		$this->set(
 			'_serialize', 
-			array( 
+			[
 				$modelName
-			) 
+			]
 		);
 		
 		$this->render('../App/default');

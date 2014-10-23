@@ -31,7 +31,7 @@ class UnitArtSetIconsController extends AppController {
 				//If the user has been saved, indicate as much and do a
 				//redirect.
 				$this->Session->setFlash(__('Unit Art Set Icon Saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(['action' => 'index']);
 			} else {
 				//If the user couldn't be saved then indicate as much.
 				$this->Session->setFlash(__('Couldn\'t save the art set icon, maybe it wasn\'t iconic?'));
