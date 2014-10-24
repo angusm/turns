@@ -23,19 +23,19 @@
 
 /** General Style Info **/
 body {
-	background: #003d4c;
-	color: #fff;
+	background: rgb(0, 61, 76);
+	color: rgb(255, 255, 255);
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
 	margin: 0;
 }
 a {
-	color: #003d4c;
+	color: rgb(0, 61, 76);
 	text-decoration: underline;
 	font-weight: bold;
 }
 a:hover {
-	color: #367889;
+	color: rgb(54, 120, 137);
 	text-decoration:none;
 }
 a img {
@@ -46,23 +46,23 @@ h1, h2, h3, h4 {
 	margin-bottom:0.5em;
 }
 h1 {
-	background:#fff;
-	color: #003d4c;
+	background: rgb(255, 255, 255);
+	color: rgb(0, 61, 76);
 	font-size: 100%;
 }
 h2 {
-	background:#fff;
-	color: #e32;
+	background: rgb(255, 255, 255);
+	color: rgb(238, 51, 34);
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 190%;
 }
 h3 {
-	color: #2c6877;
+	color: rgb(44, 104, 119);
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 165%;
 }
 h4 {
-	color: #993;
+	color: rgb(153, 153, 51);
 	font-weight: normal;
 }
 ul, li {
@@ -82,25 +82,25 @@ p {
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
-	color: #fff;
-	padding: 0px 30px;
+	background: rgb(0, 61, 76) url('../img/cake.icon.png') no-repeat left;
+	color: rgb(255, 255, 255);
+	padding: 0 30px;
 }
 #header h1 a {
-	color: #fff;
-	background: #003d4c;
+	color: rgb(255, 255, 255);
+	background: rgb(0, 61, 76);
 	font-weight: normal;
 	text-decoration: none;
 }
 #header h1 a:hover {
-	color: #fff;
-	background: #003d4c;
+	color: rgb(255, 255, 255);
+	background: rgb(0, 61, 76);
 	text-decoration: underline;
 }
 #content{
-	background: #fff;
+	background: rgb(255, 255, 255);
 	clear: both;
-	color: #333;
+	color: rgb(51, 51, 51);
 	padding: 10px 20px 40px 20px;
 	overflow: auto;
 }
@@ -116,7 +116,7 @@ div.index,
 div.view {
 	float:right;
 	width:76%;
-	border-left:1px solid #666;
+	border-left:1px solid rgb(102, 102, 102);
 	padding:10px 2%;
 }
 div.actions {
@@ -126,7 +126,7 @@ div.actions {
 }
 div.actions h3 {
 	padding-top:0;
-	color:#777;
+	color: rgb(119, 119, 119);
 }
 
 
@@ -134,13 +134,13 @@ div.actions h3 {
 table {
 	border-right:0;
 	clear: both;
-	color: #333;
+	color: rgb(51, 51, 51);
 	margin-bottom: 10px;
 	width: 100%;
 }
 th {
 	border:0;
-	border-bottom:2px solid #555;
+	border-bottom:2px solid rgb(85, 85, 85);
 	text-align: left;
 	padding:4px;
 }
@@ -159,37 +159,37 @@ table tr td {
 	padding: 6px;
 	text-align: left;
 	vertical-align: top;
-	border-bottom:1px solid #ddd;
+	border-bottom:1px solid rgb(221, 221, 221);
 }
 table tr:nth-child(even) {
-	background: #f9f9f9;
+	background: rgb(249, 249, 249);
 }
 td.actions {
 	text-align: center;
 	white-space: nowrap;
 }
 table td.actions a {
-	margin: 0px 6px;
+	margin: 0 6px;
 	padding:2px 5px;
 }
 
 /* SQL log */
 .cake-sql-log {
-	background: #fff;
+	background: rgb(255, 255, 255);
 }
 .cake-sql-log td {
 	padding: 4px 8px;
 	text-align: left;
-	font-family: Monaco, Consolas, "Courier New", monospaced;
+	font-family: Monaco, Consolas, "Courier New", monospaced, serif;
 }
 .cake-sql-log caption {
-	color:#fff;
+	color: rgb(255, 255, 255);
 }
 
 /** Paging **/
 .paging {
-	background:#fff;
-	color: #ccc;
+	background: rgb(255, 255, 255);
+	color: rgb(204, 204, 204);
 	margin-top: 1em;
 	clear:both;
 }
@@ -202,43 +202,39 @@ table td.actions a {
 }
 .paging > span {
 	display: inline-block;
-	border: 1px solid #ccc;
+	border: 1px solid rgb(204, 204, 204);
 	border-left: 0;
 }
 .paging > span:hover {
-	background: #efefef;
+	background: rgb(239, 239, 239);
 }
 .paging .prev {
-	border-left: 1px solid #ccc;
-	-moz-border-radius: 4px 0 0 4px;
-	-webkit-border-radius: 4px 0 0 4px;
+	border-left: 1px solid rgb(204, 204, 204);
 	border-radius: 4px 0 0 4px;
 }
 .paging .next {
-	-moz-border-radius: 0 4px 4px 0;
-	-webkit-border-radius: 0 4px 4px 0;
 	border-radius: 0 4px 4px 0;
 }
 .paging .disabled {
-	color: #ddd;
+	color: rgb(221, 221, 221);
 }
 .paging .disabled:hover {
 	background: transparent;
 }
 .paging .current {
-	background: #efefef;
-	color: #c73e14;
+	background: rgb(239, 239, 239);
+	color: rgb(199, 62, 20);
 }
 
 /** Scaffold View **/
 dl {
 	line-height: 2em;
-	margin: 0em 0em;
+	margin: 0 0;
 	width: 60%;
 }
 dl dd:nth-child(4n+2),
 dl dt:nth-child(4n+1) {
-	background: #f4f4f4;
+	background: rgb(244, 244, 244);
 }
 
 dt {
@@ -266,7 +262,7 @@ fieldset {
 	padding: 16px 10px;
 }
 fieldset legend {
-	color: #e32;
+	color: rgb(238, 51, 34);
 	font-size: 160%;
 	font-weight: bold;
 }
@@ -289,13 +285,13 @@ form div {
 	vertical-align: text-top;
 }
 form .input {
-	color: #444;
+	color: rgb(68, 68, 68);
 }
 form .required {
 	font-weight: bold;
 }
 form .required label:after {
-	color: #e32;
+	color: rgb(238, 51, 34);
 	content: '*';
 	display:inline;
 }
@@ -331,7 +327,7 @@ option {
 input[type=checkbox] {
 	clear: left;
 	float: left;
-	margin: 0px 6px 7px 2px;
+	margin: 0 6px 7px 2px;
 	width: auto;
 }
 div.checkbox label {
@@ -354,29 +350,22 @@ input[type=submit] {
 	width: auto;
 }
 form .submit input[type=submit] {
-	background:#62af56;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#76BF6B), to(#3B8230));
-	background-image: -webkit-linear-gradient(top, #76BF6B, #3B8230);
-	background-image: -moz-linear-gradient(top, #76BF6B, #3B8230);
-	border-color: #2d6324;
-	color: #fff;
-	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
+	background: rgb(98, 175, 86);
+	border-color: rgb(45, 99, 36);
+	color: rgb(255, 255, 255);
+	text-shadow: rgba(0, 0, 0, 0.5) 0 -1px 0;
 	padding: 8px 10px;
 }
 form .submit input[type=submit]:hover {
-	background: #5BA150;
+	background: rgb(91, 161, 80);
 }
 /* Form errors */
 form .error {
-	background: #FFDACC;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
+	background: rgb(255, 218, 204);
 	border-radius: 4px;
 	font-weight: normal;
 }
 form .error-message {
-	-moz-border-radius: none;
-	-webkit-border-radius: none;
 	border-radius: none;
 	border: none;
 	background: none;
@@ -386,7 +375,7 @@ form .error-message {
 }
 form .error,
 form .error-message {
-	color: #9E2424;
+	color: rgb(158, 36, 36);
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	-ms-box-shadow: none;
@@ -398,7 +387,7 @@ form .error-message {
 /** Notices and Errors **/
 .message {
 	clear: both;
-	color: #fff;
+	color: rgb(255, 255, 255);
 	font-size: 140%;
 	font-weight: bold;
 	margin: 0 0 1em 0;
@@ -412,19 +401,19 @@ form .error-message {
 .notice,
 p.error,
 .error-message {
-	background: #ffcc00;
+	background: rgb(255, 204, 0);
 	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #ffcc00, #E6B800);
-	background-image: -ms-linear-gradient(top, #ffcc00, #E6B800);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffcc00), to(#E6B800));
-	background-image: -webkit-linear-gradient(top, #ffcc00, #E6B800);
-	background-image: -o-linear-gradient(top, #ffcc00, #E6B800);
-	background-image: linear-gradient(top, #ffcc00, #E6B800);
+	background-image: -moz-linear-gradient(top, rgb(255, 204, 0), rgb(230, 184, 0));
+	background-image: -ms-linear-gradient(top, rgb(255, 204, 0), rgb(230, 184, 0));
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 204, 0)), to(rgb(230, 184, 0)));
+	background-image: -webkit-linear-gradient(top, rgb(255, 204, 0), rgb(230, 184, 0));
+	background-image: -o-linear-gradient(top, rgb(255, 204, 0), rgb(230, 184, 0));
+	background-image: linear-gradient(top, rgb(255, 204, 0), rgb(230, 184, 0));
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	margin-bottom: 18px;
 	padding: 7px 14px;
-	color: #404040;
+	color: rgb(64, 64, 64);
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -439,30 +428,30 @@ p.error,
 p.error,
 .error-message {
 	clear: both;
-	color: #fff;
-	background: #c43c35;
+	color: rgb(255, 255, 255);
+	background: rgb(196, 60, 53);
 	border: 1px solid rgba(0, 0, 0, 0.5);
 	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
-	background-image: -ms-linear-gradient(top, #ee5f5b, #c43c35);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#ee5f5b), to(#c43c35));
-	background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
-	background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
-	background-image: linear-gradient(top, #ee5f5b, #c43c35);
+	background-image: -moz-linear-gradient(top, rgb(238, 95, 91), rgb(196, 60, 53));
+	background-image: -ms-linear-gradient(top, rgb(238, 95, 91), rgb(196, 60, 53));
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(238, 95, 91)), to(rgb(196, 60, 53)));
+	background-image: -webkit-linear-gradient(top, rgb(238, 95, 91), rgb(196, 60, 53));
+	background-image: -o-linear-gradient(top, rgb(238, 95, 91), rgb(196, 60, 53));
+	background-image: linear-gradient(top, rgb(238, 95, 91), rgb(196, 60, 53));
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 .success {
 	clear: both;
-	color: #fff;
+	color: rgb(255, 255, 255);
 	border: 1px solid rgba(0, 0, 0, 0.5);
-	background: #3B8230;
+	background: rgb(59, 130, 48);
 	background-repeat: repeat-x;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#76BF6B), to(#3B8230));
-	background-image: -webkit-linear-gradient(top, #76BF6B, #3B8230);
-	background-image: -moz-linear-gradient(top, #76BF6B, #3B8230);
-	background-image: -ms-linear-gradient(top, #76BF6B, #3B8230);
-	background-image: -o-linear-gradient(top, #76BF6B, #3B8230);
-	background-image: linear-gradient(top, #76BF6B, #3B8230);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(118, 191, 107)), to(rgb(59, 130, 48)));
+	background-image: -webkit-linear-gradient(top, rgb(118, 191, 107), rgb(59, 130, 48));
+	background-image: -moz-linear-gradient(top, rgb(118, 191, 107), rgb(59, 130, 48));
+	background-image: -ms-linear-gradient(top, rgb(118, 191, 107), rgb(59, 130, 48));
+	background-image: -o-linear-gradient(top, rgb(118, 191, 107), rgb(59, 130, 48));
+	background-image: linear-gradient(top, rgb(118, 191, 107), rgb(59, 130, 48));
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 p.error {
@@ -476,14 +465,14 @@ p.error em {
 	line-height: 140%;
 }
 .notice {
-	color: #000;
+	color: rgb(0, 0, 0);
 	display: block;
 	font-size: 120%;
 	padding: 0.8em;
 	margin: 1em 0;
 }
 .success {
-	color: #fff;
+	color: rgb(255, 255, 255);
 }
 
 /**  Actions  **/
@@ -509,48 +498,48 @@ input[type=submit],
 .actions a {
 	font-weight:normal;
 	padding: 4px 8px;
-	background: #dcdcdc;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));
-	background-image: -webkit-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: -moz-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: -ms-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: -o-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: linear-gradient(top, #fefefe, #dcdcdc);
-	color:#333;
-	border:1px solid #bbb;
+	background: rgb(220, 220, 220);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(254, 254, 254)), to(rgb(220, 220, 220)));
+	background-image: -webkit-linear-gradient(top, rgb(254, 254, 254), rgb(220, 220, 220));
+	background-image: -moz-linear-gradient(top, rgb(254, 254, 254), rgb(220, 220, 220));
+	background-image: -ms-linear-gradient(top, rgb(254, 254, 254), rgb(220, 220, 220));
+	background-image: -o-linear-gradient(top, rgb(254, 254, 254), rgb(220, 220, 220));
+	background-image: linear-gradient(top, rgb(254, 254, 254), rgb(220, 220, 220));
+	color: rgb(51, 51, 51);
+	border:1px solid rgb(187, 187, 187);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	text-decoration: none;
-	text-shadow: #fff 0px 1px 0px;
+	text-shadow: rgb(255, 255, 255) 0 1px 0;
 	min-width: 0;
-	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2);
 	-webkit-user-select: none;
 	user-select: none;
 }
 .actions ul li a:hover,
 .actions a:hover {
-	background: #ededed;
-	border-color: #acacac;
+	background: rgb(237, 237, 237);
+	border-color: rgb(172, 172, 172);
 	text-decoration: none;
 }
 input[type=submit]:active,
 .actions ul li a:active,
 .actions a:active {
-	background: #eee;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#dfdfdf), to(#eee));
-	background-image: -webkit-linear-gradient(top, #dfdfdf, #eee);
-	background-image: -moz-linear-gradient(top, #dfdfdf, #eee);
-	background-image: -ms-linear-gradient(top, #dfdfdf, #eee);
-	background-image: -o-linear-gradient(top, #dfdfdf, #eee);
-	background-image: linear-gradient(top, #dfdfdf, #eee);
-	text-shadow: #eee 0px 1px 0px;
+	background: rgb(238, 238, 238);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(223, 223, 223)), to(rgb(238, 238, 238)));
+	background-image: -webkit-linear-gradient(top, rgb(223, 223, 223), rgb(238, 238, 238));
+	background-image: -moz-linear-gradient(top, rgb(223, 223, 223), rgb(238, 238, 238));
+	background-image: -ms-linear-gradient(top, rgb(223, 223, 223), rgb(238, 238, 238));
+	background-image: -o-linear-gradient(top, rgb(223, 223, 223), rgb(238, 238, 238));
+	background-image: linear-gradient(top, rgb(223, 223, 223), rgb(238, 238, 238));
+	text-shadow: rgb(238, 238, 238) 0 1px 0;
 	-moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
 	-webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
 	box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
-	border-color: #aaa;
+	border-color: rgb(170, 170, 170);
 	text-decoration: none;
 }
 
@@ -562,8 +551,8 @@ input[type=submit]:active,
 
 /** Debugging **/
 pre {
-	color: #000;
-	background: #f0f0f0;
+	color: rgb(0, 0, 0);
+	background: rgb(240, 240, 240);
 	padding: 15px;
 	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 	-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
@@ -582,7 +571,7 @@ pre {
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
 	padding: 5px 6px;
-	color: #000;
+	color: rgb(0, 0, 0);
 	display: block;
 	float: left;
 	-moz-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -604,7 +593,7 @@ pre {
 }
 .cake-stack-trace {
 	background: rgba(255, 255, 255, 0.7);
-	color: #333;
+	color: rgb(51, 51, 51);
 	margin: 10px 0 5px 0;
 	padding: 10px 10px 0 10px;
 	font-size: 120%;
@@ -622,15 +611,15 @@ pre {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
-	margin: 0px 4px 10px 2px;
+	margin: 0 4px 10px 2px;
 	font-family: sans-serif;
 	font-size: 14px;
 	line-height: 14px;
 	display: inline-block;
 	text-decoration: none;
-	-moz-box-shadow: inset 0px 1px 0 rgba(0, 0, 0, 0.3);
-	-webkit-box-shadow: inset 0px 1px 0 rgba(0, 0, 0, 0.3);
-	box-shadow: inset 0px 1px 0 rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
 }
 .cake-code-dump pre {
 	position: relative;
@@ -640,28 +629,28 @@ pre {
 	margin-bottom: 10px;
 }
 .cake-stack-trace pre {
-	color: #000;
-	background-color: #F0F0F0;
-	margin: 0px 0 10px 0;
+	color: rgb(0, 0, 0);
+	background-color: rgb(240, 240, 240);
+	margin: 0 0 10px 0;
 	padding: 1em;
 	overflow: auto;
 	text-shadow: none;
 }
 .cake-stack-trace li {
-	padding: 10px 5px 0px;
+	padding: 10px 5px 0;
 	margin: 0 0 4px 0;
 	font-family: monospace;
-	border: 1px solid #bbb;
+	border: 1px solid rgb(187, 187, 187);
 	-moz-border-radius: 4px;
 	-wekbkit-border-radius: 4px;
 	border-radius: 4px;
-	background: #dcdcdc;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));
-	background-image: -webkit-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: -moz-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: -ms-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: -o-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: linear-gradient(top, #fefefe, #dcdcdc);
+	background: rgb(220, 220, 220);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(254, 254, 254)), to(rgb(220, 220, 220)));
+	background-image: -webkit-linear-gradient(top, rgb(254, 254, 254), rgb(220, 220, 220));
+	background-image: -moz-linear-gradient(top, rgb(254, 254, 254), rgb(220, 220, 220));
+	background-image: -ms-linear-gradient(top, rgb(254, 254, 254), rgb(220, 220, 220));
+	background-image: -o-linear-gradient(top, rgb(254, 254, 254), rgb(220, 220, 220));
+	background-image: linear-gradient(top, rgb(254, 254, 254), rgb(220, 220, 220));
 }
 /* excerpt */
 .cake-code-dump pre,
@@ -683,16 +672,16 @@ pre {
 	margin-left:10px;
 }
 .code-coverage-results div.uncovered span.content {
-	background:#ecc;
+	background: rgb(238, 204, 204);
 }
 .code-coverage-results div.covered span.content {
-	background:#cec;
+	background: rgb(204, 238, 204);
 }
 .code-coverage-results div.ignored span.content {
-	color:#aaa;
+	color: rgb(170, 170, 170);
 }
 .code-coverage-results span.line-num {
-	color:#666;
+	color: rgb(102, 102, 102);
 	display:block;
 	float:left;
 	width:20px;
@@ -700,37 +689,37 @@ pre {
 	margin-right:5px;
 }
 .code-coverage-results span.line-num strong {
-	color:#666;
+	color: rgb(102, 102, 102);
 }
 .code-coverage-results div.start {
-	border:1px solid #aaa;
-	border-width:1px 1px 0px 1px;
+	border:1px solid rgb(170, 170, 170);
+	border-width:1px 1px 0 1px;
 	margin-top:30px;
 	padding-top:5px;
 }
 .code-coverage-results div.end {
-	border:1px solid #aaa;
-	border-width:0px 1px 1px 1px;
+	border:1px solid rgb(170, 170, 170);
+	border-width:0 1px 1px 1px;
 	margin-bottom:30px;
 	padding-bottom:5px;
 }
 .code-coverage-results div.realstart {
-	margin-top:0px;
+	margin-top:0;
 }
 .code-coverage-results p.note {
-	color:#bbb;
+	color: rgb(187, 187, 187);
 	padding:5px;
 	margin:5px 0 10px;
 	font-size:10px;
 }
 .code-coverage-results span.result-bad {
-	color: #a00;
+	color: rgb(170, 0, 0);
 }
 .code-coverage-results span.result-ok {
-	color: #fa0;
+	color: rgb(255, 170, 0);
 }
 .code-coverage-results span.result-good {
-	color: #0a0;
+	color: rgb(0, 170, 0);
 }
 
 /** Elements **/

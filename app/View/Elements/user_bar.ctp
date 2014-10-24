@@ -30,4 +30,3 @@ if( $authUser == null or $authUser['username'] == null or $authUser['uid'] == nu
 
 echo '</div>';
 
-?>

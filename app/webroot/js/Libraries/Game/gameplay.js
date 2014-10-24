@@ -8,7 +8,7 @@ var loadDependenciesFor_Game_gameplay = function(){
 
 	libraries.push( new Array( 'Game', 'elements' ) );
 	
-}
+};
 
 //DOCUMENT READY
 //When the document is fully ready, call the main function
@@ -55,12 +55,12 @@ var Gameplay = function(){
 																1000
 															);
 
-        if( typeof Game_gameplay.occupiedSpaces[xPos] == 'undefined' ){
+        if( 'undefined' == typeof Game_gameplay.occupiedSpaces[xPos] ){
             Game_gameplay.occupiedSpaces[xPos] = [];
         }
         Game_gameplay.occupiedSpaces[xPos][yPos] = 1;
 		
-	}
+	};
 
 	//PUBLIC FUNCTION: grabSelected
 	//Store the given selected unit
@@ -69,12 +69,12 @@ var Gameplay = function(){
 
 
 		//Grab the selected unit
-        if( typeof window.pageData.Game.selected_unit_uid !== 'undefined' &&
-            typeof window.pageData.Game.GameUnit[window.pageData.Game.selected_unit_uid] !== 'undefined' ){
+        if( 'undefined' !== typeof window.pageData.Game.selected_unit_uid &&
+            'undefined' !== typeof window.pageData.Game.GameUnit[window.pageData.Game.selected_unit_uid] ){
             Game_gameplay.selectedUnit = window.pageData.Game.GameUnit[window.pageData.Game.selected_unit_uid];
         }
 
-	}
+	};
 	
 	//PUBLIC FUNCTION: clearEverything
 	//Clear everything from the previous turn
@@ -88,7 +88,7 @@ var Gameplay = function(){
 		Game_gameplay.unhighlightUnitPaths();
 		Game_gameplay.unhighlightEverything();
 				
-	}
+	};
 		
 	//PUBLIC FUNCTION: clearSelectedUnit
 	//Clear the selection of the given unit
@@ -98,14 +98,14 @@ var Gameplay = function(){
 		jQuery( '.selected' ).removeClass( 'selected' );
 		jQuery( 'highlighted' ).removeClass( 'highlighted' );
 		
-	}
+	};
 
     //PUBLIC FUNCTION: createUnitDOMElement
     //Create the unit DOM element
     this.createUnitDOMElement = function( unitObject ){
 
         //Don't do anything for dead units
-        if( unitObject.defense <= 0 ){
+        if( 0 >= unitObject.defense ){
             return;
         }
 
@@ -115,11 +115,12 @@ var Gameplay = function(){
            elementExists = true;
         });
 
-        //Grab the icons
-        var boardIcon = '';
-
         //If the element doesn't exist then create it
-        if( elementExists == false ){
+        if( false === elementExists ){
+
+	        //Grab the icons
+	        var boardIcon = '';
+
             //Create the div
             jQuery.each( unitObject.UnitArtSet.UnitArtSetIcon, function( iconPos, unitArtSetIcon ){
 
@@ -127,7 +128,12 @@ var Gameplay = function(){
                 switch( iconPosition ){
 
                     case "3":
-                        boardIcon = unitArtSetIcon.Icon.image;
+	                    boardIcon = unitArtSetIcon.Icon.image;
+		                break;
+
+	                default:
+		                //Do nothing
+		                break;
 
                 }
 
@@ -153,7 +159,7 @@ var Gameplay = function(){
 
         }
 
-    }
+    };
 	
 	//PUBLIC FUNCTION: disallowSelectChange
 	//Remove the ability to select any new units or deselect a currently
@@ -173,7 +179,7 @@ var Gameplay = function(){
 		});
 		
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: displayUnitCard
 	//Display the card for a moused over unit
@@ -213,7 +219,7 @@ var Gameplay = function(){
 			
 		}
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: endGame
 	//End the game
@@ -221,7 +227,7 @@ var Gameplay = function(){
 		
 		alert( 'GAME OVER' );
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: executeMove
 	//Adjust the stats and display to reflect the move
@@ -253,7 +259,7 @@ var Gameplay = function(){
 		//Move the unit visually
 		Game_gameplay.setupUnit( 1, Game_gameplay.selectedUnit );
 	
-	}
+	};
 	
 	//PUBLIC FUNCTION: getGameUpdate
 	//Get an update on everything in the game and set things up appropriately
@@ -282,7 +288,7 @@ var Gameplay = function(){
                         //Process the game update
                         Game_gameplay.processGameUpdate( jSONData );
                         //Check if the game's over
-                        if( jSONData.gameInformation.game_over == true ){
+                        if( true == jSONData.gameInformation.game_over ){
                             Game_gameplay.endGame();
                         }
                         break;
@@ -302,7 +308,7 @@ var Gameplay = function(){
 		);
 			
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleCardDisplay
 	//Display the unit card containing all of the unit's statistics when it's moused over
@@ -320,7 +326,7 @@ var Gameplay = function(){
 		
 		});
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleEverything
 	//Just be Pepper Potts already, do everything
@@ -340,7 +346,7 @@ var Gameplay = function(){
         //Get the game data if we aren't dealing with a demo board
         Game_gameplay.getGameUpdate();
 
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleMoveToTile
 	//Handle clicks on tiles highlighted for movement
@@ -374,7 +380,7 @@ var Gameplay = function(){
 					//We still only want to add a listener to this unit once
 					var unitElement = jQuery('div.gameplayUnit[uid="'+unitObject.uid+'"]');
 					
-					if( unitObject.defense > 0 && ! unitElement.isBound( 'click', Game_gameplay.moveSelectedUnitToUnit ) ){
+					if( 0 < unitObject.defense && ! unitElement.isBound( 'click', Game_gameplay.moveSelectedUnitToUnit ) ){
 						
 						unitElement.bind(
 							'click',
@@ -394,7 +400,7 @@ var Gameplay = function(){
 
 		});
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleSelectionOfAnyUnit
 	//Setup a function to handle the selection of any of the player's units	
@@ -412,20 +418,20 @@ var Gameplay = function(){
 			
 		});
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleUnitSelection
 	//Handle selecting the unit when its clicked on
 	this.handleUnitSelection = function(){
 		
 		//If we still don't have a selected unit then allow the user to select any of their units
-		if( Game_gameplay.selectedUnit.uid != false ){
+		if( false != Game_gameplay.selectedUnit.uid ){
 			Game_gameplay.processUnitSelection();	
 		}else{
 			Game_gameplay.handleSelectionOfAnyUnit();
 		}
 	
-	}
+	};
 	
 	//PUBLIC FUNCTION: highlightSelectedUnitPaths
 	//Highlight the spaces the unit can move to
@@ -454,7 +460,7 @@ var Gameplay = function(){
 			}
 		);
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: highlightUnitPath
 	//Highlight an available path
@@ -498,7 +504,7 @@ var Gameplay = function(){
 			
 		}
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: killUnit
 	//Kill the given unit
@@ -536,7 +542,7 @@ var Gameplay = function(){
 	
 			
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: moveSelectedUnitToTile
 	//When a highlighted tile is clicked the selected unit should be moved to it
@@ -553,7 +559,7 @@ var Gameplay = function(){
 		Game_gameplay.executeMove( tileMovedTo );
 				
 				
-	}
+	};
 	
 	//PUBLIC FUNCTION: moveSelectedUnitToUnit
 	//Move the selected unit to the position of the unselected unit
@@ -577,7 +583,7 @@ var Gameplay = function(){
 			
 		});
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: processGameUpdate
 	//Handle game update
@@ -603,22 +609,18 @@ var Gameplay = function(){
         }
 
         //Note the selected unit
-		window.pageData.Game.selected_unit_uid  = jSONData.gameInformation.Game.selected_unit_uid;
-		if( window.pageData.Game.selected_unit_uid == null ){
+		window.pageData.Game.selected_unit_uid = jSONData.gameInformation.Game.selected_unit_uid;
+		if( null === window.pageData.Game.selected_unit_uid ){
 			Game_gameplay.resetSelectedUnit();
 		}
 
-		//Find whose turn it is
-		if( jSONData.gameInformation.ActiveUser[0].UserGame.users_uid == window.pageData['User']['uid'] ){
-			window.pageData.Game.playersTurn	= true;
-		}else{
-			window.pageData.Game.playersTurn    = false;
-		}
+		//Check if it is the current player's turn
+		window.pageData.Game.playersTurn = jSONData.gameInformation.ActiveUser[0].UserGame.users_uid == window.pageData['User']['uid'];
 		
 		//Reset the turn data
 		Game_gameplay.resetTurnData();
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: processUnitSelection
 	//Do the work that needs to occur after a unit has been selected.
@@ -636,7 +638,7 @@ var Gameplay = function(){
 		jQuery( selectedUnitDOMElement ).addClass( 'highlighted' );
 		Game_gameplay.handleMoveToTile();
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: pushMoveToServer
 	//Push the selected move the unit has made to the server
@@ -665,7 +667,7 @@ var Gameplay = function(){
 			}
 		);
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: resetSelectedUnit
 	//Reset the selected unit
@@ -674,46 +676,46 @@ var Gameplay = function(){
 		Game_gameplay.selectedUnit 		= new Object();
 		Game_gameplay.selectedUnit.uid 	= false;
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: resetTurnData
 	//Reset everything as if a unit has never moved
 	this.resetTurnData = function(){
 
-        if( ! Game_gameplay.boardReady ){
+        if( Game_gameplay.boardReady ){
 
-            //Don't setup the game until the board is ready
-            EventBus.addEventListener("GAME_BOARD_CREATED", function(){
+	        //Reposition all the units
+	        Game_gameplay.setupUnits();
 
-                Game_gameplay.boardReady = true;
-                Game_gameplay.resetTurnData();
+	        //Clear everything
+	        Game_gameplay.clearEverything();
 
-            }, Game_elements );
+	        //Grab the selected unit
+	        Game_gameplay.grabSelected();
+
+	        //If its the player's turn then setup unit selection,
+	        //otherwise setup a timer to check if it's the user's turn yet
+	        if( window.pageData.Game.playersTurn ){
+		        //Handle selecting of the player's units
+		        Game_gameplay.handleUnitSelection();
+	        }else{
+		        //Setup callback timer to get game updates
+		        Game_gameplay.getGameUpdate();
+	        }
 
         }else{
 
-            //Reposition all the units
-            Game_gameplay.setupUnits();
+	        //Don't setup the game until the board is ready
+	        EventBus.addEventListener("GAME_BOARD_CREATED", function(){
 
-            //Clear everything
-            Game_gameplay.clearEverything();
+		        Game_gameplay.boardReady = true;
+		        Game_gameplay.resetTurnData();
 
-            //Grab the selected unit
-            Game_gameplay.grabSelected();
-
-            //If its the player's turn then setup unit selection,
-            //otherwise setup a timer to check if it's the user's turn yet
-            if( window.pageData.Game.playersTurn ){
-                //Handle selecting of the player's units
-                Game_gameplay.handleUnitSelection();
-            }else{
-                //Setup callback timer to get game updates
-                Game_gameplay.getGameUpdate();
-            }
+	        }, Game_elements );
 
         }
 
-	}
+	};
 	
 	//PUBLIC FUNCTION: selectUnit
 	//Select the given unit
@@ -731,7 +733,7 @@ var Gameplay = function(){
 		
 		Game_gameplay.processUnitSelection();
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: setupUnit
 	//Setup the given unit
@@ -748,7 +750,7 @@ var Gameplay = function(){
 		Game_gameplay.handleCardDisplay( unitObject );
 
 		//If the unit is still alive, move it into position
-		if( unitObject.defense > 0 ){
+		if( 0 < unitObject.defense ){
 						
 			//Align the unit with its tile position
 			Game_gameplay.arrangeUnit( unitObject );
@@ -761,7 +763,7 @@ var Gameplay = function(){
 			
 		}
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: setupUnits
 	//Arrange all of the gameplay units
@@ -773,7 +775,7 @@ var Gameplay = function(){
 		//Loop through all of the units
 		jQuery.each( window.pageData.Game.GameUnit,  Game_gameplay.setupUnit );
 
-	}
+	};
 	
 	//PUBLIC FUNCTION: unhighlightEverything
 	//Unhighlight everything that has been highlighted
@@ -782,7 +784,7 @@ var Gameplay = function(){
 		jQuery( '.highlighted' ).removeClass( 'highlighted' );	
 		jQuery( '.highlightedForMove' ).removeClass( 'highlightedForMove' );
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: unhighlightUnitPaths
 	//Remove all the paths for the selected unit
@@ -792,7 +794,7 @@ var Gameplay = function(){
         var highlightedForMoveDOMElements   = jQuery('.highlightedForMove');
 
         //Do nothing if there's nothing to do anything to
-        if( gameplayUnitDOMElements.length != 0 ){
+        if( 0 != gameplayUnitDOMElements.length ){
             //Remove the event listeners from any units
             jQuery.each( gameplayUnitDOMElements, function(){
 
@@ -807,7 +809,7 @@ var Gameplay = function(){
         }
 
         //Do nothing if there's nothing to do anything to
-        if( highlightedForMoveDOMElements.length != 0 ){
+        if( 0 != highlightedForMoveDOMElements.length ){
             //Remove the event listener for the highlighted tiles
             jQuery.each( highlightedForMoveDOMElements, function(){
 
@@ -824,7 +826,7 @@ var Gameplay = function(){
 
         }
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: updateUnitStats
 	//Update the unit's statistics as they are displayed on its game tile
@@ -836,4 +838,4 @@ var Gameplay = function(){
 		
 	}
 	
-}
+};

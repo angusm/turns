@@ -5,7 +5,7 @@
 	}
 
 	div.removeFromTeam{
-		background-color:	#F00;
+		background-color: rgb(255, 0, 0);
 		position:			absolute;
 		height:				30%;
 		left:				35%;
@@ -18,7 +18,7 @@
 		margin-left:	-200px;
 		margin-right:	20px;
 		height:			1.1em;
-		border:			0px;
+		border:			0;
 	}
 	select.editableSelect{
 		width: 200px;

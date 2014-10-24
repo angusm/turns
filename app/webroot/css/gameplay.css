@@ -1,8 +1,7 @@
 @charset "utf-8";
 
 	.highlighted{
-   		-webkit-filter: grayscale;
-		-webkit-filter: brightness(150%); 		
+   		-webkit-filter: grayscale brightness(150%);
 	}
 
 	div.gameBoard > div.gameTile{
@@ -24,22 +23,22 @@
 	}
 	
 	div.gameplayUnitDefense{
-		bottom:         0px;
-        color:          #088A29;
+		bottom:         0;
+        color: rgb(8, 138, 41);
 		font-size:      16px;
 		font-weight:    bold;
         letter-spacing: -2px;
 		padding:        5px;
 		position:       absolute;
-        right:          0px;
+        right:          0;
 	}
 	
 	div.gameplayUnitAttack{
-		bottom:         0px;
-        color:          #B45F04;
+		bottom:         0;
+        color: rgb(180, 95, 4);
 		font-size:      16px;
 		font-weight:    bold;
-        left:           0px;
+        left:           0;
         letter-spacing: -2px;
 		padding:        5px;
 		position:       absolute;

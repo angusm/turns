@@ -3,6 +3,9 @@
 //Catalogue Category Relationship
 //Parent class for all other catalogue category relationships
 
+/**
+ * Class CatalogueCategoryRelationship
+ */
 class CatalogueCategoryRelationship extends AppModel {
 
 	//ASSOCIATIONS:
@@ -23,6 +26,11 @@ class CatalogueCategoryRelationship extends AppModel {
 	//In all likelihood this should be overwritten by the child class
 	//to provide better error and exception handling for when the user
 	//hasn't provided perfect data.
+	/**
+	 * @param $categoryID
+	 * @param $nuRelationship
+	 * @return array|bool|int|mixed|string
+	 */
 	public function addRelationship( $categoryID, $nuRelationship ){
 	
 		//First make sure we don't have a relationship for this
@@ -59,6 +67,11 @@ class CatalogueCategoryRelationship extends AppModel {
 			
 	//FUNCTION: getListForManagement
 	//Returns a list of the various records associated with a given category
+	/**
+	 * @param $categoryID
+	 * @param array $fields
+	 * @return array
+	 */
 	public function getListForManagement( $categoryID, $fields = [] ){
 	
 		//In addition to any other fields, get the ID
@@ -77,6 +90,9 @@ class CatalogueCategoryRelationship extends AppModel {
 	
 	//FUNCTION: removeRelationship
 	//Removes a given relationship from the category
+	/**
+	 * @param $relationshipID
+	 */
 	public function removeRelationship( $relationshipID ){
 	
 		$this->delete( $relationshipID, false );

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class StaticContentsController
+ */
 class StaticContentsController extends AppController{
 
     //FUNCTIONS

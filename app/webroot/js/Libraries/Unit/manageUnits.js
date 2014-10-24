@@ -5,11 +5,11 @@
 //Setup the dependencies function
 var loadDependenciesFor_Unit_manageUnits = function(){
 
-    libraries.push( new Array( 'Game', 'elements' ) );
-    libraries.push( new Array( 'Game', 'gameplay' ) );
-    libraries.push( new Array( 'Card', 'CardManager') );
+    libraries.push( ['Game', 'elements'] );
+    libraries.push( ['Game', 'gameplay'] );
+    libraries.push( ['Card', 'CardManager'] );
 
-}
+};
 
 //DOCUMENT READY
 //When the document is fully ready, call the main function
@@ -63,7 +63,7 @@ function ManageUnits(){
 			}
 		);
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: addUnitToTeam
 	//Add the unit to the selected team
@@ -75,7 +75,7 @@ function ManageUnits(){
         var selectedY   = jQuery( tileElement ).attr( 'y' );
 
         //See if there's already a unit positioned on the given tile
-        if( jQuery( 'div.removeFromTeam[x="'+selectedX+'"][y="'+selectedY+'"]' ).length != 0 ){
+        if( 0 != jQuery('div.removeFromTeam[x="' + selectedX + '"][y="' + selectedY + '"]').length ){
 			return false;
 		}
 
@@ -105,7 +105,7 @@ function ManageUnits(){
 			}
 		);
 			
-	}
+	};
 	
 	//PUBLIC FUNCTION: debitUnitPool
 	//Subtract the unit counts of the team list from the player's unit pool
@@ -129,7 +129,7 @@ function ManageUnits(){
 						
 		});
 			
-	}
+	};
 	
 	//PUBLIC FUNCTION: displayTeamUnits
 	//Display the starting positions of the units on the team
@@ -145,7 +145,7 @@ function ManageUnits(){
 
             //Grab the unit's board icon
             jQuery.each( unitData['UnitType']['UnitArtSet']['UnitArtSetIcon'], function( iconKey, iconData ){
-                if( iconData['Icon']['icon_positions_uid'] == 3 ){
+                if( 3 == iconData['Icon']['icon_positions_uid'] ){
                     unitBoardIcon = iconData['Icon']['image'];
                     return false;
                 }
@@ -191,7 +191,7 @@ function ManageUnits(){
         Unit_manageUnits.handleRemoveFromTeamButton();
         Unit_manageUnits.handleMouseoverUnit();
 		
-	}
+	};
 
     //PUBLIC FUNCTION: displayUnitCard
     //Handle the display of a unit
@@ -200,7 +200,7 @@ function ManageUnits(){
         var unitTypeUID = jQuery( gameplayUnitElement).attr('unitTypeUID');
         Card_CardManager.showCardByUnitType( unitTypeUID );
 
-    }
+    };
 
 
 	//PUBLIC FUNCTION: finalizeTeamAdd
@@ -209,7 +209,7 @@ function ManageUnits(){
 	this.finalizeTeamAdd = function( jSONData ){
 		
 		//Make sure we're not dealing with an unsuccessful add
-		if( jSONData['teamData'] != false ){
+		if( false != jSONData['teamData'] ){
 			
 			//Grab the team data
 			var teamData = jSONData['teamData']['Team'];
@@ -234,29 +234,29 @@ function ManageUnits(){
 		
 		}
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: finalizeUnitAdd
 	//Once we've gotten confirmation from the server we can actually show the add as completed to the user
 	this.finalizeUnitAdd = function( jSONData ){
 		
 		//If the add was successful then update the display
-		if( jSONData['success'] != false ){
+		if( false != jSONData['success'] ){
             Unit_manageUnits.loadTeamUnits();
 		}
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: finalizeUnitRemove
 	//Once we've gotten confirmation from the server we can actually show the remove as completed to the user
 	this.finalizeUnitRemove = function( jSONData ){
 		
 		//If the remove was successful then update the display
-		if( jSONData['success'] != false ){
+		if( false != jSONData['success'] ){
             Unit_manageUnits.loadTeamUnits();
 		}
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: getUnitTDCell
 	//Create a cell with some unit data in there
@@ -269,7 +269,7 @@ function ManageUnits(){
 				'>' 			+ value + '</td>';
 				
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleAddToTeamButton
 	//Handles someone clicking on the button to add the given unit to their
@@ -283,7 +283,7 @@ function ManageUnits(){
 			Unit_manageUnits.highlightSelectedUnit( this );
 		});
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleChangeTeam
 	//If the user changes the selected team then we better change
@@ -300,7 +300,7 @@ function ManageUnits(){
 			
 		});
 		
-	}
+	};
 	
 	//PUBLIC FUCNTION: handleChangeTeamName
 	//Save team name changes to the database
@@ -317,7 +317,7 @@ function ManageUnits(){
 			
 		});
 				
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleEverything
 	//The Pepper Potts function, in that it will just handle everything
@@ -327,7 +327,9 @@ function ManageUnits(){
         Unit_manageUnits.loadCardData();
 
         //Place the units
-        if( Unit_manageUnits.boardReady != true ){
+        if( true === Unit_manageUnits.boardReady ) {
+	        Unit_manageUnits.handlePlaceUnit();
+        }else{
 
             EventBus.addEventListener("GAME_BOARD_CREATED", function(){
 
@@ -337,8 +339,6 @@ function ManageUnits(){
 
             }, Game_elements );
 
-        }else{
-            Unit_manageUnits.handlePlaceUnit();
         }
 
 		Unit_manageUnits.handleAddToTeamButton();
@@ -348,7 +348,7 @@ function ManageUnits(){
 		Unit_manageUnits.handleRemoveTeam();
 		Unit_manageUnits.loadTeamUnits();
 
-	}
+	};
 
     //PUBLIC FUNCTION: handleMouseoverUnit
     //Handle displaying unit information in a card during a mouseover
@@ -365,7 +365,7 @@ function ManageUnits(){
 
         });
 
-    }
+    };
 	
 	//PUBLIC FUNCTION: handleNewTeamButton
 	//Handle the button that allows the user to create a new team
@@ -385,7 +385,7 @@ function ManageUnits(){
 			
 		});
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: handlePlaceUnit
 	//Handle placing the selected unit on a clicked tile
@@ -402,7 +402,7 @@ function ManageUnits(){
 			
 		});
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleRemoveFromTeamButton
 	//Handles someone clicking on the button to remove the given unit from
@@ -419,7 +419,7 @@ function ManageUnits(){
 			}
 		});
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleRemoveTeam
 	//Remove the selected team from the database when it is clicked
@@ -435,7 +435,7 @@ function ManageUnits(){
 			);
 		}
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: highlightSelectedUnit
 	//Highlight the row of the unit that was selected to be added
@@ -449,7 +449,7 @@ function ManageUnits(){
 		//Highlight anything to do with that unit
 		jQuery( '[modelName="Unit"][uid="' + Unit_manageUnits.selectedUnitTypeUID + '"]' ).addClass( 'Unit_manageUnits_selectedUnit' );
 		
-	}
+	};
 
     //PUBLIC FUNCTION: loadCardData
     //Load all the card data for the units the player has available
@@ -459,7 +459,7 @@ function ManageUnits(){
             Card_CardManager.loadCardData( jQuery(this).attr('uid') );
         });
 
-    }
+    };
 	
 	//PUBLIC FUNCTION: loadTeamUnits
 	//Load all the units on a team into the display box on the page
@@ -479,7 +479,9 @@ function ManageUnits(){
 
                 window.pageData.TeamUnits = jSONData['unitsOnTeam'];
 
-                if( ! Unit_manageUnits.boardReady ){
+                if( Unit_manageUnits.boardReady ) {
+	                Unit_manageUnits.processTeamLoad();
+                }else{
 
                     //Don't setup the game until the board is ready
                     EventBus.addEventListener("GAME_BOARD_CREATED", function(){
@@ -489,12 +491,7 @@ function ManageUnits(){
 
                     }, Game_elements );
 
-                }else{
-
-                    Unit_manageUnits.processTeamLoad();
-
                 }
-
 
 			}
 		).done( 
@@ -508,7 +505,7 @@ function ManageUnits(){
 			}
 		);
 
-	}
+	};
 	
 	//PUBLIC FUNCTION: placeSelectedUnit
 	//Places the currently selected unit into the given position
@@ -517,14 +514,14 @@ function ManageUnits(){
 		
 		//Make sure we have a selected unit, if we do then continue,
 		//otherwise do nothing
-		if( Unit_manageUnits.selectedUnitTypeUID != false ){
+		if( false != Unit_manageUnits.selectedUnitTypeUID ){
 
 			//Add the selected unit, passing the selected tile as a parameter
 			Unit_manageUnits.addUnitToTeam( triggeringEvent.target );
 			
 		}
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: populateTeamUnits
 	//Build the HTML that will actually display the team units
@@ -563,7 +560,7 @@ function ManageUnits(){
 		//Debit the unitl pool
 		Unit_manageUnits.debitUnitPool();
 		
-	}
+	};
 
     //PUBLIC FUNCTION: processTeamLoad
     //When we have team data and the board is ready, show it all to the user
@@ -571,7 +568,7 @@ function ManageUnits(){
         Unit_manageUnits.refundUnitPool();
         Unit_manageUnits.populateTeamUnits();
         Unit_manageUnits.displayTeamUnits();
-    }
+    };
 	
 	//PUBLIC FUNCTION: refundUnitPool
 	//Take all the Unit Types that are in the currently selected team and refund their
@@ -599,7 +596,7 @@ function ManageUnits(){
 		jQuery( 'div.teamUnits > table > tbody > tr[modelName="Unit"]' ).remove();
         jQuery( 'div.gameplayUnit').remove();
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: removeTeam
 	//Remove the team from the database
@@ -631,7 +628,7 @@ function ManageUnits(){
 			}
 		);
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: removeUnitFromTeam
 	//Remove the unit from the selected team
@@ -668,7 +665,7 @@ function ManageUnits(){
 			}
 		);
 			
-	}
+	};
 	
 	//PUBLIC FUNCTION: saveTeamName
 	//Save the team name to the database

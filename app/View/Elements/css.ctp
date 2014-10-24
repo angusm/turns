@@ -9,4 +9,3 @@
     echo $this->Html->css('turns');
     echo $this->Html->css('gameplay');
 
-?>

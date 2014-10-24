@@ -4,7 +4,8 @@
 jQuery( document).ready( function(){
 
     //Adjust the main page content to reflect the size of the main menu
-    jQuery( 'div#mainPage').css( 'margin-left', jQuery('div#mainMenu').width() + 'px' );
+	var mainMenuWidth = jQuery('div#mainMenu').width();
+    jQuery( 'div#mainPage').css( 'margin-left', mainMenuWidth + 'px' );
 
     //Hide the menu on a logo clikc
     jQuery(this).on(

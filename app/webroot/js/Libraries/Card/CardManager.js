@@ -13,8 +13,8 @@ function CardManager() {
         //Don't load a unit we're already loading, that'd be wasteful
         //Also if nothing was provided then don't load anything
         if (
-            typeof unitTypeUID !== 'undefined' &&
-            window.pageData.CardData[unitTypeUID] != 'loading'
+            'undefined' !== typeof unitTypeUID &&
+            'loading' != window.pageData.CardData[unitTypeUID]
         ) {
 
             //Set the unit's loading stance
@@ -34,7 +34,7 @@ function CardManager() {
                     //Load whatever is queued for this unit, this way old loads won't overwrite new requests
                     //but still allows for old loads to load up if nothing else has been requested, provided that
                     //we have an element we want to load and aren't just grabbing data
-                    if( typeof elementIdentifier !== 'undefined' ){
+                    if( 'undefined' !== typeof elementIdentifier ){
                         Card_CardManager.showCardByUnitType( Card_CardManager.queuedUnits[elementIdentifier], elementIdentifier );
                     }
                 }
@@ -48,7 +48,7 @@ function CardManager() {
 
         }
 
-    }
+    };
 
     //FUNCTION: showCardByUnitType
     //This will load the given card div with the given unit type's information
@@ -58,11 +58,11 @@ function CardManager() {
         Card_CardManager.queuedUnits[elementIdentifier] = unitTypeUID;
 
         //Handle default initialization
-        unitTypeUID         = typeof unitTypeUID        !== 'undefined' ? unitTypeUID :         4;
-        elementIdentifier   = typeof elementIdentifier  !== 'undefined' ? elementIdentifier :   'div.unitCard';
+	    unitTypeUID         = defaultValue( unitTypeUID, 4 );
+	    elementIdentifier   = defaultValue( elementIdentifier, 'div.unitCard' );
 
         //Check if they unit is loaded into the page data already, if it's not then load it and come back to this function
-        if( typeof window.pageData.CardData[unitTypeUID] !== 'undefined' && window.pageData.CardData[unitTypeUID] != 'loading' ){
+        if( 'undefined' !== typeof window.pageData.CardData[unitTypeUID] && 'loading' != window.pageData.CardData[unitTypeUID] ){
 
             //Grab the element
             var cardDiv =  jQuery(elementIdentifier);
@@ -110,7 +110,7 @@ function CardManager() {
                         for( var barCounter = 0; barCounter < cardData['UnitStat']['damage']; barCounter++ ){
                             damageBarToAdd += '<img class="attributePoint" src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />';
                         }
-                        damageBarToAdd += '<div class="attributeValue">'+cardData['UnitStat']['damage']+'</div>'
+                        damageBarToAdd += '<div class="attributeValue">'+cardData['UnitStat']['damage']+'</div>';
                         cardDiv.find('div.damageBar').html( damageBarToAdd );
                         break;
 
@@ -120,7 +120,7 @@ function CardManager() {
                         for( var barCounter = 0; barCounter < cardData['UnitStat']['defense']; barCounter++ ){
                             defenseBarToAdd += '<img class="attributePoint" src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />';
                         }
-                        defenseBarToAdd += '<div class="attributeValue">'+cardData['UnitStat']['defense']+'</div>'
+                        defenseBarToAdd += '<div class="attributeValue">'+cardData['UnitStat']['defense']+'</div>';
                         cardDiv.find('div.defenseBar').html( defenseBarToAdd );
                         break;
 
@@ -135,7 +135,7 @@ function CardManager() {
                         for( var barCounter = 0; barCounter < cardData['UnitStat']['teamcost']; barCounter++ ){
                             teamCostBarToAdd += '<img class="attributePoint" src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />';
                         }
-                        teamCostBarToAdd += '<div class="attributeValue">'+cardData['UnitStat']['teamcost']+'</div>'
+                        teamCostBarToAdd += '<div class="attributeValue">'+cardData['UnitStat']['teamcost']+'</div>';
                         break;
 
                     //Grab the direction arrow icon
@@ -147,6 +147,10 @@ function CardManager() {
                     case '12':
                         teamCostIcon = '<img class="attributePoint" src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />';
                         break;
+
+	                default:
+		                //Do nothing
+		                break;
 
                 }
             });

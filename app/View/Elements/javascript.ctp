@@ -5,10 +5,9 @@
 		echo $this->Html->script('Core');
 		echo $this->element('script_dump'); 
 		echo '<script>' .
-			'var getJSURL 		= "'. $this->Html->url(array("controller" => "js", "action" => "")) .'/";' .
+			'var getJSURL 		= "'. $this->Html->url(["controller" => "js", "action" => ""]) .'/";' .
 			'var homeURL 		= "'. $this->webroot .'";' .
-			'var imgURL 		= "'. $this->Html->url(array("controller" => "img", "action" => "")) . '/";' .
+			'var imgURL 		= "'. $this->Html->url(["controller" => "img", "action" => ""]) . '/";' .
 			'var boardTileSize 	= 70;'.
 		'</script>';
 		
-?>
