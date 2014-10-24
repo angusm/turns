@@ -66,6 +66,9 @@ class AppController extends Controller {
 
     //PROTECTED FUNCTION: getInstance
     //Return an instance of whatever model this is the controller for
+	/**
+	 * @return object
+	 */
 	protected function getInstance(){
 	
 		//Get the model name from the built in CakePHP function

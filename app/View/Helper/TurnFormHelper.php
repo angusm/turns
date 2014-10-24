@@ -4,6 +4,9 @@
 
 App::uses('AppHelper', 'View/Helper');
 
+/**
+ * Class TurnFormHelper
+ */
 class TurnFormHelper extends AppHelper {
 	
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
@@ -16,6 +19,11 @@ class TurnFormHelper extends AppHelper {
 	//	extraAttributes =>		Array of extra attributes to be attached to the select
 	//	includeSaveButton =>	Boolean indicating whether or not a save button should be shown
 	//Create a standard model select with an overlayed textbox input so that it can be edited
+	/**
+	 * @param $modelArray
+	 * @param array $optionalParameters
+	 * @return string
+	 */
 	public function editableModelSelect( $modelArray, $optionalParameters=[] ){
 	
 	
@@ -139,6 +147,11 @@ class TurnFormHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: fieldInput
 	//Creates a labeled field for inputting data for a table row
+	/**
+	 * @param $modelName
+	 * @param $fieldName
+	 * @return string
+	 */
 	public function fieldInput( $modelName, $fieldName ){
 		
 		//Initialize the return string
@@ -158,12 +171,16 @@ class TurnFormHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: fieldInputLabel
 	//Return a nice label for the field
+	/**
+	 * @param $modelName
+	 * @param $fieldName
+	 * @return mixed
+	 */
 	public function fieldInputLabel( $modelName, $fieldName ){
 		
 		//Get some nice human type names for things	
 		$humanFieldName = Inflector::humanize( $fieldName );
-		$humanModelName = Inflector::humanize( $modelName );
-		
+
 		return $this->Html->tag( 
 								'label',
 								$humanFieldName,
@@ -179,6 +196,12 @@ class TurnFormHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: fieldInputTextbox
 	//Return a nice label for the field
+	/**
+	 * @param $modelName
+	 * @param $fieldName
+	 * @param array $extraAttributes
+	 * @return mixed
+	 */
 	public function fieldInputTextbox( $modelName, $fieldName, $extraAttributes=[] ){
 		
 		//Get some nice human type names for things	
@@ -207,6 +230,11 @@ class TurnFormHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: fieldsFromInitialModelStructure
 	//Return the fields from an initial model structure
+	/**
+	 * @param $modelName
+	 * @param $structure
+	 * @return string
+	 */
 	public function fieldsFromModelStructure( $modelName, $structure ){
 		
 		//Initialize the return string
@@ -231,6 +259,11 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: fullModelSetupForm
 	//Returns a complete form with all the necessary fields to completely
 	//set up a model.
+	/**
+	 * @param $structure
+	 * @param string $extraContent
+	 * @return string
+	 */
 	public function fullModelSetupForm( $structure, $extraContent='' ){
 	
 		//Initialize the return string
@@ -317,7 +350,12 @@ class TurnFormHelper extends AppHelper {
     //PUBLIC FUNCTION: loadingDiv
     //A div that can be displayed (is hidden by default) when requests to the server
     //are in progress
-    public function loadingDiv($modelName, $extraAttributes=[] ){
+	/**
+	 * @param $modelName
+	 * @param array $extraAttributes
+	 * @return mixed
+	 */
+	public function loadingDiv($modelName, $extraAttributes=[] ){
 
         //Get the internal name, i.e. strip out the spaces
         $internalModelName 	= str_replace(' ', '', $modelName);
@@ -344,6 +382,12 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: modelSelect
 	//Creates a select box that contains all the data of the immediate
 	//model abstracted into the nice little metadata of the select boxes
+	/**
+	 * @param $modelArray
+	 * @param string $displayField
+	 * @param array $extraAttributes
+	 * @return mixed
+	 */
 	public function modelSelect( $modelArray, $displayField='name', $extraAttributes=[] ){
 	
 		//First things first, we check to see if the modelArray
@@ -407,11 +451,11 @@ class TurnFormHelper extends AppHelper {
 				$displayField = 'uid';
 			}
 			
-			//Make sure we add a vlue to the option so that we can use all kinds of lovely
+			//Make sure we add a value to the option so that we can use all kinds of lovely
 			//value based jQuery on it
 			$modelInstance[$modelName]['value'] = $modelInstance[$modelName]['uid'];
 			
-			//Add this option with all its smexy meta data to the options string
+			//Add this option with all its sexy meta data to the options string
 			$optionsString .= $this->Html->tag( 
 				'option', 
 				$modelInstance[$modelName][$displayField], 
@@ -434,6 +478,11 @@ class TurnFormHelper extends AppHelper {
 	//The model name can be provided with spaces, so that if for
 	//instance we were to create a newRecord button for UnitType
 	//We could safely provide the model name as "Unit Type"
+	/**
+	 * @param $modelName
+	 * @param array $extraAttributes
+	 * @return mixed
+	 */
 	public function newRecordButton( $modelName, $extraAttributes=[] ){
 	
 		//Get the internal name, i.e. strip out the spaces
@@ -463,6 +512,11 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: removeRecordButton
 	//A button designed for removing records, just feed it
 	//a model name same as you would for a newRecordButton
+	/**
+	 * @param $modelName
+	 * @param array $extraAttributes
+	 * @return mixed
+	 */
 	public function removeRecordButton( $modelName, $extraAttributes=[] ){
 	
 		//Get the internal name, i.e. strip out the spaces
@@ -478,7 +532,7 @@ class TurnFormHelper extends AppHelper {
 							'value'				=> 	'Delete '.$modelName
 						];
 							
-		//Add any extra requeseted attributes
+		//Add any extra requested attributes
 		$attributes = array_merge( $attributes, $extraAttributes );
 	
 		//Return the properly formatted tag
@@ -493,6 +547,11 @@ class TurnFormHelper extends AppHelper {
 	//PUBLIC FUNCTION: saveRecordButton
 	//A button designed for saving records, just feed it
 	//a model name same as you would for a newRecordButton
+	/**
+	 * @param $modelName
+	 * @param array $extraAttributes
+	 * @return mixed
+	 */
 	public function saveRecordButton( $modelName, $extraAttributes=[] ){
 	
 		//Get the internal name, i.e. strip out the spaces
@@ -508,7 +567,7 @@ class TurnFormHelper extends AppHelper {
 							'value'			=> 	'Save '.$modelName
 						];
 							
-		//Add any extra requeseted attributes
+		//Add any extra requested attributes
 		$attributes = array_merge( $attributes, $extraAttributes );
 	
 		//Return the properly formatted tag
@@ -524,11 +583,14 @@ class TurnFormHelper extends AppHelper {
 	//Creates a labeled field for inputting data for a SQL table row
 	//inside of tags that will fit nicely inside of an HTML table
 	//All kinds of tables up in this bitch
+	/**
+	 * @param $parentModelName
+	 * @param $modelName
+	 * @param $fieldName
+	 * @return mixed
+	 */
 	public function tableFieldBelongsToSelection( $parentModelName, $modelName, $fieldName ){
-			
-		//Initialize the return string
-		$returnString = '';
-		
+
 		//Give it a label
 		$labelString = $this->fieldInputLabel( $parentModelName, $fieldName );
 		
@@ -576,6 +638,11 @@ class TurnFormHelper extends AppHelper {
 	//Creates a labeled field for inputting data for a SQL table row
 	//inside of tags that will fit nicely inside of an HTML table
 	//All kinds of tables up in this bitch
+	/**
+	 * @param $modelName
+	 * @param $fieldName
+	 * @return string
+	 */
 	public function tableFieldInput( $modelName, $fieldName ){
 			
 		if(
@@ -622,6 +689,11 @@ class TurnFormHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: tableFieldsFromInitialModelStructure
 	//Return the fields from an initial model structure
+	/**
+	 * @param $modelName
+	 * @param $structure
+	 * @return mixed
+	 */
 	public function tableFieldsFromModelStructure( $modelName, $structure ){
 				
 		//Setup a string to hold all the lovely contents
@@ -635,9 +707,6 @@ class TurnFormHelper extends AppHelper {
 		//In this way when we create the fields we can create a model select
 		//field instead of an input field
 		$modelInstance = ClassRegistry::init( $modelName );
-		
-		//Get the belongs to
-		$belongsTo = $modelInstance->belongsTo;
 
 		//Setup an array to contain the fields
 		$belongsToFields = $modelInstance->getBelongsToFieldsArray();
@@ -667,22 +736,22 @@ class TurnFormHelper extends AppHelper {
 		//Create the table tag and unceremoniously cram in
 		//the contents
 		$returnString = $this->Html->tag(
-										'table',
-										$tableContents,
-										[
-											'class' => 'modelFields'
-										]
-									);
+			'table',
+			$tableContents,
+			[
+				'class' => 'modelFields'
+			]
+		);
 									
 		//Return the table inside of a div so that it will display
 		//nicely
 		$returnString = $this->Html->tag(
-										'div',
-										$returnString,
-										[
-											'class' => 'modelFieldsDiv'
-										]
-									);
+			'div',
+			$returnString,
+			[
+				'class' => 'modelFieldsDiv'
+			]
+		);
 		
 		//Return the return string
 		return $returnString;		

@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class UnitStat
+ */
 class UnitStat extends AppModel {
 	
 	//Setup the associations for UnitType
@@ -15,7 +19,10 @@ class UnitStat extends AppModel {
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
-	public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 			parent::__construct(); 
 			
 		//Setup rules that apply to all attributes
@@ -44,6 +51,9 @@ class UnitStat extends AppModel {
 	
 	//PUBLIC FUNCTION: getUIDs
 	//Return a list of all the UIDs
+	/**
+	 * @return array
+	 */
 	public function getUIDs(){
 	
 		return $this->find( 'list', [

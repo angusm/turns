@@ -5,7 +5,7 @@ var MenuItem = function(){
 	this.openedItems        = { 0:null };
     this.menuItems          = [];
 
-}
+};
 
 //FUNCTIONS
 MenuItem.prototype = {
@@ -13,7 +13,7 @@ MenuItem.prototype = {
     //Grab all of the menu items
     loadMenuItems:function(){
 
-        var _this = this;
+        var self = this;
 
         //Empty main menu div
         jQuery('div#mainMenu').html('');
@@ -25,37 +25,34 @@ MenuItem.prototype = {
 			},
 			function( jSONData ){
 				//Grab the menu items and set them up
-                _this.menuItems = jSONData.menuItems;
-                _this.setupMenu();
+                self.menuItems = jSONData.menuItems;
+                self.setupMenu();
             }
 		);
 	},
 
     setupMenu:function(){
 
-        var parameterSetsAttribute  = '';
-        var _this                   = this;
-        var menuItemContainer       = 'div#mainMenu';
+
+        var self = this;
 
         //Loop through each menu item and create the appropriate DIVs
         jQuery.each( this.menuItems, function( menuItemIndex, menuItem ){
 
             //Determine whether we want to append to the top level or as a
             //sub menu
-            if( menuItem['MenuItem']['parent_uid'] != null ){
+	        var menuItemContainer = 'div#mainMenu';
+            if( null !== menuItem['MenuItem']['parent_uid'] ){
                 menuItemContainer = 'div' +
                     '.disclosureDiv' +
                     '.menuItemChildren' +
                     '[disclosureName="MenuItem'+menuItem['MenuItem']['parent_uid']+'"]';
-            }else{
-                menuItemContainer = 'div#mainMenu';
             }
 
             //Setup the string for the parameter links UID
-            if( menuItem['MenuItem']['parameter_sets_uid'] != null ){
+	        var parameterSetsAttribute = '';
+            if( null !== menuItem['MenuItem']['parameter_sets_uid'] ){
                 parameterSetsAttribute = ' parameter_sets_uid="'+menuItem['MenuItem']['parameter_sets_uid']+'"';
-            }else{
-                parameterSetsAttribute = '';
             }
 
             //Append the new menu item
@@ -97,7 +94,7 @@ MenuItem.prototype = {
             'click',
             'div.menuItem',
             function(e){
-                _this.handleMenuItemClick(e.target);
+                self.handleMenuItemClick(e.target);
             }
         );
 
@@ -124,7 +121,7 @@ MenuItem.prototype = {
 
         //Determine if we need to include the parameter set in the link
         var parameterSetsSuffix = '';
-        if( menuItem['MenuItem']['parameter_sets_uid'] != null ){
+        if( null != menuItem['MenuItem']['parameter_sets_uid'] ){
             parameterSetsSuffix = '&parameter_sets_uid='+menuItem['MenuItem']['parameter_sets_uid']
         }
 
@@ -134,7 +131,7 @@ MenuItem.prototype = {
 
         //We then work our way up through the target menu items parents and make sure they're expanded
         var parentItem = menuItem;
-        while( parentItem['MenuItem']['parent_uid'] != null ){
+        while( null != parentItem['MenuItem']['parent_uid'] ){
 
             jQuery('.menuItem.disclosureToggle.disclosureDiv[menuitemuid="'+parentItem['MenuItem']['parent_uid']+'"]').trigger('click.disclosure');
             jQuery.each( this.menuItems, function( possibleParentIndex, possibleParent ){
@@ -170,7 +167,7 @@ MenuItem.prototype = {
 
     }
 
-}
+};
 
 //Setup the menu item variable
 jQuery( document).ready( function(){

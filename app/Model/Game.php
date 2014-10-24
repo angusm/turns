@@ -733,12 +733,13 @@ class Game extends AppModel {
 	//a targeted X and Y. 
 	//Then make sure that this move was possible. 
 	//If it was we need to move the game up to the next turn.
-    /**
-     * @param $gameUnitUID
-     * @param $targetX
-     * @param $targetY
-     * @param $userUID
-     */
+	/**
+	 * @param $gameUnitUID
+	 * @param $targetX
+	 * @param $targetY
+	 * @param $userUID
+	 * @return bool
+	 */
 	public function validateMove( $gameUnitUID, $targetX, $targetY, $userUID ){
 
 		//Grab the gameUnit 

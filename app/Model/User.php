@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class User
+ */
 class User extends AppModel {
 
     //Establish the relations
@@ -40,6 +44,10 @@ class User extends AppModel {
 	
 	//PUBLIC FUNCTION: beforeSave
 	//Handle anything that we need to do before saving a user to the database for the first time
+	/**
+	 * @param array $options
+	 * @return bool
+	 */
 	public function beforeSave($options = []) {
         parent::beforeSave();
 		if (isset($this->data[$this->alias]['password'])) {
@@ -50,6 +58,10 @@ class User extends AppModel {
 	
 	//PUBLIC FUNCTION: getGamesByUserUID
 	//Get the games that the user is involved in 
+	/**
+	 * @param $userUID
+	 * @return array
+	 */
 	public function getGamesByUserUID( $userUID ){
 		
 		//Find all the games
@@ -67,6 +79,10 @@ class User extends AppModel {
 	//PUBLIC FUNCTION: setupNewUser
 	//Function used to initialize all of the various data we'll need to have a proper
 	//and usable user account. So let's do this.
+	/**
+	 * @param $username
+	 * @param $password
+	 */
 	public function setupNewUser( $username, $password ){
 
         //Create a new user

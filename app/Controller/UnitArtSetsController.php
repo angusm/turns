@@ -1,5 +1,8 @@
 <?php
 // app/Controller/UsersController.php
+/**
+ * Class UnitArtSetsController
+ */
 class UnitArtSetsController extends AppController {
 
 	//Setups the stuff that should happen before

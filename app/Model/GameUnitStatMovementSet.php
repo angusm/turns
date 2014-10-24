@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class GameUnitStatMovementSet
+ */
 class GameUnitStatMovementSet extends AppModel {
 
 	//Setup the relationship
@@ -16,6 +20,10 @@ class GameUnitStatMovementSet extends AppModel {
 	//PUBLIC FUNCTION: createRelationshipIfNoneExist
 	//Create a relationship between movement sets and game unit stats if none
 	//currently exist
+	/**
+	 * @param $unitStatMovementSetsArray
+	 * @param $gameUnitStatUID
+	 */
 	public function createRelationshipIfNoneExist( $unitStatMovementSetsArray, $gameUnitStatUID ){
 		
 		//Loop through each unit stat movement set and see if an equivalent exists

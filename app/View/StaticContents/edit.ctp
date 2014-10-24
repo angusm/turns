@@ -18,19 +18,19 @@ echo '<script type="text/javascript">
 echo $this->Html->tag(
     'div',
     $staticContent,
-    array(
+    [
         'class' => 'editStaticContent',
         'uid'   => $uid
-    )
+    ]
 );
 
 echo $this->Html->tag(
     'input',
     '',
-    array(
+    [
         'class' => 'editStaticContentSaveButton',
         'type'  => 'button',
         'uid'   => $uid,
         'value' => 'Save'
-    )
+    ]
 );

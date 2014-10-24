@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class SiteLinksController
+ */
 class SiteLinksController extends AppController{
 
     //Called before anything else is processed to determine which pages

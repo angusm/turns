@@ -6,66 +6,66 @@
 	
 	echo $this->ModelUI->tableFromFind( 
 									$unitList,
-									array(
+									[
 										'Unit Type'	=> 'unit_types_uid',
 										'Name'		=> 'name',
 										'Count'		=> 'quantity',
 										'Cost'		=> 'teamcost',
 										'button'	=> 'extraContent'
-									),
-									array(
-										'button'	=> array(
+									],
+									[
+										'button'	=> [
 														'tag'		=> 'input',
 														'content'	=> '',
-														'attributes'=> array(
+														'attributes'=> [
 																			'type'	=> 'button',
 																			'value'	=> '>',
 																			'class' => 'addUnitToTeamButton'
-																		)
-													)
-									)
+																		]
+													]
+									]
 								);
 	
 	echo '</div>';
 		
 	echo $this->TurnForm->editableModelSelect( 
 												$teamList, 
-												array(
+												[
 													'includeNewButton' 		=> true,
 													'includeRemoveButton'	=> true,
 													'includeSaveButton' 	=> true
-												)
+												]
 											);
 
 	echo $this->Html->tag(
 							'div',
 							0,
-							array(
+							[
 								'class' => 'TeamCost'
-							)
+							]
 						);
 	
 	echo $this->Html->tag(
 							'div',
 							'/' . $this->GamePlay->getMaxTeamCost(),
-							array(
+							[
 								'class' => 'MaxTeamCost'
-							)
+							]
 						);
 
 
 	echo '<div class="teamUnits">';
 	
 	echo $this->ModelUI->tableFromFind( 
-									array(
-										array( 'Unit' => null )
-									),
-									array(
+									[
+										[ 'Unit' => null ]
+									],
+									[
 										'Unit Type'	=> 'unit_types_uid',
 										'Name'		=> 'name',
 										'Count'		=> 'quantity',
 										'Cost'		=> 'teamcost'
-									)
+									]
 								);
 
 	echo '</div>';
@@ -73,9 +73,9 @@
 	echo $this->Html->tag(
 						'div',
 						$this->GamePlay->renderGameUnitCard(),
-						array(
+						[
 							'class' => 'manageUnitCardContainer'
-						)
+						]
 					);
 		
 	//Toss up the extra libraries and setup the unit list
@@ -94,5 +94,3 @@
 					    }
 					};'
 					);
-
-?>

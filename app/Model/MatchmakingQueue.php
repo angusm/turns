@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class MatchmakingQueue
+ */
 class MatchmakingQueue extends AppModel {
 
 	//Setup the associations for this model
@@ -11,7 +15,10 @@ class MatchmakingQueue extends AppModel {
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
-	public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 
 		//Call the parent constructor
 		parent::__construct(); 
@@ -26,6 +33,11 @@ class MatchmakingQueue extends AppModel {
 	//PUBLIC FUNCTION: checkQueue
 	//We see if there's a someone to pair the user with already in the queue, if there
 	//isn't then we place them in the queue
+	/**
+	 * @param $userUID
+	 * @param $teamUID
+	 * @return mixed
+	 */
 	public function checkQueue( $userUID, $teamUID ){
 		
 		//Look for available players to play against
@@ -61,6 +73,10 @@ class MatchmakingQueue extends AppModel {
 	
 	//PUBLIC FUNCTION: getPendingGamesByUserUID
 	//Return all of the pending games by their user UID
+	/**
+	 * @param $userUID
+	 * @return array
+	 */
 	public function getPendingGamesByUserUID( $userUID ){
 		
 		//Grab them all
@@ -77,6 +93,11 @@ class MatchmakingQueue extends AppModel {
 		
 	//PUBLIC FUNCTION: placeInQueue
 	//Create a record for the team in the queue
+	/**
+	 * @param $userUID
+	 * @param $teamUID
+	 * @return mixed
+	 */
 	public function placeInQueue( $userUID, $teamUID ){
 		
 		//Establish data to save

@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class TeamUnit
+ */
 class TeamUnit extends AppModel {
 
 		public $belongsTo = [
@@ -21,7 +25,10 @@ class TeamUnit extends AppModel {
 
 		//Override the constructor so that we can set the variables our way
 		//and not some punk ass way we don't much like.
-		public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 	
 			//Call the parent constructor
 			parent::__construct(); 
@@ -30,7 +37,13 @@ class TeamUnit extends AppModel {
 		
 		//PUBLIC FUNCTION: addUnitToTeamByUnitTypeUID
 		//Add a unit of the given type to the given team for the given user
-		public function addUnitToTeamByUnitTypeUID( $unitTypeUID, $teamUID, $userUID ){
+	/**
+	 * @param $unitTypeUID
+	 * @param $teamUID
+	 * @param $userUID
+	 * @return bool|mixed
+	 */
+	public function addUnitToTeamByUnitTypeUID( $unitTypeUID, $teamUID, $userUID ){
 		
 			//Verify that the given user actually owns the given team
 			//To do this we'll need a team model instance
@@ -151,7 +164,11 @@ class TeamUnit extends AppModel {
 		
 		//PUBLIC FUNCTION: decrementQuantityByUID
 		//Remove one quantity of a Team Unit with the given UID
-		public function decrementQuantityByUID( $teamUnitUID ){
+	/**
+	 * @param $teamUnitUID
+	 * @return bool
+	 */
+	public function decrementQuantityByUID( $teamUnitUID ){
 		
 			//Grab the given record
 			$givenRecord = $this->find( 'first', [
@@ -196,7 +213,11 @@ class TeamUnit extends AppModel {
 		//PUBLIC FUNCTION: getAllUnits
 		//Grab all of the the units on a given team
 		//Returning both the types of units on the team and the quantity
-		public function getAllUnits( $teamUID ){
+	/**
+	 * @param $teamUID
+	 * @return array
+	 */
+	public function getAllUnits( $teamUID ){
 		
 			//Do the find...
 			$unitsOnTeam = $this->getUnitsOnTeam( $teamUID );
@@ -207,7 +228,11 @@ class TeamUnit extends AppModel {
 		
 		//PUBLIC FUNCTION: getTeamsForUnitType
 		//Grab all of the teams that a unit type is on
-		public function getTeamsForUnitType( $unitTypeUID ){
+	/**
+	 * @param $unitTypeUID
+	 * @return array
+	 */
+	public function getTeamsForUnitType( $unitTypeUID ){
 			
 			//Do the find...
 			$teamsForUnit = $this->find( 'all', [
@@ -222,7 +247,11 @@ class TeamUnit extends AppModel {
 		
 		//PUBLIC FUNCTION: getUnitsOnTeam
 		//Grab all of the units that are posted on a given team
-		public function getUnitsOnTeam( $teamUIDs ){
+	/**
+	 * @param $teamUIDs
+	 * @return array
+	 */
+	public function getUnitsOnTeam( $teamUIDs ){
 		
 			//Do the find...
 			$unitsOnTeam = $this->find( 'all', [
@@ -253,7 +282,13 @@ class TeamUnit extends AppModel {
 		
 		//PUBLIC FUNCTION: removeUnitFromTeamByUnitTypeUID
 		//Remove a unit of the given type from the given team
-		public function removeUnitFromTeamByUnitTypeUID( $unitTypeUID, $teamUID, $userUID ){
+	/**
+	 * @param $unitTypeUID
+	 * @param $teamUID
+	 * @param $userUID
+	 * @return bool
+	 */
+	public function removeUnitFromTeamByUnitTypeUID( $unitTypeUID, $teamUID, $userUID ){
 		
 			//Verify that the given user actually owns the given team
 			//To do this we'll need a team model instance

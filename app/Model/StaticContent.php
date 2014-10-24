@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class StaticContent
+ */
 class StaticContent extends AppModel{
 
     //Setup the relations
@@ -27,7 +30,11 @@ class StaticContent extends AppModel{
     //PUBLIC FUNCTION: beforeFind
     //Extending the behaviour of the AppModel beforeFind to take content
     //restrictions into account
-    public function beforeFind( $query ){
+	/**
+	 * @param array $query
+	 * @return array|mixed
+	 */
+	public function beforeFind( $query ){
 
         //Respect your elders
         $query = parent::beforeFind($query);
@@ -35,7 +42,7 @@ class StaticContent extends AppModel{
         //Initialize a UserClinic model so that we can use the UID of the
         //currently authenticated user to find all of the relevant content
         //restrictions that apply to them
-        $user = $this->getAuthUser();
+        //$user = $this->getAuthUser();
 
         return $query;
 

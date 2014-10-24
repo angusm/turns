@@ -1,12 +1,18 @@
 <?php
 
+/**
+ * Class FriendlyColumnName
+ */
 class FriendlyColumnName extends AppModel{
 
     //Setup the associations:
     //This model has none
 
     //CONSTRUCTOR
-    public function __construct(){
+	/**
+	 *
+	 */
+	public function __construct(){
 
         parent::__construct();
 
@@ -34,7 +40,12 @@ class FriendlyColumnName extends AppModel{
 
     //PUBLIC FUNCTION: getFriendlyName
     //Takes in a model name and column name and returns the friendly name for that column
-    public function getFriendlyName( $modelName=null, $columnName=null ){
+	/**
+	 * @param null $modelName
+	 * @param null $columnName
+	 * @return array
+	 */
+	public function getFriendlyName( $modelName=null, $columnName=null ){
 
         //Run the find
         $friendlyName = $this->find( 'first', [
@@ -54,7 +65,12 @@ class FriendlyColumnName extends AppModel{
 
     //PUBLIC FUNCTION: makeSchemaFriendly
     //Take in the schema from a given model and find friendly names for its columns if possible
-    public function makeSchemaFriendly( $schema=[], $modelName=null ){
+	/**
+	 * @param array $schema
+	 * @param null $modelName
+	 * @return array
+	 */
+	public function makeSchemaFriendly( $schema=[], $modelName=null ){
 
         //Start looping through the keys in the schema and grabbing the column names and establishing
         //the condition we'll use to grab all of the friendly names for the model at once.

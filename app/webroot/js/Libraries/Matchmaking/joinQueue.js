@@ -16,7 +16,7 @@ function joinQueue(){
 		//Handle the button
 		Matchmaking_joinQueue.handleJoinQueueButton();
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: handleJoinQueueButton
 	//Handle getting everything rolling when the user hits the join queue
@@ -35,7 +35,7 @@ function joinQueue(){
 			
 		});
 	
-	}
+	};
 	
 	//PUBLIC FUNCTION: joinQueue
 	//Make the call that's going to actually put the user in the queue

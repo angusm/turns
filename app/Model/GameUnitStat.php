@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class GameUnitStat
+ */
 class GameUnitStat extends AppModel {
 	
 	//Setup the associations for GameUnitStat
@@ -16,7 +20,10 @@ class GameUnitStat extends AppModel {
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
-	public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 			parent::__construct(); 
 			
 		//Setup rules that apply to all attributes
@@ -47,6 +54,10 @@ class GameUnitStat extends AppModel {
 	//Take in a data array for a unit stat and see if we have a game unit stat
 	//that matches it in every way. If we do return that UID, if we don't, make it
 	//and then return that UID
+	/**
+	 * @param $unitStatArray
+	 * @return mixed
+	 */
 	public function getUIDForUnitStat( $unitStatArray ){
 	
 		//Find a game unit stat that matches the given unit stat
@@ -90,6 +101,9 @@ class GameUnitStat extends AppModel {
 	
 	//PUBLIC FUNCTION: getUIDs
 	//Return a list of all the UIDs
+	/**
+	 * @return array
+	 */
 	public function getUIDs(){
 	
 		return $this->find( 'list', [

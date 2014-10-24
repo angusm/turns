@@ -4,6 +4,9 @@
 
 App::uses('AppHelper', 'View/Helper');
 
+/**
+ * Class ModelUIHelper
+ */
 class ModelUIHelper extends AppHelper {
 	
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
@@ -11,7 +14,13 @@ class ModelUIHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: tableFromFind
 	//Create an html table with the data retrieved laid out
-	public function tableFromFind( 
+	/**
+	 * @param $findData
+	 * @param $fields
+	 * @param array $extraContent
+	 * @return string
+	 */
+	public function tableFromFind(
 									$findData,
 									$fields,
 									$extraContent = [] ){

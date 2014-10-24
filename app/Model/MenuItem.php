@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class MenuItem
+ */
 class MenuItem extends AppModel{
 
     //PROPERTIES
@@ -41,7 +44,10 @@ class MenuItem extends AppModel{
     ];
 
     //CONSTRUCTOR
-    public function __construct() {
+	/**
+	 *
+	 */
+	public function __construct() {
         parent::__construct();
 
         //Setup validation
@@ -67,7 +73,11 @@ class MenuItem extends AppModel{
 
     //PUBLIC FUNCTION: getAvailableMenuItems
     //Return all of the menu items that are available to the given user
-    public function getAvailableMenuItems( $userUID=null ){
+	/**
+	 * @param null $userUID
+	 * @return mixed
+	 */
+	public function getAvailableMenuItems( $userUID=null ){
 
         //We start with the top level menu items and then recursively
         //grab each of the child menu items
@@ -84,7 +94,12 @@ class MenuItem extends AppModel{
     //PUBLIC FUNCTION: getChildMenuItems
     //Grab all of the menu items that belong to a specific parent, for the top
     //level menu items, their parentUID would be null
-    public function getChildMenuItems( $parentUID=null, $userUID=null ){
+	/**
+	 * @param null $parentUID
+	 * @param null $userUID
+	 * @return mixed
+	 */
+	public function getChildMenuItems( $parentUID=null, $userUID=null ){
 
         //Grab all of the children's menu items
         $childMenuItems = $this->children( $parentUID );

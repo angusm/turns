@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class GamesController
+ */
 class GamesController extends AppController {
 
 	//Setups the stuff that should happen before

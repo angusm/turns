@@ -1,5 +1,8 @@
 <?php
 // app/Controller/UsersController.php
+/**
+ * Class UnitsController
+ */
 class UnitsController extends AppController {
 
 	//Setups the stuff that should happen before

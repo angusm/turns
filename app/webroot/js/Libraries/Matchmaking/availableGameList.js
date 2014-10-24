@@ -17,7 +17,7 @@ function availableGameList(){
 		//We'll build a list of the replacement HTML and then when we
 		//have a complete list we'll replace the current contents to
 		//keep the visual refresh time to a minimum.
-		var nuListContent = ''
+		var nuListContent = '';
 
 		//Grab all of the current games
 		currentGames = jSONData.games;
@@ -42,7 +42,7 @@ function availableGameList(){
 		//And now that we have a nice list built, we swap the contents
 		jQuery( 'div.availableGames' ).html( nuListContent );
 		
-	}
+	};
 		
 	//PUBLIC FUNCTION: getGameElement
 	//Get an element for active games
@@ -50,7 +50,7 @@ function availableGameList(){
 	
 		return '<div class="playGameButton"><a href="/turns/Games/playGame/?gameUID='+gameObject.games_uid+'">Play Game '+gameObject.games_uid+'</a></div>';
 		
-	}
+	};
 		
 	//PUBLIC FUNCTION: getPendingMatchElement
 	//Get an element for the user's entries in the matchmaking queue
@@ -58,7 +58,7 @@ function availableGameList(){
 	
 		return '<div class="pendingMatchBlurb">Waiting for match...</div>';
 		
-	}
+	};
 		
 	//PUBLIC FUNCTION: handleEverything
 	//Just be Pepper Potts already, do everything
@@ -67,7 +67,7 @@ function availableGameList(){
 		//Start checking for updates on the list
 		setTimeout( Matchmaking_availableGameList.updateList, 1000 );
 		
-	}
+	};
 	
 	//PUBLIC FUNCTION: updateList
 	//Update the game list with any changes

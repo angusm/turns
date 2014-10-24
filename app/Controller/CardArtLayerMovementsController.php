@@ -1,5 +1,8 @@
 <?php
 // app/Controller/UsersController.php
+/**
+ * Class CardArtLayerMovementsController
+ */
 class CardArtLayerMovementsController extends AppController {
 
 	//Setups the stuff that should happen before

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class DatabasesController
+ */
 class DatabasesController extends AppController{
 
     //Handles the things that must happen before an action is executed

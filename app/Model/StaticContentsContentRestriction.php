@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class StaticContentsContentRestriction
+ */
 class StaticContentsContentRestriction extends AppModel{
 
     //Setup the relation

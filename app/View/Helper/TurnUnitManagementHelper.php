@@ -4,6 +4,9 @@
 
 App::uses('AppHelper', 'View/Helper');
 
+/**
+ * Class TurnUnitManagementHelper
+ */
 class TurnUnitManagementHelper extends AppHelper {
 	
 }

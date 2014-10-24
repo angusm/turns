@@ -22,7 +22,7 @@ jQuery(document).ready( function(){
 	libraries = addStandardLibraries( libraries );
 	
 	//See if the view has defined a list of libraries, if so, get it
-	if( typeof( getLibrariesToLoad ) == "function" ){
+	if( "function" == typeof( getLibrariesToLoad ) ){
 		getLibrariesToLoad();
 	}
 
@@ -56,7 +56,7 @@ function addStandardLibraries(){
 function getLibrariesToLoad(){
     
 	//Check to see if we have pageLibraries to load for this page
-	if( typeof window.pageLibraries != 'undefined' ){
+	if( 'undefined' != typeof window.pageLibraries ){
 		//If we do load them onto our libraries stack
 		for( var i = 0; i < window.pageLibraries.length; i++ ){
 			libraries.push( window.pageLibraries[i] );
@@ -69,7 +69,7 @@ function getLibrariesToLoad(){
 function loadLibraries(){
 
 	//If we still have a library to load then
-	if( libraries.length > 0 ){
+	if( 0 < libraries.length ){
 
 		//If we haven't already loaded the library, load it
 		if( jQuery.inArray( libraries[0][0] + '/' + libraries[0][1] + '.js', loadedLibraries ) == -1 ){
@@ -92,7 +92,7 @@ function loadLibraries(){
             loadDependenciesFunction = loadDependenciesFunction.replace('/', '_');
 
             //If the function to load dependencies exists then we load the dependencies
-            if ( eval( 'typeof '+loadDependenciesFunction ) == "function") {
+            if ( "function" == eval('typeof ' + loadDependenciesFunction)) {
                 eval( loadDependenciesFunction+'();' );
             }
 
@@ -146,7 +146,7 @@ jQuery.fn.isBound = function(eventType, callBackFunction) {
 
 	//We now know there is functions bound the the given event, it's our job
 	//to loop through them and see if any of them are the one we're looking for
-    if( eventData[eventType].length !== 0 ){
+    if( 0 !== eventData[eventType].length ){
         jQuery.each( eventData[eventType], function( indexKey, value ){
 
             if( value['handler'] == callBackFunction ){
@@ -185,7 +185,7 @@ function makeURLSafe( dangerousWord ){
  */
 function defaultValue( parameter, defaultValue ){
     var result = parameter;
-    if( typeof parameter === 'undefined' ){
+    if( 'undefined' === typeof parameter ){
         result = defaultValue;
     }
     return result;

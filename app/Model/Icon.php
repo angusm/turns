@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class Icon
+ */
 class Icon extends AppModel {
 	
 	//Setup associations

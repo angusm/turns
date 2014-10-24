@@ -1,5 +1,8 @@
 <?php
 // app/Controller/DirectionSetsController.php
+/**
+ * Class MovementDirectionSetsController
+ */
 class MovementDirectionSetsController extends AppController {
 
 	//Setups the stuff that should happen before

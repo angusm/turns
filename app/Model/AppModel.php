@@ -60,7 +60,12 @@ class AppModel extends Model {
     //PUBLIC FUNCTION: afterSave
     //This is a CakePHP callback that runs after data is saved to the model
     //We're using it here to create an effective date record when necessary for new records
-    public function afterSave( $created, $options = [] ){
+	/**
+	 * @param bool $created
+	 * @param array $options
+	 * @return bool
+	 */
+	public function afterSave( $created, $options = [] ){
 
         //Call the parent function, always a good idea, respect your parents
         parent::afterSave( $created, $options );
@@ -123,7 +128,11 @@ class AppModel extends Model {
     //PUBLIC FUNCTION: beforeFind
     //This function is triggered by CakePHP before any data is returned
     //We use it hear to incorporate it with effective dating for models where necessary
-    public function beforeFind( $query ){
+	/**
+	 * @param array $query
+	 * @return array
+	 */
+	public function beforeFind( $query ){
 
         //Call the parent function, always a good idea, respect your parents
         parent::beforeFind( $query );
@@ -184,6 +193,9 @@ class AppModel extends Model {
 	//Create a new record in the database for this model
 	//Chances are this will need to be overridden in the child model
 	//assuming that the child model does any validation
+	/**
+	 * @return array|bool|int|mixed|string
+	 */
 	public function createNewRecord(){
 
 		$modelName = get_class( $this );
@@ -222,6 +234,10 @@ class AppModel extends Model {
 	
 	//PUBLIC FUNCTION: fixBooleans
 	//Fix any boolean values that might be strings like "true"
+	/**
+	 * @param $jsonValues
+	 * @return mixed
+	 */
 	public function fixJSONValueBooleans( $jsonValues ){
 	
 		$fixedJSONValues = $jsonValues;
@@ -253,6 +269,11 @@ class AppModel extends Model {
 	//PUBLIC FUNCTION: getAssocationArray
 	//Return useful information about the given association
 	//array, such as the foreign key and class name.
+	/**
+	 * @param $modelName
+	 * @param $modelArray
+	 * @return array
+	 */
 	public function getAssociationArray( $modelName, $modelArray ){
 			
 		//Get the classname
@@ -283,7 +304,10 @@ class AppModel extends Model {
 
     //PUBLIC FUNCTION: getAuthUser
     //Returns the currently authenticated user data
-    public function getAuthUser(){
+	/**
+	 * @return mixed
+	 */
+	public function getAuthUser(){
 
         App::uses('CakeSession', 'Model/Datasource');
         $Session = new CakeSession();
@@ -294,6 +318,9 @@ class AppModel extends Model {
 	
 	//PUBLIC FUNCTION: getBelongsTo
 	//Return the belongsTo array
+	/**
+	 * @return array
+	 */
 	public function getBelongsTo(){
 		return $this->belongsTo;
 	}
@@ -301,6 +328,9 @@ class AppModel extends Model {
 	//PUBLIC FUNCTION: getBelongsToFieldsArray
 	//Return an array containing the foreign key as the key and the 
 	//associated model name as the value
+	/**
+	 * @return array
+	 */
 	public function getBelongsToFieldsArray(){
 		
 		//Initialize the array
@@ -319,12 +349,18 @@ class AppModel extends Model {
 	
 	//PUBLIC FUNCTION: getHasMany
 	//Return the hasMany array
+	/**
+	 * @return array
+	 */
 	public function getHasMany(){
 		return $this->hasMany;
 	}
 	
 	//PUBLIC FUNCTION: getHasOne
 	//Return the has one association
+	/**
+	 * @return array
+	 */
 	public function getHasOne(){
 		return $this->hasOne;
 	}
@@ -332,6 +368,9 @@ class AppModel extends Model {
 	
 	//PUBLIC FUNCTION: getManagementList
 	//Return a list of the class
+	/**
+	 * @return array
+	 */
 	public function getManagementList(){
 		return $this->find( 'all' );	
 	}
@@ -380,6 +419,13 @@ class AppModel extends Model {
 	//			)
 	//		)
 	//	)
+	/**
+	 * @param array $structureSoFar
+	 * @param array $currentPath
+	 * @param array $ignoreList
+	 * @param int $recursion
+	 * @return array
+	 */
 	public function getStructure(
         $structureSoFar = [],
         $currentPath    = [],
@@ -503,6 +549,9 @@ class AppModel extends Model {
 	//PUBLIC FUNCTION: getUIDList
 	//Thought it might be nice to give myself a way of grabbing all the 
 	//uid values for a given model
+	/**
+	 * @return array
+	 */
 	public function getUIDList(){
 		
 		return $this->find( 'list', [
@@ -513,7 +562,12 @@ class AppModel extends Model {
 
     //PUBLIC FUNCTION: keyInMultiDimensionalArray
     //Returns TRUE or FALSE if a key is in the given array
-    function keyInMultiDimensionalArray( Array $array, $key ) {
+	/**
+	 * @param array $array
+	 * @param $key
+	 * @return bool
+	 */
+	function keyInMultiDimensionalArray( Array $array, $key ) {
 
         if (array_key_exists($key, $array)) {
             return true;
@@ -532,7 +586,13 @@ class AppModel extends Model {
 
     //PUBLIC FUNCTION: placeInArrayByPath
     //Place a value in a given array using the path specified in the path array
-    public function placeInArrayByPath( $value=null, $array=[], $path=[] ){
+	/**
+	 * @param null $value
+	 * @param array $array
+	 * @param array $path
+	 * @return array
+	 */
+	public function placeInArrayByPath( $value=null, $array=[], $path=[] ){
 
         //If there's no more steps on the path just return the value
         if( count($path) == 0 ){
@@ -559,6 +619,10 @@ class AppModel extends Model {
 
 	//PUBLIC FUNCTION: remove
 	//Remove the record with the given UID
+	/**
+	 * @param $uid
+	 * @param bool $cascade
+	 */
 	public function remove( $uid, $cascade=true ){
 			
 		$this->delete( $uid, $cascade );
@@ -567,6 +631,10 @@ class AppModel extends Model {
         
 	//PUBLIC FUNCTION: saveWithJSONFormData
 	//Save to the database using JSON values
+	/**
+	 * @param array $jsonValues
+	 * @return array|mixed
+	 */
 	public function saveWithJSONFormData( $jsonValues = [] ){
 
 			//Before we actually save anything we want to fix any potentially

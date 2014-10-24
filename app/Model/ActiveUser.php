@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class ActiveUser
+ */
 class ActiveUser extends AppModel {
 
 	public $primaryKey = 'uid';
@@ -16,6 +20,11 @@ class ActiveUser extends AppModel {
 	
 	//PUBLIC FUNCTION: findActiveUser
 	//Find the active user for the given game on the given turn
+	/**
+	 * @param $gameUID
+	 * @param $turn
+	 * @return array
+	 */
 	public function findActiveUser( $gameUID, $turn ){
 		
 		return $this->find( 'first', [
@@ -32,6 +41,9 @@ class ActiveUser extends AppModel {
 	
 	//PUBLIC FUNCTION: moveToNextTurn
 	//Record the active user for the next turn of the given game
+	/**
+	 * @param $gameUID
+	 */
 	public function moveToNextTurn( $gameUID ){
 	
 		//Find the data for the latest turn
@@ -103,6 +115,11 @@ class ActiveUser extends AppModel {
 	
 	//PUBLIC FUNCTION: setActiveUser
 	//Set the active user for a given game on the given turn
+	/**
+	 * @param $gameUID
+	 * @param $userGameUID
+	 * @param $turn
+	 */
 	public function setActiveUser( $gameUID, $userGameUID, $turn ){
 	
 		$this->create();

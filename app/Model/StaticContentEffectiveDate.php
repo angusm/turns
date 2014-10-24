@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class StaticContentEffectiveDate
+ */
 class StaticContentEffectiveDate extends  AppModel{
 
     public $belongsTo = [

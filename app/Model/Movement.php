@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class Movement
+ */
 class Movement extends AppModel {
 
 	public $hasMany = [
@@ -17,7 +21,10 @@ class Movement extends AppModel {
 
 	//PUBLIC FUNCTION: __construct
 	//Override the constructor to setup some fun stuff
-	public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 	
 		//Call the parent constructor
 		parent::__construct();

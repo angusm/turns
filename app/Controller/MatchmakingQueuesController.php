@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class MatchmakingQueuesController
+ */
 class MatchmakingQueuesController extends AppController {
 
 	//Setups the stuff that should happen before

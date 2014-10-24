@@ -3,6 +3,9 @@
 //This class will be used to make all those sick as shit menu items that will run the show
 App::uses('AppHelper', 'View/Helper');
 
+/**
+ * Class TurnMenuHelper
+ */
 class TurnMenuHelper extends AppHelper {
 	
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
@@ -11,6 +14,9 @@ class TurnMenuHelper extends AppHelper {
 	//PUBLIC FUNCTION: availableGameList
 	//Return a list of all of the games the user is currently involved in
 	//along with the option to jump into playing the games
+	/**
+	 * @return string
+	 */
 	public function availableGameList(){
 		
 		//Establish a return string
@@ -73,6 +79,9 @@ class TurnMenuHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: manageUnitsButton
 	//Button to redirect to the user's unit management screen
+	/**
+	 * @return mixed
+	 */
 	public function manageUnitsButton(){
 		
 		return $this->Html->link( 
@@ -87,18 +96,19 @@ class TurnMenuHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: pendingMatchBlurb
 	//Create the pending match blurb
+	/**
+	 * @param $matchmakingQueueUID
+	 * @return mixed
+	 */
 	public function pendingMatchBlurb( $matchmakingQueueUID ){
-		
-		//Setup the return string
-		$returnString = '';
-		
+
 		//Temporary blurb
-		$returnString = 'Waiting for match...';
+		$displayString = 'Waiting for match...';
 						
 		//Wrap it all in a div and toss it back
 		$returnString = $this->Html->tag(
 										'div',
-										$returnString,
+										$displayString,
 										[
 											'class' => 'pendingMatchBlurb'
 										]
@@ -110,6 +120,10 @@ class TurnMenuHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: playGameButton
 	//Create a container with an option to jump into gameplay
+	/**
+	 * @param $gameUID
+	 * @return string
+	 */
 	public function playGameButton( $gameUID ){
 		
 		//Setup the return string
@@ -142,6 +156,9 @@ class TurnMenuHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: queueButton
 	//Creates a button that can be clicked to join the matchmaking queue
+	/**
+	 * @return string
+	 */
 	public function queueButton(){
 	
 		//Grab the user's UID from the Auth component

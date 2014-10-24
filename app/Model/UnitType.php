@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class UnitType
+ */
 class UnitType extends AppModel {
 	
 	//Setup the associations for UnitType
@@ -28,7 +32,10 @@ class UnitType extends AppModel {
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
-	public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 			parent::__construct(); 
 			
 		//Setup rules that apply to all attributes
@@ -58,6 +65,9 @@ class UnitType extends AppModel {
 	
 	//PUBLIC FUNCTION: decrementTicket
 	//For the given UnitType UID drop the ticket count for that unit by one
+	/**
+	 * @param $unitTypeUID
+	 */
 	public function decrementTicket( $unitTypeUID ){
 		
 		//Grab the u nit type we'll be decrementing
@@ -80,6 +90,10 @@ class UnitType extends AppModel {
 	
 	//PUBLIC FUNCTION: findByUID
 	//Given a UID for a Unit Type return the corresponding record
+	/**
+	 * @param $uid
+	 * @return array
+	 */
 	public function findByUID( $uid ){
 	
 		//Run the find and return it
@@ -93,6 +107,10 @@ class UnitType extends AppModel {
 	
 	//PUBLIC FUNCTION: getCardViewData
 	//Get all the information necessary to display a card view
+	/**
+	 * @param $uid
+	 * @return array
+	 */
 	public function getCardViewData( $uid ){
 		
 		$cardViewData = $this->find( 'first', [
@@ -183,6 +201,9 @@ class UnitType extends AppModel {
 	
 	//PUBLIC FUNCTION: getRandomUnitTypeByTicket
 	//Use the rarity ticket system to select a random unit
+	/**
+	 * @return mixed
+	 */
 	public function getRandomUnitTypeByTicket(){
 		
 		//Grab a random Unit Type that still has tickets remaining
@@ -203,6 +224,9 @@ class UnitType extends AppModel {
 	
 	//PUBLIC FUNCTION: getUIDs
 	//Return a list of all the UIDs
+	/**
+	 * @return array
+	 */
 	public function getUIDs(){
 	
 		return $this->find( 'list', [
@@ -217,6 +241,10 @@ class UnitType extends AppModel {
 	//This checks for:
 	//	- Valid Statistics
 	//  - Valid Artset
+	/**
+	 * @param $unitTypeUID
+	 * @return bool
+	 */
 	public function validateUnitType( $unitTypeUID ){
 		
 		//Assume we have a valid UnitType and then run through checks trying

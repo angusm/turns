@@ -4,6 +4,9 @@
 
 App::uses('AppHelper', 'View/Helper');
 
+/**
+ * Class GamePlayHelper
+ */
 class GamePlayHelper extends AppHelper {
 	
 	//We'll be using some of the HTML helper's functionality to do awesome stuff
@@ -11,6 +14,10 @@ class GamePlayHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: getArtArray
 	//Grab the art array
+	/**
+	 * @param array $unitArtSet
+	 * @return array
+	 */
 	public function getArtArray( $unitArtSet=[] ){
 		
 		//Setup the art array to return
@@ -45,6 +52,9 @@ class GamePlayHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: getMaxTeamCost
 	//Return the maximum cost a team is allowed to accrue
+	/**
+	 * @return mixed
+	 */
 	public function getMaxTeamCost(){
 	
 		$gameConstantModelInstance = ClassRegistry::init( 'GameConstant' );
@@ -56,6 +66,10 @@ class GamePlayHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: renderBoard
 	//Render the game board, it'll be beautiful
+	/**
+	 * @param $board
+	 * @return mixed
+	 */
 	public function renderBoard( $board ){
 		
 		//Setup a string that we'll pack full of garbage that we can return later
@@ -88,6 +102,10 @@ class GamePlayHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: renderGameUnitCard
 	//Render a card display
+	/**
+	 * @param array $gameUnit
+	 * @return mixed
+	 */
 	public function renderGameUnitCard( $gameUnit=[] ){
 		
 		$cardArtLayerContent 		= '';
@@ -389,20 +407,19 @@ class GamePlayHelper extends AppHelper {
 				foreach( $gameUnit['GameUnitStat']['GameUnitStatMovementSet'] as $unitStatMovementSet ){
 					if( isset( $unitStatMovementSet['MovementSet']['uid'] ) and isset( $artArray['Icon']['11'] ) ){
 	
-						$movementSet = $unitStatMovementSet['MovementSet'];
 						$movementSelectorsContent .= $this->Html->tag(
-																'div',
-																$this->Html->image(
-																				$artArray['Icon']['11'],
-																				[
-																					'alt'	=> 'Movement Set Selector Icon',
-																					'class'	=>  'movementSetSelector'
-																				]
-																			),
-																[
-																	'class' => 'movementSetSelector'
-																]
-															);
+							'div',
+							$this->Html->image(
+											$artArray['Icon']['11'],
+											[
+												'alt'	=> 'Movement Set Selector Icon',
+												'class'	=>  'movementSetSelector'
+											]
+										),
+							[
+								'class' => 'movementSetSelector'
+							]
+						);
 					}
 				}
 			}					
@@ -554,6 +571,11 @@ class GamePlayHelper extends AppHelper {
 	//PUBLIC FUNCTION: renderGame
 	//Render a full playable game with a whole board and card display and all that
 	//beautiful stuff
+	/**
+	 * @param $userUID
+	 * @param $gameInformation
+	 * @return string
+	 */
 	public function renderGame( $userUID, $gameInformation ){
 	
 		//Setup the return string
@@ -578,6 +600,11 @@ class GamePlayHelper extends AppHelper {
 	//PUBLIC FUNCTION: renderTile
 	//Render a tile with the given X and Y, we gotta do this shit lots so we might
 	//as well create a function for it right
+	/**
+	 * @param $x
+	 * @param $y
+	 * @return mixed
+	 */
 	public function renderTile( $x, $y ){
 	
 		//Quickly establish whether or not we're making a dark or a light tile by
@@ -605,6 +632,11 @@ class GamePlayHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: renderUnit
 	//Render the unit in HTML
+	/**
+	 * @param $gameUnit
+	 * @param $icon
+	 * @return mixed
+	 */
 	public function renderUnit( $gameUnit, $icon ){
 			
 		//Grab some info from the unit
@@ -659,6 +691,11 @@ class GamePlayHelper extends AppHelper {
 	
 	//PUBLIC FUNCTION: renderUnits
 	//Create a div and render the units in it
+	/**
+	 * @param $parameters
+	 * @param $gameInformation
+	 * @return mixed
+	 */
 	public function renderUnits( $parameters, $gameInformation ){
 	
 		//Setup the return string

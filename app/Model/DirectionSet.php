@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class DirectionSet
+ */
 class DirectionSet extends AppModel {
 
 	public $hasMany = [
@@ -11,8 +15,11 @@ class DirectionSet extends AppModel {
 								'foreignKey'	=> 'direction_sets_uid'
 							]
 						];
-	
-		public function __construct() { 
+
+	/**
+	 *
+	 */
+	public function __construct() {
             parent::__construct(); 
 
 			//Setup validation, let's not have any stupid names

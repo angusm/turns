@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class UnitArtSetIcon
+ */
 class UnitArtSetIcon extends AppModel {
 
 	public $belongsTo = [

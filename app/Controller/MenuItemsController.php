@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class MenuItemsController
+ */
 class MenuItemsController extends AppController{
 
     //Setups anything that should happen before an action is executed

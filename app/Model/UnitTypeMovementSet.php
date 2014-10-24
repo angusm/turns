@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class UnitStatMovementSet
+ */
 class UnitStatMovementSet extends AppModel {
 
 		public $belongsTo = [

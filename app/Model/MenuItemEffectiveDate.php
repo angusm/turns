@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class MenuItemEffectiveDate
+ */
 class MenuItemEffectiveDate extends AppModel{
 
     //Setup the relation

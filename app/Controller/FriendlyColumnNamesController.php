@@ -1,6 +1,9 @@
 <?php
 
 //Handles requests for friendly column names
+/**
+ * Class FriendlyColumnNamesController
+ */
 class FriendlyColumnNamesController extends AppController{
 
     //Handles the things that need to happen before an action is executed
@@ -16,7 +19,11 @@ class FriendlyColumnNamesController extends AppController{
     //PUBLIC FUNCTION: getFriendlyName
     //This function takes a model name and a column name and returns the friendly column name
     //for that combination. Pretty much just calls the model function
-    public function getFriendlyName( $modelName, $columnName ){
+	/**
+	 * @param $modelName
+	 * @param $columnName
+	 */
+	public function getFriendlyName( $modelName, $columnName ){
 
         $friendlyName = $this->FriendlyName->getFriendlyName( $modelName, $columnName );
 

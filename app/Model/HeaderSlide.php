@@ -2,6 +2,9 @@
 
 //Class contains all the information for the slideshow that sits at the top
 //of each page in the layout
+/**
+ * Class HeaderSlide
+ */
 class HeaderSlide extends AppModel{
 
 
@@ -19,7 +22,10 @@ class HeaderSlide extends AppModel{
     //CONSTRUCTOR
     //Setup the validation, this is used by the TurnForm helper to
     //setup the various fields needed to manage data
-    public function __construct(){
+	/**
+	 *
+	 */
+	public function __construct(){
         parent::__construct();
 
         //Setup the validation
@@ -43,7 +49,10 @@ class HeaderSlide extends AppModel{
     //PUBLIC FUNCTION: getAvailableSlideUIDs
     //Return the list of slides that ought to be viewable by the user provided any
     //applicable content restrictions
-    public function getAvailableSlideUIDs(){
+	/**
+	 * @return array
+	 */
+	public function getAvailableSlideUIDs(){
 
         $slideUIDs = $this->find( 'list', [
             'fields' => [
@@ -59,7 +68,11 @@ class HeaderSlide extends AppModel{
 
     //PUBLIC FUNCTION: getSlideData
     //Return the model information for a given slide
-    public function getSlideData( $uid ){
+	/**
+	 * @param $uid
+	 * @return array
+	 */
+	public function getSlideData( $uid ){
 
         $slide = $this->find( 'first', [
            'conditions' => [

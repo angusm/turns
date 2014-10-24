@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class MovementSet
+ */
 class MovementSet extends AppModel {
 
 	public $hasMany = [
@@ -11,8 +15,11 @@ class MovementSet extends AppModel {
                                 'foreignKey'    => 'movement_sets_uid'
                             ]
 						];
-	
-	public function __construct() { 
+
+	/**
+	 *
+	 */
+	public function __construct() {
 		parent::__construct(); 
 
 		//Setup validation, let's not have any stupid names
@@ -30,6 +37,10 @@ class MovementSet extends AppModel {
 	
 	//PUBLIC FUNCTION: findByUID
 	//Find the given movement set by the UID
+	/**
+	 * @param $uid
+	 * @return array
+	 */
 	public function findByUID( $uid ){
 	
 		//Find the UID
@@ -53,6 +64,11 @@ class MovementSet extends AppModel {
 	}
 	//PUBLIC FUNCTION: findByUIDWithPriority
 	//Find the given movement set by the UID with the given priority
+	/**
+	 * @param $uid
+	 * @param $priority
+	 * @return array
+	 */
 	public function findByUIDWithPriority( $uid, $priority ){
 	
 		//Find the UID

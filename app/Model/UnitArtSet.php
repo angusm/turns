@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class UnitArtSet
+ */
 class UnitArtSet extends AppModel {
 
 		public $hasMany = [
@@ -22,7 +26,10 @@ class UnitArtSet extends AppModel {
 
 		//Override the constructor so that we can set the variables our way
 		//and not some punk ass way we don't much like.
-		public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 	
 			//Call the parent constructor
 			parent::__construct();
@@ -46,7 +53,11 @@ class UnitArtSet extends AppModel {
 		//Type UID, but if we can't find one then we just grab the first one we
 		//can find. But if that's the case then someone fucked up, every unit should
 		//have a default art set.
-		public function getDefaultArtByUnitTypeUID( $unitTypeUID ){
+	/**
+	 * @param $unitTypeUID
+	 * @return array
+	 */
+	public function getDefaultArtByUnitTypeUID( $unitTypeUID ){
 		
 			//Start by trying for a set named default with the Unit Type UID
 			$defaultArtSet = $this->find( 'first', [

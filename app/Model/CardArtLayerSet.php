@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class CardArtLayerSet
+ */
 class CardArtLayerSet extends AppModel {
 
 	public $belongsTo = [
@@ -11,7 +15,10 @@ class CardArtLayerSet extends AppModel {
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
-	public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 
 		//Call the parent constructor
 		parent::__construct();

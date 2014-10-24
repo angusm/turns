@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class Team
+ */
 class Team extends AppModel {
 	
 	//Setup the association for this class
@@ -11,7 +15,10 @@ class Team extends AppModel {
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
-	public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 
 		//Call the parent constructor
 		parent::__construct();
@@ -31,6 +38,11 @@ class Team extends AppModel {
 	
 	//PUBLIC FUNCTION: changeName
 	//Change the name of the given team
+	/**
+	 * @param $uid
+	 * @param $nuName
+	 * @return mixed
+	 */
 	public function changeName( $uid, $nuName ){
 	
 		$this->read( null, $uid );
@@ -41,6 +53,10 @@ class Team extends AppModel {
 	
 	//PUBLIC FUNCTION: getTeamsByUserUID
 	//Return all the teams owned by a given user
+	/**
+	 * @param $userUID
+	 * @return array
+	 */
 	public function getTeamsByUserUID( $userUID ){
 	
 		//Run the find
@@ -57,6 +73,10 @@ class Team extends AppModel {
 	
 	//PUBLIC FUNCTION: setupDefaultTeam
 	//Setup a default team for the given user
+	/**
+	 * @param $userUID
+	 * @return mixed
+	 */
 	public function setupDefaultTeam( $userUID ){
 	
 		$this->create();

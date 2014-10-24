@@ -29,7 +29,7 @@ Disclosure.prototype = {
         var isHidden                = jQuery(disclosureForEstimate).hasClass('hidden');
 
         //Return true if the element is hidden, either through display status or the hidden class
-        return (displayStatus == 'none' || isHidden);
+        return ('none' == displayStatus || isHidden);
 
     },
 
@@ -37,7 +37,7 @@ Disclosure.prototype = {
     //Sets up management of disclosure divs so that they're display is toggled as necessary
     handleDisclosure:function(){
 
-        var _this = this;
+        var self = this;
 
         //Attach all the nice events to everything
         jQuery(document).each( function(){
@@ -47,7 +47,7 @@ Disclosure.prototype = {
                 'click.disclosure',
                 '.disclosureToggle',
                 function(e){
-                    _this.toggleDisclosure(e.target);
+                    self.toggleDisclosure(e.target);
                 });
 
             //Setup the handling of disclosure controls that will only show and never
@@ -56,7 +56,7 @@ Disclosure.prototype = {
                 'click.disclosure',
                 '.disclosureShowButton',
                 function(e){
-                    _this.showDisclosure(e.target);
+                    self.showDisclosure(e.target);
                 }
             );
 
@@ -72,7 +72,7 @@ Disclosure.prototype = {
     //way they're supposed to be.
     synchronizeDisclosures:function(){
 
-        var _this = this;
+        var self = this;
 
         jQuery( '.disclosureDiv' ).each( function(){
 
@@ -83,15 +83,15 @@ Disclosure.prototype = {
             }
 
             //Find out if we want to toggle everything to be hidden or show
-            if( typeof _this.isHidden[disclosureName] === 'undefined' ){
-                _this.isHidden[disclosureName] = _this.getDisclosureStatusEstimate(disclosureName);
+            if( typeof self.isHidden[disclosureName] === 'undefined' ){
+                self.isHidden[disclosureName] = self.getDisclosureStatusEstimate(disclosureName);
             }
 
             //Go through all the non-independent disclosure divs that don't match the current status, and fix them
             var nonIndependentMisfitSelector 			= '.disclosureDiv[disclosureName="' + disclosureName + '"]';
             var nonIndependentOppositeMisfitSelector 	= '.disclosureDiv[disclosureName="' + disclosureName + '_opposite"]';
 
-            if( _this.isHidden[disclosureName] ){
+            if( self.isHidden[disclosureName] ){
                 nonIndependentMisfitSelector 			+= ':visible';
                 nonIndependentOppositeMisfitSelector 	+= ':hidden';
                 jQuery( nonIndependentMisfitSelector ).hide();
@@ -116,12 +116,12 @@ Disclosure.prototype = {
         var disclosureName = jQuery( disclosureToggle ).attr('disclosurename');
 
         //If we've got the _opposite trigger then we need to handle it
-        if( disclosureName.split('_opposite').length > 1 ){
+        if( 1 < disclosureName.split('_opposite').length ){
             disclosureName = disclosureName.split('_opposite')[0];
         }
 
         //Find out if we want to toggle everything to be hidden or show
-        if( typeof this.isHidden[disclosureName] === 'undefined' ){
+        if( 'undefined' === typeof this.isHidden[disclosureName] ){
             this.isHidden[disclosureName] = this.getDisclosureStatusEstimate(disclosureName);
         }
 
@@ -137,4 +137,4 @@ Disclosure.prototype = {
         this.synchronizeDisclosures();
 
     }
-}
+};

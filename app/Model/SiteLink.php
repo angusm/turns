@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class SiteLink
+ */
 class SiteLink extends AppModel{
 
     //Setup the site link's relations
@@ -15,7 +18,10 @@ class SiteLink extends AppModel{
     ];
 
     //CONSTRUCTOR
-    public function __construct() {
+	/**
+	 *
+	 */
+	public function __construct() {
         parent::__construct();
 
         //Setup validation, let's not have any stupid names

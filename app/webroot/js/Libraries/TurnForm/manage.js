@@ -1,7 +1,7 @@
 
 //Object for management of a turns form
 var TurnFormManage = function(){
-}
+};
 
 TurnFormManage.prototype = {
 
@@ -11,7 +11,7 @@ TurnFormManage.prototype = {
 	//appropriate dropdown select boxes.
 	addRecordToDropdownSelects:function( modelName, uid, name ){
 
-        var _this = this;
+        var self = this;
 
 		jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).each( function(){
 
@@ -28,7 +28,7 @@ TurnFormManage.prototype = {
             );
 
             //Load the record data into the fields
-            _this.loadRecordData( this );
+            self.loadRecordData( this );
 
         });
 
@@ -76,7 +76,7 @@ TurnFormManage.prototype = {
 	//REST call to get the JSON needed to update the page
 	handleNewRecordButton:function(){
 
-        var _this = this;
+        var self = this;
 
 		//Throw on the listener
         jQuery(document).on(
@@ -89,13 +89,13 @@ TurnFormManage.prototype = {
                 var controller = jQuery( this ).attr( 'controllerName' );
 
                 //Make sure the loading for this model is setup
-                _this.showLoadingForController( controller, true );
+                self.showLoadingForController( controller, true );
 
                 //Make the necessary call
                 jQuery.getJSON(
                     homeURL + '/' + controller + '/newRecord',
                     function( data ){
-                        _this.newRecordButtonCallback(data);
+                        self.newRecordButtonCallback(data);
                     }
                 );
 
@@ -110,14 +110,14 @@ TurnFormManage.prototype = {
 	handleRecordSelection:function(){
 
         //Preserve context
-        var _this = this;
+        var self = this;
 
         //Add the handler
         jQuery(document).on(
             'change',
             '.modelRecordSelect',
             function(){
-                _this.loadRecordData(this);
+                self.loadRecordData(this);
             }
         );
 		
@@ -128,12 +128,12 @@ TurnFormManage.prototype = {
 	//Save Buttons are clicked
 	handleSaveButton:function(){
 
-        var _this = this;
+        var self = this;
         jQuery( document).on(
             'click',
             '.saveRecord',
             function(){
-                _this.saveData(this)
+                self.saveData(this)
             }
         );
 		
@@ -156,7 +156,7 @@ TurnFormManage.prototype = {
 
         //Set the loading
         this.showLoadingForController( controller, true );
-		var _this = this;
+		var self = this;
 
 		//Make a JSON request to get all the appropriate data
 		jQuery.getJSON(
@@ -165,8 +165,8 @@ TurnFormManage.prototype = {
                 uid:uid
             },
             function( data ){
-                _this.populateRecordData(data);
-                _this.showLoadingForController( controller, false );
+                self.populateRecordData(data);
+                self.showLoadingForController( controller, false );
             }
         );
 		
@@ -178,10 +178,10 @@ TurnFormManage.prototype = {
 	//Load the starting selections into the input fields
 	loadSelections:function(){
 
-        var _this = this;
+        var self = this;
 		//Load all the record data into all the input fields
 		jQuery( '.modelRecordSelect' ).each( function(){
-            _this.loadRecordData( this );
+            self.loadRecordData( this );
 		});
 			
 		
@@ -221,7 +221,7 @@ TurnFormManage.prototype = {
                 );
 
                 //Update the selector with the name if we can
-                if( key == 'name' ){
+                if( 'name' == key ){
                     jQuery(
                         'select' +
                             '.associatedModelSelect' +
@@ -257,7 +257,7 @@ TurnFormManage.prototype = {
 	saveData:function( element ){
 
         //Preserve context
-        var _this = this;
+        var self = this;
 
 		//Get the model name that we're saving
 		var modelName = jQuery( element ).attr('modelname');
@@ -272,10 +272,10 @@ TurnFormManage.prototype = {
 		//Gather all the information relevant to this model and save it
 		//in an array that we can then pass as jSon values
 		jQuery( '.setupFormInputBox[modelName="' + modelName + '"]' ).each( function(){
-			saveParameters = _this.getFieldDataInArray( saveParameters, this );
+			saveParameters = self.getFieldDataInArray( saveParameters, this );
 		});
 		jQuery( '.associatedModelSelect[modelName="' + modelName + '"]' ).each( function(){
-			saveParameters = _this.getFieldDataInArray( saveParameters, this );
+			saveParameters = self.getFieldDataInArray( saveParameters, this );
 		});
         this.showLoadingForController( controller, true );
 
@@ -286,11 +286,11 @@ TurnFormManage.prototype = {
             function( data ){
                 //Load the record data into the fields
 
-                _this.populateRecordData(data);
-                _this.showLoadingForController( controller, false );
+                self.populateRecordData(data);
+                self.showLoadingForController( controller, false );
 
                 /*jQuery( '.modelRecordSelect[modelName="' + modelName + '"]' ).each( function(){
-                    _this.loadRecordData( this );
+                    self.loadRecordData( this );
                 });*/
             }
         );
@@ -301,7 +301,7 @@ TurnFormManage.prototype = {
     //Show the loading div for the given controller's model
     showLoadingForController:function( controllerName, status ){
 
-        if( status != true && status != false ){
+        if( true != status && false != status ){
             status = true;
         }
         if( status ){

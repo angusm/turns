@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class MovementDirectionSet
+ */
 class MovementDirectionSet extends AppModel {
 
 	public $belongsTo = [

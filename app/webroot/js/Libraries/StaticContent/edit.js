@@ -36,11 +36,11 @@ StaticContentEdit.prototype = {
     //Setup the functionality
     setup:function(){
 
-        var _this = this;
+        var self = this;
 
         //We're deliberately not using on here to avoid attaching this content multiple times
         jQuery('input[type="button"].editStaticContentSaveButton').click(function(){
-            _this.save( jQuery(this).attr('uid') );
+            self.save( jQuery(this).attr('uid') );
         });
     }
 

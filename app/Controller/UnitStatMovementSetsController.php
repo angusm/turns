@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class UnitStatMovementSetsController
+ */
 class UnitStatMovementSetsController extends AppController{
 
     //The before filter will handle things before an action goes

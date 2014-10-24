@@ -2,7 +2,7 @@
 //Setup the object for handling this jurry rigged editable select box
 var EditableSelect = function(){
 
-}
+};
 
 EditableSelect.prototype = {
 
@@ -93,14 +93,14 @@ EditableSelect.prototype = {
 	//Setup the handlers for when the user wants to add a new record to the select
 	handleNewButton:function(){
 
-        var _this = this;
+        var self = this;
 
 		//Add the handler
 		jQuery( document ).on(
             'click',
             'input[type="button"].editableSelectNew',
             function(){
-                _this.addNewOption();
+                self.addNewOption();
             }
 		);
 		
@@ -110,14 +110,14 @@ EditableSelect.prototype = {
 	//If the user wants to delete an option they'll click a button and we better be prepared for that
 	handleRemoveButton:function(){
 
-        var _this = this;
+        var self = this;
 
         //Add the handler
         jQuery( document ).on(
             'click',
             'input[type="button"].editableSelectRemove',
             function(){
-                _this.removeOption();
+                self.removeOption();
             }
         );
 		
@@ -127,14 +127,14 @@ EditableSelect.prototype = {
 	//Handle the save button that'll change what is stored in the select
 	handleSaveButton:function(){
 
-        var _this = this;
+        var self = this;
 
         //Add the handler
         jQuery( document ).on(
             'click',
             'input[type="button"].editableSelectSave',
             function(){
-                _this.adjustSelectToTextBox();
+                self.adjustSelectToTextBox();
             }
         );
 				
@@ -144,14 +144,14 @@ EditableSelect.prototype = {
 	//Handle changing what displays in the textbox when the select is changed
 	handleSelectChange:function(){
 
-        var _this = this;
+        var self = this;
 
         //Add the handler
         jQuery( document ).on(
             'change',
             'select.editableSelect',
             function(){
-                _this.adjustTextBoxToSelect();
+                self.adjustTextBoxToSelect();
             }
         );
 
@@ -178,9 +178,9 @@ EditableSelect.prototype = {
 		
 	}
 	
-}
+};
 
 jQuery( document).ready( function(){
     var EditableSelect_editableSelect = new EditableSelect();
     EditableSelect_editableSelect.handleEverything();
-})
+});

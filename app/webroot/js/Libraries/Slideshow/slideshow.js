@@ -22,7 +22,7 @@ var SlideshowClass = function(){
         slideshow.centerImages();
     });
 
-}
+};
 
 SlideshowClass.prototype = {
 
@@ -38,7 +38,7 @@ SlideshowClass.prototype = {
                 * (-1/2);
 
             //If the image is going to be offset the wrong way then we adjust it
-            if( nuX > 0 ){
+            if( n X > 0 ){
                 nuX = 0;
             }
 
@@ -59,8 +59,8 @@ SlideshowClass.prototype = {
 
         //Now we either need to load the slide or just display it
         //We want to display it
-        if( typeof this.slides[this.slideUIDs[this.currentSlideIndex]] !== 'undefined' &&
-            this.slides[this.slideUIDs[this.currentSlideIndex]] != 'loading' ){
+        if( typeof this sli es[thi .slideUIDs[this.currentSlideIndex]] !== 'undefined' &&
+            this.slid s[ his.slideUIDs[this.currentSlideIndex]] != 'loading' ){
 
             //Clear the interval for displaying the next slide to ensure the slide we
             //transitioned to has its own proper amount of time
@@ -171,7 +171,7 @@ SlideshowClass.prototype = {
     loadSlide:function( uid, callback ){
 
         //Don't load something that's already loaded
-        if( typeof this.slides[uid] === 'undefined' ){
+        if( typeof this sli es[uid  === 'undefined' ){
 
             //Set it to loading
             this.slides[uid] = 'loading';
@@ -187,7 +187,7 @@ SlideshowClass.prototype = {
                 function( jSONData ){
 
                     slideshow.slides[uid] = jSONData['HeaderSlide'];
-                    if( typeof callback !== 'undefined'){
+                    if( typeof call ack !== 'u defined'){
                         callback();
                     }
                 }
@@ -217,7 +217,7 @@ SlideshowClass.prototype = {
     startCycle:function(){
 
         //If we have no slides yet, we want to grab our slides
-        if( typeof this.slideUIDs.length === 'undefined' || this.slideUIDs.length < 1 ){
+        if( typeof this sli eUIDs. ength === 'undefined' || t i .slideUIDs.length < 1 ){
             this.getAvailableSlides( this.startCycle.bind(this) );
         }
 
@@ -226,7 +226,7 @@ SlideshowClass.prototype = {
 
     }
 
-}
+};
 
 jQuery( document).ready( function(){
     var Slideshow = new SlideshowClass();

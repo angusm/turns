@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class Unit
+ */
 class Unit extends AppModel {
 
 	//Setup the belongsTo
@@ -15,6 +19,9 @@ class Unit extends AppModel {
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
+	/**
+	 *
+	 */
 	public function __construct() {
 		 
 		 //Call the parent constructor
@@ -42,6 +49,10 @@ class Unit extends AppModel {
 	//PUBLIC FUNCTION: getUnitListForUserByUID
 	//Grab a list of all the units (including quantities) belonging to a given
 	//user
+	/**
+	 * @param $userUID
+	 * @return array
+	 */
 	public function getUnitListForUserByUID( $userUID ){
 	
 		//Do the find and return the results
@@ -77,6 +88,10 @@ class Unit extends AppModel {
 	
 	//PUBLIC FUNCTION: getUnitsForUserByUID
 	//Grab all of the units associated with the given user ID 
+	/**
+	 * @param $userUID
+	 * @return array
+	 */
 	public function getUnitsForUserByUID( $userUID ){
 	
 		//Do the find..
@@ -93,6 +108,10 @@ class Unit extends AppModel {
 	
 	//PUBLIC FUNCTION: grantUserRandomUnit
 	//Create a new unit to give to the user based off of a random Unit Type
+	/**
+	 * @param $userUID
+	 * @return bool
+	 */
 	public function grantUserRandomUnit( $userUID ){
 	
 		//Grab an instance of the UnitType model so that we can grab a

@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class TeamUnitPosition
+ */
 class TeamUnitPosition extends AppModel {
 	
 	//Setup the associations for UnitType
@@ -11,7 +15,10 @@ class TeamUnitPosition extends AppModel {
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
-	public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 			parent::__construct(); 
 			
 		//Setup the validation
@@ -34,6 +41,12 @@ class TeamUnitPosition extends AppModel {
 	
 	//PUBLIC FUNCTION: assignPosition
 	//Assign a position to the given team units
+	/**
+	 * @param $teamUnitsUID
+	 * @param $x
+	 * @param $y
+	 * @return bool
+	 */
 	public function assignPosition( $teamUnitsUID, $x, $y ){
 		
 		//Make sure we don't already have a unit in that position
@@ -112,6 +125,9 @@ class TeamUnitPosition extends AppModel {
 	
 	//PUBLIC FUNCTION: getUIDs
 	//Return a list of all the UIDs
+	/**
+	 * @return array
+	 */
 	public function getUIDs(){
 	
 		return $this->find( 'list', [
@@ -122,6 +138,12 @@ class TeamUnitPosition extends AppModel {
 	
 	//PUBLIC FUNCTION: removeTeamUnit
 	//Remove the given team unit
+	/**
+	 * @param $teamUID
+	 * @param $unitTypeUID
+	 * @param $x
+	 * @param $y
+	 */
 	public function removeTeamUnit( $teamUID, $unitTypeUID, $x, $y ){
 	
 		//Grab the team unit

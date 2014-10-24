@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class UserGame
+ */
 class UserGame extends AppModel {
 
 	//Setup the associations for this model
@@ -25,7 +29,10 @@ class UserGame extends AppModel {
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
-	public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 
 		//Call the parent constructor
 		parent::__construct(); 
@@ -39,6 +46,10 @@ class UserGame extends AppModel {
 		
 	//PUBLIC FUNCTION: getGamesByUserUID
 	//Grab all of the active games that a user may be involved in
+	/**
+	 * @param $userUID
+	 * @return array
+	 */
 	public function getGamesByUserUID( $userUID ){
 	
 		//Run a find to get the user and all of their associated games
@@ -55,6 +66,12 @@ class UserGame extends AppModel {
 	
 	//PUBLIC FUNCTION: newGame
 	//Create a new record, so that, y'know, players can play
+	/**
+	 * @param $userUID
+	 * @param $gameUID
+	 * @param $priority
+	 * @return mixed
+	 */
 	public function newGame( $userUID, $gameUID, $priority ){
 	
 		//Setup the model data for this new game

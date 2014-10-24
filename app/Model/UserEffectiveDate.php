@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class UserEffectiveDate
+ */
 class UserEffectiveDate extends Appmodel{
 
     //Setup the relation

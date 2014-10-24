@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class GameUnit
+ */
 class GameUnit extends AppModel {
 
 	//Setup the associations for this model
@@ -31,7 +35,10 @@ class GameUnit extends AppModel {
 
 	//Override the constructor so that we can set the variables our way
 	//and not some punk ass way we don't much like.
-	public function __construct() { 
+	/**
+	 *
+	 */
+	public function __construct() {
 
 		//Call the parent constructor
 		parent::__construct(); 
@@ -44,6 +51,11 @@ class GameUnit extends AppModel {
 	
 	//PUBLIC FUNCTION: addToGameFromTeam
 	//Take all the units in a given team and add them to a game
+	/**
+	 * @param $gameUID
+	 * @param $teamUID
+	 * @param bool $topPlayer
+	 */
 	public function addToGameFromTeam( $gameUID, $teamUID, $topPlayer=true ){
 	
 		//Setup whatever model instances we'll be needing
@@ -111,6 +123,11 @@ class GameUnit extends AppModel {
 	//PUBLIC FUNCTION: areAllLastMovementPrioritiesZero
 	//Check and see if all the last movement priorities for the active turn
 	//of the given game are zero
+	/**
+	 * @param $gameUID
+	 * @param $turn
+	 * @return bool
+	 */
 	public function areAllLastMovementPrioritiesZero( $gameUID, $turn ){
 	
 		//Grab any unit that doesn't have a unit move priority of 0 for the
@@ -134,6 +151,10 @@ class GameUnit extends AppModel {
 	
 	//PUBLIC FUNCTION: findAllMovementSets
 	//Find all the movement sets associated with the GameUnit
+	/**
+	 * @param $uid
+	 * @return mixed
+	 */
 	public function findAllMovementSets( $uid ){
 	
 		//Grab all the movement sets 
@@ -162,6 +183,11 @@ class GameUnit extends AppModel {
 	//PUBLIC FUNCTION: findAllMovementSetsWithPriority
 	//Find all the movement sets associated with the GameUnit that have
 	//the given priority
+	/**
+	 * @param $uid
+	 * @param $priority
+	 * @return mixed
+	 */
 	public function findAllMovementSetsWithPriority( $uid, $priority ){
 	
 		//Grab all the movement sets 
@@ -200,6 +226,10 @@ class GameUnit extends AppModel {
 	
 	//PUBLIC FUNCTION: findForMoveValidation
 	//Find the GameUnit with the given UID
+	/**
+	 * @param $uid
+	 * @return array|bool
+	 */
 	public function findForMoveValidation( $uid ){
 	
 		//Return the GameUnit record
@@ -253,6 +283,10 @@ class GameUnit extends AppModel {
 	//PUBLIC FUNCTION: getInfoForCard
 	//Return information about the game unit so that a card display can be created from it 
 	//with javascript
+	/**
+	 * @param $uid
+	 * @return array
+	 */
 	public function getInfoForCard( $uid ){
 		
 		$cardInfo = $this->find( 'first', [
@@ -292,6 +326,10 @@ class GameUnit extends AppModel {
 	
 	//PRIVATE FUNCTION: moveGameUnitToNextTurn
 	//Move the game unit to the next turn
+	/**
+	 * @param $unitToMove
+	 * @param $gameTurn
+	 */
 	private function moveGameUnitToNextTurn( $unitToMove, $gameTurn ){
 	
 		//Update the turn
@@ -310,7 +348,17 @@ class GameUnit extends AppModel {
 	
 	//PUBLIC FUNCTION: moveGameUnitsToNextTurn
 	//Take all the units tied up in the current game and move them on to the next turn
-	public function moveGameUnitsToNextTurn( 
+	/**
+	 * @param $gameUID
+	 * @param $turn
+	 * @param $gameUnitUID
+	 * @param $targetX
+	 * @param $targetY
+	 * @param $angle
+	 * @param $movePriority
+	 * @param $movementSetUID
+	 */
+	public function moveGameUnitsToNextTurn(
 										$gameUID, 
 										$turn, 
 										$gameUnitUID, 
@@ -489,6 +537,12 @@ class GameUnit extends AppModel {
 	//PUBLIC FUNCTION: playerHasActiveUnit
 	//Return a true false result indicating whether or not the player
 	//still has active living units in the game
+	/**
+	 * @param $userUID
+	 * @param $gameUID
+	 * @param $turn
+	 * @return bool
+	 */
 	public function playerHasActiveUnit( $userUID, $gameUID, $turn ){
 		
 		$exists = $this->find( 'first', [
@@ -510,7 +564,11 @@ class GameUnit extends AppModel {
 
     //PUBLIC FUNCTION: selectUsingArray
     //Grab a collection of units given a passed array
-    public function selectUsingArray( $givenArray ){
+	/**
+	 * @param $givenArray
+	 * @return array
+	 */
+	public function selectUsingArray( $givenArray ){
 
         //Grab the units
         return $this->find( 'all', $givenArray );
@@ -519,6 +577,10 @@ class GameUnit extends AppModel {
 	
 	//PUBLIC FUNCTION: selectUnit
 	//Set the game unit to as the selected unit for the given game
+	/**
+	 * @param $gameUnitUID
+	 * @param $gameUID
+	 */
 	public function selectUnit( $gameUnitUID, $gameUID ){
 		
 		//Setup the game model instance
@@ -533,6 +595,10 @@ class GameUnit extends AppModel {
 	
 	//PUBLIC FUNCTION: storeOriginalUnit
 	//Store the original unit
+	/**
+	 * @param $newUnit
+	 * @return array|mixed
+	 */
 	public function storeOriginalUnit( $newUnit ){
 		
 			$originalGameUnit = $newUnit['GameUnit'];

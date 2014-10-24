@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class TeamsController
+ */
 class TeamsController extends AppController {
 
 	//Setups the stuff that should happen before
@@ -81,6 +84,9 @@ class TeamsController extends AppController {
 	
 	//PUBLIC FUNCTION: getUnitsInTeam
 	//Return all the units in a given team
+	/**
+	 * @param $teamUID
+	 */
 	public function getUnitsInTeam( $teamUID ){
 	
 		//Grab the UID of the logged in user
