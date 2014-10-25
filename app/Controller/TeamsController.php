@@ -87,7 +87,7 @@ class TeamsController extends AppController {
 	/**
 	 * @param $teamUID
 	 */
-	public function getUnitsInTeam( $teamUID ){
+	public function getUnitsInTeam(){
 	
 		//Grab the UID of the logged in user
 		$userUID = $this->Auth->user('uid');

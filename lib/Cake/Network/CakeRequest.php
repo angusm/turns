@@ -27,6 +27,7 @@ App::uses('Hash', 'Utility');
  *
  * `$request['controller']` or `$request->controller`.
  *
+ * @property mixed controller
  * @package       Cake.Network
  */
 class CakeRequest implements ArrayAccess {

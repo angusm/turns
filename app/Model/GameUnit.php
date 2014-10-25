@@ -513,7 +513,7 @@ class GameUnit extends AppModel {
 			$movedUnit['GameUnit']['damage'] = $movedUnit['GameUnitStat']['damage'];
 
             //Loop through and reset unmoved units damage as necessary, other units are removed
-			foreach( $unitsToMove as $unitToMove ){
+			foreach( $unitsToMove as $unitToMoveIndex => $unitToMove ){
                 if( $unitToMove['GameUnit']['damage']   != $unitToMove['GameUnitStat']['damage'] and
                     $unitToMove['GameUnit']['defense']  != 0 ){
 

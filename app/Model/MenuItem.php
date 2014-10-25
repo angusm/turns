@@ -77,7 +77,7 @@ class MenuItem extends AppModel{
 	 * @param null $userUID
 	 * @return mixed
 	 */
-	public function getAvailableMenuItems( $userUID=null ){
+	public function getAvailableMenuItems(){
 
         //We start with the top level menu items and then recursively
         //grab each of the child menu items
@@ -99,7 +99,7 @@ class MenuItem extends AppModel{
 	 * @param null $userUID
 	 * @return mixed
 	 */
-	public function getChildMenuItems( $parentUID=null, $userUID=null ){
+	public function getChildMenuItems( $parentUID=null ){
 
         //Grab all of the children's menu items
         $childMenuItems = $this->children( $parentUID );

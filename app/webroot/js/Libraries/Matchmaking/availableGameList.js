@@ -54,7 +54,7 @@ function availableGameList(){
 		
 	//PUBLIC FUNCTION: getPendingMatchElement
 	//Get an element for the user's entries in the matchmaking queue
-	this.getPendingMatchElement = function( pendingMatchObject ){
+	this.getPendingMatchElement = function(){
 	
 		return '<div class="pendingMatchBlurb">Waiting for match...</div>';
 		

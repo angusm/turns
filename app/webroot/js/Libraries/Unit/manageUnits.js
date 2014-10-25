@@ -41,7 +41,7 @@ function ManageUnits(){
 	
 	//PUBLIC FUNCTION: addNewTeam
 	//Allow the user to add a new team to their account
-	this.addNewTeam = function( triggeringEvent ){
+	this.addNewTeam = function(){
 
 		//Run the JSON to create the new team
 		jQuery.getJSON(

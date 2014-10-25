@@ -5,7 +5,7 @@ window.playerUnits 	= new Array();
 window.enemyUnits 	= new Array();
 
 //Alright let's do this matchmaking stuff
-function unit( nuX, nuY, nuName, nuDefense, nuDamage, nuUid, nuMovements ){
+/*function unit( nuX, nuY, nuName, nuDefense, nuDamage, nuUid, nuMovements ){
 	
 	var x 			= nuX;
 	var y 			= nuY;
@@ -15,12 +15,12 @@ function unit( nuX, nuY, nuName, nuDefense, nuDamage, nuUid, nuMovements ){
 	var uid 		= nuUid;
 	var movements	= nuMovements;
 	
-}
+}*/
 
-function movement( nuMustMoveAllTheWay, nuSpaces, nuDirections ){
+/*function movement( nuMustMoveAllTheWay, nuSpaces, nuDirections ){
 
 	var directions			= nuDirections;
 	var mustMoveAllTheWay 	= nuMustMoveAllTheWay;
 	var spaces				= nuSpaces;
 	
-}
+}*/

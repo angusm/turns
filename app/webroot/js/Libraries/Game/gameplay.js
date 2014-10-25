@@ -236,7 +236,6 @@ var Gameplay = function(){
 		//Grab the new logical X and Y
 		var nuLogicalX = jQuery( tileMovedTo ).attr('x');
 		var nuLogicalY = jQuery( tileMovedTo ).attr('y');
-		var movementSetToLockIn = jQuery( tileMovedTo ).attr( 'movementSet' );
 		
 		var movementSetArray = Game_gameplay.selectedUnit.MovementSet;
 		
