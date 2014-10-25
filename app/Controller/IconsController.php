@@ -2,6 +2,7 @@
 // app/Controller/UsersController.php
 /**
  * Class IconsController
+ * @property mixed Icon
  */
 class IconsController extends AppController {
 

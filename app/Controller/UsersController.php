@@ -2,6 +2,7 @@
 // app/Controller/UsersController.php
 /**
  * Class UsersController
+ * @property mixed User
  */
 class UsersController extends AppController {
 

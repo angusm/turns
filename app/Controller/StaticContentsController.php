@@ -4,6 +4,7 @@
  * Class StaticContentsController
  * @property mixed $params
  * @property StaticContent $StaticContent
+ * @property mixed data
  */
 class StaticContentsController extends AppController{
 

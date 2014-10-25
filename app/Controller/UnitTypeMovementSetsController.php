@@ -2,6 +2,7 @@
 // app/Controller/DirectionSetsController.php
 /**
  * Class UnitTypeMovementSetsController
+ * @property mixed UnitTypeMovementSet
  */
 class UnitTypeMovementSetsController extends AppController {
 

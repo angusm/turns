@@ -1,6 +1,8 @@
 <?php
+
 /**
  * Class DirectionSetsController
+ * @property mixed DirectionSet
  */
 class DirectionSetsController extends AppController {
 

@@ -2,6 +2,7 @@
 // app/Controller/UsersController.php
 /**
  * Class CardArtLayerSetsController
+ * @property mixed CardArtLayerSet
  */
 class CardArtLayerSetsController extends AppController {
 

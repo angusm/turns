@@ -2,6 +2,7 @@
 
 /**
  * Class CardArtLayerMovementsController
+ * @property mixed CardArtLayerMovement
  */
 class CardArtLayerMovementsController extends AppController {
 

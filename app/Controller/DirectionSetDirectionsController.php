@@ -2,6 +2,7 @@
 // app/Controller/DirectionSetsController.php
 /**
  * Class DirectionSetDirectionsController
+ * @property mixed DirectionSetDirection
  */
 class DirectionSetDirectionsController extends AppController {
 

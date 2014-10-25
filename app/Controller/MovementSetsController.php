@@ -2,6 +2,7 @@
 // app/Controller/DirectionSetsController.php
 /**
  * Class MovementSetsController
+ * @property MovementSet $MovementSet
  */
 class MovementSetsController extends AppController {
 

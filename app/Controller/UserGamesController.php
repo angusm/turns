@@ -2,6 +2,7 @@
 
 /**
  * Class UserGamesController
+ * @property mixed UserGame
  */
 class UserGamesController extends AppController {
 

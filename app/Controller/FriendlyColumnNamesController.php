@@ -3,7 +3,7 @@
 /**
  * Handles requests for friendly column names
  * Class FriendlyColumnNamesController
- * @property FriendlyName $Friendlyname
+ * @property FriendlyColumnName $FriendlyColumnName
  */
 class FriendlyColumnNamesController extends AppController{
 
@@ -26,7 +26,7 @@ class FriendlyColumnNamesController extends AppController{
 	 */
 	public function getFriendlyName( $modelName, $columnName ){
 
-        $friendlyName = $this->FriendlyName->getFriendlyName( $modelName, $columnName );
+        $friendlyName = $this->FriendlyColumnName->getFriendlyName( $modelName, $columnName );
 
         $this->set( 'friendlyName', $friendlyName );
         $this->set('_serialize', [

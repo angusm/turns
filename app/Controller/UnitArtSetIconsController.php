@@ -2,6 +2,7 @@
 // app/Controller/UsersController.php
 /**
  * Class UnitArtSetIconsController
+ * @property mixed UnitArtSet
  */
 class UnitArtSetIconsController extends AppController {
 

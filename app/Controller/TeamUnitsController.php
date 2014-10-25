@@ -2,6 +2,7 @@
 // app/Controller/DirectionSetsController.php
 /**
  * Class TeamUnitsController
+ * @property mixed TeamUnit
  */
 class TeamUnitsController extends AppController {
 

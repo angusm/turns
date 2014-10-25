@@ -2,6 +2,7 @@
 
 /**
  * Class TeamsController
+ * @property mixed Team
  */
 class TeamsController extends AppController {
 
