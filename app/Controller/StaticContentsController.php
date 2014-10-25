@@ -2,6 +2,8 @@
 
 /**
  * Class StaticContentsController
+ * @property mixed $params
+ * @property StaticContent $StaticContent
  */
 class StaticContentsController extends AppController{
 
@@ -9,7 +11,7 @@ class StaticContentsController extends AppController{
 
     //PUBLIC FUNCTION: edit
     //Edit given content using a TinyMCE instance
-    public function edit(){
+	public function edit(){
 
         //Establish a default
         $staticContent  = '';

@@ -2,6 +2,7 @@
 
 /**
  * Class SiteLinksController
+ * @property mixed SiteLink
  */
 class SiteLinksController extends AppController{
 

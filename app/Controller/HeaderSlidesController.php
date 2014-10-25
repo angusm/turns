@@ -1,13 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: a.macdonald
- * Date: 09/06/14
- * Time: 1:08 PM
- */
 
 //The Header Slides controller will handle requests relating to the slideshow
 //set up at the top of every page
+/**
+ * The Header Slides controller will handle requests relating to the slideshow
+ * get up at the top of every page
+ * Class HeaderSlidesController
+ * @property HeaderSlide $HeaderSlide
+ * @property mixed $params
+ */
 class HeaderSlidesController extends AppController{
 
     //Setups anything that should happen before an action is executed

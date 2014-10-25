@@ -7,7 +7,7 @@ class TeamsController extends AppController {
 
 	//Setups the stuff that should happen before
 	//any other action is called
-    public function beforeFilter() {
+	public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('');
     }
@@ -85,7 +85,7 @@ class TeamsController extends AppController {
 	//PUBLIC FUNCTION: getUnitsInTeam
 	//Return all the units in a given team
 	/**
-	 * @param $teamUID
+	 * @internal param $teamUID
 	 */
 	public function getUnitsInTeam(){
 	

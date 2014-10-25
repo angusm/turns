@@ -2,6 +2,7 @@
 
 /**
  * Class MatchmakingQueuesController
+ * @property MatchmakingQueue $MatchmakingQueue
  */
 class MatchmakingQueuesController extends AppController {
 

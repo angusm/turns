@@ -2,18 +2,21 @@
 
 /**
  * Class MenuItem
+ * @method Array children() children( Array )
  */
 class MenuItem extends AppModel{
 
     //PROPERTIES
 
-    //Since this model is essentially acting as a tree we use the tree behaviour
-    //built into CakePHP to take care of a lot of nasty stuff for us. This will
-    //allow us to take advantage of modified pre-ordered tree traversal without
-    //having to think about modified pre-ordered tree traversal.
-    //It does include a field for the parent in addition to the left and right fields
-    //for the sake of making some functions and the management of the tree a lot
-    //easier for us to work with.
+    /**
+     * Since this model is essentially acting as a tree we use the tree behaviour
+     * built into CakePHP to take care of a lot of nasty stuff for us. This will
+     * allow us to take advantage of modified pre-ordered tree traversal without
+     * having to think about modified pre-ordered tree traversal.
+     * It does include a field for the parent in addition to the left and right fields
+     * for the sake of making some functions and the management of the tree a lot
+     * easier for us to work with.
+     */
     public $actsAs = [
         'tree' => [
             'parent_id' => 'parent_uid'
@@ -74,7 +77,7 @@ class MenuItem extends AppModel{
     //PUBLIC FUNCTION: getAvailableMenuItems
     //Return all of the menu items that are available to the given user
 	/**
-	 * @param null $userUID
+	 * @internal param null $userUID
 	 * @return mixed
 	 */
 	public function getAvailableMenuItems(){
@@ -96,7 +99,7 @@ class MenuItem extends AppModel{
     //level menu items, their parentUID would be null
 	/**
 	 * @param null $parentUID
-	 * @param null $userUID
+	 * @internal param null $userUID
 	 * @return mixed
 	 */
 	public function getChildMenuItems( $parentUID=null ){

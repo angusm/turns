@@ -1,7 +1,8 @@
 <?php
-// app/Controller/UsersController.php
+
 /**
  * Class UnitStatsController
+ * @property UnitStat $UnitStat
  */
 class UnitStatsController extends AppController {
 

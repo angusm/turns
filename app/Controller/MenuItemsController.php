@@ -2,6 +2,8 @@
 
 /**
  * Class MenuItemsController
+ * @property MenuItem $MenuItem
+ * @property AuthComponent $Auth
  */
 class MenuItemsController extends AppController{
 

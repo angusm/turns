@@ -2,6 +2,7 @@
 
 /**
  * Class GameUnitsController
+ * @property GameUnit $GameUnit
  */
 class GameUnitsController extends AppController {
 

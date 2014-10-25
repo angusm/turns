@@ -124,8 +124,11 @@ class CakeRequest implements ArrayAccess {
  * @var string
  */
 	protected $_input = '';
+	private $controller;
+	private $controller;
+	private $controller;
 
-/**
+	/**
  * Constructor
  *
  * @param string $url Trimmed url string to use. Should not contain the application base path.

@@ -36,6 +36,7 @@ App::uses('BaseAuthenticate', 'Controller/Component/Auth');
  *
  * @package       Cake.Controller.Component
  * @link http://book.cakephp.org/2.0/en/core-libraries/components/authentication.html
+ * @property mixed $user
  */
 class AuthComponent extends Component {
 

@@ -1,8 +1,9 @@
 <?php
 
-//Handles requests for friendly column names
 /**
+ * Handles requests for friendly column names
  * Class FriendlyColumnNamesController
+ * @property FriendlyName $Friendlyname
  */
 class FriendlyColumnNamesController extends AppController{
 
