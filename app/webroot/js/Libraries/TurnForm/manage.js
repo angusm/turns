@@ -204,14 +204,13 @@ TurnFormManage.prototype = {
 	//PUBLIC FUNCTION: populateRecordData
 	//Take loaded record data and throw it in all of the appropraite text boxes
 	populateRecordData:function( json ){
-	
-		//Get the model name and uid
-        var uid         = '';
-		
+
 		//Toss all the data into the closest appropriate receptacle
 		//Loop through every piece of the data
 		jQuery.each( json, function( modelName, fields ){
-            uid = fields['uid'];
+
+			//Grab the model UID
+            var uid = fields['uid'];
             jQuery.each( fields, function(key, value){
                 jQuery('input.setupFormInputBox[modelName="'+modelName+'"][fieldName="'+key+'"]').val(
                     value

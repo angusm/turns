@@ -3,7 +3,7 @@
 /**
  * Class UnitStatMovementSet
  */
-class UnitStatMovementSet extends AppModel {
+class UnitTypeMovementSet extends AppModel {
 
 		public $belongsTo = [
 							'MovementSet' => [

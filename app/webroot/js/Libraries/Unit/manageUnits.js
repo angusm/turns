@@ -410,7 +410,7 @@ function ManageUnits(){
 	this.handleRemoveFromTeamButton = function(){
 		
 		//Don't add duplicates
-		jQuery('.removeFromTeam').each( function( index ){
+		jQuery('.removeFromTeam').each( function(){
 			if( ! jQuery( this ).isBound( 'click', Unit_manageUnits.removeUnitFromTeam ) ){
 				//Throw the listener on
 				jQuery( this ).click(

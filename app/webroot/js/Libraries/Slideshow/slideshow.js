@@ -38,7 +38,7 @@ SlideshowClass.prototype = {
                 * (-1/2);
 
             //If the image is going to be offset the wrong way then we adjust it
-            if( n X > 0 ){
+            if( 0 < nuX ){
                 nuX = 0;
             }
 
@@ -59,8 +59,10 @@ SlideshowClass.prototype = {
 
         //Now we either need to load the slide or just display it
         //We want to display it
-        if( typeof this sli es[thi .slideUIDs[this.currentSlideIndex]] !== 'undefined' &&
-            this.slid s[ his.slideUIDs[this.currentSlideIndex]] != 'loading' ){
+        if(
+	        'undefined' !== typeof this.slides[this.slideUIDs[this.currentSlideIndex]] &&
+            'loading' !== this.slides[this.slideUIDs[this.currentSlideIndex]]
+        ){
 
             //Clear the interval for displaying the next slide to ensure the slide we
             //transitioned to has its own proper amount of time
@@ -171,7 +173,7 @@ SlideshowClass.prototype = {
     loadSlide:function( uid, callback ){
 
         //Don't load something that's already loaded
-        if( typeof this sli es[uid  === 'undefined' ){
+        if( 'undefined' === typeof this.slides[uid] ){
 
             //Set it to loading
             this.slides[uid] = 'loading';
@@ -187,7 +189,7 @@ SlideshowClass.prototype = {
                 function( jSONData ){
 
                     slideshow.slides[uid] = jSONData['HeaderSlide'];
-                    if( typeof call ack !== 'u defined'){
+                    if( 'undefined' !== typeof callback ){
                         callback();
                     }
                 }
@@ -217,7 +219,10 @@ SlideshowClass.prototype = {
     startCycle:function(){
 
         //If we have no slides yet, we want to grab our slides
-        if( typeof this sli eUIDs. ength === 'undefined' || t i .slideUIDs.length < 1 ){
+        if(
+	        'undefined' === typeof this.slideUIDs.length ||
+	        1 > this.slideUIDs.length
+        ){
             this.getAvailableSlides( this.startCycle.bind(this) );
         }
 

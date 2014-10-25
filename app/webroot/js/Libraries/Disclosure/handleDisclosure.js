@@ -78,12 +78,12 @@ Disclosure.prototype = {
 
             //Get the disclosure name
             var disclosureName = jQuery(this).attr('disclosurename');
-            if( disclosureName.split('_opposite').length > 1 ){
+            if( 1 < disclosureName.split('_opposite').length ){
                 disclosureName = disclosureName.split('_opposite')[0];
             }
 
             //Find out if we want to toggle everything to be hidden or show
-            if( typeof self.isHidden[disclosureName] === 'undefined' ){
+            if( 'undefined' === typeof self.isHidden[disclosureName] ){
                 self.isHidden[disclosureName] = self.getDisclosureStatusEstimate(disclosureName);
             }
 

@@ -26,7 +26,7 @@ class UsersController extends AppController {
 		//If we're dealing with a posted message
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
-				$this->redirect($this->Auth->redirect());
+				$this->redirect($this->Auth->redirectUrl());
 			} else {
 				$this->Session->setFlash(__('Invalid username or password, try again'));
 			}
@@ -61,7 +61,7 @@ class UsersController extends AppController {
             $success = false;
         }
 
-        $this->set( 'redirectURL',  $this->Auth->redirect()    );
+        $this->set( 'redirectURL',  $this->Auth->redirectUrl()    );
         $this->set( 'success',      $success                   );
         $this->set( 'user',         $this->Auth->user()        );
         $this->set(	'_serialize', [

@@ -9,7 +9,7 @@ jQuery(document).ready( function(){
 
 //Alright let's handle authentication
 var Authentication = function(){
-}
+};
 
 Authentication.prototype = {
     //PUBLIC FUNCTION: handleEverything
@@ -31,7 +31,7 @@ Authentication.prototype = {
                'keydown.authentication',
                'input[type="text"]#loginUsernamePrompt',
                 function(e){
-                    if(e.keyCode == 13){
+                    if( 13 === e.keyCode ){
                         e.preventDefault();
                         jQuery('input[type="password"]#loginPasswordPrompt').focus();
                     }
@@ -42,7 +42,7 @@ Authentication.prototype = {
                 'keydown.authentication',
                 'input[type="password"]#loginPasswordPrompt',
                 function(e){
-                    if(e.keyCode == 13){
+                    if( 13 === e.keyCode ){
                         e.preventDefault();
                         jQuery('input[type="button"]#loginButton').click();
                     }
@@ -65,7 +65,7 @@ Authentication.prototype = {
                             username: username
                         },
                         function( jSONData ){
-                            if( jSONData.success == true ){
+                            if( true === jSONData.success ){
                                 document.location.href = (homeURL + jSONData['redirectURL']).replace('//', '/');
                             }else{
                                 alert( 'Unable to log in' );
@@ -78,4 +78,4 @@ Authentication.prototype = {
 
     }
 
-}
+};

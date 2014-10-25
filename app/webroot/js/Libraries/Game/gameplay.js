@@ -6,7 +6,7 @@ var Game_elements = null;
 
 var loadDependenciesFor_Game_gameplay = function(){
 
-	libraries.push( new Array( 'Game', 'elements' ) );
+	libraries.push( ['Game', 'elements'] );
 	
 };
 
@@ -247,11 +247,7 @@ var Gameplay = function(){
 				
 		//Change the data of the selected unit
 		Game_gameplay.selectedUnit.x = parseInt( nuLogicalX );
-		Game_gameplay.selectedUnit.y = parseInt( nuLogicalY );
-		
-		//Calculate the new x and y pixel position
-		var nuX = Game_gameplay.selectedUnit.x * 70;
-		var nuY = Game_gameplay.selectedUnit.y * 70;
+		Game_gameplay.selectedUnit.y = parseInt( nuLogicalY );7
 		
 		//Increase the selected unit move position
 		Game_gameplay.selectedUnit.last_movement_priority++;
@@ -653,7 +649,7 @@ var Gameplay = function(){
 				x:				nuX,
 				y:				nuY
 			},
-			function( jSONData ){
+			function(){
 				Game_gameplay.getGameUpdate();
 			}
 		).done( 
