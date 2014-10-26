@@ -55,8 +55,20 @@ class UserGame extends AppModel {
 		//Run a find to get the user and all of their associated games
 		$games = $this->find( 'all', [
 								'conditions' => [
-									'users_uid' => $userUID
-								]
+									'UserGame.users_uid'    => $userUID,
+									'Game.active'           => 1
+								],
+								'joins' => [
+									[
+										'table'         => 'games',
+										'alias'         => 'Game',
+										'type'          => 'inner',
+										'conditions'    => [
+											'Game.uid = UserGame.games_uid'
+										]
+									]
+								],
+								'recursive' => -1
 							]);
 							
 		//Return the games we found	

@@ -41,6 +41,26 @@ class GamesController extends AppController {
 		
 	}
 
+	/**
+	 * Forfeits the given game for the currently logged in player
+	 */
+	public function forfeitGame(){
+
+		//Grab the parameters
+		$jsonData = $this->params['url'];
+
+		//Grab the gameUID and userUID
+		$gameUID = $jsonData['gameUID'];
+		$userUID = $this->Auth->user('uid');
+
+		//Retire the game
+		$forfeited = $this->Game->forfeitGame( $gameUID, $userUID );
+
+		//Set the forfeited value in the view
+		$this->set( 'forfeited', $forfeited );
+
+	}
+
     //PUBLIC FUNCTION: getGameBoard
     //Return the details of the current board for the given game
     public function getGameBoard(){

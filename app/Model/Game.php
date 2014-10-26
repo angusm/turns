@@ -43,6 +43,40 @@ class Game extends AppModel {
 
 	}
 
+	/**
+	 * Retire a given game to the historic tables
+	 *
+	 * @param $gameUID
+	 * @return bool
+	 */
+	public function archiveGame( $gameUID ){
+
+		//We need to run this update as a transaction so its time to
+		//set that up properly
+		$dataSource = $this->getDataSource();
+
+		try{
+
+			//Update the game
+			$this->read( NULL, 		$gameUID );
+			$this->set( 'active', 	false );
+			$this->save();
+
+			$dataSource->commit();
+
+			//Let the caller know that everything is awesome
+			return true;
+
+		//If something went wrong then let's roll it back
+		}catch( Exception $e ){
+
+			$dataSource->rollback();
+			return false;
+
+		}
+
+	}
+
     /**
      * Check if the game still has living units on both sides, if it doesn't then shut it down
      * @param $uid
@@ -87,6 +121,32 @@ class Game extends AppModel {
 		
 		return $gameStillActive;
 		
+	}
+
+	/**
+	 * Finds and forfeits the given game for the given user
+	 * @param null $gameUID
+	 * @param null $userUID
+	 */
+	public function forfeitGame( $gameUID=null, $userUID=null ){
+
+		//Grab the game's information and ensure that the user is involved in it
+		$userGameModel = ClassRegistry::init('UserGame');
+		$game = $userGameModel->find(
+			'first', [
+				'conditions' => [
+					'UserGame.games_uid' => $gameUID,
+					'UserGame.users_uid' => $userUID
+				],
+				'Game'
+			]
+		);
+
+		//If an appropriate game can be found then we retire the game
+		if( !empty($game) ){
+			$this->archiveGame($gameUID);
+		}
+
 	}
 
     /**
