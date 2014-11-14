@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+@mixin noPaddingNoMargin(){
+  margin:	0;
+  padding: 	0;
+}
+
+//Proper contents of the page
+#container {
+
+	min-width: 	320px;
+	width: 		auto;
+
+	//Fixed header at the top of the page for navigation and user information
+	#header {
+
+		background: #FFFFFF;
+		display: 	inline-block;
+		height: 	50px;
+		position: 	fixed;
+		top: 		0;
+		width: 		100%;
+
+		.logo {
+			background-size:		contain;
+			background-repeat:		no-repeat;
+			background-image: 		url('../img/Layout/logo.gif');
+			background-position:	center;
+			display:	inline-block;
+			height: 	25px;
+			max-width: 	200px;
+			min-width: 	100px;
+			width: 		20%;
+		}
+
+		#mainMenu {
+			display: inline-block;
+			.menuItem {
+				cursor: pointer;
+			}
+		}
+
+		.userBar {
+			display: inline-block;
+
+			.loginForm {
+				.loginFormElement {
+					display: inline-block;
+					@include noPaddingNoMargin;
+				}
+			}
+
+		}
+
+	}
+
+	//The actal page, te guts th gloy
+	#mainPage {
+		width: 	auto;
+		margin-top: 50px;
+		min-width:	15px;
+
+		//Garbage headr for ads, YAY ads!
+		#contentHeader {
+			height: 	100px;
+			overflow: 	hidden;
+			width: 		100%;
+			#slideshow {
+				height: 100%;
+				width: 	100%;
+				#slides {
+					positon: 	relative;
+					height: 	100%;
+					width: 		100%;
+					.slideImageContainer {
+						height: 	100%;
+						position: 	absolute;
+						width: 		100%;
+					}
+					.slideContentContainer {
+						background-image: url('../img/Pixels/005588-0.8.png');
+						position: 	absolute;
+						bottom: 	0;
+						width: 		100%;
+					}
+				}
+			}
+		}
+
+		//Where al the good stff is kept
+		#content {
+			overflow: hidden;
+			padding: 20px;
+		}
+
+		//All the other links noone cares abot and will never see unless
+		//they're specifically looing for them. Shit like trms of use.
+		#footer {
+			height: 50px;
+		}
+
+	}
+
+}

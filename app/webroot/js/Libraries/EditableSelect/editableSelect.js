@@ -179,8 +179,3 @@ EditableSelect.prototype = {
 	}
 	
 };
-
-jQuery( document).ready( function(){
-    var EditableSelect_editableSelect = new EditableSelect();
-    EditableSelect_editableSelect.handleEverything();
-});

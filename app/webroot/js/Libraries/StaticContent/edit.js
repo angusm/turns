@@ -20,7 +20,7 @@ StaticContentEdit.prototype = {
         jQuery.ajax({
             dataType:       'json',
             type:           'POST',
-            url:            homeURL + '/StaticContents/setHTML',
+            url:            window.Paths.webroot + '/StaticContents/setHTML',
             data:           {
                 uid:    uid,
                 nuHTML: htmlContent

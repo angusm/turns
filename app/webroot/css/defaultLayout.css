@@ -1,217 +1,61 @@
-@charset "utf-8";
-
-a[name]{
-    padding-top:    5rem;
-    margin-top:     -5rem;
-}
-
-body{
-    font-family:    'trebuchet MS', sans-serif;
-}
-
-div{
-    margin:  0;
-    padding: 0;
-}
-
-div#container{
-    height:         100%;
-    width:          auto;
-    min-width:      320px;
-    z-index:        100;
-}
-
-div#container > div.noWidth{
-    max-width:  0;
-    min-width:  0;
-    width:      0;
-}
-
-div#content{
-    height:     100%;
-    overflow:   hidden;
-    padding:    20px;
-    /*width:      80%;*/
-}
-
-div#contentHeader{
-    position:       relative;
-}
-
-div#footer{
-    height:     50px;
-}
-
-div#header{
-    height:     1.5rem;
-    position:   fixed;
-    top:        0;
-}
-
-div.layoutHeader{
-    background-color: rgb(255, 255, 255);
-    height:             1.5rem;
-    width:              100%;
-}
-
-div.loadingDiv{
-    display:    inline-block;
-}
-
-div.loginButton{
-    float: right;
-    height: 100%;
-}
-
-div#logo{
-    background-size:        contain;
-    background-repeat:      no-repeat;
-    background-image:       url('../img/Layout/logo.gif');
-    background-position:    center;
-    float:                  left;
-    height:                 100%;
-    max-width:              200px;
-    min-width:              100px;
-    width:                  20%;
-}
-
-div#mainPage{
-    width:      auto;
-    min-width:  150px;
-}
-
-div#mainMenu{
-    background-color: rgb(17, 102, 153);
-    height:             100%;
-    left:               0;
-    max-width:          200px;
-    min-width:          100px;
-    padding-top:        10px;
-    position:           fixed;
-    top:                1.5rem;
-    width:              20%;
-}
-
-div#mainMenuToggle{
-    background-image:   url('../img/Layout/leftArrow.png');
-    height:             100%;
-    position:           absolute;
-    right:              0;
-    top:                0;
-    width:              25px;
-}
-
-div.menuItem{
-    cursor:                 hand;
-    cursor:                 pointer;
-    font-size:              0.7rem;
-    margin-left:            20px;
-    margin-right:           20px;
-    max-width:              200px;
-    padding-bottom:         3px;
-    padding-top:            3px;
-    text-align:             center;
-}
-
-div.menuItemChildren{
-    margin-bottom: 10px;
-}
-
-div.menuItemChildren > div.menuItem{
-    border:         none;
-    font-size:      0.6rem;
-    font-style:     oblique;
-    margin-right:   15%;
-    width:          75%;
-}
-
-div.menuItem:hover{
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    margin-left:        0;
-    margin-right:       0;
-}
-
-div#pageHeader{
-    color: rgb(255, 255, 255);
-    font-size:      1.6rem;
-    font-weight:    bold;
-    padding:        1%;
-    width:          auto;
-}
-
-div.slideContent{
-    background-image:   url('../img/Pixels/005588-0.8.png');
-    color: rgb(255, 255, 255);
-    padding-bottom:     0.25%;
-    padding-left:       1%;
-    padding-right:      1%;
-    padding-top:        0.25%;
-    width:              98%;
-}
-
-div.slideHeader{
-    color: rgb(153, 204, 68);
-    font-size:          0.8rem;
-}
-
-div#slideshow{
-    background-color: rgb(187, 187, 187);
-    height:             5rem;
-    overflow:           hidden;
-    width:              100%;
-}
-
-div#slides{
-    height:         100%;
-    overflow:       hidden;
-    margin-left:    auto;
-    margin-right:   auto;
-    position:       relative;
-    width:          auto;
-}
-
-div#slides > div{
-    left:       0;
-    height:     100%;
-    position:   absolute;
-    top:        0;
-    width:      auto;
-}
-
-div#slides > div.slideContentContainer{
-    bottom:         0;
-    left:           0;
-    position:       absolute;
-    width:          100%;
-}
-
-div#slides > div.slideContentContainer > div{
-    bottom:         0;
-    position:       absolute;
-    width:          100%;
-}
-
-div#slides > div.slideImageContainer{
-    background-color: rgb(255, 255, 255);
-    min-width:  100%;
-}
-
-div#slides > div.slideImageContainer > img{
-    min-height: 100%;
-    min-width:  100%;
-}
-
-div#userBar{
-    text-align: right;
-    top:        0;
-    width:      100%;
-}
-
-div#userBar > div > div{
+#container {
+  min-width: 320px;
+  width: auto; }
+  #container #header {
+    background: #FFFFFF;
     display: inline-block;
-}
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%; }
+    #container #header .logo {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url("../img/Layout/logo.gif");
+      background-position: center;
+      display: inline-block;
+      height: 25px;
+      max-width: 200px;
+      min-width: 100px;
+      width: 20%; }
+    #container #header #mainMenu {
+      display: inline-block; }
+      #container #header #mainMenu .menuItem {
+        cursor: pointer; }
+    #container #header .userBar {
+      display: inline-block; }
+      #container #header .userBar .loginForm .loginFormElement {
+        display: inline-block;
+        margin: 0;
+        padding: 0; }
+  #container #mainPage {
+    width: auto;
+    margin-top: 50px;
+    min-width: 15px; }
+    #container #mainPage #contentHeader {
+      height: 100px;
+      overflow: hidden;
+      width: 100%; }
+      #container #mainPage #contentHeader #slideshow {
+        height: 100%;
+        width: 100%; }
+        #container #mainPage #contentHeader #slideshow #slides {
+          positon: relative;
+          height: 100%;
+          width: 100%; }
+          #container #mainPage #contentHeader #slideshow #slides .slideImageContainer {
+            height: 100%;
+            position: absolute;
+            width: 100%; }
+          #container #mainPage #contentHeader #slideshow #slides .slideContentContainer {
+            background-image: url("../img/Pixels/005588-0.8.png");
+            position: absolute;
+            bottom: 0;
+            width: 100%; }
+    #container #mainPage #content {
+      overflow: hidden;
+      padding: 20px; }
+    #container #mainPage #footer {
+      height: 50px; }
 
-html{
-    font-size: 20px;
-}
+/*# sourceMappingURL=defaultLayout.css.map */

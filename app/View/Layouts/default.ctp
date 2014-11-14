@@ -40,7 +40,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 </head>
 <body>
 	<div id="container">
-        <div id="headerGhost" class="layoutHeader"></div>
+		<div id="header" class="layoutHeader shadow">
+			<div class="logo"></div>
+			<?php echo $this->element('main_menu'); ?>
+			<?php echo $this->element('user_bar'); ?>
+		</div>
         <div id="mainPage">
             <div id="contentHeader">
                 <?php echo $this->element('content_header'); ?>
@@ -55,14 +59,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
             <?php
                 echo $this->element('sql_dump');
             ?>
-
-        </div>
-        <div id="mainMenu" class="shadow">
-            <?php echo $this->element('main_menu'); ?>
-        </div>
-        <div id="header" class="layoutHeader shadow">
-            <div id="logo"></div>
-            <?php echo $this->element('user_bar'); ?>
         </div>
 	</div>
 </body>

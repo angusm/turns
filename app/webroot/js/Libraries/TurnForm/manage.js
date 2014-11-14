@@ -93,7 +93,7 @@ TurnFormManage.prototype = {
 
                 //Make the necessary call
                 jQuery.getJSON(
-                    homeURL + '/' + controller + '/newRecord',
+                    window.Paths.webroot + '/' + controller + '/newRecord',
                     function( data ){
                         self.newRecordButtonCallback(data);
                     }
@@ -160,7 +160,7 @@ TurnFormManage.prototype = {
 
 		//Make a JSON request to get all the appropriate data
 		jQuery.getJSON(
-            homeURL + controller + '/getRecordData',
+            window.Paths.webroot + controller + '/getRecordData',
             {
                 uid:uid
             },
@@ -280,7 +280,7 @@ TurnFormManage.prototype = {
 
 		//Make a JSON request to get all the appropriate data
 		jQuery.getJSON(
-            homeURL + controller + '/saveFormData',
+            window.Paths.webroot + controller + '/saveFormData',
             saveParameters,
             function( data ){
                 //Load the record data into the fields

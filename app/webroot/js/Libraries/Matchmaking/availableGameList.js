@@ -83,7 +83,7 @@ function availableGameList(){
 		//Make the call to the 
 		//Make the necessary call
 		jQuery.getJSON(
-			homeURL + 'UserGames/getAvailableGamesList/', 
+			window.Paths.webroot + 'UserGames/getAvailableGamesList/',
 			{
 			},
 			function( jSONData ){

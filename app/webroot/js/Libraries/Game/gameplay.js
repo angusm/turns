@@ -4,21 +4,18 @@
 //Why? Because Pepper Potts is a badass bitch who just takes care of it all
 var Game_elements = null;
 
-var loadDependenciesFor_Game_gameplay = function(){
-
-	libraries.push( ['Game', 'elements'] );
-	
-};
-
 //DOCUMENT READY
-//When the document is fully ready, call the main function
-jQuery(document).ready( function(){
-
-	Game_elements = new GameElements();
-	Game_gameplay = new Gameplay();
-	Game_gameplay.handleEverything();
-
-});
+//When the document is fully ready, call the main functions
+require(
+	[
+		window.Paths.jsDir+'Game/elements.js'
+	],
+	function(){
+		Game_elements = new GameElements();
+		Game_gameplay = new Gameplay();
+		Game_gameplay.handleEverything();
+	}
+);
 
 //Alright let's do this matchmaking stuff
 var Gameplay = function(){
@@ -199,7 +196,7 @@ var Gameplay = function(){
 			
 			//Make the call to the server
 			jQuery.getJSON(
-				homeURL + 'GameUnits/getGameUnitCardInfo', 
+				window.Paths.webroot + 'GameUnits/getGameUnitCardInfo',
 				{
 					uid: mousedOverUnitUID
 				},
@@ -262,7 +259,7 @@ var Gameplay = function(){
 
 		//Make a request to the server and update all the variables
 		jQuery.getJSON(
-			homeURL + 'Games/getGameUpdate', 
+			window.Paths.webroot + 'Games/getGameUpdate',
 			{
 				gameUID: 		 window.pageData.Game.uid,
 				lastKnownTurn:	 window.pageData.Game.currentTurn
@@ -642,7 +639,7 @@ var Gameplay = function(){
 		
 		//Make the call to the server
 		jQuery.getJSON(
-			homeURL + 'Games/processUnitMove', 
+			window.Paths.webroot + 'Games/processUnitMove',
 			{
 				gameUnitUID:	Game_gameplay.selectedUnit.uid,
 				x:				nuX,

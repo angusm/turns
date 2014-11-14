@@ -1,12 +1,4 @@
 
-//DOCUMENT READY
-//When the document is fully ready, call the main function
-jQuery(document).ready( function(){
-    var auth = new Authentication();
-    auth.handleEverything();
-});
-
-
 //Alright let's handle authentication
 var Authentication = function(){
 };
@@ -59,14 +51,14 @@ Authentication.prototype = {
 
                     //Then post it to the server and return the resulting info if its valid
                     jQuery.getJSON(
-                        homeURL + 'Users/processLogin',
+                        window.Paths.webroot + 'Users/processLogin',
                         {
                             password: password,
                             username: username
                         },
                         function( jSONData ){
                             if( true === jSONData.success ){
-                                document.location.href = (homeURL + jSONData['redirectURL']).replace('//', '/');
+                                document.location.href = (window.Paths.webroot + jSONData['redirectURL']).replace('//', '/');
                             }else{
                                 alert( 'Unable to log in' );
                             }

@@ -46,7 +46,7 @@ function joinQueue(){
 	
 		//Make the necessary call
 		jQuery.getJSON(
-			homeURL + '/MatchmakingQueues/joinQueue/', 
+			window.Paths.webroot + '/MatchmakingQueues/joinQueue/',
 			{
 				teamUID:teamUID
 			},

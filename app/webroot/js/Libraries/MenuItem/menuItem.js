@@ -19,7 +19,7 @@ MenuItem.prototype = {
         jQuery('div#mainMenu').html('');
 
 		jQuery.getJSON(
-			homeURL + 'MenuItems/getAvailableMenuItems',
+			window.Paths.webroot + 'MenuItems/getAvailableMenuItems',
 			{
 				openMenuItems: this.openedItems
 			},
@@ -41,7 +41,7 @@ MenuItem.prototype = {
 
             //Determine whether we want to append to the top level or as a
             //sub menu
-	        var menuItemContainer = 'div#mainMenu';
+	        var menuItemContainer = '#mainMenu';
             if( null !== menuItem['MenuItem']['parent_uid'] ){
                 menuItemContainer = 'div' +
                     '.disclosureDiv' +
@@ -145,7 +145,7 @@ MenuItem.prototype = {
 
         //Setup the URL we want to load into the browser's bar
         var contentURL =
-            homeURL +
+            window.Paths.webroot +
             'SiteLinks/getContent/?site_links_uid=' +
             menuItem['MenuItem']['site_links_uid']  +
             parameterSetsSuffix;
@@ -169,8 +169,3 @@ MenuItem.prototype = {
 
 };
 
-//Setup the menu item variable
-jQuery( document).ready( function(){
-    var menuItem = new MenuItem();
-    menuItem.loadMenuItems();
-});

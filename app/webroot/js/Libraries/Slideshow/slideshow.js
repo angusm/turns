@@ -92,7 +92,7 @@ SlideshowClass.prototype = {
 
             //Load the image and then center it
             jQuery('div.slideImageContainer[slideID="'+newSlideUID+'"] > img')
-                    .attr('src', imgURL+'Slides/'+slide['image'])
+                    .attr('src', window.Paths.imgDir+'Slides/'+slide['image'])
                     .load(function() {
                         slideshow.centerImages();
                     });
@@ -150,7 +150,7 @@ SlideshowClass.prototype = {
 
         //Make a JSON request and store the result
         jQuery.getJSON(
-            homeURL + 'HeaderSlides/getAvailableSlideUIDs',
+            window.Paths.webroot + 'HeaderSlides/getAvailableSlideUIDs',
             {},
             function( jSONData ){
 
@@ -182,7 +182,7 @@ SlideshowClass.prototype = {
 
             //Send in a JSON request
             jQuery.getJSON(
-                homeURL+'HeaderSlides/getRecordData',
+                window.Paths.webroot+'HeaderSlides/getRecordData',
                 {
                     uid: uid
                 },
@@ -232,8 +232,3 @@ SlideshowClass.prototype = {
     }
 
 };
-
-jQuery( document).ready( function(){
-    var Slideshow = new SlideshowClass();
-    Slideshow.startCycle();
-});

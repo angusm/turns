@@ -1,197 +1,140 @@
-/// ----------------------------- VARIABLES ------------------------------------
 
-//LIBRARIES
-var libraries = [];
-var loadedLibraries = [];
+/**
+ * Store a bunch of paths we're going to want to use
+ */
+window.Paths = {};
+window.Paths.webroot = window
+	.location
+	.pathname
+	.split('/')
+	.slice(0,2)
+	.join('/') + '/';
+window.Paths.jsDir  = window.Paths.webroot + 'js/Libraries/';
+window.Paths.imgDir = window.Paths.webroot + 'img/';
 
-//PATHS
-//Pull the path out from the URL
-var pathname = window.location.pathname;
-pathname = pathname.split('/');
-pathname = pathname.slice( 0,2 );
-pathname = pathname.join('/');
+/**
+ * Load the important libraries we'll want on every page
+ */
+require(
+	[
+		'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
+		'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js',
+		window.Paths.jsDir + 'Inflection/inflection.js',
+		window.Paths.jsDir + 'Events/EventBus.js',
+		window.Paths.jsDir + 'Disclosure/handleDisclosure.js',
+		window.Paths.jsDir + 'MenuItem/menuItem.js',
+		window.Paths.jsDir + 'SlideShow/slideshow.js',
+		window.Paths.jsDir + 'Authentication/authentication.js',
+		window.Paths.jsDir + 'EditableSelect/editableSelect.js'
+	],
+	function(){
 
-var jsLibraryDirectory  = pathname + '/js/Libraries/';
-var imgLibraryDirectory = pathname + '/img/';
-
-//DOCUMENT READY
-//When the document is fully ready, call the main function
-jQuery(document).ready( function(){
-
-	//Add anything we always want to load
-	libraries = addStandardLibraries( libraries );
-	
-	//See if the view has defined a list of libraries, if so, get it
-	if( "function" == typeof( getLibrariesToLoad ) ){
-		getLibrariesToLoad();
-	}
-
-	//One by one load all the necessary libraries
-	loadLibraries();
-
-});
-
-/// ----------------------------- LIBRARIES ------------------------------------
-
-//FUNCTION: addStandardLibraries
-//Tack on an array of libraries we always want to load for every page
-//This will generally be UI type libraries
-function addStandardLibraries(){
-	libraries.push(
-        ['Inflection',      'inflection'],
-        ['Events',          'EventBus'],
-        ['Disclosure',		'handleDisclosure'],
-        ['MenuItem',        'menuItem'],
-        ['SlideShow',       'slideshow'],
-        ['Layout',          'default'],
-        ['Authentication',  'authentication'],
-        ['EditableSelect',  'editableSelect']
-	);
-
-	return libraries;
-}
-
-//FUNCTION: getLibrariesToLoad
-//Load the page libraries
-function getLibrariesToLoad(){
-    
-	//Check to see if we have pageLibraries to load for this page
-	if( 'undefined' != typeof window.pageLibraries ){
-		//If we do load them onto our libraries stack
-		for( var i = 0; i < window.pageLibraries.length; i++ ){
-			libraries.push( window.pageLibraries[i] );
-		}
-	}
-}
-
-//FUNCTION: loadLibraries
-//Load a set of libraries one by one
-function loadLibraries(){
-
-	//If we still have a library to load then
-	if( 0 < libraries.length ){
-
-		//If we haven't already loaded the library, load it
-		if( jQuery.inArray( libraries[0][0] + '/' + libraries[0][1] + '.js', loadedLibraries ) == -1 ){
-
-			//Throw down a 
-			var script  = document.createElement('script');
-			script.type = 'text/javascript';
-			script.src  = jsLibraryDirectory + libraries[0][0] + '/' + libraries[0][1] + '.js';
-
-			//Append the script to the page
-			jQuery('div.scriptDump').append( script );
-			
-			//Add the library we loaded to the list of loaded libraries
-			loadedLibraries.push( libraries[0][0] + '/' + libraries[0][1] + '.js' );
-
-            //We don't allow the '.'s in the names as it will cause the eval to treat anything after
-            //the period as a function or property of an undefined value, same with slashes
-            var loadDependenciesFunction = 'loadDependenciesFor_'+libraries[0][0]+'_'+libraries[0][1];
-            loadDependenciesFunction = loadDependenciesFunction.replace('.', '_');
-            loadDependenciesFunction = loadDependenciesFunction.replace('/', '_');
-
-            //If the function to load dependencies exists then we load the dependencies
-            if ( "function" == eval('typeof ' + loadDependenciesFunction)) {
-                eval( loadDependenciesFunction+'();' );
-            }
-
-			//Remove the library we just loaded from our list of things to load
-			libraries = libraries.splice( 1, (libraries.length - 1) );
-			
-			//Load the next bunch of libraries
-			loadLibraries();
-
-		//Otherwise remove this element from the libraries array and go again
-		}else{
-			libraries = libraries.splice( 1, (libraries.length - 1) );
-			loadLibraries();
-		}
-
-	}
-
-}
+		/**
+		 * Run everything we need to get going on
+		 * @type {Authentication}
+		 */
+		var auth = new Authentication();
+		auth.handleEverything();
+		var disclosure = new Disclosure();
+		disclosure.handleDisclosure();
+		var menuItem = new MenuItem();
+		menuItem.loadMenuItems();
+		var Slideshow = new SlideshowClass();
+		Slideshow.startCycle();
+		var EditableSelect_editableSelect = new EditableSelect();
+		EditableSelect_editableSelect.handleEverything();
 
 /// ----------------------------- OOP FUNCTIONS ------------------------------------
 
-//FUNCTION: extend
-//Extends classes, OOP YAY!
-function extend( childClass, parentClass) {
-    childClass.prototype                = new parentClass();
-    childClass.prototype.constructor    = childClass;
-}
+		/**
+		 * Extends classes, OOP YAY
+		 * @param childClass
+		 * @param parentClass
+		 */
+		extend = function( childClass, parentClass) {
+			childClass.prototype                = new parentClass();
+			childClass.prototype.constructor    = childClass;
+		}
 
 /// ----------------------------- UTILITY FUNCTIONS ------------------------------------
 
-//FUNCTION: isBound
-//Pulled from this StackOverflow question: 
-//http://stackoverflow.com/questions/6361465/how-to-check-if-click-event-is-already-bound-jquery
-//Check to see if the given function is bound to and element for the given eventType
-//Commented with my best understanding as of Oct 5th 2013
-jQuery.fn.isBound = function(eventType, callBackFunction) {
+		/**
+		 * Pulled from this StackOverflow question:
+		 * http://stackoverflow.com/questions/6361465/how-to-check-if-click-event-is-already-bound-jquery
+		 * Check to see if the given function is bound to and element for the given eventType
+		 * Commented with my best understanding as of Oct 5th 2013
+		 * @param eventType
+		 * @param callBackFunction
+		 * @returns {boolean}
+		 */
+		jQuery.fn.isBound = function(eventType, callBackFunction) {
 
-	//To do this we've got to grab some data from the jQuery library
-	var eventData   = jQuery._data(this[0], 'events');
-	var returnValue = false;
-	
-	//If there's no event data then there can't be a bound function
-	if( eventData === undefined ){
-		return false;	
+			//To do this we've got to grab some data from the jQuery library
+			var eventData   = jQuery._data(this[0], 'events');
+			var returnValue = false;
+
+			//If there's no event data then there can't be a bound function
+			if( eventData === undefined ){
+				return false;
+			}
+
+			//If there's nothing bound to the event, then our function can't be bound
+			if( ! jQuery.inArray(eventType, eventData) || eventData[eventType] == undefined){
+				return false;
+			}
+
+			//We now know there is functions bound the the given event, it's our job
+			//to loop through them and see if any of them are the one we're looking for
+			if( 0 !== eventData[eventType].length ){
+				jQuery.each( eventData[eventType], function( indexKey, value ){
+
+					if( value['handler'] == callBackFunction ){
+						returnValue = true;
+					}
+
+				});
+			}
+
+			//Return the result
+			return returnValue;
+
+		};
+
+		/**
+		 * Returns true if a thing is an Int
+		 * @param something
+		 * @returns {boolean}
+		 */
+		isInt = function( something ){
+			var parseIntResult = parseInt(something);
+			return !isNaN(parseIntResult) && isFinite(something);
+		}
+
+		/**
+		 * Takes a given bit of text and makes is safe to pass to a URL in this case we
+		 * convert spaces to underscores and remove anything else we can't handle
+		 * @param dangerousWord
+		 * @returns {string}
+		 */
+		makeURLSafe = function( dangerousWord ){
+			dangerousWord = dangerousWord.replace(/ /g,'_');
+			dangerousWord = dangerousWord.replace(/[^\w-]+/g,'');
+			return dangerousWord;
+		}
+
+		/**
+		 * Used to assign a default value to a parameter in a readable way
+		 * @param parameter
+		 * @param defaultValue
+		 * @returns {*}
+		 */
+		defaultValue = function( parameter, defaultValue ){
+			var result = parameter;
+			if( 'undefined' === typeof parameter ){
+				result = defaultValue;
+			}
+			return result;
+		}
+
 	}
-	
-	//If there's nothing bound to the event, then our function can't be bound
-	if( ! jQuery.inArray(eventType, eventData) || eventData[eventType] == undefined){
-		return false;
-	}
-
-	//We now know there is functions bound the the given event, it's our job
-	//to loop through them and see if any of them are the one we're looking for
-    if( 0 !== eventData[eventType].length ){
-        jQuery.each( eventData[eventType], function( indexKey, value ){
-
-            if( value['handler'] == callBackFunction ){
-                returnValue = true;
-            }
-
-        });
-    }
-
-	//Return the result
-    return returnValue;
-	
-};
-
-//FUNCTION: isInt
-//Sometimes you just want to know if a number is an integer
-function isInt( something ){
-    var parseIntResult = parseInt(something);
-	return !isNaN(parseIntResult) && isFinite(something);
-}
-
-//FUNCTION: makeURLSafe
-//Takes a given bit of text and makes it safe to pass to a URL, in this case we convert
-//spaces to underscores and remove anything else we can't handle
-function makeURLSafe( dangerousWord ){
-    dangerousWord = dangerousWord.replace(/ /g,'_');
-    dangerousWord = dangerousWord.replace(/[^\w-]+/g,'');
-    return dangerousWord;
-}
-
-/**
- * Used to assign a default value to a parameter in a readable way
- * @param parameter
- * @param defaultValue
- * @returns {*}
- */
-function defaultValue( parameter, defaultValue ){
-    var result = parameter;
-    if( 'undefined' === typeof parameter ){
-        result = defaultValue;
-    }
-    return result;
-}
-
-//FUNCTION: modelToTableName
-
-//FUNCTION: modelToControllerName
-
+);

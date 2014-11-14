@@ -144,7 +144,7 @@ GameElements.prototype.getBoard = function(){
 
     //Make a request to the server and update all the variables
     jQuery.getJSON(
-        homeURL + 'Games/getGameBoard',
+        window.Paths.webroot + 'Games/getGameBoard',
         {
             gameUID: window.pageData.Game.uid
         },

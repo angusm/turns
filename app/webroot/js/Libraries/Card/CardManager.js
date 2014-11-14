@@ -22,7 +22,7 @@ function CardManager() {
 
             //Make a query to the server to get the relevant information for the card display
             jQuery.getJSON(
-                homeURL + 'UnitTypes/getCardViewData',
+                window.Paths.webroot + 'UnitTypes/getCardViewData',
                 {
                     unitTypeUID: unitTypeUID
                 },
@@ -90,25 +90,25 @@ function CardManager() {
                     case '3':
                         boardIcon =
                             '<div class="boardIcon">' +
-                            '<img src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />' +
+                            '<img src="'+window.Paths.imgDir+unitArtSetIcon['Icon']['image']+'" />' +
                             '</div>';
                         break;
 
                     //Damage Icon
                     case '4':
-                        damageIcon = '<img class="attributePoint" src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />';
+                        damageIcon = '<img class="attributePoint" src="'+window.Paths.imgDir+unitArtSetIcon['Icon']['image']+'" />';
                         break;
 
                     //Defense Icon
                     case '5':
-                        defenseIcon = '<img class="attributePoint" src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />';
+                        defenseIcon = '<img class="attributePoint" src="'+window.Paths.imgDir+unitArtSetIcon['Icon']['image']+'" />';
                         break;
 
                     //Damage point bar
                     case '6':
                         damageBarToAdd = '';
                         for( var barCounter = 0; barCounter < cardData['UnitStat']['damage']; barCounter++ ){
-                            damageBarToAdd += '<img class="attributePoint" src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />';
+                            damageBarToAdd += '<img class="attributePoint" src="'+window.Paths.imgDir+unitArtSetIcon['Icon']['image']+'" />';
                         }
                         damageBarToAdd += '<div class="attributeValue">'+cardData['UnitStat']['damage']+'</div>';
                         cardDiv.find('div.damageBar').html( damageBarToAdd );
@@ -118,7 +118,7 @@ function CardManager() {
                     case '7':
                         defenseBarToAdd = '';
                         for( var barCounter = 0; barCounter < cardData['UnitStat']['defense']; barCounter++ ){
-                            defenseBarToAdd += '<img class="attributePoint" src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />';
+                            defenseBarToAdd += '<img class="attributePoint" src="'+window.Paths.imgDir+unitArtSetIcon['Icon']['image']+'" />';
                         }
                         defenseBarToAdd += '<div class="attributeValue">'+cardData['UnitStat']['defense']+'</div>';
                         cardDiv.find('div.defenseBar').html( defenseBarToAdd );
@@ -133,7 +133,7 @@ function CardManager() {
                     case '9':
                         teamCostBarToAdd = '';
                         for( var barCounter = 0; barCounter < cardData['UnitStat']['teamcost']; barCounter++ ){
-                            teamCostBarToAdd += '<img class="attributePoint" src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />';
+                            teamCostBarToAdd += '<img class="attributePoint" src="'+window.Paths.imgDir+unitArtSetIcon['Icon']['image']+'" />';
                         }
                         teamCostBarToAdd += '<div class="attributeValue">'+cardData['UnitStat']['teamcost']+'</div>';
                         break;
@@ -145,7 +145,7 @@ function CardManager() {
 
                     //Team cost Icon
                     case '12':
-                        teamCostIcon = '<img class="attributePoint" src="'+imgURL+unitArtSetIcon['Icon']['image']+'" />';
+                        teamCostIcon = '<img class="attributePoint" src="'+window.Paths.imgDir+unitArtSetIcon['Icon']['image']+'" />';
                         break;
 
 	                default:
@@ -187,7 +187,7 @@ function CardManager() {
                             //Add the movement to the movement display
                             movementSet += '<img '
                                         + 'class="movementArrow'+direction['Direction'].name+'" '
-                                        + 'src="'+imgURL+directionArrow+'"'
+                                        + 'src="'+window.Paths.imgDir+directionArrow+'"'
                                         + '/>'
 
                         });

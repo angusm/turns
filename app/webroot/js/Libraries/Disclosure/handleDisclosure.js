@@ -1,10 +1,4 @@
 
-//Once the document is ready, launch everything
-jQuery(document).ready( function(){
-   var disclosure = new Disclosure();
-   disclosure.handleDisclosure();
-});
-
 //Handles divs that, when clicked on, show and hide other divs
 //Otherwise known as progressive disclosure
 function Disclosure(){

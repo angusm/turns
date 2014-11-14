@@ -1,33 +1,26 @@
 //PEPPER POTTS FUNCTION: handleEverything
 
+//Bring in the dependencies
+require(
+	[
+		window.Paths.jsDir + 'Game/elements.js',
+		window.Paths.jsDir + 'Game/gameplay.js',
+		window.Paths.jsDir + 'Card/CardManager.js'
+	], function(){
 
+	    //Initialize the game elements and gameplay
+	    Game_elements = new GameElements();
+	    Game_gameplay = new Gameplay();
 
-//Setup the dependencies function
-var loadDependenciesFor_Unit_manageUnits = function(){
+	    //Setup the card manager
+	    Card_CardManager = new CardManager();
 
-    libraries.push( ['Game', 'elements'] );
-    libraries.push( ['Game', 'gameplay'] );
-    libraries.push( ['Card', 'CardManager'] );
+	    //Setup the unit manager
+	    Unit_manageUnits = new ManageUnits();
+	    Unit_manageUnits.handleEverything();
 
-};
-
-//DOCUMENT READY
-//When the document is fully ready, call the main function
-jQuery(document).ready( function(){
-
-
-    //Initialize the game elements and gameplay
-    Game_elements = new GameElements();
-    Game_gameplay = new Gameplay();
-
-    //Setup the card manager
-    Card_CardManager = new CardManager();
-
-    //Setup the unit manager
-    Unit_manageUnits = new ManageUnits();
-    Unit_manageUnits.handleEverything();
-
-});
+	}
+);
 
 //Setup the object for managing units
 function ManageUnits(){
@@ -45,7 +38,7 @@ function ManageUnits(){
 
 		//Run the JSON to create the new team
 		jQuery.getJSON(
-			homeURL + '/Teams/addNewTeam/', 
+			window.Paths.webroot + '/Teams/addNewTeam/',
 			{
 			},
 			function( jSONData ){
@@ -84,7 +77,7 @@ function ManageUnits(){
 		
 		//Make the necessary call
 		jQuery.getJSON(
-			homeURL + '/TeamUnits/addUnitToTeamByUnitTypeUID/', 
+			window.Paths.webroot + '/TeamUnits/addUnitToTeamByUnitTypeUID/',
 			{
 				teamUID:		teamUID,
 				unitTypeUID:	Unit_manageUnits.selectedUnitTypeUID,
@@ -161,7 +154,7 @@ function ManageUnits(){
                 //Display the unit
                 jQuery( 'div.gameBoard' ).append(
                     '<div uid="'+uid+'" class="gameplayUnit" team="user" unitTypeUID="'+unitData['UnitType']['uid']+'">'
-                        + '<img src="'+ imgURL + unitBoardIcon +'" >'
+                        + '<img src="'+ window.Paths.imgDir + unitBoardIcon +'" >'
                         + '<div class="gameplayUnitAttack">'+unitAttack+'</div>'
                         + '<div class="gameplayUnitDefense">'+unitDefense+'</div>'
                         + '<div class="removeFromTeam" uid="'+unitData['UnitType']['uid']+'" x="'+x+'" y="'+y+'">'
@@ -471,7 +464,7 @@ function ManageUnits(){
 		
 		//Make the necessary call
 		jQuery.getJSON(
-			homeURL + '/TeamUnits/getUnitsOnTeam/', 
+			window.Paths.webroot + '/TeamUnits/getUnitsOnTeam/',
 			{
 				teamUID:teamUID
 			},
@@ -611,7 +604,7 @@ function ManageUnits(){
 		
 		//Make the call
 		jQuery.getJSON(
-			homeURL + '/Teams/remove/',
+			window.Paths.webroot + '/Teams/remove/',
 			{
 				uid:teamUID
 			},
@@ -644,7 +637,7 @@ function ManageUnits(){
 		
 		//Make the necessary call
 		jQuery.getJSON(
-			homeURL + '/TeamUnits/removeUnitFromTeamByUnitTypeUID/', 
+			window.Paths.webroot + '/TeamUnits/removeUnitFromTeamByUnitTypeUID/',
 			{
 				teamUID:		teamUID,
 				unitTypeUID:	unitTypeUID,
@@ -685,7 +678,7 @@ function ManageUnits(){
 		
 		//Make the necessary call
 		jQuery.getJSON(
-			homeURL + '/Teams/changeTeamName/', 
+			window.Paths.webroot + '/Teams/changeTeamName/',
 			{
 				teamUID:	teamUID,
 				teamName:	typedText
