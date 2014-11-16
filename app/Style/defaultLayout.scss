@@ -1,9 +1,6 @@
 @charset "utf-8";
 
-@mixin noPaddingNoMargin(){
-  margin:	0;
-  padding: 	0;
-}
+@import 'mixins';
 
 //Proper contents of the page
 #container {
@@ -41,7 +38,8 @@
 		}
 
 		.userBar {
-			display: inline-block;
+			display: 	inline-block;
+			float: 		right;
 
 			.loginForm {
 				.loginFormElement {
@@ -74,7 +72,6 @@
 					width: 		100%;
 					.slideImageContainer {
 						height: 	100%;
-						position: 	absolute;
 						width: 		100%;
 					}
 					.slideContentContainer {

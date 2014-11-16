@@ -44,13 +44,13 @@ class AppController extends Controller {
     //Before anything else happens, the beforeFilter happens
     public function beforeFilter() {
 
+	    //Set the login action
         $this->Auth->loginAction = [
             'controller'    => 'users',
             'action'        => 'register',
             'plugin'        => null,
             '?'             => $this->params->query
         ];
-        $this->set( 'authUser', $this->Auth->user() );
 
         //Handle restrictions
         //$this->Auth->allow();
@@ -60,8 +60,22 @@ class AppController extends Controller {
             isset($this->params->query['requestType']) &&
             $this->params->query['requestType'] == 'content'
         ){
-            $this->layout = 'none';
+	        //Change the default layout
+            $this->layout   = 'none';
+
+	        //Set the default variables
+	        $menuItems      = [];
+        }else{
+	        //Set the default variables for non-content loading
+	        $menuItemModel  = ClassRegistry::init('MenuItem');
+
+	        //Grab all of the menu items
+	        $menuItems      = $menuItemModel->getAvailableMenuItems();
         }
+
+	    //Pass to the view what needs to be passed
+	    $this->set( 'authUser',     $this->Auth->user() );
+	    $this->set( 'menuItems',    $menuItems );
 
     }
 

@@ -9,11 +9,11 @@ class SiteLink extends AppModel{
     public $hasMany = [
         'MenuItem' => [
             'class'         => 'MenuItem',
-            'foreign_key'   => 'site_links_uid'
+            'foreignKey'    => 'site_links_uid'
         ],
         'SiteLinkContentRestriction' => [
             'class'         => 'SiteLinkContentRestriction',
-            'foreign_key'   => 'site_links_uid'
+            'foreignKey'    => 'site_links_uid'
         ]
     ];
 

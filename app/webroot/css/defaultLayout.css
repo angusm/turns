@@ -23,7 +23,8 @@
       #container #header #mainMenu .menuItem {
         cursor: pointer; }
     #container #header .userBar {
-      display: inline-block; }
+      display: inline-block;
+      float: right; }
       #container #header .userBar .loginForm .loginFormElement {
         display: inline-block;
         margin: 0;
@@ -45,7 +46,6 @@
           width: 100%; }
           #container #mainPage #contentHeader #slideshow #slides .slideImageContainer {
             height: 100%;
-            position: absolute;
             width: 100%; }
           #container #mainPage #contentHeader #slideshow #slides .slideContentContainer {
             background-image: url("../img/Pixels/005588-0.8.png");

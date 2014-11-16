@@ -46,9 +46,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<?php echo $this->element('user_bar'); ?>
 		</div>
         <div id="mainPage">
-            <div id="contentHeader">
-                <?php echo $this->element('content_header'); ?>
-            </div>
             <div id="content">
                 <?php echo $this->fetch('content'); ?>
             </div>

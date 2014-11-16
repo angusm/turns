@@ -9,3 +9,7 @@
     echo $this->Html->css('turns');
     echo $this->Html->css('gameplay');
 
+	//KendoUI CSS
+	echo $this->Html->css('KendoUI/kendo.common.min');
+	echo $this->Html->css('KendoUI/kendo.default.min');
+

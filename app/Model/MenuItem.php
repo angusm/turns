@@ -3,6 +3,7 @@
 /**
  * Class MenuItem
  * @method Array children() children( Array )
+ * @method recover()
  */
 class MenuItem extends AppModel{
 
@@ -19,13 +20,13 @@ class MenuItem extends AppModel{
      */
     public $actsAs = [
         'tree' => [
-            'parent_id' => 'parent_uid'
+            'parent' => 'parent_uid'
         ]
     ];
 
     //Set the models relationships
     public $belongsTo = [
-        'MenuItem' => [
+        'ParentMenuItem' => [
             'className'     => 'MenuItem',
             'foreignKey'    => 'parent_uid'
         ],
@@ -40,6 +41,10 @@ class MenuItem extends AppModel{
     ];
 
     public $hasMany = [
+	    'ChildMenuItem' => [
+		    'className'     => 'MenuItem',
+		    'foreignKey'    => 'parent_uid'
+	    ],
         'MenuItemEffectiveDate' => [
             'className'     => 'MenuItemEffectiveDate',
             'foreignKey'    => 'menu_items_uid'
@@ -74,9 +79,8 @@ class MenuItem extends AppModel{
 
     //FUNCTIONS
 
-    //PUBLIC FUNCTION: getAvailableMenuItems
-    //Return all of the menu items that are available to the given user
 	/**
+	 * Return all of the menu items that are available to the given user
 	 * @internal param null $userUID
 	 * @return mixed
 	 */
@@ -84,11 +88,30 @@ class MenuItem extends AppModel{
 
         //We start with the top level menu items and then recursively
         //grab each of the child menu items
-        $availableMenuItems = $this->children( [
-            'contain' => [
-                'SiteLink'
-            ]
-        ]);
+        $availableMenuItems = $this->find(
+	        'all',
+	        [
+		        'fields' => [
+			        'lft',
+			        'name'
+		        ],
+	            'contain' => [
+		            'SiteLink' => [
+			            'controller',
+			            'action',
+			            'name'
+		            ],
+		            'ParameterSet' => [
+			            'Parameter' => [
+				            'fields' => [
+					            'key',
+					            'value'
+				            ]
+			            ]
+		            ]
+				]
+			]
+        );
 
         return $availableMenuItems;
 

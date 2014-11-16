@@ -19,11 +19,11 @@ require(
 	[
 		'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
 		'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js',
+		window.Paths.jsDir + 'KendoUI/kendo.ui.core.min.js',
 		window.Paths.jsDir + 'Inflection/inflection.js',
 		window.Paths.jsDir + 'Events/EventBus.js',
 		window.Paths.jsDir + 'Disclosure/handleDisclosure.js',
 		window.Paths.jsDir + 'MenuItem/menuItem.js',
-		window.Paths.jsDir + 'SlideShow/slideshow.js',
 		window.Paths.jsDir + 'Authentication/authentication.js',
 		window.Paths.jsDir + 'EditableSelect/editableSelect.js'
 	],
@@ -37,10 +37,6 @@ require(
 		auth.handleEverything();
 		var disclosure = new Disclosure();
 		disclosure.handleDisclosure();
-		var menuItem = new MenuItem();
-		menuItem.loadMenuItems();
-		var Slideshow = new SlideshowClass();
-		Slideshow.startCycle();
 		var EditableSelect_editableSelect = new EditableSelect();
 		EditableSelect_editableSelect.handleEverything();
 

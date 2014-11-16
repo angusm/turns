@@ -15,9 +15,10 @@ class SiteLinksController extends AppController{
 
     //FUNCTIONS
 
-    //PUBLIC FUNCTION: getContent
-    //Returns the content that a given link would provide if followed, taking
-    //in any optional parameters
+	/**
+	 * Returns the content that a given link would provide if followed, taking
+	 * in any optional parameters
+	 */
     public function getContent(){
 
         //Initialize the parameters array
