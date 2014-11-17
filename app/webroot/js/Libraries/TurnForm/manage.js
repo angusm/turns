@@ -1,9 +1,7 @@
-
 //Object for management of a turns form
-var TurnFormManage = function(){
-};
+window.Turns.TurnFormManage = {};
 
-TurnFormManage.prototype = {
+window.Turns.TurnFormManage.prototype = {
 
 
 	//PUBLIC FUNCTION: addRecordToDropdownSelects
@@ -21,7 +19,7 @@ TurnFormManage.prototype = {
                     name +
                 '</option>'
             );
-		
+
             //Set the new record as the selected record
             jQuery(this).val(
                 uid
@@ -42,13 +40,13 @@ TurnFormManage.prototype = {
               name +
           '</option>'
         );
-		
+
 	},
-	
+
 	//PUBLIC FUNCTION: getFieldDataInArray
 	//Get the field name and value from a given input field
 	getFieldDataInArray:function( saveParameters, element ){
-			
+
         var fieldName 	= jQuery( element ).attr( 'fieldName' );
 
         saveParameters[fieldName] = jQuery( element ).val();
@@ -59,15 +57,15 @@ TurnFormManage.prototype = {
 
 	//PUBLIC FUNCTION: handleEverything
 	//This is the Pepper Potts (Iron Man reference, look it up) function
-	//Basically it should just take care of everything so we can go on 
+	//Basically it should just take care of everything so we can go on
 	//mad adventures elsewhere in the code
 	handleEverything:function(){
-	
+
 		this.handleNewRecordButton();
         this.handleRecordSelection();
         this.handleSaveButton();
         this.loadSelections();
-		
+
 	},
 
 	//PUBLIC FUNCTION: handleNewRecordButton
@@ -101,12 +99,12 @@ TurnFormManage.prototype = {
 
             }
         );
-		
+
 	},
-	
+
 	//PUBLIC FUNCTION: handleRecordSelection
 	//If a new record is selected from the drop down menu then we should pop
-	//all of the selected records information into the text fields 
+	//all of the selected records information into the text fields
 	handleRecordSelection:function(){
 
         //Preserve context
@@ -120,9 +118,9 @@ TurnFormManage.prototype = {
                 self.loadRecordData(this);
             }
         );
-		
+
 	},
-	
+
 	//PUBLIC FUNCTION: handleSaveButton
 	//Handle committing entered/selected data to the database wehn the
 	//Save Buttons are clicked
@@ -136,21 +134,21 @@ TurnFormManage.prototype = {
                 self.saveData(this)
             }
         );
-		
+
 	},
-	
+
 	//PUBLIC FUNCTION: loadRecordData
 	//Get the necessary information and make the call to grab all of record
 	//data, then pass control to the populateRecordData function to make sure
 	//it all actually gets displayed in the appropriate text boxes
 	loadRecordData:function( element ){
-		
+
 		//Get the model name
 		var modelName 	= jQuery(element).attr('modelName');
-		
+
 		//Get the appropriate controller
 		var controller = jQuery(element).attr('controllerName');
-		
+
 		//Get the UID we're working with
 		var uid 		= jQuery(element).val();
 
@@ -169,11 +167,11 @@ TurnFormManage.prototype = {
                 self.showLoadingForController( controller, false );
             }
         );
-		
-		
-		
+
+
+
 	},
-	
+
 	//PUBLIC FUNCTION: loadSelections
 	//Load the starting selections into the input fields
 	loadSelections:function(){
@@ -183,10 +181,10 @@ TurnFormManage.prototype = {
 		jQuery( '.modelRecordSelect' ).each( function(){
             self.loadRecordData( this );
 		});
-			
-		
+
+
 	},
-	
+
 	//PUBLIC FUNCTION: newRecordButtonCallback
 	//This function will update the form with the data returned as
 	//a result of the REST call to create a new record
@@ -198,9 +196,9 @@ TurnFormManage.prototype = {
             data['uid'],
             data['name']
         );
-		
+
 	},
-	
+
 	//PUBLIC FUNCTION: populateRecordData
 	//Take loaded record data and throw it in all of the appropraite text boxes
 	populateRecordData:function( json ){
@@ -249,9 +247,9 @@ TurnFormManage.prototype = {
                 }
             });
 		});
-		
+
 	},
-	
+
 	//PUBLIC FUNCTION: saveData
 	saveData:function( element ){
 
@@ -260,14 +258,14 @@ TurnFormManage.prototype = {
 
 		//Get the model name that we're saving
 		var modelName = jQuery( element ).attr('modelname');
-		
+
 		//Get the appropriate controller
 		var controller = jQuery(element).attr( 'controllerName' );
-		
+
 		//Setup an array to contain the jSon stuff we'll be pasing to the
 		//CakePHP Controller we call in order to save this information
 		var saveParameters = {};
-		
+
 		//Gather all the information relevant to this model and save it
 		//in an array that we can then pass as jSon values
 		jQuery( '.setupFormInputBox[modelName="' + modelName + '"]' ).each( function(){
@@ -293,7 +291,7 @@ TurnFormManage.prototype = {
                 });*/
             }
         );
-		
+
 	},
 
     //PUBLIC FUNCTION: showLoadingForController
@@ -310,7 +308,7 @@ TurnFormManage.prototype = {
         }
 
     }
-	
+
 };
 
 

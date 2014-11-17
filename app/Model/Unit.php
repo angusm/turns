@@ -57,6 +57,11 @@ class Unit extends AppModel {
 	
 		//Do the find and return the results
 		$unitList = $this->find( 'all', [
+			'conditions' => [
+				'users_uid' => $userUID
+			]
+		]);
+		/*$unitList = $this->find( 'all', [
 									'conditions' => [
 										'users_uid' => $userUID
 									],
@@ -80,7 +85,7 @@ class Unit extends AppModel {
 			$unitList[$unitIndex]['Unit']['name']  		= $unitList[$unitIndex]['UnitType']['name'];
 			$unitList[$unitIndex]['Unit']['teamcost']  	= $unitList[$unitIndex]['UnitType']['UnitStat']['teamcost'];
 			$unitList[$unitIndex]['Unit']['uid']  		= $unitList[$unitIndex]['UnitType']['uid'];
-		}
+		}*/
 								
 		return $unitList;	
 		

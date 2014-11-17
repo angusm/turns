@@ -1,6 +1,10 @@
 //PEPPER POTTS FUNCTION: handleEverything
 
-//Bring in the dependencies
+//Bind the data to the display
+
+
+
+/*/Bring in the dependencies
 require(
 	[
 		window.Paths.jsDir + 'Game/elements.js',
@@ -700,4 +704,4 @@ function ManageUnits(){
 		
 	}
 	
-}
+}*/

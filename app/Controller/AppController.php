@@ -34,7 +34,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
-	public $helpers = [ 'TurnForm', 'Html' ];
+	public $helpers = [ 'TurnForm', 'Html', 'KendoUI' ];
     public $components = [
         'Auth',
 		'RequestHandler',

@@ -21,9 +21,10 @@ class ModelUIHelper extends AppHelper {
 	 * @return string
 	 */
 	public function tableFromFind(
-									$findData,
-									$fields,
-									$extraContent = [] ){
+		$findData,
+		$fields,
+		array $extraContent = []
+	){
 		
 		//Grab the model name we're dealing with here
 		$findDataKeys 	= array_keys( $findData[0] );
@@ -36,13 +37,13 @@ class ModelUIHelper extends AppHelper {
 		foreach( $fields as $displayValue => $fieldName ){
 				
 				$tableString .= $this->Html->tag(
-											'th',
-											$displayValue,
-											[
-												'modelName' => $modelName,
-												'fieldName'	=> $fieldName
-											]
-										);
+					'th',
+					$displayValue,
+					[
+						'modelName' => $modelName,
+						'fieldName'	=> $fieldName
+					]
+				);
 										
 		}
 		
