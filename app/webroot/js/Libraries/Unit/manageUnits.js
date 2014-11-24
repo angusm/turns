@@ -1,15 +1,19 @@
-//PEPPER POTTS FUNCTION: handleEverything
 
-//Bind the data to the display
-
-
+//Bring in the libraries that we're going to need
+define(
+	[
+		'jquery',
+		'jquery-ui',
+		'knockout'
+	]
+);
 
 /*/Bring in the dependencies
 require(
 	[
-		window.Paths.jsDir + 'Game/elements.js',
-		window.Paths.jsDir + 'Game/gameplay.js',
-		window.Paths.jsDir + 'Card/CardManager.js'
+		window.Paths.jsLibDir + 'Game/elements.js',
+		window.Paths.jsLibDir + 'Game/gameplay.js',
+		window.Paths.jsLibDir + 'Card/CardManager.js'
 	], function(){
 
 	    //Initialize the game elements and gameplay

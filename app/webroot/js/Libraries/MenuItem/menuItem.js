@@ -1,9 +1,7 @@
 //Run KendoUI on menus
-require(
+define(
 	[
-		'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
-		'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js',
-		window.Paths.jsDir + 'KendoUI/kendo.ui.core.min.js'
+		'kendoUI'
 	],
 	function(){
 		//Add the kendoMenu to everything on the screen now
@@ -15,6 +13,5 @@ require(
 				jQuery(e.target).kendoMenu();
 			}
 		});
-
 	}
 );

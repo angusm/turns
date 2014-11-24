@@ -8,7 +8,7 @@ var Game_elements = null;
 //When the document is fully ready, call the main functions
 require(
 	[
-		window.Paths.jsDir+'Game/elements.js'
+		window.Paths.jsLibDir+'Game/elements.js'
 	],
 	function(){
 		Game_elements = new GameElements();

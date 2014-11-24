@@ -15,11 +15,19 @@ echo '<table class="unitPool">
 		</tbody>
 	</table>';
 
-//Toss out a script to define the template
-echo $this->element('KendoUI/Templates/unit_template');
-
-//Bring in the script for unit management
-echo $this->Html->script('Libraries/Unit/manageUnits');
-
-//Toss out the information for the unit
-echo $this->KendoUI->exportResults($unitList);
+//Toss out the information for the team units and the unit pool
+echo $this->Html->tag(
+	'script',
+	'require(
+		[
+			'.$this->RequireJS->requireJSFromLib('/Utilities/functions.js').',
+			'.$this->RequireJS->requireJSFromLib('/Unit/manageUnits.js').',
+		],
+		function(){
+			window.Units    = defaultValue(window.Units, {});
+			window.Teams    = defaultValue(window.Teams, {});
+			window.Units.UnitPool = '.json_encode($unitList).';
+			window.Teams.TeamList = '.json_encode($teamList).';
+		}
+	);'
+);

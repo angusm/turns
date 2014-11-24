@@ -56,22 +56,6 @@ class TurnMenuHelper extends AppHelper {
 										]
 									);
 									
-		//Add in the libraries that are needed to make this part run
-		$returnString .= $this->Html->tag(	
-						'script',
-						'if( typeof window.pageLibraries === "undefined" ){ '.
-							'window.pageLibraries = new Array(); '.
-						'} '.
-						'window.pageLibraries = window.pageLibraries.concat( '.
-																	'new Array( '.
-																		'new Array( '.
-																			'"Matchmaking", '.
-																			'"availableGameList" '.
-																		') '.
-																	') '.
-																');'
-						);
-									
 		return $returnString;
 		
 	}
@@ -208,23 +192,7 @@ class TurnMenuHelper extends AppHelper {
 										[
 											'class' => 'matchmakingButton'
 										]
-									);	
-									
-		//Add in the libraries that are needed to make this part run
-		$returnString .= $this->Html->tag(	
-						'script',
-						'if( typeof window.pageLibraries === "undefined" ){ '.
-							'window.pageLibraries = new Array(); '.
-						'} '.
-						'window.pageLibraries = window.pageLibraries.concat( '.
-																	'new Array( '.
-																		'new Array( '.
-																			'"Matchmaking", '.
-																			'"joinQueue" '.
-																		') '.
-																	') '.
-																');'
-						);
+									);
 		
 		//Return the return string
 		return $returnString;
