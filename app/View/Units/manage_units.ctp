@@ -1,6 +1,8 @@
 <?php
 
 //Setup the unit pool
+echo $this->Knockout->dump('unitPool',$unitList);
+echo $this->Knockout->dump('teamList',$teamList);
 echo '<table class="unitPool">
 		<thead>
 			<tr>
@@ -18,16 +20,13 @@ echo '<table class="unitPool">
 //Toss out the information for the team units and the unit pool
 echo $this->Html->tag(
 	'script',
-	'require(
+	'requirejs(
 		[
 			'.$this->RequireJS->requireJSFromLib('/Utilities/functions.js').',
-			'.$this->RequireJS->requireJSFromLib('/Unit/manageUnits.js').',
-		],
-		function(){
-			window.Units    = defaultValue(window.Units, {});
-			window.Teams    = defaultValue(window.Teams, {});
-			window.Units.UnitPool = '.json_encode($unitList).';
-			window.Teams.TeamList = '.json_encode($teamList).';
-		}
-	);'
+			'.$this->RequireJS->requireJSFromLib('/Unit/manageUnits.js').'
+		]
+	);',
+	array(
+		'type' => 'text/javascript'
+	)
 );

@@ -1,3 +1,6 @@
+.data-dump {
+  display: none; }
+
 #container {
   min-width: 320px;
   width: auto; }

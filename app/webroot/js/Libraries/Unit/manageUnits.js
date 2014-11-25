@@ -4,7 +4,8 @@ define(
 	[
 		'jquery',
 		'jquery-ui',
-		'knockout'
+		'knockout',
+		'ViewModels/Unit'
 	]
 );
 
