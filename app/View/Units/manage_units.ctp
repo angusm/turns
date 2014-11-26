@@ -22,9 +22,13 @@ echo $this->Html->tag(
 	'script',
 	'requirejs(
 		[
-			'.$this->RequireJS->requireJSFromLib('/Utilities/functions.js').',
-			'.$this->RequireJS->requireJSFromLib('/Unit/manageUnits.js').'
-		]
+			'.$this->RequireJS->requireJS('/Utilities/functions.js').',
+			'.$this->RequireJS->requireJS('/Unit/manageUnits.js').'
+		],
+		function(){
+			var page = new window.PageJS.ManageUnits();
+			page.initialize();
+		}
 	);',
 	array(
 		'type' => 'text/javascript'

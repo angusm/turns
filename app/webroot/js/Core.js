@@ -2,12 +2,13 @@
  * Establish the requireJS configuration
  */
 requirejs.config({
-	baseUrl: '/turns/js/Libraries',
+	baseUrl: '/turns/js/',
 	paths: {
 		'jquery': '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min',
 		'jquery-ui': '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min',
 		'kendoUI': 'KendoUI/kendo.ui.core.min',
-		'knockout': 'Knockout/knockout-3.2.0'
+		'knockout': 'Knockout/knockout-3.2.0',
+		'knockout.validation': 'knockout.validation'
 	},
 	shim: {
 		'jquery': {
@@ -26,10 +27,12 @@ requirejs.config({
 		},
 		'knockout': {
 			exports: 'ko'
-		}
+		},
+		'knockout.validation': ['knockout']
 	},
 	waitSeconds: 30000
 });
+
 /**
  * Load everything important
  */
