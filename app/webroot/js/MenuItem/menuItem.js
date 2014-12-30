@@ -1,9 +1,10 @@
 //Run KendoUI on menus
-define(
+requirejs(
 	[
 		'kendoUI'
 	],
 	function(){
+		console.log('Loaded menuItem.js');
 		//Add the kendoMenu to everything on the screen now
 		jQuery('.menu').kendoMenu();
 

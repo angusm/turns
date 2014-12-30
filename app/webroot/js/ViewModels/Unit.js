@@ -13,7 +13,7 @@ window.ViewModel = defaultValue(window.ViewModel,{});
 window.ViewModel.Unit = function (data) {
 
 		//Setup the properties
-		var self = this;
+		var self        = this;
 		self.quantity   = ko.observable(data.quantity);
 		self.uid        = ko.observable(data.uid);
 

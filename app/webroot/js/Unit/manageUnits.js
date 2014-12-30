@@ -1,35 +1,45 @@
 //Load everything we're going to need
-define(
+requirejs(
 	[
 		'jquery',
 		'jquery-ui',
 		'Knockout/KnockoutWrapper',
 		'Utilities/functions',
-		'Utilities/kendo',
+		'Utilities/knockout',
 		'ViewModels/Unit'
-	]
-);
+	],
+	function() {
+		console.log('Loaded manageUnits.js');
 
-//Setup the namespace we'll be using, deliberately clearing any pre-existing data
-window.PageJS = defaultValue(window.pageJS,{});
-window.PageJS.ManageUnits = {
 
-	unitPool: {},
+		// Setup the namespace we'll be using, deliberately clearing any pre-existing data
+		window.PageJS = defaultValue(window.pageJS,{});
+		window.PageJS.ManageUnits = {
 
-	/**
-	 * Initialize the page
-	 */
-	initialize: function () {
-		//Bind the data from the view to the view model
-		this.unitPool = window.Utilities.Kendo.loadModelFromDataDump(
-			'unitPool',
-			window.ViewModel.Unit
+			unitPool: {},
+
+			/**
+			 * Initialize the page
+			 */
+			initialize: function() {
+				//Bind the data from the view to the view model
+				this.unitPool = window.Utilities.Knockout.loadModelFromDataDump(
+					window.ViewModel.Unit,
+					'unitPool'
+				);
+			}
+
+		};
+
+		// Initialize the page
+		jQuery(document).ready(
+			function() {
+		      window.PageJS.ManageUnits.initialize();
+			}
 		);
+
 	}
-
-};
-
-//Initialize the page
+);
 
 /*/Bring in the dependencies
 require(

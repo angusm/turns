@@ -16,7 +16,7 @@ requirejs.config({
 		},
 		'jquery-ui': {
 			deps: ['jquery'],
-			exports: 'jquery-ui'
+			exports: 'jQueryUI'
 		},
 		'kendoUI': {
 			deps: [
@@ -51,6 +51,8 @@ requirejs(
 		'Utilities/oop'
 	],
 	function () {
+
+		console.log('Loaded Core.js');
 
 		/**
 		 * Run everything we need to get going on
