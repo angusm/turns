@@ -1,9 +1,9 @@
 <?php
 
 //Setup the unit pool
-echo $this->Knockout->dump('unitPool',$unitList);
-echo $this->Knockout->dump('teamList',$teamList);
-echo '<table class="unitPool">
+echo $this->Angular->dump('unitPool',$unitList);
+echo $this->Angular->dump('teamList',$teamList);
+echo '<table class="unitPool" ng-controller="UnitController as unitPool">
 		<thead>
 			<tr>
 				<th>Unit Type</th>
@@ -13,7 +13,14 @@ echo '<table class="unitPool">
 				<th></th>
 			</tr>
 		</thead>
-		<tbody data-bind="source: unitPool" data-template="unitTemplate">
+		<tbody>
+			<tr ng-repeat="unit in unitPool.units">
+				<td>{{unit.type}}</td>
+				<td>{{unit.name}}</td>
+				<td>{{unit.count}}</td>
+				<td>{{unit.cost}}</td>
+				<td></td>
+			</tr>
 		</tbody>
 	</table>';
 

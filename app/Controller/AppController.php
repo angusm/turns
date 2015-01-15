@@ -34,7 +34,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
-	public $helpers = [ 'TurnForm', 'Html', 'Knockout'];
+	public $helpers = [ 'TurnForm', 'Html', 'Angular'];
     public $components = [
         'Auth',
 		'RequestHandler',
